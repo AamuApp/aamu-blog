@@ -37,3 +37,10 @@ p > code {
   display: inline-block;
   white-space: nowrap;
 }
+
+@media (prefers-color-scheme: dark) {
+  .blog-post-article a {
+    color: rgb(255 159 157)
+  }
+}
+

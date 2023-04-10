@@ -34,3 +34,9 @@
   }
 }
 
+
+@media (prefers-color-scheme: dark) {
+  .hero {
+    color: white;
+  }
+}

@@ -1,3 +1,10 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+}
+
 .navigation {
   display: flex;
   justify-content: space-around ;
@@ -32,3 +39,10 @@
   margin-right: 10px;
   border-radius: 50%;
 }
+
+@media (prefers-color-scheme: dark) {
+  nav {
+    background: #1f1f1f;
+  }
+}
+

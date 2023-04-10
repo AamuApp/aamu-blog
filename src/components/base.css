@@ -8,6 +8,7 @@ body {
   margin: 0;
 }
 
+
 /* ibm-plex-serif-regular - latin */
 @font-face {
   font-family: 'IBM Plex Serif';
@@ -75,4 +76,20 @@ article-list h3 {
 
 .list-inline li {
   display: inline-block;
+}
+
+.container {
+	margin-top: 50px;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(15, 15, 15);
+    color: white;
+  }
+  body p > code {
+    background-color: #333;
+    border-color: #555;
+  }
 }
