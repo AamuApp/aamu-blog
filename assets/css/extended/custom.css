@@ -1,0 +1,51 @@
+/* Custom styles added to demo */
+
+.dark {
+    --theme: #0c1014;
+    --entry: #161d24;
+    --border: #303e4c;
+}
+
+.first-entry {
+    min-height: auto;
+    margin-bottom: 3em;
+}
+
+.post-content img {
+    width: 100%;
+}
+
+.relative {
+    position: relative;
+}
+
+.bg-center {
+    background-position: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-auto {
+    height: auto;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade {
+    animation: fadeIn 75ms ease-in-out;
+}
+
+.paginav {
+    background: inherit;
+    border: none;
+}

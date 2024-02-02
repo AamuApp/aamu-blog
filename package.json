@@ -1,0 +1,19 @@
+{
+  "name": "aamu-blog",
+  "version": "1.0.0",
+  "description": "This repository offers an example site for [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
+    "luxon": "^3.4.4",
+    "node-wget-fetch": "^1.1.3"
+  }
+}

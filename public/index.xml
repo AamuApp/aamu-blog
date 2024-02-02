@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aamu.app blog</title>
+    <link>https://dev.aamu.app/blog/</link>
+    <description>Recent content on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 19 Oct 2021 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Aamu.app GraphQL</title>
+      <link>https://dev.aamu.app/blog/posts/introduction-to-aamuapp-graphql/</link>
+      <pubDate>Tue, 19 Oct 2021 09:00:00 +0000</pubDate>
+      <guid>https://dev.aamu.app/blog/posts/introduction-to-aamuapp-graphql/</guid>
+      <description>How to use the database from a distance</description>
+    </item>
+    <item>
+      <title>Introduction to Aamu.app</title>
+      <link>https://dev.aamu.app/blog/posts/introduction-to-aamu-app/</link>
+      <pubDate>Sun, 10 Oct 2021 09:00:00 +0000</pubDate>
+      <guid>https://dev.aamu.app/blog/posts/introduction-to-aamu-app/</guid>
+      <description>Aamu.app is an all-in-one productivity tool</description>
+    </item>
+  </channel>
+</rss>

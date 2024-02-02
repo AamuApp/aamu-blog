@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Introduction to Aamu.app | Aamu.app blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Aamu.app is an all-in-one productivity tool">
+<meta name="author" content="Ilkka Huotari">
+<link rel="canonical" href="https://dev.aamu.app/blog/posts/introduction-to-aamu-app/">
+<link crossorigin="anonymous" href="/blog/assets/css/stylesheet.98081d22d4c1a9a21e9fc332257d0773220077ef4160638482ee8434a4d72507.css" integrity="sha256-mAgdItTBqaIen8MyJX0HcyIAd&#43;9BYGOEgu6ENKTXJQc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://st.aamu.app/img/logo-160-wbg.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dev.aamu.app/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dev.aamu.app/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://dev.aamu.app/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://dev.aamu.app/blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+	<style media="screen">
+		.imgB-5fd32ca8d5d1ff34340c08973e0ccd92-GIP {
+			background: linear-gradient(#008a90, #1e343a, #bfd4e0); background-size: cover; background-repeat: no-repeat; aspect-ratio: 1200 / 812;
+		}
+		.imgB-5fd32ca8d5d1ff34340c08973e0ccd92-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAA4AFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AIACxwKeYmAByORmkjkMbbgqtx3p5umIwYo/StDkS8yGijtRQI//2Q==); background-size: cover; background-repeat: no-repeat; aspect-ratio: 1200 / 812;
+		}
+		.imgB-1139d0512723ec2711085bc81df7b38e-GIP {
+			background: linear-gradient(#282b32, #d1cfca); background-size: cover; background-repeat: no-repeat; aspect-ratio: 979 / 430;
+		}
+		.imgB-1139d0512723ec2711085bc81df7b38e-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAkAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AKI+6KKhopgTgjHUUZHqKT+BPp/U0U7Cuf/Z); background-size: cover; background-repeat: no-repeat; aspect-ratio: 979 / 430;
+		}
+		.imgB-a03f85319ac351df8855e37970e8eb6d-GIP {
+			background: linear-gradient(#1d2026, #d2d3d1); background-size: cover; background-repeat: no-repeat; aspect-ratio: 835 / 433;
+		}
+		.imgB-a03f85319ac351df8855e37970e8eb6d-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAoAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AM7t0pD9P0ptFMBTSUp7UlAH/9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 835 / 433;
+		}
+		.imgB-cc4930901b44c1286dd8f994ab59fc69-GIP {
+			background: linear-gradient(#24272d, #d1d2ce); background-size: cover; background-repeat: no-repeat; aspect-ratio: 997 / 502;
+		}
+		.imgB-cc4930901b44c1286dd8f994ab59fc69-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAoAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AM/GADzTcU8/dX6U2mAhFGKDRQB//9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 997 / 502;
+		}
+		.imgB-4031262a73386deda45b690e490a1565-GIP {
+			background: linear-gradient(#202329, #d2d5d6); background-size: cover; background-repeat: no-repeat; aspect-ratio: 780 / 491;
+		}
+		.imgB-4031262a73386deda45b690e490a1565-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAA0AFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AKAXKjk0Fff9BUVFMB22jb702igD/9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 780 / 491;
+		}
+		.imgB-24580139f9a7a1a83640f6d1fe6073d4-GIP {
+			background: linear-gradient(#282b32, #d9d9d4); background-size: cover; background-repeat: no-repeat; aspect-ratio: 967 / 802;
+		}
+		.imgB-24580139f9a7a1a83640f6d1fe6073d4-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIABEAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AM/7wzj9aOPT9aVPuGjb7j86YDCQD0/WjcPT9aRutJQBNF92nt0pkX3ae3SgCu3WkpW60lAH/9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 967 / 802;
+		}
+		.imgB-40766cc3c7e9181170a53a696db6a054-GIP {
+			background: linear-gradient(#292c33, #d6d8d8); background-size: cover; background-repeat: no-repeat; aspect-ratio: 1034 / 916;
+		}
+		.imgB-40766cc3c7e9181170a53a696db6a054-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIABIAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AKB5Pak2H3pgPIqXI9KYDdn1o8v61PERtP1qTI9aAKFP3N6n86ZTqAFyfU0mT6miigD/2Q==); background-size: cover; background-repeat: no-repeat; aspect-ratio: 1034 / 916;
+		}
+		.imgB-3f0dde63370e28db4b20fc0736e682c4-GIP {
+			background: linear-gradient(#1a1d22, #c6d8d3); background-size: cover; background-repeat: no-repeat; aspect-ratio: 847 / 435;
+		}
+		.imgB-3f0dde63370e28db4b20fc0736e682c4-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAoAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AM5hxnZgUynN2ptMAooooA//2Q==); background-size: cover; background-repeat: no-repeat; aspect-ratio: 847 / 435;
+		}
+		.imgB-e88f682387929be7fbacee6e9796c10a-GIP {
+			background: linear-gradient(#edebe9, #ed716c); background-size: cover; background-repeat: no-repeat; aspect-ratio: 836 / 693;
+		}
+		.imgB-e88f682387929be7fbacee6e9796c10a-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIABEAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ANJ5EjYBi2cdBUjHFO2g4yASKryuVcilZvYZOMEZpcU2JiyAkYp9MQDpTP8AloaeOlM/5aGmgH0UUUgP/9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 836 / 693;
+		}
+		.imgB-cceeea6a2e6e222ef7c084a912587fda-GIP {
+			background: linear-gradient(#30353d, #5d8ac2, #d4d8d8); background-size: cover; background-repeat: no-repeat; aspect-ratio: 909 / 320;
+		}
+		.imgB-cceeea6a2e6e222ef7c084a912587fda-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAcAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AKIA4z0p4RC3I49qaP4aev3qYiKRVDfKDj3pu0U+T71NoGf/2Q==); background-size: cover; background-repeat: no-repeat; aspect-ratio: 909 / 320;
+		}
+		.imgB-bbf1fe68cb0e87c0e3a83d11d021955e-GIP {
+			background: linear-gradient(#23262c, #b4b8bc); background-size: cover; background-repeat: no-repeat; aspect-ratio: 769 / 400;
+		}
+		.imgB-bbf1fe68cb0e87c0e3a83d11d021955e-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAoAFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AM4Pz8w4pcqccc1HSr94fWmBKFU9hS7F9KUdKWgD/9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 769 / 400;
+		}
+		.imgB-afe3e87515d01dd4472ae6a76ba9cff8-GIP {
+			background: linear-gradient(#b1bdc9, #43493a, #73aeec, #999758, #ad5740, #798647); background-size: cover; background-repeat: no-repeat; aspect-ratio: 1485 / 1104;
+		}
+		.imgB-afe3e87515d01dd4472ae6a76ba9cff8-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAA8AFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ACOGFHDhmBHrU6vHx82PwpsionBUNn16UojBUBh+APApqb2FyoWa5WNgq/MMZzUf23/Z/SlZYFOGHP1NN/0f/OaLsOU//9k=); background-size: cover; background-repeat: no-repeat; aspect-ratio: 1485 / 1104;
+		}
+		.imgB-259fbbd0ecd421aa195e0a5fc24a4ff3-GIP {
+			background: linear-gradient(#d3eed7, #000000); background-size: cover; background-repeat: no-repeat; aspect-ratio: 910 / 611;
+		}
+		.imgB-259fbbd0ecd421aa195e0a5fc24a4ff3-LQIP {
+			background: url(data:image/jpeg;base64,/9j/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAA0AFAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ANZiQCah8x/WrDKCDUYhX1NJku/QdESy5PrT6RFCDApaZSP/2Q==); background-size: cover; background-repeat: no-repeat; aspect-ratio: 910 / 611;
+		}
+	</style>
+<meta property="og:title" content="Introduction to Aamu.app" />
+<meta property="og:description" content="Aamu.app is an all-in-one productivity tool" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.aamu.app/blog/posts/introduction-to-aamu-app/" />
+<meta property="og:image" content="https://dev.aamu.app/blog/1632799991875.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-10T09:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-10T09:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://dev.aamu.app/blog/1632799991875.jpg" />
+<meta name="twitter:title" content="Introduction to Aamu.app"/>
+<meta name="twitter:description" content="Aamu.app is an all-in-one productivity tool"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://dev.aamu.app/blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Introduction to Aamu.app",
+      "item": "https://dev.aamu.app/blog/posts/introduction-to-aamu-app/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introduction to Aamu.app",
+  "name": "Introduction to Aamu.app",
+  "description": "Aamu.app is an all-in-one productivity tool",
+  "keywords": [
+    
+  ],
+  "articleBody": "Aamu.app is an all-in-one productivity tool, or at least the idea is to become one. At the moment there are quite a lot of features already, but it is constantly evolving and there will be new features introduced frequently.\nLet’s go through the features that are currently ready and then see what’s should be coming next.\nBut first, let me say who is behind all this and why you should trust this tool.\nI’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. Embed.rocks, which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it’s going to stay that way – there is no reason to let this go.\nWhy you should trust this tool? Trust is an important issue in a tool like this. That trust will be built in time, and at the moment I can only give assurances. There are several reasons why you should trust this.\nFirst, as a software developer, I’m quite experienced, having been working in several companies in Finland and after those, on my own. That’s multiple decades.\nFrom the technical standpoint,I have tried to distance myself from the user’s data. That means that everything important is encrypted, server-side. with the user’s secret key, something that I don’t know. It means that I cannot access that data. Meta-data, like timestamps and such, is not encrypted in a similar fashion, but mostly everything that the users are inputting by themselves, is. Some exceptions exist, which will be talked about later.\nThis server-side encryption also means, that if you, the user, lose your password, you cannot access your data after that. So you should really keep good care of your password, i.e. save it in a safe place! There is no “forgot password” feature at all!\nThe third reason why you should trust this tool is that there are really no costs of running this. The server hosting fees are small and easily covered by my other business. Besides the hosting fees there are no other costs, because I am the only employee and I don’t take any salary (at the moment). So, this will stay online as long as I am alive (and probably after that as well) – there is no reason to shut this down. There is a possibility that something happens to me, and then this service could go down. But I will hire someone to help me with this as soon as I can, so even this will not be an issue in the future.\nSo, what is Aamu.app anyway? It’s a business/productivity tool. But you knew that already. So, let’s get a little deeper.\nThe plan is to have everything, that a company might need for its most important, daily productivity/office tasks, in a single package. Along that there should be collaboration integrated throughout that package. The user interface should be unified throughout. And of course everything should be easy to use.\nThat’s the plan and this is the start. Let’s see what we have so far.\nFeatures So, even though there are quite a lot of features, the combination shouldn’t feel overwhelming. Please tell us how we have succeeded.\nPosts / chat / comments Team communication can happen in three different places. Commenting is everywhere: every main level feature item has a commenting possibility. A main level feature item means: a document, a task, a meeting, a database, a helpdesk ticket and so on.\nThen there is the chat, which is a bit like Slack. It may be good for casual chatting.\nAnd finally there are posts, which are meant for more important discussion, with a specific topic.\nWhen the discussion is separated this way, everything important should be easier to find. Use posts if you want the topic to gain attention, use chat for casual chatting and use comments for talking about a specific item.\nTasks Tasks are sort of an important feature. Just about every company needs tasks – after all, the companies are doing stuff all the time. So, use the tasks as a todo list, issue tracker, calendar items, etc.\nTasks can be viewed in many ways: as a list, as a kanban board, as a timeline and as a calendar. Use whatever suits you the best!\nThe data (text) in tasks is encrypted. You can choose to make the titles as plain text, which will make notifications (email/mobile) a bit more useful.\nHelpdesk Helpdesk is also important and almost every company needs one. With helpdesk, you can handle customer support through what is called tickets. These tickets are currently created by email or by live chat (real time chat on your marketing website). In the future we may expand to handling customer support through social networks, but currently it’s just email and live chat,\nBy the way, at this point you may have noticed, that every main level feature looks and feels pretty much the same. This familiarity is important for the unified experience through our service.\nTo connect the helpdesk to an email account, you will need an IMAP connectivity, at the moment, We will improve this later so that IMAP isn’t needed.\nThe data (text) in tickets is encrypted – with the exception of titles. The titles are needed for creating email threads and titles are not encrypted.\nDocuments Documents are like Google™ Docs, they may or may not be important for you. With this you can create all sorts of documents or ebooks (pdf). You can publish them for the world to see or you can keep them for your own use. In case it’s for your own use, everything is encrypted, but if it’s published, then it’s not encrypted – so you decide how secure you want them to be,\nThe data in the documents is totally secure – it’s encrypted with your team’s key. If you share the document with the world, then it is made plain text and unencrypted.\nDatabase Databases can be used for a lot of things and they can be easily connected to outside world. For example, I am using the database feature as a headless CMS for this very blog. I am currently writing this blog post in the database – you can see that in the picture above. You can also get the JavaScript sources for this blog on GitHub.\nDatabases can be used for blogs, contact forms, single page apps, e-commerce sites, CRMs (customer relations management) and so on. There is a GraphQL and forms API to connect your sites to the database. And of course we have a lot of templates to start with.\nAlso the data in the databases is encrypted, unless you choose them to not be. If you create an API key, then the data will become unencrypted – so you may use the GrahphQL feature, or API key, in only the databases where data security isn’t the top priority. At least for now.\nVideo Meetings Meetings,mean online, or video meetings, as is quite usual today. We are using Jitsi for this, which is well tested and secure video conferencing software, also open source.\nYou can invite participants to the meetings who are not users in Aamu.app , i.e. they are outside guests.\nNote: meeting names are not encrypted for technical reason (the notification system needs to “see” the names).\nDatabase + Meetings (Event Reservations) You can combine Database and the Meetings. What this means is that you can create a database with the template Event Reservations and then, in the database settings, set the type of the event to Video Meetings. In this way, people outside (or inside, for that matter) your team can make video conferencing meeting reservations with you or your team. The reservations will be placed into the database and members will be notified.\nYou can think this to be similar to Calendly™.\nDesigns With design you can create vector graphics (SVG) images. With this it should be pretty easy to make plans what your product should look like.\nSecurity As you may have noticed, we have talked a bit on encryption. What this means in practice, is that all the important data (things you upload, data in tasks, databases, helpdesk etc.) is encrypted with your team’s key and only your team can access that data. The encryption happens on the server, so this isn’t end-to-end encryption. But this is still a lot more secure than not encrypting the data, as then a hacker might get access to it.\nDon’t lose your password, though! As the data can be accessed only with your key (your password), only you and your team can access it. We don’t have access to your unencrypted data!\nPricing Some of you may wonder what’s with the price, which is $5/user/month, with the free option there as well. That seems kind of low, right? Yes, it kind of does.\nI have always, personally, looked for “good deals”, i.e. bought things as used and generally gone for things that offer good value for the price. This is prices similarly. I like if everybody can afford this and if this offers a good value. I understand that the price can “send a signal” but I have chosen not to worry about it. I believe (or hope) that people will notice the value of this service – in time.\nHow about that name? Aamu means “morning” in Finnish. I think it’s also quite a beautiful name, aesthetically. And it comes early in the alphabetics. It’s simple and distinctive. And most people start working in the morning :-).\nThat’s it! So, that’s it so far. There are perhaps some features missing that you might expect. For example email – currently you can use the helpdesk for basic email activity, but we will create a more complete email experience later (or, next, actually).\nTry it out and leave us feedback by clicking the email icon on the bottom of the screen. We would really appreciate the feedback. Thanks!\n",
+  "wordCount" : "1695",
+  "inLanguage": "en",
+  "image":"https://dev.aamu.app/blog/1632799991875.jpg","datePublished": "2021-10-10T09:00:00Z",
+  "dateModified": "2021-10-10T09:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ilkka Huotari"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dev.aamu.app/blog/posts/introduction-to-aamu-app/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aamu.app blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://st.aamu.app/img/logo-160-wbg.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://dev.aamu.app/blog/" accesskey="h" title="Aamu.app blog (Alt + H)">Aamu.app blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://dev.aamu.app/blog/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://dev.aamu.app/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://dev.aamu.app/blog/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Introduction to Aamu.app
+    </h1>
+    <div class="post-description">
+      Aamu.app is an all-in-one productivity tool
+    </div>
+    <div class="post-meta"><span title='2021-10-10 09:00:00 +0000 UTC'>October 10, 2021</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Ilkka Huotari
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" srcset="https://dev.aamu.app/blog/posts/introduction-to-aamu-app/1632799991875_hu1881faa11362eeff26d8964b2e83b935_29086_360x0_resize_q75_box.jpg 360w ,https://dev.aamu.app/blog/posts/introduction-to-aamu-app/1632799991875_hu1881faa11362eeff26d8964b2e83b935_29086_480x0_resize_q75_box.jpg 480w ,https://dev.aamu.app/blog/posts/introduction-to-aamu-app/1632799991875_hu1881faa11362eeff26d8964b2e83b935_29086_720x0_resize_q75_box.jpg 720w ,https://dev.aamu.app/blog/posts/introduction-to-aamu-app/1632799991875_hu1881faa11362eeff26d8964b2e83b935_29086_1080x0_resize_q75_box.jpg 1080w ,https://dev.aamu.app/blog/posts/introduction-to-aamu-app/1632799991875.jpg 1200w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://dev.aamu.app/blog/posts/introduction-to-aamu-app/1632799991875.jpg" alt="" 
+            width="1200" height="812">
+        
+</figure>
+  <div class="post-content"><p>Aamu.app is an all-in-one productivity tool, or at least the idea is to become one. At the moment there are quite a lot of features already, but it is constantly evolving and there will be new features introduced frequently.</p>
+<p>Let&rsquo;s go through the features that are currently ready and then see what&rsquo;s should be coming next.</p>
+<p>But first, let me say who is behind all this and why you should trust this tool.</p>
+<p>I&rsquo;m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. <a href="https://embed.rocks/">Embed.rocks</a>, which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it&rsquo;s going to stay that way – there is no reason to let this go.</p>
+<h2 id="why-you-should-trust-this-tool">Why you should trust this tool?<a hidden class="anchor" aria-hidden="true" href="#why-you-should-trust-this-tool">#</a></h2>
+<p>Trust is an important issue in a tool like this. That trust will be built in time, and at the moment I can only give assurances. There are several reasons why you should trust this.</p>
+<p>First, as a software developer, I&rsquo;m quite experienced, having been working in several companies in Finland and after those, on my own. That&rsquo;s multiple decades.</p>
+<p>From the technical standpoint,I have tried to distance myself from the user&rsquo;s data. That means that everything important is encrypted, server-side. with the user&rsquo;s secret key, something that I don&rsquo;t know. It means that I cannot access that data. Meta-data, like timestamps and such, is not encrypted in a similar fashion, but mostly everything that the users are inputting by themselves, is. Some exceptions exist, which will be talked about later.</p>
+<p>This server-side encryption also means, that if you, the user, lose your password, you cannot access your data after that. So you should really keep good care of your password, i.e. save it in a safe place! <strong>There is no &ldquo;forgot password&rdquo; feature at all</strong>!</p>
+<p>The third reason why you should trust this tool is that there are really no costs of running this. The server hosting fees are small and easily covered by my other business. Besides the hosting fees there are no other costs, because I am the only employee and I don&rsquo;t take any salary (at the moment). So, this will stay online as long as I am alive (and probably after that as well) – there is no reason to shut this down. There is a possibility that something happens to me, and then this service could go down. But I will hire someone to help me with this as soon as I can, so even this will not be an issue in the future.</p>
+<h2 id="so-what-is-aamuapp-anyway">So, what is Aamu.app anyway?<a hidden class="anchor" aria-hidden="true" href="#so-what-is-aamuapp-anyway">#</a></h2>
+<p>It&rsquo;s a business/productivity tool. But you knew that already. So, let&rsquo;s get a little deeper.</p>
+<p>The plan is to have everything, that a company might need for its most important, daily productivity/office tasks, in a single package. Along that there should be collaboration integrated throughout that package. The user interface should be unified throughout. And of course everything should be easy to use.</p>
+<p>That&rsquo;s the plan and this is the start. Let&rsquo;s see what we have so far.</p>
+<h2 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h2>
+<p>So, even though there are quite a lot of features, the combination shouldn&rsquo;t feel overwhelming. Please tell us how we have succeeded.</p>
+<h3 id="posts--chat--comments">Posts / chat / comments<a hidden class="anchor" aria-hidden="true" href="#posts--chat--comments">#</a></h3>
+<p><div class="relative bg-center imgB-a03f85319ac351df8855e37970e8eb6d-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634352671167_huccb8ae41c88faac19aa461886a833567_33595_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634352671167_huccb8ae41c88faac19aa461886a833567_33595_640x0_resize_q75_h2_box.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634352671167_huccb8ae41c88faac19aa461886a833567_33595_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634352671167_huccb8ae41c88faac19aa461886a833567_33595_640x0_resize_q75_box.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634352671167_huccb8ae41c88faac19aa461886a833567_33595_640x0_resize_q75_box.jpg" alt="Comments" title="Comments" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Team communication can happen in three different places. Commenting is everywhere: every <em>main level feature item</em> has a commenting possibility. A main level feature item means: a document, a task, a meeting, a database, a helpdesk ticket and so on.</p>
+<p><div class="relative bg-center imgB-1139d0512723ec2711085bc81df7b38e-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_640x0_resize_q75_h2_box.webp 640w, /blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_960x0_resize_q75_h2_box.webp 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_640x0_resize_q75_box.jpg 640w, /blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_960x0_resize_q75_box.jpg 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634350023986_hu99e38ba95f90daec03b6d2db57a5aed9_63531_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Then there is the chat, which is a bit like Slack. It may be good for casual chatting.</p>
+<p>And finally there are posts, which are meant for more important discussion, with a specific topic.</p>
+<p>When the discussion is separated this way, everything important should be easier to find.  Use <em>posts</em> if you want the topic to gain attention, use <em>chat</em> for casual chatting and use <em>comments</em> for talking about a specific item.</p>
+<h3 id="tasks">Tasks<a hidden class="anchor" aria-hidden="true" href="#tasks">#</a></h3>
+<p><div class="relative bg-center imgB-cc4930901b44c1286dd8f994ab59fc69-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_640x0_resize_q75_h2_box.webp 640w, /blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_960x0_resize_q75_h2_box.webp 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_640x0_resize_q75_box.jpg 640w, /blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_960x0_resize_q75_box.jpg 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634354051349_hu6124879849410c6b218a48e22026be05_37298_640x0_resize_q75_box.jpg" alt="Task list" title="Task list" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Tasks are sort of an important feature. Just about every company needs tasks – after all, the companies are doing stuff all the time. So, use the tasks as a <em>todo list</em>, <em>issue tracker</em>, <em>calendar items</em>, etc.</p>
+<p><div class="relative bg-center imgB-bbf1fe68cb0e87c0e3a83d11d021955e-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634490582334_hu1a9f50a25ada65acb41ba1177a81fe0d_28088_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634490582334_hu1a9f50a25ada65acb41ba1177a81fe0d_28088_640x0_resize_q75_h2_box.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634490582334_hu1a9f50a25ada65acb41ba1177a81fe0d_28088_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634490582334_hu1a9f50a25ada65acb41ba1177a81fe0d_28088_640x0_resize_q75_box.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634490582334_hu1a9f50a25ada65acb41ba1177a81fe0d_28088_640x0_resize_q75_box.jpg" alt="Taskboard" title="Taskboard" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Tasks can be viewed in many ways: as a <em>list</em>, as a <em>kanban board</em>, as a <em>timeline</em> and as a <em>calendar</em>. Use whatever suits you the best!</p>
+<p>The data (text) in tasks is encrypted. You can choose to make the titles as plain text, which will make notifications (email/mobile) a bit more useful.</p>
+<h3 id="helpdesk">Helpdesk<a hidden class="anchor" aria-hidden="true" href="#helpdesk">#</a></h3>
+<p><div class="relative bg-center imgB-4031262a73386deda45b690e490a1565-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634355722110_huff0c0e84d40cddf649ed27c779ab0e88_35043_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634355722110_huff0c0e84d40cddf649ed27c779ab0e88_35043_640x0_resize_q75_h2_box.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634355722110_huff0c0e84d40cddf649ed27c779ab0e88_35043_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634355722110_huff0c0e84d40cddf649ed27c779ab0e88_35043_640x0_resize_q75_box.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634355722110_huff0c0e84d40cddf649ed27c779ab0e88_35043_640x0_resize_q75_box.jpg" alt="Helpdesk" title="Helpdesk" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Helpdesk is also important and almost every company needs one. With helpdesk, you can handle customer support through what is called <em>tickets</em>. These tickets are currently created by email or by live chat (real time chat on your marketing website). In the future we may expand to handling customer support through social networks, but currently it&rsquo;s just email and live chat,</p>
+<p>By the way, at this point you may have noticed, that every main level feature looks and feels pretty much the same. This familiarity is important for the unified experience through our service.</p>
+<p>To connect the helpdesk to an email account, you will need an IMAP connectivity, at the moment, We will improve this later so that IMAP isn&rsquo;t needed.</p>
+<p>The data (text) in tickets is encrypted – with the exception of titles. The titles are needed for creating email threads and titles are not encrypted.</p>
+<h3 id="documents">Documents<a hidden class="anchor" aria-hidden="true" href="#documents">#</a></h3>
+<p><div class="relative bg-center imgB-24580139f9a7a1a83640f6d1fe6073d4-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_640x0_resize_q75_h2_box.webp 640w, /blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_960x0_resize_q75_h2_box.webp 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_640x0_resize_q75_box.jpg 640w, /blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_960x0_resize_q75_box.jpg 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634356972107_hu015f85718f88ec1b445299df7b61aadd_61047_640x0_resize_q75_box.jpg" alt="Documents" title="Documents" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Documents are like Google™ Docs, they may or may not be important for you. With this you can create all sorts of documents or ebooks (pdf). You can publish them for the world to see or you can keep them for your own use. In case it&rsquo;s for your own use, everything is encrypted, but if it&rsquo;s published, then it&rsquo;s not encrypted – so you decide how secure you want them to be,</p>
+<p>The data in the documents is totally secure – it&rsquo;s encrypted with your team&rsquo;s key. If you share the document with the world, then it is made plain text and unencrypted.</p>
+<h3 id="database">Database<a hidden class="anchor" aria-hidden="true" href="#database">#</a></h3>
+<p><div class="relative bg-center imgB-40766cc3c7e9181170a53a696db6a054-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_640x0_resize_q75_h2_box.webp 640w, /blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_960x0_resize_q75_h2_box.webp 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_640x0_resize_q75_box.jpg 640w, /blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_960x0_resize_q75_box.jpg 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634357213187_hud16b03b0b6bdf7d7ce235e2e9957fb7d_77794_640x0_resize_q75_box.jpg" alt="Database" title="Database" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Databases can be used for a lot of things and they can be easily connected to outside world. For example, I am using the database feature as a <em>headless CMS</em> for this very blog. I am currently writing this blog post in the database – you can see that in the picture above. You can also get the JavaScript sources for this blog <a href="https://github.com/AamuApp/aamu-blog">on GitHub</a>.</p>
+<p>Databases can be used for blogs, contact forms, single page apps, e-commerce sites, CRMs (customer relations management) and so on. There is a GraphQL and forms API to connect your sites to the database. And of course we have a lot of templates to start with.</p>
+<p>Also the data in the databases is encrypted, unless you choose them to not be. If you create an API key, then the data will become unencrypted – so you may use the GrahphQL feature, or API key, in only the databases where data security isn&rsquo;t the top priority. At least for now.</p>
+<h3 id="video-meetings">Video Meetings<a hidden class="anchor" aria-hidden="true" href="#video-meetings">#</a></h3>
+<p><div class="relative bg-center imgB-3f0dde63370e28db4b20fc0736e682c4-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634358493576_hu11782578fa83b10ced6c513ffc171869_15687_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634358493576_hu11782578fa83b10ced6c513ffc171869_15687_640x0_resize_q75_h2_box.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634358493576_hu11782578fa83b10ced6c513ffc171869_15687_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634358493576_hu11782578fa83b10ced6c513ffc171869_15687_640x0_resize_q75_box.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634358493576_hu11782578fa83b10ced6c513ffc171869_15687_640x0_resize_q75_box.jpg" alt="Video Meetings" title="Video Meetings" loading="lazy" />
+        </picture>
+    </div></p>
+<p>Meetings,mean online, or video meetings, as is quite usual today. We are using <a href="https://jitsi.org/">Jitsi</a> for this, which is well tested and secure video conferencing software, also open source.</p>
+<p>You can invite participants to the meetings who are not users in Aamu.app , i.e. they are outside guests.</p>
+<p>Note: meeting names are not encrypted for technical reason (the notification system needs to &ldquo;see&rdquo; the names).</p>
+<h3 id="database--meetings-event-reservations">Database + Meetings (Event Reservations)<a hidden class="anchor" aria-hidden="true" href="#database--meetings-event-reservations">#</a></h3>
+<p><div class="relative bg-center imgB-cceeea6a2e6e222ef7c084a912587fda-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634398223576_hu9cb7ed96d431ae600f85520ec398cb0b_34267_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634398223576_hu9cb7ed96d431ae600f85520ec398cb0b_34267_640x0_resize_q75_h2_box.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634398223576_hu9cb7ed96d431ae600f85520ec398cb0b_34267_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634398223576_hu9cb7ed96d431ae600f85520ec398cb0b_34267_640x0_resize_q75_box.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634398223576_hu9cb7ed96d431ae600f85520ec398cb0b_34267_640x0_resize_q75_box.jpg" alt="Databases" title="Databases" loading="lazy" />
+        </picture>
+    </div></p>
+<p>You can combine Database and the Meetings. What this means is that you can create a database with the template <em>Event Reservations</em>  and then, in the database settings, set the type of the event to <em>Video Meetings</em>. In this way, people outside (or inside, for that matter) your team can make video conferencing meeting reservations with you or your team. The reservations will be placed into the database and members will be notified.</p>
+<p><div class="relative bg-center imgB-259fbbd0ecd421aa195e0a5fc24a4ff3-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/image-event-calendar_huaf86e0b771c80c25b5a5bbfd3affa97f_26120_320x0_resize_q75_h2_box_3.webp 320w, /blog/posts/introduction-to-aamu-app/image-event-calendar_huaf86e0b771c80c25b5a5bbfd3affa97f_26120_640x0_resize_q75_h2_box_3.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/image-event-calendar_huaf86e0b771c80c25b5a5bbfd3affa97f_26120_320x0_resize_q75_bgffffff_box_3.jpg 320w, /blog/posts/introduction-to-aamu-app/image-event-calendar_huaf86e0b771c80c25b5a5bbfd3affa97f_26120_640x0_resize_q75_bgffffff_box_3.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/image-event-calendar_huaf86e0b771c80c25b5a5bbfd3affa97f_26120_640x0_resize_q75_bgffffff_box_3.jpg" alt="Event Reservations" title="Event Reservations" loading="lazy" />
+        </picture>
+    </div></p>
+<p>You can think this to be similar to Calendly™.</p>
+<h3 id="designs">Designs<a hidden class="anchor" aria-hidden="true" href="#designs">#</a></h3>
+<p><div class="relative bg-center imgB-e88f682387929be7fbacee6e9796c10a-GIP">
+        <picture>
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamu-app/1634361977726_hu6f0925331fef2b14e2a7ec120e1d6678_59612_320x0_resize_q75_h2_box.webp 320w, /blog/posts/introduction-to-aamu-app/1634361977726_hu6f0925331fef2b14e2a7ec120e1d6678_59612_640x0_resize_q75_h2_box.webp 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamu-app/1634361977726_hu6f0925331fef2b14e2a7ec120e1d6678_59612_320x0_resize_q75_box.jpg 320w, /blog/posts/introduction-to-aamu-app/1634361977726_hu6f0925331fef2b14e2a7ec120e1d6678_59612_640x0_resize_q75_box.jpg 640w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamu-app/1634361977726_hu6f0925331fef2b14e2a7ec120e1d6678_59612_640x0_resize_q75_box.jpg" alt="Designs" title="Designs" loading="lazy" />
+        </picture>
+    </div></p>
+<p>With <em>design</em> you can create vector graphics (SVG) images. With this it should be pretty easy to make plans what your product should look like.</p>
+<h2 id="security">Security<a hidden class="anchor" aria-hidden="true" href="#security">#</a></h2>
+<p>As you may have noticed, we have talked a bit on encryption. What this means in practice, is that all the important data (things you upload, data in tasks, databases, helpdesk etc.) is encrypted with your team&rsquo;s key and only your team can access that data. The encryption happens on the server, so this isn&rsquo;t end-to-end encryption. But this is still a lot more secure than <em>not encrypting</em> the data, as then a hacker might get access to it.</p>
+<p><em>Don&rsquo;t lose your password, though!</em> As the data can be accessed only with your key (your password), only you and your team can access it. We don&rsquo;t have access to your unencrypted data!</p>
+<h2 id="pricing">Pricing<a hidden class="anchor" aria-hidden="true" href="#pricing">#</a></h2>
+<p>Some of you  may wonder what&rsquo;s with the price, which is $5/user/month, with the free option there as well. That seems kind of low, right? Yes, it kind of does.</p>
+<p>I have always, personally, looked for &ldquo;good deals&rdquo;, i.e. bought things as used and generally gone for things that offer good value for the price. This is prices similarly. I like if everybody can afford this and if this offers a good value. I understand that the price can &ldquo;send a signal&rdquo; but I have chosen not to worry about it. I believe (or hope) that people will notice the value of this service – in time.</p>
+<h2 id="how-about-that-name">How about that name?<a hidden class="anchor" aria-hidden="true" href="#how-about-that-name">#</a></h2>
+<p>Aamu means &ldquo;morning&rdquo; in Finnish. I think it&rsquo;s also quite a beautiful name, aesthetically. And it comes early in the alphabetics. It&rsquo;s simple and distinctive. And most people start working in the morning :-).</p>
+<h2 id="thats-it">That&rsquo;s it!<a hidden class="anchor" aria-hidden="true" href="#thats-it">#</a></h2>
+<p>So, that&rsquo;s it so far. There are perhaps some features missing that you might expect. For example email – currently you can use the <em>helpdesk</em> for basic email activity, but we will create a more complete email experience later (or, next, actually).</p>
+<p><a href="https://aamu.app">Try it out</a> and leave us feedback by clicking the email icon on the bottom of the screen. We would really appreciate the feedback. Thanks!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://dev.aamu.app/blog/posts/introduction-to-aamuapp-graphql/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Introduction to Aamu.app GraphQL</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://dev.aamu.app/blog/">Aamu.app blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
