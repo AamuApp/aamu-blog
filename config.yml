@@ -29,6 +29,9 @@ languages:
       series: series
     menu:
       main:
+        - name: Aamu.app
+          url: https://aamu.app/
+          weight: 5
         - name: Archive
           url: archives
           weight: 5
