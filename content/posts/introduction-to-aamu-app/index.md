@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-10-10T09:00:00.000Z"
-updated: "2024-02-04T07:27:34.497Z"
+updated: "2024-02-04T08:23:07.332Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1632799991875.jpg
@@ -47,33 +47,28 @@ Features
 
 So, even though there are quite a lot of features, the combination shouldn’t feel overwhelming. Please tell us how we have succeeded.
 
-### Posts / chat / comments
-
-![](1634352671167.jpg)
-
-Team communication can happen in three different places. Commenting is everywhere: every _main level feature item_ has a commenting possibility. A main level feature item means: a document, a task, a meeting, a database, a helpdesk ticket and so on.
-
-![](1634350023986.jpg)
-
-Then there is the chat, which is a bit like Slack. It may be good for casual chatting.
-
-And finally there are posts, which are meant for more important discussion, with a specific topic.
-
-When the discussion is separated this way, everything important should be easier to find. Use _posts_ if you want the topic to gain attention, use _chat_ for casual chatting and use _comments_ for talking about a specific item.
-
 ### Tasks
 
-![](1634354051349.jpg)
+![](1707033560495.jpg)
 
-Tasks are sort of an important feature. Just about every company needs tasks – after all, the companies are doing stuff all the time. So, use the tasks as a _todo list_, _issue tracker_, _calendar items_, etc.
+Tasks are a sort of an important feature. Just about every company needs tasks.
 
-![](1634490582334.jpg)
+The tasks have a few different views:
 
-Tasks can be viewed in many ways: as a _list_, as a _kanban board_, as a _timeline_ and as a _calendar_. Use whatever suits you the best!
+1.  list
+2.  kanban board
+3.  calendar
+4.  timeline
 
-The data (text) in tasks is encrypted. You can choose to make the titles as plain text, which will make notifications (email/mobile) a bit more useful.
+Above you can see the list, which is the standard view. Below there is the kanban board.
 
-### Helpdesk
+![](1707033488757.jpg)
+
+Here we have the calendart, which looks and works just like Google Calendar. Oh, and there is also the Google Calendar synchronization – your events will do an automatic two-way with Google Calendar.
+
+![](1707033292936.jpg)
+
+Helpdesk
 
 ![](1634355722110.jpg)
 
@@ -119,7 +114,7 @@ Note: meeting names are not encrypted for technical reason (the notification sys
 
 You can combine Database and the Meetings. What this means is that you can create a database with the template _Event Reservations_ and then, in the database settings, set the type of the event to _Video Meetings_. In this way, people outside (or inside, for that matter) your team can make video conferencing meeting reservations with you or your team. The reservations will be placed into the database and members will be notified.
 
-![](https://aamu.app/home/image-event-calendar.png)
+  
 
 You can think this to be similar to Calendly™.
 
@@ -153,6 +148,4 @@ That’s it!
 
 So, that’s it so far. There are perhaps some features missing that you might expect. For example email – currently you can use the _helpdesk_ for basic email activity, but we will create a more complete email experience later (or, next, actually).
 
-[Try it out](https://aamu.app) and leave us feedback by clicking the email icon on the bottom of the screen. We would really appreciate the feedback. 
-
-Thanks!
+[Try it out](https://aamu.app) and leave us feedback by clicking the email icon on the bottom of the screen. We would really appreciate the feedback. Thanks!
