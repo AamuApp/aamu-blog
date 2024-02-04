@@ -4,7 +4,6 @@ import { existsSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'fs
 import { DateTime } from 'luxon'
 import { wget } from 'node-wget-fetch';
 import { basename } from 'path';
-
 // store the latest timestamp into a file so that when we update the posts, we will
 // use this to get only the newer posts
 let latestUpdatedPost = getLatestTimestamp();
@@ -20,6 +19,12 @@ function getLatestTimestamp() {
 
 function storeLatestTimestamp() {
 	writeFileSync('timestamp', latestUpdatedPost.toString());
+}
+
+const error = (str) => {
+	const FgRed = "\x1b[31m";
+	const Reset = "\x1b[0m"
+	console.error(FgRed + str + Reset);
 }
 
 const template = (post) => `
@@ -72,8 +77,9 @@ const query = gql`
 }
 `;
 
+console.log('Fetching posts after', DateTime.fromMillis(latestUpdatedPost).toString())
 const data = await graphQLClient.request(query);
-// console.log(inspect(data?.BlogPostCollection, { depth: 5, colors: true }));
+console.log('Fetched: ', data?.BlogPostCollection.length);
 
 const postUpdatedDate = (fileName) => {
 	const fd = existsSync(fileName) && openSync(fileName, 'r');
@@ -111,16 +117,24 @@ const writePost = async (post) => {
 	for (const m of post.body.matchAll(/\!\[([^\]]*)\]\((\S+)\)/g)) {
 		if (m[2]) {
 			console.log(m[2]);
-			await wget(m[2], folderName + '/');
-			post.body = post.body.replace(m[0], `![${m[1]}](${basename(m[2])})`)
-		}
+			try {
+				await wget(m[2], folderName + '/');
+				post.body = post.body.replace(m[0], `![${m[1]}](${basename(m[2])})`)
+			} catch (err) {
+				error(err.toString());
+			}
+			}
 	}
 
 	// Download the cover image
 	// Replace original image link with local link
 	if (post.heroImage?.url) {
-		await wget(post.heroImage.url, folderName + '/');
-		post.heroImage.url = basename(post.heroImage.url);
+		try {
+			await wget(post.heroImage.url, folderName + '/');
+			post.heroImage.url = basename(post.heroImage.url);
+		} catch (err) {
+			error(err.toString());
+		}
 	}
 
 	writeFileSync(fileName, template(post));
