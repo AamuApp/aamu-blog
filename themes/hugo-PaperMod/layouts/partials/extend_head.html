@@ -25,4 +25,21 @@
 	{{- end }}
 	</style>
 {{ end }}
+
+{{- /* photoswipe */}}
+{{- $photoswipe_lightbox_js := resources.Get "js/photoswipe-lightbox.esm.js" }}
+{{- $photoswipe_js := resources.Get "js/photoswipe.esm.js" }}
+{{- $photoswipe_css := resources.Get "css/photoswipe.css" }}
+<script type="module">
+    import PhotoSwipeLightbox from '{{ $photoswipe_lightbox_js.RelPermalink }}';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.post-content',
+      children: 'a',
+      pswpModule: () => import('{{ $photoswipe_js.RelPermalink }}')
+    });
+    lightbox.init();
+    console.log({{ $photoswipe_lightbox_js.RelPermalink }});
+</script>
+<link rel="stylesheet" href="{{ $photoswipe_css.RelPermalink }}">
+
 {{- /* Head custom content area end */ -}}

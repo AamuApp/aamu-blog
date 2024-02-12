@@ -39,7 +39,9 @@
                     {{- end -}}
                 {{- end -}}
             {{- end -}}" sizes="{{ $dataSzes }}" />
-            <img class="{{ $imgClass }}" src="{{ $actualImg.RelPermalink }}" alt="{{ $alt }}" title="{{ $alt }}" loading="lazy" />
+            <a href="{{ $src.RelPermalink }}" data-pswp-width="{{ $src.Width }}" data-pswp-height="{{ $src.Height }}">
+                <img class="{{ $imgClass }}" src="{{ $actualImg.RelPermalink }}" alt="{{ $alt }}" title="{{ $alt }}" loading="lazy" />
+            </a>
         </picture>
     </div>
     {{- with $caption -}}<p class="imghCaption">{{ $caption | $.Page.RenderString }}</p>{{- end }}
