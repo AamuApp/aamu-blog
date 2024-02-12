@@ -34,11 +34,10 @@
     import PhotoSwipeLightbox from '{{ $photoswipe_lightbox_js.RelPermalink }}';
     const lightbox = new PhotoSwipeLightbox({
       gallery: '.post-content',
-      children: 'a',
+      children: 'a.photoswipe-image',
       pswpModule: () => import('{{ $photoswipe_js.RelPermalink }}')
     });
     lightbox.init();
-    console.log({{ $photoswipe_lightbox_js.RelPermalink }});
 </script>
 <link rel="stylesheet" href="{{ $photoswipe_css.RelPermalink }}">
 
