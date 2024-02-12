@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-10-10T09:00:00.000Z"
-updated: "2024-02-04T08:23:07.332Z"
+updated: "2024-02-12T04:05:43.632Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1632799991875.jpg
@@ -18,7 +18,7 @@ Let’s go through the features that are currently ready and then see what’s s
 
 But first, let me say who is behind all this and why you should trust this tool.
 
-I’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. [Embed.rocks](https://embed.rocks/), which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it’s going to stay that way – there is no reason to let this go.
+I’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. [Embed.rocks](https://embed.rocks/), which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it’s going to stay that way – there is no reason to let this go.d
 
 Why you should trust this tool?
 -------------------------------
@@ -70,7 +70,7 @@ Here we have the calendart, which looks and works just like Google Calendar. Oh,
 
 Helpdesk
 
-![](1634355722110.jpg)
+![](1707707712960.jpg)
 
 Helpdesk is also important and almost every company needs one. With helpdesk, you can handle customer support through what is called _tickets_. These tickets are currently created by email or by live chat (real time chat on your marketing website). In the future we may expand to handling customer support through social networks, but currently it’s just email and live chat,
 
@@ -82,7 +82,7 @@ The data (text) in tickets is encrypted – with the exception of titles. The ti
 
 ### Documents
 
-![](1634356972107.jpg)
+![](1707708188062.jpg)
 
 Documents are like Google™ Docs, they may or may not be important for you. With this you can create all sorts of documents or ebooks (pdf). You can publish them for the world to see or you can keep them for your own use. In case it’s for your own use, everything is encrypted, but if it’s published, then it’s not encrypted – so you decide how secure you want them to be,
 
@@ -90,7 +90,7 @@ The data in the documents is totally secure – it’s encrypted with your team�
 
 ### Database
 
-![](1634357213187.jpg)
+![](1707708244259.jpg)
 
 Databases can be used for a lot of things and they can be easily connected to outside world. For example, I am using the database feature as a _headless CMS_ for this very blog. I am currently writing this blog post in the database – you can see that in the picture above. You can also get the JavaScript sources for this blog [on GitHub](https://github.com/AamuApp/aamu-blog).
 
@@ -100,23 +100,13 @@ Also the data in the databases is encrypted, unless you choose them to not be. I
 
 ### Video Meetings
 
-![](1634358493576.jpg)
+![](1707710694026.jpg)
 
 Meetings,mean online, or video meetings, as is quite usual today. We are using [Jitsi](https://jitsi.org/) for this, which is well tested and secure video conferencing software, also open source.
 
 You can invite participants to the meetings who are not users in Aamu.app , i.e. they are outside guests.
 
 Note: meeting names are not encrypted for technical reason (the notification system needs to “see” the names).
-
-### Database + Meetings (Event Reservations)
-
-![](1634398223576.jpg)
-
-You can combine Database and the Meetings. What this means is that you can create a database with the template _Event Reservations_ and then, in the database settings, set the type of the event to _Video Meetings_. In this way, people outside (or inside, for that matter) your team can make video conferencing meeting reservations with you or your team. The reservations will be placed into the database and members will be notified.
-
-  
-
-You can think this to be similar to Calendly™.
 
 ### Designs
 
