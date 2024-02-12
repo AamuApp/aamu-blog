@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-10-10T09:00:00.000Z"
-updated: "2024-02-12T06:21:14.217Z"
+updated: "2024-02-12T06:22:17.613Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1632799991875.jpg
@@ -112,7 +112,7 @@ Note: meeting names are not encrypted for technical reason (the notification sys
 
 ![](1707718773018.jpg)
 
-We have integrate Penpot ([https://penpot.app/](https://penpot.app/)) into Aamu.app. Penpot is like Figma, but Open Source!
+We have integrated Penpot ([https://penpot.app/](https://penpot.app/)) into Aamu.app. Penpot is like Figma, but Open Source!
 
 Security
 --------
