@@ -77,26 +77,9 @@ const query = gql`
 }
 `;
 
-console.log('Fetching posts after', DateTime.fromMillis(latestUpdatedPost).toString())
+console.log('Fetching posts updated/created after', DateTime.fromMillis(latestUpdatedPost).toString())
 const data = await graphQLClient.request(query);
-console.log('Fetched: ', data?.BlogPostCollection.length);
-
-const postUpdatedDate = (fileName) => {
-	const fd = existsSync(fileName) && openSync(fileName, 'r');
-
-	if (fd) {
-		const content = readFileSync(fd).toString();
-		let match = content?.match(/^updated: "([^"]+)"$/m);
-
-		if (!match) {
-			match = content?.match(/^date: "([^"]+)"$/m);
-		}
-
-		if (match) {
-			return DateTime.fromISO(match[1]);
-		}
-	}
-}
+console.log('Fetched', data?.BlogPostCollection.length, 'posts.');
 
 const writePost = async (post) => {
 	const postUpdated = DateTime.fromISO(post.updated || post.created);
@@ -116,7 +99,7 @@ const writePost = async (post) => {
 	// Replace original image links with local links
 	for (const m of post.body.matchAll(/\!\[([^\]]*)\]\((\S+)\)/g)) {
 		if (m[2]) {
-			console.log(m[2]);
+			console.log('Fetched image', m[2]);
 			try {
 				await wget(m[2], folderName + '/');
 				post.body = post.body.replace(m[0], `![${m[1]}](${basename(m[2])})`)
