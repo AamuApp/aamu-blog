@@ -57,7 +57,17 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Aamu.app blog" />
+</noscript>
+<script type="module">
+    import PhotoSwipeLightbox from '\/blog\/js\/photoswipe-lightbox.esm.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.post-content',
+      children: 'a.photoswipe-image',
+      pswpModule: () => import('\/blog\/js\/photoswipe.esm.js')
+    });
+    lightbox.init();
+</script>
+<link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Aamu.app blog" />
 <meta property="og:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://aamu.app/blog/" />

@@ -54,7 +54,17 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Archive" />
+</noscript>
+<script type="module">
+    import PhotoSwipeLightbox from '\/blog\/js\/photoswipe-lightbox.esm.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.post-content',
+      children: 'a.photoswipe-image',
+      pswpModule: () => import('\/blog\/js\/photoswipe.esm.js')
+    });
+    lightbox.init();
+</script>
+<link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Archive" />
 <meta property="og:description" content="archives" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aamu.app/blog/archives.fr/" /><meta property="article:section" content="" />
