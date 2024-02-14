@@ -1,2 +1,2 @@
 #!/bin/bash
-git commit -am ".."; git push web
+git add . ; git commit -am ".." ; git push web
