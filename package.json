@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build-with-graphql.js"
+    "build": "node build-with-graphql.js",
+    "dev": "hugo server"
   },
   "keywords": [],
   "author": "",

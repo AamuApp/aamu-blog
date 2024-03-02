@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-10-10T09:00:00.000Z"
-updated: "2024-02-12T06:22:17.613Z"
+modified: "2024-02-12T06:22:17.613Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1632799991875.jpg

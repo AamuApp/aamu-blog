@@ -32,7 +32,7 @@ const template = (post) => `
 author: "${post.author.name}"
 title: "${post.title}"
 date: "${post.publishDate}"
-updated: "${post.updated}"
+modified: "${post.updated}"
 description: "${post.description}"
 cover:
   image: ${post.heroImage?.url || ''}
