@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="graphql">
 <meta name="description" content="How to use the database from a distance">
 <meta name="author" content="Ilkka Huotari">
-<link rel="canonical" href="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/">
+<link rel="canonical" href="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/">
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.98081d22d4c1a9a21e9fc332257d0773220077ef4160638482ee8434a4d72507.css" integrity="sha256-mAgdItTBqaIen8MyJX0HcyIAd&#43;9BYGOEgu6ENKTXJQc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://st.aamu.app/img/logo-160-wbg.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/blog/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/blog/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/blog/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/blog/safari-pinned-tab.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://aamu.app/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://aamu.app/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://aamu.app/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://aamu.app/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/">
+<link rel="alternate" hreflang="en" href="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/">
 <noscript>
     <style>
         #theme-toggle,
@@ -68,13 +68,13 @@
 <link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Introduction to Aamu.app GraphQL" />
 <meta property="og:description" content="How to use the database from a distance" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/" />
-<meta property="og:image" content="http://localhost:1313/blog/1634671479716.jpg" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/" />
+<meta property="og:image" content="https://aamu.app/blog/1634671479716.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-19T09:00:00+00:00" />
 <meta property="article:modified_time" content="2021-10-20T05:10:20+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/blog/1634671479716.jpg" />
+<meta name="twitter:image" content="https://aamu.app/blog/1634671479716.jpg" />
 <meta name="twitter:title" content="Introduction to Aamu.app GraphQL"/>
 <meta name="twitter:description" content="How to use the database from a distance"/>
 
@@ -88,13 +88,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/blog/posts/"
+      "item": "https://aamu.app/blog/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Introduction to Aamu.app GraphQL",
-      "item": "http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/"
+      "item": "https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/"
     }
   ]
 }
@@ -112,7 +112,7 @@
   "articleBody": "Aamu.app database supports two APIs: you can submit data into a database via just standard html forms – this works just one direction – to add data into the database. Also, you can get and put data into the database via GraphQL.\nAs Wikipedia says it , “GraphQL is an open-source data query and manipulation language”. It’s a query language, and it has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair .\nTo use Altair, or any similar tool, you first need to setup it with some information about your database; the database endpoint and the database API key. You can get the API key from the database settings. The database endpoint is this: https://api.aamu.app/api/v1/graphql/.\nAfter you have set those, there is the option to the get database schema. The schema will help you to query the database. In Altair the schema is called Docs. If you change the database structure, you can refresh the schema in the tool of your choice. In Altair, there is a refresh icon, which has a tooltip to Reload Docs.\nYou can browse around the schema. On the top, the schema has the following parts: Query and Mutation, which stand for reading and writing.\nQuerying the database Let’s see, what we have in Query. We see that there are some fields, which correspond to our sheets (or tables) in our database. I am using the aamu-blog as an example, and in the aamu-blog there are two sheets: Blog post and Person.\nFor each sheet there are two ways to query it: to get one specific row from it and to get multiple rows. Let’s go through each case.\nTo get a single row, in this case a blog post, you would query it through one of its unique fields. You can set the field as unique by editing the column properties in the database sheet. There is a checkmark that makes the column unique. For blog posts, the slug is marked as unique. Slug stands for “part of the url”:\nSo, you can get these blog posts by knowing its slug or by its ID. In practice, in this blog application, you would use the slug, as that is something that you know – the user will enter the url in the browser and that url will have the slug. So you use that slug the retrieve the correct blog post.\nHere is an example how you would query a single blog post (this particular one). In the parenthesis you would enter the unique field and in the braces you would enter the fields that the query should return for this particular item.\nquery { BlogPost (slug: \"introduction-to-aamuapp-graphql\") { id created updated title slug description body publishDate status } } You can also get items by querying the field BlogPostCollection. This gives you from zero to multiple rows. You can also do filtering, sorting and pagination. In practice you probably will want to do at least filtering.\nLet’s see how the filtering goes. By clicking filter, you will get a list of fields by which you can filter. In practice you can filter by any field in the sheet.\nLet’s see how aamu-blog gets the blog posts for its main page. It will filter by status and sort by publishDate. Here is the query:\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { publishDate: DESC } ) { title slug publishDate description } } You will notice that we have used EQ to filter for status. For retrieving single items through unique fields this isn’t needed, as the item is always retrieving by the exact same value, but for retrieving multiple items there are more possibilities. In Altair, you can get help by pressing Ctrl + space. Altair will give you a list of options how you can filter, like this:\nEQ stands for “equals”, GT stands for “greater than”, LT stands for “less than”, etc.\nFor sorting, you can get similar help. There are two ways to sort, ascending and descending:\nPagination is pretty straight forward. You would use it like this:\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { publishDate: DESC } pagination: { limit: 10, skip: 20 } ) { title slug publishDate description } } That covers querying the database.\n",
   "wordCount" : "733",
   "inLanguage": "en",
-  "image":"http://localhost:1313/blog/1634671479716.jpg","datePublished": "2021-10-19T09:00:00Z",
+  "image":"https://aamu.app/blog/1634671479716.jpg","datePublished": "2021-10-19T09:00:00Z",
   "dateModified": "2021-10-20T05:10:20.553Z",
   "author":{
     "@type": "Person",
@@ -120,7 +120,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/"
+    "@id": "https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/"
   },
   "publisher": {
     "@type": "Organization",
@@ -149,7 +149,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/blog/" accesskey="h" title="Aamu.app blog (Alt + H)">Aamu.app blog</a>
+            <a href="https://aamu.app/blog/" accesskey="h" title="Aamu.app blog (Alt + H)">Aamu.app blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -188,17 +188,17 @@
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blog/archives" title="Archive">
+                <a href="https://aamu.app/blog/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://aamu.app/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blog/tags/" title="Tags">
+                <a href="https://aamu.app/blog/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -221,8 +221,8 @@
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" srcset="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_360x0_resize_q75_box.jpg 360w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_480x0_resize_q75_box.jpg 480w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_720x0_resize_q75_box.jpg 720w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_1080x0_resize_q75_box.jpg 1080w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_1500x0_resize_q75_box.jpg 1500w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716.jpg 5000w" 
-            sizes="(min-width: 768px) 720px, 100vw" src="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/1634671479716.jpg" alt="" 
+        <img loading="eager" srcset="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_360x0_resize_q75_box.jpg 360w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_480x0_resize_q75_box.jpg 480w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_720x0_resize_q75_box.jpg 720w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_1080x0_resize_q75_box.jpg 1080w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716_hub3205ed3c893c1f053112545244d1e4e_136752_1500x0_resize_q75_box.jpg 1500w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716.jpg 5000w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/1634671479716.jpg" alt="" 
             width="5000" height="1364">
         
 </figure>
@@ -235,9 +235,9 @@
 <p><div class="relative bg-center imgB-2228eadd1646fe56ae952aa2e34b5818-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634699877668.jpg" data-pswp-width="438" data-pswp-height="203">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -245,9 +245,9 @@
 <p><div class="relative bg-center imgB-11fbf6857ed5a61c94940a4ba8e69e79-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634700200591.jpg" data-pswp-width="449" data-pswp-height="460">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -257,9 +257,9 @@
 <p><div class="relative bg-center imgB-2021f054629b629ca907a765e8cc34dd-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634701341708.jpg" data-pswp-width="444" data-pswp-height="291">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -267,9 +267,9 @@
 <p><div class="relative bg-center imgB-4af61bc0d141c49126136dca76661de6-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634700713455.jpg" data-pswp-width="544" data-pswp-height="219">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -292,9 +292,9 @@
 <p><div class="relative bg-center imgB-998c41f4ff88137fcd7fc55871378199-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634701474749.jpg" data-pswp-width="463" data-pswp-height="341">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -315,9 +315,9 @@
 <p><div class="relative bg-center imgB-1c6fc44bd9873c2cce348f266f4c0c37-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634703813603.jpg" data-pswp-width="552" data-pswp-height="464">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -326,9 +326,9 @@
 <p><div class="relative bg-center imgB-5f8b595a94f898435bb58987011d069c-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634704152244.jpg" data-pswp-width="478" data-pswp-height="299">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
@@ -352,10 +352,10 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/blog/tags/graphql/">Graphql</a></li>
+      <li><a href="https://aamu.app/blog/tags/graphql/">Graphql</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="http://localhost:1313/blog/posts/introduction-to-aamu-app/">
+  <a class="next" href="https://aamu.app/blog/posts/introduction-to-aamu-app/">
     <span class="title">Next »</span>
     <br>
     <span>Introduction to Aamu.app</span>
@@ -367,7 +367,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://localhost:1313/blog/">Aamu.app blog</a></span>
+    <span>&copy; 2024 <a href="https://aamu.app/blog/">Aamu.app blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
