@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build-with-graphql.js",
     "dev": "hugo server",
-    "publish": "git commit -am '...' ; git push"
+    "publish": "git commit -am '...' ; git push ; ./push.sh"
   },
   "keywords": [],
   "author": "",
