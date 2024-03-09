@@ -71,7 +71,7 @@
 <meta property="og:url" content="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/" />
 <meta property="og:image" content="https://aamu.app/blog/1634671479716.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-19T09:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-20T05:10:20+00:00" />
+<meta property="article:modified_time" content="2024-03-09T10:16:07+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://aamu.app/blog/1634671479716.jpg" />
@@ -109,11 +109,11 @@
   "keywords": [
     "graphql"
   ],
-  "articleBody": "Aamu.app database supports two APIs: you can submit data into a database via just standard html forms – this works just one direction – to add data into the database. Also, you can get and put data into the database via GraphQL.\nAs Wikipedia says it , “GraphQL is an open-source data query and manipulation language”. It’s a query language, and it has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair .\nTo use Altair, or any similar tool, you first need to setup it with some information about your database; the database endpoint and the database API key. You can get the API key from the database settings. The database endpoint is this: https://api.aamu.app/api/v1/graphql/.\nAfter you have set those, there is the option to the get database schema. The schema will help you to query the database. In Altair the schema is called Docs. If you change the database structure, you can refresh the schema in the tool of your choice. In Altair, there is a refresh icon, which has a tooltip to Reload Docs.\nYou can browse around the schema. On the top, the schema has the following parts: Query and Mutation, which stand for reading and writing.\nQuerying the database Let’s see, what we have in Query. We see that there are some fields, which correspond to our sheets (or tables) in our database. I am using the aamu-blog as an example, and in the aamu-blog there are two sheets: Blog post and Person.\nFor each sheet there are two ways to query it: to get one specific row from it and to get multiple rows. Let’s go through each case.\nTo get a single row, in this case a blog post, you would query it through one of its unique fields. You can set the field as unique by editing the column properties in the database sheet. There is a checkmark that makes the column unique. For blog posts, the slug is marked as unique. Slug stands for “part of the url”:\nSo, you can get these blog posts by knowing its slug or by its ID. In practice, in this blog application, you would use the slug, as that is something that you know – the user will enter the url in the browser and that url will have the slug. So you use that slug the retrieve the correct blog post.\nHere is an example how you would query a single blog post (this particular one). In the parenthesis you would enter the unique field and in the braces you would enter the fields that the query should return for this particular item.\nquery { BlogPost (slug: \"introduction-to-aamuapp-graphql\") { id created updated title slug description body publishDate status } } You can also get items by querying the field BlogPostCollection. This gives you from zero to multiple rows. You can also do filtering, sorting and pagination. In practice you probably will want to do at least filtering.\nLet’s see how the filtering goes. By clicking filter, you will get a list of fields by which you can filter. In practice you can filter by any field in the sheet.\nLet’s see how aamu-blog gets the blog posts for its main page. It will filter by status and sort by publishDate. Here is the query:\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { publishDate: DESC } ) { title slug publishDate description } } You will notice that we have used EQ to filter for status. For retrieving single items through unique fields this isn’t needed, as the item is always retrieving by the exact same value, but for retrieving multiple items there are more possibilities. In Altair, you can get help by pressing Ctrl + space. Altair will give you a list of options how you can filter, like this:\nEQ stands for “equals”, GT stands for “greater than”, LT stands for “less than”, etc.\nFor sorting, you can get similar help. There are two ways to sort, ascending and descending:\nPagination is pretty straight forward. You would use it like this:\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { publishDate: DESC } pagination: { limit: 10, skip: 20 } ) { title slug publishDate description } } That covers querying the database.\n",
-  "wordCount" : "733",
+  "articleBody": "Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.\nAs Wikipedia says it :\nGraphQL is an open-source data query and manipulation language.\nIt has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair .\nTo use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:\nhttps://api.aamu.app/api/v1/graphql/ You can get the API key from your database settings.\nQuerying the database Let’s assume we are using the database aamu-blog, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app:\nIt has two tables: “Blog post” and “Person”. Our GraphQL API will have these fields for this database:\nSo, the GraphQL API will create two fields for each table, one for fetching a single item (by an ID), e.g. BlogPost and one for fetching many items (by some criteria you define).\nLet’s see how to get a single item. This is the query:\nquery {\nBlogPost (slug: “introduction-to-aamuapp-graphql”) {\nid\ncreated\nupdated\ntitle\nslug\ndescription\nbody\nstatus\n}\n}\nWhen you do the query, you will get the data back (if it exists) as json:\n{\n“data”: {\n“BlogPost”: {\n“id”: “3cfa30f8-ab29-459a-ad91-0651ae0b08ad”,\n“created”: “2021-10-19T19:11:49.257Z”,\n“updated”: “2024-03-09T07:38:23.916Z”,\n“title”: “Introduction to Aamu.app GraphQL”,\n“slug”: “introduction-to-aamuapp-graphql”,\n“description”: “How to use the database from a distance”,\n“body”: “Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.\n… etc\nYou can also get items by querying the field BlogPostCollection. This gives you multiple rows. You can also do filtering, sorting and pagination.\nLet’s see how getting multiple posts goes. Let’s get all the blog posts that are published (status is “published”) and the results will be sorted by creation date (older first):\nquery {\nBlogPostCollection(\nfilter: { status: { EQ: “published” } }\nsort: { created: DESC }\n) {\ntitle\nslug\ncreated\ndescription\n}\n}\nThis will give the following results:\n{\n“data”: {\n“BlogPostCollection”: [\n{\n“title”: “Introduction to Aamu.app GraphQL”,\n“slug”: “introduction-to-aamuapp-graphql”,\n“created”: “2021-10-19T09:00:00.000Z”,\n“description”: “How to use the database from a distance”\n},\n{\n“title”: “Introduction to Aamu.app”,\n“slug”: “introduction-to-aamu-app”,\n“created”: “2021-10-10T09:00:00.000Z”,\n“description”: “Aamu.app is an all-in-one productivity tool”\n}\n]\n}\n}\nYou can use other filtering methods, for example GT (Greater Than):\nquery {\nBlogPostCollection(\nfilter: {\nupdated: { GT: “${new Date(latestUpdatedPost).toISOString()}” }\n}\n) {\nid\ncreated\nupdated\ntitle\nslug\ndescription\nbody\nheroImage {\nurl\n}\nauthor {\nname\n}\nstatus\ntags\n}\n}\nThis is the actual query which I’m using to create this blog you are reading. This will fetch all the updated blog posts since I ran this last time (since I built the blog last time). I’m using Hugo to create this blog, and the blog posts are in Aamu’s database and I’m writing this using the Aamu’s Documents feature.\nNote that there is a field called heroImage, which has a subfield url. You can find all the fields with Altair ’s Docs feature. It will fetch the database structure and you will see all the fields that you can query (or mutate).\nWith Altair you can also see what kind of filtering you can do. For example, Altair sees that the updated field is a date and will give you the following filtering options:\nYou can get that list by pressing Ctrl-Space.\nYou can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.\nIn the next post we will get to know the mutation with GraphQL.\n",
+  "wordCount" : "654",
   "inLanguage": "en",
   "image":"https://aamu.app/blog/1634671479716.jpg","datePublished": "2021-10-19T09:00:00Z",
-  "dateModified": "2021-10-20T05:10:20.553Z",
+  "dateModified": "2024-03-09T10:16:07.343Z",
   "author":{
     "@type": "Person",
     "name": "Ilkka Huotari"
@@ -171,7 +171,7 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
+                <ul class="lang-switch">
                 </ul>
             </div>
         </div>
@@ -216,7 +216,7 @@
     <div class="post-description">
       How to use the database from a distance
     </div>
-    <div class="post-meta"><span title='2021-10-19 09:00:00 +0000 UTC'>October 19, 2021</span>&nbsp;·&nbsp;<span title='2021-10-20 05:10:20.553 +0000 UTC'>Updated October 20, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Ilkka Huotari
+    <div class="post-meta"><span title='2021-10-19 09:00:00 +0000 UTC'>October 19, 2021</span>&nbsp;·&nbsp;<span title='2024-03-09 10:16:07.343 +0000 UTC'>Updated March 9, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Ilkka Huotari
 
 </div>
   </header> 
@@ -226,126 +226,137 @@
             width="5000" height="1364">
         
 </figure>
-  <div class="post-content"><p>Aamu.app database supports two APIs: you can submit data into a database via just standard <em>html forms</em> – this works just one direction – to add data into the database. Also, you can get and put data into the database via <em>GraphQL</em>.</p>
+  <div class="post-content"><p>Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.</p>
 <p>As Wikipedia <a href="https://en.wikipedia.org/wiki/GraphQL"   target="_blank">says it</a>
-, &ldquo;GraphQL is an open-source data query and manipulation language&rdquo;. It&rsquo;s a query language, and it has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like <a href="https://altair-gql.sirmuel.design/"   target="_blank">Altair</a>
+:</p>
+<blockquote>
+<p>GraphQL is an open-source data query and manipulation language.</p>
+</blockquote>
+<p>It has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like <a href="https://altair-gql.sirmuel.design/"   target="_blank">Altair</a>
 .</p>
-<p>To use Altair, or any similar tool, you first need to setup it with some information about your database; the database endpoint and the database API key. You can get the API key from the <em>database settings</em>. The database endpoint is this: <code>https://api.aamu.app/api/v1/graphql/</code>.</p>
-<p>After you have set those, there is the option to the get database schema. The schema will help you to query the database. In Altair the schema is called <em>Docs</em>. If you change the database structure, you can refresh the schema in the tool of your choice. In Altair, there is a refresh icon, which has a tooltip to <em>Reload Docs</em>.</p>
-<p><div class="relative bg-center imgB-2228eadd1646fe56ae952aa2e34b5818-GIP">
-        <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634699877668.jpg" data-pswp-width="438" data-pswp-height="203">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
-            </a>
-        </picture>
-    </div></p>
-<p>You can browse around the schema. On the top, the schema has the following parts: <em>Query</em> and <em>Mutation</em>, which stand for reading and writing.</p>
-<p><div class="relative bg-center imgB-11fbf6857ed5a61c94940a4ba8e69e79-GIP">
-        <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634700200591.jpg" data-pswp-width="449" data-pswp-height="460">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
-            </a>
-        </picture>
-    </div></p>
+<p>To use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:</p>
+<p><a href="https://api.aamu.app/api/v1/graphql/"   target="_blank">https://api.aamu.app/api/v1/graphql/</a>
+</p>
+<p>You can get the API key from your <em>database settings.</em></p>
 <h2 id="querying-the-database">Querying the database<a hidden class="anchor" aria-hidden="true" href="#querying-the-database">#</a></h2>
-<p>Let&rsquo;s see, what we have in <em>Query</em>. We see that there are some fields, which correspond to our sheets (or tables) in our database. I am using the <em>aamu-blog</em> as an example, and in the aamu-blog there are two sheets: <em>Blog post</em> and <em>Person</em>.</p>
-<p>For each sheet there are two ways to query it: to get one specific row from it and to get multiple rows. Let&rsquo;s go through each case.</p>
-<p><div class="relative bg-center imgB-2021f054629b629ca907a765e8cc34dd-GIP">
+<p>Let&rsquo;s assume we are using the database <strong>aamu-blog</strong>, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app:</p>
+<p><div class="relative bg-center imgB-febb849044a76c11139057ab7f870a6b-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634701341708.jpg" data-pswp-width="444" data-pswp-height="291">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_320x0_resize_q95_h2_box.webp 320w, /blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_720x0_resize_q95_h2_box.webp 720w, /blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_960x0_resize_q95_h2_box.webp 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_320x0_resize_q95_box.jpg 320w, /blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_720x0_resize_q95_box.jpg 720w, /blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_960x0_resize_q95_box.jpg 960w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1709968790929.jpg" data-pswp-width="1090" data-pswp-height="460">
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1709968790929_hu2787c2e6049402f23084f2a91c9a7746_49508_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
-<p>To get a single row, in this case a blog post, you would query it through one of its <em>unique fields</em>. You can set the field as unique by editing the <em>column properties</em> in the database sheet. There is a checkmark that makes the column <em>unique</em>. For blog posts, the slug is marked as unique. Slug stands for &ldquo;part of the url&rdquo;:</p>
-<p><div class="relative bg-center imgB-4af61bc0d141c49126136dca76661de6-GIP">
+<p>It has two tables: &ldquo;Blog post&rdquo; and &ldquo;Person&rdquo;. Our GraphQL API will have these fields for this database:</p>
+<p><div class="relative bg-center imgB-cbddd4d49d37e95ca4e5db79d7319939-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634700713455.jpg" data-pswp-width="544" data-pswp-height="219">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_320x0_resize_q95_h2_box.webp 320w, /blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_720x0_resize_q95_h2_box.webp 720w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_320x0_resize_q95_box.jpg 320w, /blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_720x0_resize_q95_box.jpg 720w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1709968866417.jpg" data-pswp-width="883" data-pswp-height="360">
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
-<p>So, you can get these blog posts by knowing its <em>slug</em> or by its <em>ID</em>. In practice, in this blog application, you would use the slug, as that is something that you know – the user will enter the url in the browser and that url will have the slug. So you use that slug the retrieve the correct blog post.</p>
-<p>Here is an example how you would query a single blog post (this particular one). In the parenthesis you would enter the unique field and in the braces you would enter the fields that the query should return for this particular item.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-graphql" data-lang="graphql"><span class="line"><span class="cl"><span class="kd">query</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nc">BlogPost</span><span class="w"> </span><span class="p">(</span><span class="py">slug</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;introduction-to-aamuapp-graphql&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nc">id</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">created</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">updated</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">title</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">slug</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">description</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">body</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">publishDate</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">status</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>You can also get items by querying the field <em>BlogPostCollection</em>. This gives you from zero to multiple rows. You can also do filtering, sorting and pagination. In practice you probably will want to do at least filtering.</p>
-<p><div class="relative bg-center imgB-998c41f4ff88137fcd7fc55871378199-GIP">
+<p>So, the GraphQL API will create two fields for each table, one for fetching a single item (by an <strong>ID</strong>), e.g. <strong>BlogPost</strong> and one for fetching many items (by some criteria you define).</p>
+<p>Let&rsquo;s see how to get a single item. This is the query:</p>
+<p>query {</p>
+<p>BlogPost (slug: &ldquo;introduction-to-aamuapp-graphql&rdquo;) {</p>
+<p>id</p>
+<p>created</p>
+<p>updated</p>
+<p>title</p>
+<p>slug</p>
+<p>description</p>
+<p>body</p>
+<p>status</p>
+<p>}</p>
+<p>}</p>
+<p>When you do the query, you will get the data back (if it exists) as json:</p>
+<p>{</p>
+<p>&ldquo;data&rdquo;: {</p>
+<p>&ldquo;BlogPost&rdquo;: {</p>
+<p>&ldquo;id&rdquo;: &ldquo;3cfa30f8-ab29-459a-ad91-0651ae0b08ad&rdquo;,</p>
+<p>&ldquo;created&rdquo;: &ldquo;2021-10-19T19:11:49.257Z&rdquo;,</p>
+<p>&ldquo;updated&rdquo;: &ldquo;2024-03-09T07:38:23.916Z&rdquo;,</p>
+<p>&ldquo;title&rdquo;: &ldquo;Introduction to Aamu.app GraphQL&rdquo;,</p>
+<p>&ldquo;slug&rdquo;: &ldquo;introduction-to-aamuapp-graphql&rdquo;,</p>
+<p>&ldquo;description&rdquo;: &ldquo;How to use the database from a distance&rdquo;,</p>
+<p>&ldquo;body&rdquo;: &ldquo;Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.</p>
+<p>&hellip; etc</p>
+<p>You can also get items by querying the field <strong>BlogPostCollection</strong>. This gives you multiple rows. You can also do filtering, sorting and pagination.</p>
+<p>Let&rsquo;s see how getting multiple posts goes. Let&rsquo;s get all the blog posts that are published (status is &ldquo;published&rdquo;) and the results will be sorted by creation date (older first):</p>
+<p>query {</p>
+<p>BlogPostCollection(</p>
+<p>filter: { status: { EQ: &ldquo;published&rdquo; } }</p>
+<p>sort: { created: DESC }</p>
+<p>) {</p>
+<p>title</p>
+<p>slug</p>
+<p>created</p>
+<p>description</p>
+<p>}</p>
+<p>}</p>
+<p>This will give the following results:</p>
+<p>{</p>
+<p>&ldquo;data&rdquo;: {</p>
+<p>&ldquo;BlogPostCollection&rdquo;: [</p>
+<p>{</p>
+<p>&ldquo;title&rdquo;: &ldquo;Introduction to Aamu.app GraphQL&rdquo;,</p>
+<p>&ldquo;slug&rdquo;: &ldquo;introduction-to-aamuapp-graphql&rdquo;,</p>
+<p>&ldquo;created&rdquo;: &ldquo;2021-10-19T09:00:00.000Z&rdquo;,</p>
+<p>&ldquo;description&rdquo;: &ldquo;How to use the database from a distance&rdquo;</p>
+<p>},</p>
+<p>{</p>
+<p>&ldquo;title&rdquo;: &ldquo;Introduction to Aamu.app&rdquo;,</p>
+<p>&ldquo;slug&rdquo;: &ldquo;introduction-to-aamu-app&rdquo;,</p>
+<p>&ldquo;created&rdquo;: &ldquo;2021-10-10T09:00:00.000Z&rdquo;,</p>
+<p>&ldquo;description&rdquo;: &ldquo;Aamu.app is an all-in-one productivity tool&rdquo;</p>
+<p>}</p>
+<p>]</p>
+<p>}</p>
+<p>}</p>
+<p>You can use other filtering methods, for example GT (Greater Than):</p>
+<p>query {</p>
+<p>BlogPostCollection(</p>
+<p>filter: {</p>
+<p>updated: { GT: &ldquo;${new Date(latestUpdatedPost).toISOString()}&rdquo; }</p>
+<p>}</p>
+<p>) {</p>
+<p>id</p>
+<p>created</p>
+<p>updated</p>
+<p>title</p>
+<p>slug</p>
+<p>description</p>
+<p>body</p>
+<p>heroImage {</p>
+<p>url</p>
+<p>}</p>
+<p>author {</p>
+<p>name</p>
+<p>}</p>
+<p>status</p>
+<p>tags</p>
+<p>}</p>
+<p>}</p>
+<p>This is the actual query which I&rsquo;m using to create this blog you are reading. This will fetch all the updated blog posts since I ran this last time (since I built the blog last time). I&rsquo;m using Hugo to create this blog, and the blog posts are in Aamu&rsquo;s database and I&rsquo;m writing this using the Aamu&rsquo;s Documents feature.</p>
+<p>Note that there is a field called <strong>heroImage</strong>, which has a subfield <strong>url</strong>. You can find all the fields with <a href="https://altairgraphql.dev/"   target="_blank">Altair</a>
+&rsquo;s Docs feature. It will fetch the database structure and you will see all the fields that you can query (or mutate).</p>
+<p>With Altair you can also see what kind of filtering you can do. For example, Altair sees that the <strong>updated</strong> field is a date and will give you the following filtering options:</p>
+<p><div class="relative bg-center imgB-cb1ce5ae45e0ccaf9bfd50b85c1d8874-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634701474749.jpg" data-pswp-width="463" data-pswp-height="341">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_320x0_resize_q95_h2_box.webp 320w, /blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_720x0_resize_q95_h2_box.webp 720w, /blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_960x0_resize_q95_h2_box.webp 960w, /blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_1280x0_resize_q95_h2_box.webp 1280w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_320x0_resize_q95_box.jpg 320w, /blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_720x0_resize_q95_box.jpg 720w, /blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_960x0_resize_q95_box.jpg 960w, /blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_1280x0_resize_q95_box.jpg 1280w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1709979164496.jpg" data-pswp-width="1324" data-pswp-height="754">
+                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1709979164496_hu516b04792bb333236771f9062abd67b6_58908_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
             </a>
         </picture>
     </div></p>
-<p>Let&rsquo;s see how the filtering goes. By clicking <em>filter</em>, you will get a list of fields by which you can filter. In practice you can filter by any field in the sheet.</p>
-<p>Let&rsquo;s see how <em>aamu-blog</em> gets the blog posts for its main page. It will filter by <code>status</code> and sort by <code>publishDate</code>. Here is the query:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-graphql" data-lang="graphql"><span class="line"><span class="cl"><span class="kd">query</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nc">BlogPostCollection</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">status</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">EQ</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;published&#34;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nc">sort</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">publishDate</span><span class="p">:</span><span class="w"> </span><span class="nc">DESC</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">title</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">slug</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">publishDate</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">description</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>You will notice that we have used <code>EQ</code> to filter for <code>status</code>. For retrieving single items through unique fields this isn&rsquo;t needed, as the item is always retrieving by the exact same value, but for retrieving multiple items there are more possibilities. In Altair, you can get help by pressing <em>Ctrl + space</em>. Altair will give you a list of options how you can filter, like this:</p>
-<p><div class="relative bg-center imgB-1c6fc44bd9873c2cce348f266f4c0c37-GIP">
-        <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634703813603.jpg" data-pswp-width="552" data-pswp-height="464">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
-            </a>
-        </picture>
-    </div></p>
-<p><code>EQ</code> stands for &ldquo;equals&rdquo;, <code>GT</code> stands for &ldquo;greater than&rdquo;, <code>LT</code> stands for &ldquo;less than&rdquo;, etc.</p>
-<p>For sorting, you can get similar help. There are two ways to sort, ascending and descending:</p>
-<p><div class="relative bg-center imgB-5f8b595a94f898435bb58987011d069c-GIP">
-        <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q95_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
-            <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634704152244.jpg" data-pswp-width="478" data-pswp-height="299">
-                <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_720x0_resize_q95_box.jpg" alt="" title="" loading="lazy" />
-            </a>
-        </picture>
-    </div></p>
-<p>Pagination is pretty straight forward. You would use it like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-graphql" data-lang="graphql"><span class="line"><span class="cl"><span class="kd">query</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nc">BlogPostCollection</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">status</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">EQ</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;published&#34;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nc">sort</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">publishDate</span><span class="p">:</span><span class="w"> </span><span class="nc">DESC</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">pagination</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nc">limit</span><span class="p">:</span><span class="w"> </span><span class="nc">10</span><span class="p">,</span><span class="w"> </span><span class="py">skip</span><span class="p">:</span><span class="w"> </span><span class="nc">20</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">title</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">slug</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">publishDate</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">description</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>That covers querying the database.</p>
+<p>You can get that list by pressing Ctrl-Space.</p>
+<p>You can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.</p>
+<p>In the next post we will get to know the mutation with GraphQL.</p>
 
 
   </div>

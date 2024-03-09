@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2021-10-20T05:10:20.553Z"
+modified: "2024-03-09T10:16:07.343Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -12,100 +12,207 @@ ShowToc: false
 ShowBreadCrumbs: false
 ---
 
-Aamu.app database supports two APIs: you can submit data into a database via just standard _html forms_ – this works just one direction – to add data into the database. Also, you can get and put data into the database via _GraphQL_.
+Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.
 
-As Wikipedia [says it](https://en.wikipedia.org/wiki/GraphQL), "GraphQL is an open-source data query and manipulation language". It's a query language, and it has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like [Altair](https://altair-gql.sirmuel.design/).
+As Wikipedia [says it](https://en.wikipedia.org/wiki/GraphQL):
 
-To use Altair, or any similar tool, you first need to setup it with some information about your database; the database endpoint and the database API key. You can get the API key from the _database settings_. The database endpoint is this: `https://api.aamu.app/api/v1/graphql/`.
+> GraphQL is an open-source data query and manipulation language.
 
-After you have set those, there is the option to the get database schema. The schema will help you to query the database. In Altair the schema is called _Docs_. If you change the database structure, you can refresh the schema in the tool of your choice. In Altair, there is a refresh icon, which has a tooltip to _Reload Docs_.
+It has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like [Altair](https://altair-gql.sirmuel.design/).
 
-![](1634699877668.jpg)
+To use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:
 
-You can browse around the schema. On the top, the schema has the following parts: _Query_ and _Mutation_, which stand for reading and writing.
+https://api.aamu.app/api/v1/graphql/
 
-![](1634700200591.jpg)
+You can get the API key from your _database settings._
 
-## Querying the database
+Querying the database
+---------------------
 
-Let's see, what we have in _Query_. We see that there are some fields, which correspond to our sheets (or tables) in our database. I am using the _aamu-blog_ as an example, and in the aamu-blog there are two sheets: _Blog post_ and _Person_. 
+Let's assume we are using the database **aamu-blog**, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app:
 
-For each sheet there are two ways to query it: to get one specific row from it and to get multiple rows. Let's go through each case.
+![](1709968790929.jpg)
 
-![](1634701341708.jpg)
+It has two tables: "Blog post" and "Person". Our GraphQL API will have these fields for this database:
 
-To get a single row, in this case a blog post, you would query it through one of its _unique fields_. You can set the field as unique by editing the _column properties_ in the database sheet. There is a checkmark that makes the column _unique_. For blog posts, the slug is marked as unique. Slug stands for "part of the url":
+![](1709968866417.jpg)
 
-![](1634700713455.jpg)
+So, the GraphQL API will create two fields for each table, one for fetching a single item (by an **ID**), e.g. **BlogPost** and one for fetching many items (by some criteria you define).
 
-So, you can get these blog posts by knowing its _slug_ or by its _ID_. In practice, in this blog application, you would use the slug, as that is something that you know – the user will enter the url in the browser and that url will have the slug. So you use that slug the retrieve the correct blog post.
+Let's see how to get a single item. This is the query:
 
-Here is an example how you would query a single blog post (this particular one). In the parenthesis you would enter the unique field and in the braces you would enter the fields that the query should return for this particular item.
-
-```graphql
 query {
-  BlogPost (slug: "introduction-to-aamuapp-graphql") {
-    id
-    created
-    updated
-    title
-    slug
-    description
-    body
-    publishDate
-    status
-  } 
-}
-```
 
-You can also get items by querying the field _BlogPostCollection_. This gives you from zero to multiple rows. You can also do filtering, sorting and pagination. In practice you probably will want to do at least filtering.
+BlogPost (slug: "introduction-to-aamuapp-graphql") {
 
-![](1634701474749.jpg)
+id
 
-Let's see how the filtering goes. By clicking _filter_, you will get a list of fields by which you can filter. In practice you can filter by any field in the sheet. 
+created
 
-Let's see how _aamu-blog_ gets the blog posts for its main page. It will filter by `status` and sort by `publishDate`. Here is the query:
+updated
 
-```graphql
-query {
-  BlogPostCollection(
-    filter: { status: { EQ: "published" } }
-    sort: { publishDate: DESC }
-  ) {
-    title
-    slug
-    publishDate
-    description
-  }
+title
+
+slug
+
+description
+
+body
+
+status
+
 }
 
-```
-
-You will notice that we have used `EQ` to filter for `status`. For retrieving single items through unique fields this isn't needed, as the item is always retrieving by the exact same value, but for retrieving multiple items there are more possibilities. In Altair, you can get help by pressing _Ctrl + space_. Altair will give you a list of options how you can filter, like this:
-
-![](1634703813603.jpg)
-
-`EQ` stands for "equals", `GT` stands for "greater than", `LT` stands for "less than", etc.
-
-For sorting, you can get similar help. There are two ways to sort, ascending and descending:
-
-![](1634704152244.jpg)
-
-Pagination is pretty straight forward. You would use it like this:
-
-```graphql
-query {
-  BlogPostCollection(
-    filter: { status: { EQ: "published" } }
-    sort: { publishDate: DESC }
-    pagination: { limit: 10, skip: 20 }
-  ) {
-    title
-    slug
-    publishDate
-    description
-  }
 }
-```
 
-That covers querying the database. 
+When you do the query, you will get the data back (if it exists) as json:
+
+{
+
+"data": {
+
+"BlogPost": {
+
+"id": "3cfa30f8-ab29-459a-ad91-0651ae0b08ad",
+
+"created": "2021-10-19T19:11:49.257Z",
+
+"updated": "2024-03-09T07:38:23.916Z",
+
+"title": "Introduction to Aamu.app GraphQL",
+
+"slug": "introduction-to-aamuapp-graphql",
+
+"description": "How to use the database from a distance",
+
+"body": "Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.
+
+... etc
+
+You can also get items by querying the field **BlogPostCollection**. This gives you multiple rows. You can also do filtering, sorting and pagination.
+
+Let's see how getting multiple posts goes. Let's get all the blog posts that are published (status is "published") and the results will be sorted by creation date (older first):
+
+query {
+
+BlogPostCollection(
+
+filter: { status: { EQ: "published" } }
+
+sort: { created: DESC }
+
+) {
+
+title
+
+slug
+
+created
+
+description
+
+}
+
+}
+
+  
+
+This will give the following results:
+
+{
+
+"data": {
+
+"BlogPostCollection": \[
+
+{
+
+"title": "Introduction to Aamu.app GraphQL",
+
+"slug": "introduction-to-aamuapp-graphql",
+
+"created": "2021-10-19T09:00:00.000Z",
+
+"description": "How to use the database from a distance"
+
+},
+
+{
+
+"title": "Introduction to Aamu.app",
+
+"slug": "introduction-to-aamu-app",
+
+"created": "2021-10-10T09:00:00.000Z",
+
+"description": "Aamu.app is an all-in-one productivity tool"
+
+}
+
+\]
+
+}
+
+}
+
+You can use other filtering methods, for example GT (Greater Than):
+
+query {
+
+BlogPostCollection(
+
+filter: {
+
+updated: { GT: "${new Date(latestUpdatedPost).toISOString()}" }
+
+}
+
+) {
+
+id
+
+created
+
+updated
+
+title
+
+slug
+
+description
+
+body
+
+heroImage {
+
+url
+
+}
+
+author {
+
+name
+
+}
+
+status
+
+tags
+
+}
+
+}
+
+This is the actual query which I'm using to create this blog you are reading. This will fetch all the updated blog posts since I ran this last time (since I built the blog last time). I'm using Hugo to create this blog, and the blog posts are in Aamu's database and I'm writing this using the Aamu's Documents feature.
+
+Note that there is a field called **heroImage**, which has a subfield **url**. You can find all the fields with [Altair](https://altairgraphql.dev/)'s Docs feature. It will fetch the database structure and you will see all the fields that you can query (or mutate).
+
+With Altair you can also see what kind of filtering you can do. For example, Altair sees that the **updated** field is a date and will give you the following filtering options:
+
+![](1709979164496.jpg)
+
+You can get that list by pressing Ctrl-Space.
+
+You can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.
+
+In the next post we will get to know the mutation with GraphQL.
