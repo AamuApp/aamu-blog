@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-10-10T09:00:00.000Z"
-modified: "2024-02-12T06:22:17.613Z"
+modified: "2024-03-07T17:18:49.857Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1632799991875.jpg
@@ -12,13 +12,11 @@ ShowToc: false
 ShowBreadCrumbs: false
 ---
 
-Aamu.app is an all-in-one productivity tool, or at least the idea is to become one. 
+Aamu.app is an all-in-one productivity tool, containing a lot of tools that a company needs to get work done collaboratively.
 
-Let’s go through the features that are currently ready and then see what’s should be coming next.
+First, let me say who is behind all of this and why you should trust this tool.
 
-But first, let me say who is behind all this and why you should trust this tool.
-
-I’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. [Embed.rocks](https://embed.rocks/), which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it’s going to stay that way – there is no reason to let this go.d
+I’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. [Embed.rocks](https://embed.rocks/), which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it’s going to stay that way – there is no reason to let this go.
 
 Why you should trust this tool?
 -------------------------------
@@ -36,7 +34,7 @@ The third reason why you should trust this tool is that there are really no cost
 So, what is Aamu.app anyway?
 ----------------------------
 
-It’s a business/productivity tool. But you knew that already. So, let’s get a little deeper.
+It’s a productivity tool. But you knew that already. So, let’s get a little deeper.
 
 The plan is to have everything, that a company might need for its most important, daily productivity/office tasks, in a single package. Along that there should be collaboration integrated throughout that package. The user interface should be unified throughout. And of course everything should be easy to use.
 
@@ -49,9 +47,9 @@ So, even though there are quite a lot of features, the combination shouldn’t f
 
 ### Tasks
 
-![](1707033560495.jpg)
+![](1709828359889.jpg)
 
-Tasks are a sort of an important feature. Just about every company needs tasks.
+Tasks are an important feature. Just about every company needs tasks.
 
 The tasks have a few different views:
 
@@ -60,17 +58,20 @@ The tasks have a few different views:
 3.  calendar
 4.  timeline
 
-Above you can see the list, which is the standard view. Below there is the kanban board.
+Above, you can see the list, which is the standard view. Below there is the kanban board.
 
-![](1707033488757.jpg)
+![](1709828921660.jpg)
 
 Here we have the calendart, which looks and works just like Google Calendar. Oh, and there is also the Google Calendar synchronization – your events will do an automatic two-way with Google Calendar.
 
-![](1707033292936.jpg)
+![](1709828935540.jpg)
 
 Helpdesk
+--------
 
-![](1707707712960.jpg)
+![](1709828960618.jpg)
+
+You may start to see that all the features resemble each other quite a bit. That's intentional — the same familiar user interface greets you everywhere in this app. No need to learn many things, just one and its variations.
 
 Helpdesk is also important and almost every company needs one. With helpdesk, you can handle customer support through what is called _tickets_. These tickets are currently created by email or by live chat (real time chat on your marketing website). In the future we may expand to handling customer support through social networks, but currently it’s just email and live chat,
 
@@ -80,17 +81,21 @@ To connect the helpdesk to an email account, you will need an IMAP connectivity,
 
 The data (text) in tickets is encrypted – with the exception of titles. The titles are needed for creating email threads and titles are not encrypted.
 
-### Documents
+Documents
+---------
 
-![](1707708188062.jpg)
+![](1709829122581.jpg)
+
+  
 
 Documents are like Google™ Docs, they may or may not be important for you. With this you can create all sorts of documents or ebooks (pdf). You can publish them for the world to see or you can keep them for your own use. In case it’s for your own use, everything is encrypted, but if it’s published, then it’s not encrypted – so you decide how secure you want them to be,
 
 The data in the documents is totally secure – it’s encrypted with your team’s key. If you share the document with the world, then it is made plain text and unencrypted.
 
-### Database
+Database
+--------
 
-![](1707708244259.jpg)
+![](1709829406079.jpg)
 
 Databases can be used for a lot of things and they can be easily connected to outside world. For example, I am using the database feature as a _headless CMS_ for this very blog. I am currently writing this blog post in the database – you can see that in the picture above. You can also get the JavaScript sources for this blog [on GitHub](https://github.com/AamuApp/aamu-blog).
 
@@ -98,9 +103,10 @@ Databases can be used for blogs, contact forms, single page apps, e-commerce sit
 
 Also the data in the databases is encrypted, unless you choose them to not be. If you create an API key, then the data will become unencrypted – so you may use the GrahphQL feature, or API key, in only the databases where data security isn’t the top priority. At least for now.
 
-### Video Meetings
+Video Meetings
+--------------
 
-![](1707710694026.jpg)
+![](1709829420339.jpg)
 
 Meetings,mean online, or video meetings, as is quite usual today. We are using [Jitsi](https://jitsi.org/) for this, which is well tested and secure video conferencing software, also open source.
 
@@ -108,9 +114,12 @@ You can invite participants to the meetings who are not users in Aamu.app , i.e.
 
 Note: meeting names are not encrypted for technical reason (the notification system needs to “see” the names).
 
-### Designs
+Designs
+-------
 
-![](1707718773018.jpg)
+![](1709829437201.jpg)
+
+  
 
 We have integrated Penpot ([https://penpot.app/](https://penpot.app/)) into Aamu.app. Penpot is like Figma, but Open Source!
 
@@ -128,10 +137,10 @@ Some of you may wonder what’s with the price, which is $5/user/month, with the
 
 I have always, personally, looked for “good deals”, i.e. bought things as used and generally gone for things that offer good value for the price. This is prices similarly. I like if everybody can afford this and if this offers a good value. I understand that the price can “send a signal” but I have chosen not to worry about it. I believe (or hope) that people will notice the value of this service – in time.
 
-How about that name?
---------------------
+What about that name?
+---------------------
 
-Aamu means “morning” in Finnish. I think it’s also quite a beautiful name, aesthetically. And it comes early in the alphabetics. It’s simple and distinctive. And most people start working in the morning :-).
+Aamu means “morning” in Finnish. I think it’s also quite a beautiful name, aesthetically. And it comes early in the alphabetics. It’s simple and distinctive. And most people start working in the morning 😃.
 
 That’s it!
 ----------

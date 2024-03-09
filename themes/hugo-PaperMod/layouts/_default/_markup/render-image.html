@@ -1,11 +1,11 @@
-{{- $respSizes := slice "320" "640" "960" "1280" "1600" "1920" -}}
+{{- $respSizes := slice "320" "720" "960" "1280" "1600" "1920" -}}
 {{- $src := .Page.Resources.GetMatch (.Destination) -}}
 {{- if $src }}
     {{- $alt := .Text -}}
     {{- $caption := .Title -}}
     {{- $holder := "GIP" -}}
     {{- $hint := "photo" -}}
-    {{- $filter := "box" -}}
+    {{- $filter := "q95 box" -}}
     {{/*
         The `$holder` variable (placeholder) assumes the
         use of the `head-imgs-css.html` partial
@@ -20,7 +20,7 @@
     {{- $divClass := print "relative bg-center imgB-" $imgBd5 "-" $holder }}
     {{- $imgClass := "w-full h-auto animate-fade" -}}
     {{- $dataSzes := "(min-width: 1024px) 100vw, 50vw" -}}
-    {{- $actualImg := $src.Resize (print "640x jpg " $filter) -}}
+    {{- $actualImg := $src.Resize (print "720x jpg " $filter) -}}
     <div class="{{ $divClass }}">
         <picture>
             <source type="image/webp" srcset="

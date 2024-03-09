@@ -216,7 +216,7 @@
     <div class="post-description">
       How to use the database from a distance
     </div>
-    <div class="post-meta"><span title='2021-10-19 09:00:00 +0000 UTC'>October 19, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Ilkka Huotari
+    <div class="post-meta"><span title='2021-10-19 09:00:00 +0000 UTC'>October 19, 2021</span>&nbsp;·&nbsp;<span title='2021-10-20 05:10:20.553 +0000 UTC'>Updated October 20, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Ilkka Huotari
 
 </div>
   </header> 
@@ -234,7 +234,7 @@
 <p>After you have set those, there is the option to the get database schema. The schema will help you to query the database. In Altair the schema is called <em>Docs</em>. If you change the database structure, you can refresh the schema in the tool of your choice. In Altair, there is a refresh icon, which has a tooltip to <em>Reload Docs</em>.</p>
 <p><div class="relative bg-center imgB-2228eadd1646fe56ae952aa2e34b5818-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634699877668.jpg" data-pswp-width="438" data-pswp-height="203">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634699877668_hu8c784b0b3c1f16a3c367cf2ee3509fa3_3220_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
@@ -244,7 +244,7 @@
 <p>You can browse around the schema. On the top, the schema has the following parts: <em>Query</em> and <em>Mutation</em>, which stand for reading and writing.</p>
 <p><div class="relative bg-center imgB-11fbf6857ed5a61c94940a4ba8e69e79-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634700200591.jpg" data-pswp-width="449" data-pswp-height="460">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700200591_huf4f15c70b188e7bcf27cd943ed0da8d1_22091_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
@@ -256,7 +256,7 @@
 <p>For each sheet there are two ways to query it: to get one specific row from it and to get multiple rows. Let&rsquo;s go through each case.</p>
 <p><div class="relative bg-center imgB-2021f054629b629ca907a765e8cc34dd-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634701341708.jpg" data-pswp-width="444" data-pswp-height="291">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701341708_hu974faa81b2ca13346fb8b8418ee814ff_5120_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
@@ -266,7 +266,7 @@
 <p>To get a single row, in this case a blog post, you would query it through one of its <em>unique fields</em>. You can set the field as unique by editing the <em>column properties</em> in the database sheet. There is a checkmark that makes the column <em>unique</em>. For blog posts, the slug is marked as unique. Slug stands for &ldquo;part of the url&rdquo;:</p>
 <p><div class="relative bg-center imgB-4af61bc0d141c49126136dca76661de6-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634700713455.jpg" data-pswp-width="544" data-pswp-height="219">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634700713455_hu1d213b464c6477f02af4e89930a351bb_8809_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
@@ -291,7 +291,7 @@
 </span></span></span></code></pre></div><p>You can also get items by querying the field <em>BlogPostCollection</em>. This gives you from zero to multiple rows. You can also do filtering, sorting and pagination. In practice you probably will want to do at least filtering.</p>
 <p><div class="relative bg-center imgB-998c41f4ff88137fcd7fc55871378199-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634701474749.jpg" data-pswp-width="463" data-pswp-height="341">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634701474749_hu21f2060dae6111b1941b5835ee670a97_9606_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
@@ -314,7 +314,7 @@
 </span></span></span></code></pre></div><p>You will notice that we have used <code>EQ</code> to filter for <code>status</code>. For retrieving single items through unique fields this isn&rsquo;t needed, as the item is always retrieving by the exact same value, but for retrieving multiple items there are more possibilities. In Altair, you can get help by pressing <em>Ctrl + space</em>. Altair will give you a list of options how you can filter, like this:</p>
 <p><div class="relative bg-center imgB-1c6fc44bd9873c2cce348f266f4c0c37-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634703813603.jpg" data-pswp-width="552" data-pswp-height="464">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634703813603_hu6090f2b6bbe85dad05ef4817bd26c7d5_27640_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
@@ -325,7 +325,7 @@
 <p>For sorting, you can get similar help. There are two ways to sort, ascending and descending:</p>
 <p><div class="relative bg-center imgB-5f8b595a94f898435bb58987011d069c-GIP">
         <picture>
-            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q75_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
+            <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q95_h2_box.webp 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <source type="image/jpeg" srcset="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_320x0_resize_q75_box.jpg 320w" sizes="(min-width: 1024px) 100vw, 50vw" />
             <a class="photoswipe-image" href="/blog/posts/introduction-to-aamuapp-graphql/1634704152244.jpg" data-pswp-width="478" data-pswp-height="299">
                 <img class="w-full h-auto animate-fade" src="/blog/posts/introduction-to-aamuapp-graphql/1634704152244_hu693fc0bb35967a2ddf5a3cc914347cd2_17094_640x0_resize_q75_box.jpg" alt="" title="" loading="lazy" />
