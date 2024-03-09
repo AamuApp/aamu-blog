@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-10-10T09:00:00.000Z"
-modified: "2024-03-07T17:18:49.857Z"
+modified: "2024-03-09T04:22:22.262Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1632799991875.jpg
@@ -16,10 +16,12 @@ Aamu.app is an all-in-one productivity tool, containing a lot of tools that a co
 
 First, let me say who is behind all of this and why you should trust this tool.
 
-I’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. [Embed.rocks](https://embed.rocks/), which is an API service (like Embedly) and I have been running it for a few years now. Building Aamu.app has been my main interest for a few years now and it’s going to stay that way – there is no reason to let this go.
-
 Why you should trust this tool?
 -------------------------------
+
+Warning: a long explanation ahead.
+
+I’m Ilkka, a software developer/entrepreneur from Finland. My time is spent in coding, being in nature, and being a dad, all of which I greatly enjoy. I have another business. [Embed.rocks](https://embed.rocks/), which is an API service and I have been running it for a few years now.
 
 Trust is an important issue in a tool like this. That trust will be built in time, and at the moment I can only give assurances. There are several reasons why you should trust this.
 
@@ -45,7 +47,8 @@ Features
 
 So, even though there are quite a lot of features, the combination shouldn’t feel overwhelming. Please tell us how we have succeeded.
 
-### Tasks
+Tasks
+-----
 
 ![](1709828359889.jpg)
 
