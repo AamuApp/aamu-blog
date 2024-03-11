@@ -85,6 +85,7 @@ const writePost = async (post) => {
 	const postUpdated = DateTime.fromISO(post.updated || post.created);
 	const folderName = `content/posts/${post.slug}`;
 	const fileName = `content/posts/${post.slug}/index.md`;
+	console.log('Post', post.slug);
 
 	if (latestUpdatedPost < postUpdated.valueOf()) {
 		latestUpdatedPost = postUpdated.valueOf();
@@ -106,7 +107,7 @@ const writePost = async (post) => {
 			} catch (err) {
 				error(err.toString());
 			}
-			}
+		}
 	}
 
 	// Download the cover image
