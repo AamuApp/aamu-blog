@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-03-20T15:48:25.132Z"
+modified: "2024-04-04T02:17:28.736Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -121,7 +121,8 @@ You can use other filtering methods, for example GT (Greater Than):
 query {
     BlogPostCollection(
         filter: {
-            updated: { GT: "${new Date(latestUpdatedPost).toISOString()}" }
+            status: { EQ: "published" }
+            updated: { GT: updated: { GT: "2021-04-04T02:15:37.975Z" } }
         }
     ) {
 		id
