@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Understanding Symmetric Key Encryption in Aamu.app: Elevating Data Security"
 date: "2024-04-04T05:00:00.000Z"
-modified: "2024-04-04T07:48:16.525Z"
+modified: "2024-04-04T07:54:40.154Z"
 description: "Discover how Aamu.app's symmetric key encryption fortifies data security and protects user privacy"
 cover:
   image: 1712211376702.jpg
@@ -30,7 +30,7 @@ This also means that the staff at Aamu.app won't be able to access the user's da
 
 This also means that there will not be a "forgot password?" feature – we cannot create a new password for the user because this new password couldn't access the encrypted data. Only the user will ever know the password and the key to the data.
 
-> So, don't lose your password!
+So, don't lose your password!
 
 Data is also encrypted in transit
 ---------------------------------
@@ -40,12 +40,12 @@ Aamu uses a 4096 bit/SHA256-RSA SSL certificate for the data in transit, so your
 Server-Side Encryption and Decryption: Balancing Security and Practicality
 --------------------------------------------------------------------------
 
-Aamu.app adopts a server-side approach to encryption and decryption. While this scheme deviates from end-to-end encryption—an ideal scenario—it nonetheless fortifies data protection significantly. Encryption and decryption processes occur within the confines of Aamu.app's server, shielding user data from potential vulnerabilities.
+Aamu.app adopts a server-side approach to encryption and decryptioy. While this scheme deviates from end-to-end encryption—an ideal scenario—it nonetheless fortifies data protection significantly. Encryption and decryption processes occur within the confines of Aamu.app's server, shielding user data from potential vulnerabilities
 
 Two-factor authentication
 -------------------------
 
-We also have a two-factor authentication when even more security is needed.
+We also have a two-factor authentication when even more security is needed..
 
 Conclusion: Strengthening Data Security with Aamu.app
 -----------------------------------------------------
