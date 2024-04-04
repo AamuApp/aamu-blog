@@ -1,30 +1,30 @@
 import express from 'express'
-import { spawnSync } from 'child_process'
+import { execSync } from 'child_process'
 const app = express()
 const port = 7777
 
-const run = (cmd, params) => {
-    let result = spawnSync(cmd, params);
+const run = (command) => {
+    try {
+        // Execute the command synchronously
+        const output = execSync(command);
 
-    // Check if there was an error
-    if (result.error) {
-        console.error('Error:', result.error);
-        return;
+        // Print the output of the command
+        console.log('Output:', output.toString());
+    } catch (error) {
+        // Handle errors
+        console.error('Error:', error);
     }
-
-    // Print the output of the command
-    console.log(result.stdout.toString());
 }
 
 app.post('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
     console.log('Got build request from', req.hostname, req.ip);
 
-    run('npm', ['run', 'build']);
-    run('npm', ['run', 'publish']);
-    console.log('*** push')
-    run('pwd');
-    run('git', ['push', 'web']);
-    run('git', ['push', 'origin']);
+    run('npm run build');
+    run('npm run publish');
+    // console.log('*** push')
+    // run('pwd');
+    // run('git push', 'web');
+    // run('git push', 'origin');
 
     res.send('Site built.\n\n')
 })
