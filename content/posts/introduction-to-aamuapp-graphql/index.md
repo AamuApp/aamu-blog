@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T05:08:37.910Z"
+modified: "2024-04-04T05:09:15.949Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -178,6 +178,4 @@ mutation {
         title
     }
 }
-  
-
 ```
