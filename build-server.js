@@ -4,7 +4,7 @@ const app = express()
 const port = 7777
 
 const run = (cmd, params) => {
-    result = spawnSync(cmd, params);
+    let result = spawnSync(cmd, params);
 
     // Check if there was an error
     if (result.error) {
