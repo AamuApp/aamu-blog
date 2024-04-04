@@ -3,7 +3,8 @@ import { spawnSync } from 'child_process'
 const app = express()
 const port = 7777
 
-app.get('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
+app.post('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
+    console.log('Got build request from', req.hostname, req.ip);
     const result = spawnSync('npm', ['run', 'build-and-publish']);
 
     // Check if there was an error
@@ -15,7 +16,7 @@ app.get('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
     // Print the output of the command
     console.log(result.stdout.toString());
 
-    res.send('Hello World!')
+    res.send('Site built.')
 })
 
 // app.get('/', (req, res) => {
