@@ -1,6 +1,6 @@
 const ENDPOINT = 'https://api.aamu.app/api/v1/graphql/'
 import { GraphQLClient, gql } from 'graphql-request'
-import { existsSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'fs'
+import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'fs'
 import { DateTime } from 'luxon'
 import { wget } from 'node-wget-fetch';
 import { basename } from 'path';
@@ -50,7 +50,7 @@ const graphQLClient = new GraphQLClient(ENDPOINT, {
 	},
 })
 
-const query = gql`
+const queryNewPosts = gql`
 {
 	BlogPostCollection(
 		filter: {
@@ -78,9 +78,36 @@ const query = gql`
 }
 `;
 
+const queryDraftPosts = gql`
+{
+	BlogPostCollection(
+		filter: {
+			status: { EQ: "draft" }
+		}
+	) {
+		id
+		created
+		updated
+		title
+		slug
+		status
+	}
+}
+`;
+
 console.log('Fetching posts updated/created after', DateTime.fromMillis(latestUpdatedPost).toString())
-const data = await graphQLClient.request(query);
-console.log('Fetched', data?.BlogPostCollection.length, 'posts.');
+const dataNewPosts = await graphQLClient.request(queryNewPosts);
+const dataDraftPosts = await graphQLClient.request(queryDraftPosts);
+console.log('Fetched', dataNewPosts?.BlogPostCollection.length, 'new/updated posts.');
+console.log('Fetched', dataDraftPosts?.BlogPostCollection.length, 'draft posts.');
+
+const deletePost = async (post) => {
+	const folderName = `content/posts/${post.slug}`;
+
+	if (existsSync(folderName)) {
+		rmdirSync(folderName, { recursive: true });
+	}
+}
 
 const writePost = async (post) => {
 	const postUpdated = DateTime.fromISO(post.updated || post.created);
@@ -125,8 +152,12 @@ const writePost = async (post) => {
 	writeFileSync(fileName, template(post));
 }
 
-for (const post of data?.BlogPostCollection) {
+for (const post of dataNewPosts?.BlogPostCollection) {
 	writePost(post);
+}
+
+for (const post of dataDraftPosts?.BlogPostCollection) {
+	deletePost(post);
 }
 
 storeLatestTimestamp();

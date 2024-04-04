@@ -6,15 +6,8 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Mar 2024 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Oct 2021 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mutation with GraphQL</title>
-      <link>https://aamu.app/blog/posts/mutation-with-graphql/</link>
-      <pubDate>Mon, 11 Mar 2024 10:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/posts/mutation-with-graphql/</guid>
-      <description>Let&amp;#39;s mutate the database</description>
-    </item>
     <item>
       <title>Introduction to Aamu.app GraphQL</title>
       <link>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</link>
