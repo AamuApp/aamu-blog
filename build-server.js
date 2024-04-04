@@ -20,10 +20,11 @@ app.post('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
     console.log('Got build request from', req.hostname, req.ip);
 
     run('pwd');
-    run('node build-with-graphql.js');
-    run('hugo');
-    run('git add .');
-    run('git commit -am "..."');
+    run('whoami');
+    // run('node build-with-graphql.js');
+    // run('hugo');
+    // run('git add .');
+    // run('git commit -am "..."');
     run('git push web');
     // run('git push origin');
     // console.log('*** push')
