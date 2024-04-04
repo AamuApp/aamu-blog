@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Understanding Symmetric Key Encryption in Aamu.app: Elevating Data Security"
 date: "2024-04-04T05:00:00.000Z"
-modified: "2024-04-04T07:46:33.290Z"
+modified: "2024-04-04T07:48:16.525Z"
 description: "Discover how Aamu.app's symmetric key encryption fortifies data security and protects user privacy"
 cover:
   image: 1712211376702.jpg
@@ -41,6 +41,11 @@ Server-Side Encryption and Decryption: Balancing Security and Practicality
 --------------------------------------------------------------------------
 
 Aamu.app adopts a server-side approach to encryption and decryption. While this scheme deviates from end-to-end encryption—an ideal scenario—it nonetheless fortifies data protection significantly. Encryption and decryption processes occur within the confines of Aamu.app's server, shielding user data from potential vulnerabilities.
+
+Two-factor authentication
+-------------------------
+
+We also have a two-factor authentication when even more security is needed.
 
 Conclusion: Strengthening Data Security with Aamu.app
 -----------------------------------------------------
