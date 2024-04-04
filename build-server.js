@@ -25,7 +25,7 @@ app.post('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
     run('git add .');
     run('git commit -am "..."');
     run('git push web');
-    run('git push origin');
+    // run('git push origin');
     // console.log('*** push')
     // run('pwd');
     // run('git push', 'web');
