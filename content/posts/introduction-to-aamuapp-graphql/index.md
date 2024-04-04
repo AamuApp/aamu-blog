@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T02:24:29.522Z"
+modified: "2024-04-04T02:25:27.633Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -122,7 +122,7 @@ query {
     BlogPostCollection(
         filter: {
             status: { EQ: "published" }
-            updated: { GT: updated: { GT: "2022-01-04T02:15:37.975Z" } }
+            updated: { GT: updated: { GT: "2022-02-04T02:15:37.975Z" } }
         }
     ) {
 		id
