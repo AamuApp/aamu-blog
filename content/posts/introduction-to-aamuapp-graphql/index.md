@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T05:03:30.199Z"
+modified: "2024-04-04T05:08:37.910Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -165,7 +165,7 @@ At the moment you can mutate single objects, which are targeted with the \`id\` 
 
 Here we update a database row in our **Person** table. We will target the row that we want to change with the **id** field. In Aamu.app, the id field is a string and you can find the correct id by first querying the persons, possibly with some criteria.
 
-Here is an example mutation query. It will change the **title** of the person and return some fields that we want to see about the person..
+Here is an example mutation query. It will change the **title** of the person and return some fields that we want to see about the person.
 
 ```plain
 mutation {
