@@ -16,7 +16,7 @@ app.post('/2c285354-e7a8-45f4-a82f-96cb150ea9fc', (req, res) => {
     // Print the output of the command
     console.log(result.stdout.toString());
 
-    res.send('Site built.')
+    res.send('Site built.\n\n')
 })
 
 // app.get('/', (req, res) => {
