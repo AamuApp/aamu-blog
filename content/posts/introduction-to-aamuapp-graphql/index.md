@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T03:45:16.792Z"
+modified: "2024-04-04T05:03:30.199Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -35,7 +35,7 @@ Let's assume we are using the database **aamu-blog**, which is the actual databa
 
 ![](1709968790929.jpg)
 
-It has two tables: "Blog post" and "Person". Our GraphQL API will have these fields for this database:
+It has two tables: "Blog post" and "Person". Our GraphQL API will have these fields for this database (you can use for example [Altair GrapQL client](https://altairgraphql.dev/) to see the database schema):
 
 ![](1709968866417.jpg)
 
@@ -156,4 +156,28 @@ You can get that list by pressing Ctrl-Space.
 
 You can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.
 
-In the next post we will get to know the mutation with GraphQL....
+Mutating the database
+---------------------
+
+Here we show at how we can mutate database rows.
+
+At the moment you can mutate single objects, which are targeted with the \`id\` field.
+
+Here we update a database row in our **Person** table. We will target the row that we want to change with the **id** field. In Aamu.app, the id field is a string and you can find the correct id by first querying the persons, possibly with some criteria.
+
+Here is an example mutation query. It will change the **title** of the person and return some fields that we want to see about the person..
+
+```plain
+mutation {
+    Person(id: "29940627-51e8-4fd0-82ab-d718ddfe802f", title: "Chief Procrastination Officer (CPO)") {
+        id
+        created
+        updated
+        name
+        bio
+        title
+    }
+}
+  
+
+```

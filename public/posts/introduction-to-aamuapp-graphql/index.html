@@ -71,7 +71,7 @@
 <meta property="og:url" content="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/" />
 <meta property="og:image" content="https://aamu.app/blog/1634671479716.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-19T09:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-04T03:45:16+00:00" />
+<meta property="article:modified_time" content="2024-04-04T05:03:30+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://aamu.app/blog/1634671479716.jpg" />
@@ -109,11 +109,11 @@
   "keywords": [
     "graphql"
   ],
-  "articleBody": "Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.\nAs Wikipedia says it :\nGraphQL is an open-source data query and manipulation language.\nIt has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair .\nTo use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:\nhttps://api.aamu.app/api/v1/graphql/ You can get the API key from your database settings.\nQuerying the database Let’s assume we are using the database aamu-blog, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app (at this moment in time there are only two rows, i.e. posts):\nIt has two tables: “Blog post” and “Person”. Our GraphQL API will have these fields for this database:\nSo, the GraphQL API will create two fields for each table, one for fetching a single item (by an ID), e.g. BlogPost and one (BlogPostCollection) for fetching many items (by some criteria you define).\nLet’s see how to get a single item. This is the query:\nquery { BlogPost (slug: \"introduction-to-aamuapp-graphql\") { id created updated title slug description body status } } When you do the query, you will get the data back (if it exists) as json:\n{ \"data\": { \"BlogPost\": { \"id\": \"3cfa30f8-ab29-459a-ad91-0651ae0b08ad\", \"created\": \"2021-10-19T19:11:49.257Z\", \"updated\": \"2024-03-09T07:38:23.916Z\", \"title\": \"Introduction to Aamu.app GraphQL\", \"slug\": \"introduction-to-aamuapp-graphql\", \"description\": \"How to use the database from a distance\", \"body\": \"Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL. ... etc You can also get items by querying the field BlogPostCollection. This gives you multiple rows. You can also do filtering, sorting and pagination.\nLet’s see how getting multiple posts goes. Let’s get all the blog posts that are published (status is “published”) and the results will be sorted by creation date (older first):\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { created: DESC } ) { title slug created description } } This will give the following results:\n{ \"data\": { \"BlogPostCollection\": [ { \"title\": \"Introduction to Aamu.app GraphQL\", \"slug\": \"introduction-to-aamuapp-graphql\", \"created\": \"2021-10-19T09:00:00.000Z\", \"description\": \"How to use the database from a distance\" }, { \"title\": \"Introduction to Aamu.app\", \"slug\": \"introduction-to-aamu-app\", \"created\": \"2021-10-10T09:00:00.000Z\", \"description\": \"Aamu.app is an all-in-one productivity tool\" } ] } } You can use other filtering methods, for example GT (Greater Than):\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } updated: { GT: updated: { GT: \"2022-01-04T02:15:37.975Z\" } } } ) { id created updated title slug description body heroImage { url } author { name } status tags } } This is the actual query which I’m using to create this blog you are reading. This will fetch all the updated blog posts since I ran this last time (since I built the blog last time). I’m using Hugo to create this blog, and the blog posts are in Aamu’s database and I’m writing this using the Aamu’s Documents feature.\nNote that there is a field called heroImage, which has a subfield url. You can find all the fields with Altair ’s Docs feature. It will fetch the database structure and you will see all the fields that you can query (or mutate).\nWith Altair you can also see what kind of filtering you can do. For example, Altair sees that the updated field is a date and will give you the following filtering options:\nYou can get that list by pressing Ctrl-Space.\nYou can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.\nIn the next post we will get to know the mutation with GraphQL….\n",
-  "wordCount" : "675",
+  "articleBody": "Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.\nAs Wikipedia says it :\nGraphQL is an open-source data query and manipulation language.\nIt has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair .\nTo use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:\nhttps://api.aamu.app/api/v1/graphql/ You can get the API key from your database settings.\nQuerying the database Let’s assume we are using the database aamu-blog, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app (at this moment in time there are only two rows, i.e. posts):\nIt has two tables: “Blog post” and “Person”. Our GraphQL API will have these fields for this database (you can use for example Altair GrapQL client to see the database schema):\nSo, the GraphQL API will create two fields for each table, one for fetching a single item (by an ID), e.g. BlogPost and one (BlogPostCollection) for fetching many items (by some criteria you define).\nLet’s see how to get a single item. This is the query:\nquery { BlogPost (slug: \"introduction-to-aamuapp-graphql\") { id created updated title slug description body status } } When you do the query, you will get the data back (if it exists) as json:\n{ \"data\": { \"BlogPost\": { \"id\": \"3cfa30f8-ab29-459a-ad91-0651ae0b08ad\", \"created\": \"2021-10-19T19:11:49.257Z\", \"updated\": \"2024-03-09T07:38:23.916Z\", \"title\": \"Introduction to Aamu.app GraphQL\", \"slug\": \"introduction-to-aamuapp-graphql\", \"description\": \"How to use the database from a distance\", \"body\": \"Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL. ... etc You can also get items by querying the field BlogPostCollection. This gives you multiple rows. You can also do filtering, sorting and pagination.\nLet’s see how getting multiple posts goes. Let’s get all the blog posts that are published (status is “published”) and the results will be sorted by creation date (older first):\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { created: DESC } ) { title slug created description } } This will give the following results:\n{ \"data\": { \"BlogPostCollection\": [ { \"title\": \"Introduction to Aamu.app GraphQL\", \"slug\": \"introduction-to-aamuapp-graphql\", \"created\": \"2021-10-19T09:00:00.000Z\", \"description\": \"How to use the database from a distance\" }, { \"title\": \"Introduction to Aamu.app\", \"slug\": \"introduction-to-aamu-app\", \"created\": \"2021-10-10T09:00:00.000Z\", \"description\": \"Aamu.app is an all-in-one productivity tool\" } ] } } You can use other filtering methods, for example GT (Greater Than):\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } updated: { GT: updated: { GT: \"2022-01-04T02:15:37.975Z\" } } } ) { id created updated title slug description body heroImage { url } author { name } status tags } } This is the actual query which I’m using to create this blog you are reading. This will fetch all the updated blog posts since I ran this last time (since I built the blog last time). I’m using Hugo to create this blog, and the blog posts are in Aamu’s database and I’m writing this using the Aamu’s Documents feature.\nNote that there is a field called heroImage, which has a subfield url. You can find all the fields with Altair ’s Docs feature. It will fetch the database structure and you will see all the fields that you can query (or mutate).\nWith Altair you can also see what kind of filtering you can do. For example, Altair sees that the updated field is a date and will give you the following filtering options:\nYou can get that list by pressing Ctrl-Space.\nYou can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.\nMutating the database Here we show at how we can mutate database rows.\nAt the moment you can mutate single objects, which are targeted with the `id` field.\nHere we update a database row in our Person table. We will target the row that we want to change with the id field. In Aamu.app, the id field is a string and you can find the correct id by first querying the persons, possibly with some criteria.\nHere is an example mutation query. It will change the title of the person and return some fields that we want to see about the person..\nmutation { Person(id: \"29940627-51e8-4fd0-82ab-d718ddfe802f\", title: \"Chief Procrastination Officer (CPO)\") { id created updated name bio title } } ",
+  "wordCount" : "795",
   "inLanguage": "en",
   "image":"https://aamu.app/blog/1634671479716.jpg","datePublished": "2021-10-19T09:00:00Z",
-  "dateModified": "2024-04-04T03:45:16.792Z",
+  "dateModified": "2024-04-04T05:03:30.199Z",
   "author":{
     "@type": "Person",
     "name": "Ilkka Huotari"
@@ -216,7 +216,7 @@
     <div class="post-description">
       How to use the database from a distance
     </div>
-    <div class="post-meta"><span title='2021-10-19 09:00:00 +0000 UTC'>October 19, 2021</span>&nbsp;·&nbsp;<span title='2024-04-04 03:45:16.792 +0000 UTC'>Updated April 4, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Ilkka Huotari
+    <div class="post-meta"><span title='2021-10-19 09:00:00 +0000 UTC'>October 19, 2021</span>&nbsp;·&nbsp;<span title='2024-04-04 05:03:30.199 +0000 UTC'>Updated April 4, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Ilkka Huotari
 
 </div>
   </header> 
@@ -248,7 +248,8 @@
             </a>
         </picture>
     </div></p>
-<p>It has two tables: &ldquo;Blog post&rdquo; and &ldquo;Person&rdquo;. Our GraphQL API will have these fields for this database:</p>
+<p>It has two tables: &ldquo;Blog post&rdquo; and &ldquo;Person&rdquo;. Our GraphQL API will have these fields for this database (you can use for example <a href="https://altairgraphql.dev/"   target="_blank">Altair GrapQL client</a>
+ to see the database schema):</p>
 <p><div class="relative bg-center imgB-cbddd4d49d37e95ca4e5db79d7319939-GIP">
         <picture>
             <source type="image/webp" srcset="/blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_320x0_resize_q95_h2_box.webp 320w, /blog/posts/introduction-to-aamuapp-graphql/1709968866417_hu77095ab6c952f15b9d4c738048996aa6_39373_720x0_resize_q95_h2_box.webp 720w" sizes="(min-width: 1024px) 100vw, 50vw" />
@@ -356,8 +357,23 @@
     </div></p>
 <p>You can get that list by pressing Ctrl-Space.</p>
 <p>You can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.</p>
-<p>In the next post we will get to know the mutation with GraphQL&hellip;.</p>
-
+<h2 id="mutating-the-database">Mutating the database<a hidden class="anchor" aria-hidden="true" href="#mutating-the-database">#</a></h2>
+<p>Here we show at how we can mutate database rows.</p>
+<p>At the moment you can mutate single objects, which are targeted with the `id` field.</p>
+<p>Here we update a database row in our <strong>Person</strong> table. We will target the row that we want to change with the <strong>id</strong> field. In Aamu.app, the id field is a string and you can find the correct id by first querying the persons, possibly with some criteria.</p>
+<p>Here is an example mutation query. It will change the <strong>title</strong> of the person and return some fields that we want to see about the person..</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">mutation {
+</span></span><span class="line"><span class="cl">    Person(id: &#34;29940627-51e8-4fd0-82ab-d718ddfe802f&#34;, title: &#34;Chief Procrastination Officer (CPO)&#34;) {
+</span></span><span class="line"><span class="cl">        id
+</span></span><span class="line"><span class="cl">        created
+</span></span><span class="line"><span class="cl">        updated
+</span></span><span class="line"><span class="cl">        name
+</span></span><span class="line"><span class="cl">        bio
+</span></span><span class="line"><span class="cl">        title
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">  
+</span></span></code></pre></div>
 
   </div>
 
