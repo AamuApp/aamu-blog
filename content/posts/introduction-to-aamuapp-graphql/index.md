@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T02:27:17.106Z"
+modified: "2024-04-04T02:44:58.613Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -115,7 +115,7 @@ This will give the following results:
 }
 ```
 
-You can use other filtering methods, for example **GT** (Greater Than):
+You can use other filtering methods, for example GT (Greater Than):
 
 ```plain
 query {
