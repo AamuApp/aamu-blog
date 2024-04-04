@@ -54,7 +54,7 @@ const query = gql`
 {
 	BlogPostCollection(
 		filter: {
-			status: "published",
+			status: { EQ: "published" },
 			updated: { GT: "${DateTime.fromMillis(latestUpdatedPost).toString()}" }
 		}
 	) {
