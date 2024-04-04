@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-03-11T05:15:17.865Z"
+modified: "2024-03-20T15:48:25.132Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -31,7 +31,7 @@ You can get the API key from your _database settings._
 Querying the database
 ---------------------
 
-Let's assume we are using the database **aamu-blog**, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app:
+Let's assume we are using the database **aamu-blog**, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app (at this moment in time there are only two rows, i.e. posts):
 
 ![](1709968790929.jpg)
 
@@ -39,7 +39,7 @@ It has two tables: "Blog post" and "Person". Our GraphQL API will have these fie
 
 ![](1709968866417.jpg)
 
-So, the GraphQL API will create two fields for each table, one for fetching a single item (by an **ID**), e.g. **BlogPost** and one for fetching many items (by some criteria you define).
+So, the GraphQL API will create two fields for each table, one for fetching a single item (by an **ID**), e.g. **BlogPost** and one (**BlogPostCollection**) for fetching many items (by some criteria you define).
 
 Let's see how to get a single item. This is the query:
 
