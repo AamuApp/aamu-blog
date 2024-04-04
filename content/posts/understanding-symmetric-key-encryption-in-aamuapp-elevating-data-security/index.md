@@ -3,8 +3,8 @@
 author: "Ilkka Huotari"
 title: "Understanding Symmetric Key Encryption in Aamu.app: Elevating Data Security"
 date: "2024-04-04T05:00:00.000Z"
-modified: "2024-04-04T06:38:57.004Z"
-description: "How is the encryption done in Aamu.app?"
+modified: "2024-04-04T06:40:55.067Z"
+description: "Discover how Aamu.app's symmetric key encryption fortifies data security and protects user privacy?"
 cover:
   image: 1712211376702.jpg
 tags: ["encryption","security"]
