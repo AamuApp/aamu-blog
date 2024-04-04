@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
 date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T03:36:57.401Z"
+modified: "2024-04-04T03:45:16.792Z"
 description: "How to use the database from a distance"
 cover:
   image: 1634671479716.jpg
@@ -156,4 +156,4 @@ You can get that list by pressing Ctrl-Space.
 
 You can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.
 
-In the next post we will get to know the mutation with GraphQL.
+In the next post we will get to know the mutation with GraphQL....
