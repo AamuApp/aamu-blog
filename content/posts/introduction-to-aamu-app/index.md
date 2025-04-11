@@ -3,6 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-09-26T20:39:00.000Z"
+modified: "2025-04-11T07:36:27.328Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1709958325939.jpg
@@ -61,9 +62,11 @@ We are innovative here as well—you can pay what you want. Or more appropriatel
 
 We want to test if this model works. It feels fair to us, hopefully it proves to work.
 
-Should You Trust This?
-----------------------
+Should You Trust This Tool?
+---------------------------
 
-Most certainly, yes. The founder of this app (Ilkka Huotari) is a long-time entrepreneur and programmer, whose earlier service [Embed.rocks](https://embed.rocks/) has already been serving paying customers since 2016.
+Absolutely! As the founder, I bring years of experience as an entrepreneur and programmer. My earlier venture, [Embed.rocks](http://Embed.rocks), has been reliably serving paying customers since 2016, demonstrating our commitment to quality and trust.
 
-What’s more, there are no major costs involved in running Aamu.app, so it can’t really go bankrupt. At the moment the service is run by one person only, so that’s the biggest risk—if something were to happen to me (Ilkka). When possible, I will take care of this issue too.
+What’s more, there are no major costs involved in running Aamu.app, so it can’t really go bankrupt.
+
+At the moment the service is run by one person only, so that’s the biggest risk—if something were to happen to me. When possible, I will take care of this issue too.
