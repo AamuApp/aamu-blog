@@ -1,9 +1,9 @@
 const ENDPOINT = 'https://api.aamu.app/api/v1/graphql/'
-import { GraphQLClient, gql } from 'graphql-request'
 import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'fs'
 import { DateTime } from 'luxon'
 import { wget } from 'node-wget-fetch';
 import { basename } from 'path';
+import { inspect } from 'util';
 // store the latest timestamp into a file so that when we update the posts, we will
 // use this to get only the newer posts
 let latestUpdatedPost = getLatestTimestamp();
@@ -32,7 +32,7 @@ const template = (post) => `
 author: "${post.author.name}"
 title: "${post.title}"
 date: "${post.publishDate}"
-modified: "${post.updated}"
+modified: "${post.updated_at}"
 description: "${post.description}"
 cover:
   image: ${post.heroImage?.url || ''}
@@ -44,62 +44,94 @@ ShowBreadCrumbs: false
 ${post.body}
 `;
 
-const graphQLClient = new GraphQLClient(ENDPOINT, {
-	headers: {
-		'x-api-key': process.env.API_KEY,
-	},
-})
+const queryNewPosts = {
+	query: `
+		query ($updated_at: DateTime!) {
+			BlogPostCollection(
+				filter: {
+					status: { EQ: "published" },
+					updated_at: { GT: $updated_at }
+				}
+			) {
+				id
+				created_at
+				updated_at
+				title
+				slug
+				description
+				body
+				publishDate
+				heroImage {
+					url
+				}
+				author {
+					name
+				}
+				status
+				tags
+			}
+		}
+	`,
+	variables: {
+		updated_at: DateTime.fromMillis(latestUpdatedPost).toString()
+	}
+};
 
-const queryNewPosts = gql`
-{
-	BlogPostCollection(
-		filter: {
-			status: { EQ: "published" },
-			updated: { GT: "${DateTime.fromMillis(latestUpdatedPost).toString()}" }
+const queryDraftPosts = {
+	query: `
+		{
+			BlogPostCollection(
+				filter: {
+					status: { EQ: "draft" }
+				}
+			) {
+				id
+				created_at
+				updated_at
+				title
+				slug
+				status
+			}
 		}
-	) {
-		id
-		created
-		updated
-		title
-		slug
-		description
-		body
-		publishDate
-		heroImage {
-			url
-		}
-		author {
-			name
-		}
-		status
-		tags
+		`
+};
+
+const request = async (query) => {
+
+	try {
+		const body = JSON.stringify(query);
+
+		const response = await fetch(ENDPOINT, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				'x-api-key': process.env.API_KEY,
+			},
+			body,
+		});
+
+		return await response.json();
+	} catch (err) {
+		console.log(err)
 	}
 }
-`;
 
-const queryDraftPosts = gql`
-{
-	BlogPostCollection(
-		filter: {
-			status: { EQ: "draft" }
-		}
-	) {
-		id
-		created
-		updated
-		title
-		slug
-		status
+const fetchPosts = async (post) => {
+	try {
+		console.log('Fetching posts updated/created after', DateTime.fromMillis(latestUpdatedPost).toString())
+
+		const dataNewPosts = await request(queryNewPosts);
+		const dataDraftPosts = await request(queryDraftPosts);
+		// console.log(inspect(dataDraftPosts, { depth: 9, colors: true }));
+		console.log('Fetched', dataNewPosts?.data?.BlogPostCollection.length, 'new/updated posts.');
+		console.log('Fetched', dataDraftPosts?.data?.BlogPostCollection.length, 'draft posts.');
+
+		return { dataNewPosts, dataDraftPosts };
+	} catch (err) {
+		console.log(err);
+		throw err;
 	}
 }
-`;
-
-console.log('Fetching posts updated/created after', DateTime.fromMillis(latestUpdatedPost).toString())
-const dataNewPosts = await graphQLClient.request(queryNewPosts);
-const dataDraftPosts = await graphQLClient.request(queryDraftPosts);
-console.log('Fetched', dataNewPosts?.BlogPostCollection.length, 'new/updated posts.');
-console.log('Fetched', dataDraftPosts?.BlogPostCollection.length, 'draft posts.');
 
 const deletePost = async (post) => {
 	const folderName = `content/posts/${post.slug}`;
@@ -110,11 +142,11 @@ const deletePost = async (post) => {
 }
 
 const writePost = async (post) => {
-	const postUpdated = DateTime.fromISO(post.updated || post.created);
+	const postUpdated = DateTime.fromISO(post.updated_at || post.created_at);
 	const folderName = `content/posts/${post.slug}`;
 	const fileName = `content/posts/${post.slug}/index.md`;
 	console.log('');
-	console.log('*** Post', post.slug);
+	console.log('Write post:', post.title);
 
 	if (latestUpdatedPost < postUpdated.valueOf()) {
 		latestUpdatedPost = postUpdated.valueOf();
@@ -153,12 +185,22 @@ const writePost = async (post) => {
 	writeFileSync(fileName, template(post));
 }
 
-for (const post of dataNewPosts?.BlogPostCollection) {
-	writePost(post);
+const build = async () => {
+	try {
+		const { dataNewPosts, dataDraftPosts } = await fetchPosts();
+
+		for (const post of dataNewPosts?.data?.BlogPostCollection) {
+			await writePost(post);
+		}
+
+		for (const post of dataDraftPosts?.data?.BlogPostCollection) {
+			await deletePost(post);
+		}
+	} catch (err) {
+
+	}
 }
 
-for (const post of dataDraftPosts?.BlogPostCollection) {
-	deletePost(post);
-}
+await build();
 
 storeLatestTimestamp();

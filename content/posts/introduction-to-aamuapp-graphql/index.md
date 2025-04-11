@@ -47,8 +47,8 @@ Let's see how to get a single item. This is the query:
 query {
   BlogPost (slug: "introduction-to-aamuapp-graphql") {
     id
-    created
-    updated
+    created_at
+    updated_at
     title
     slug
     description
@@ -65,8 +65,8 @@ When you do the query, you will get the data back (if it exists) as json:
   "data": {
     "BlogPost": {
       "id": "3cfa30f8-ab29-459a-ad91-0651ae0b08ad",
-      "created": "2021-10-19T19:11:49.257Z",
-      "updated": "2024-03-09T07:38:23.916Z",
+      "created_at": "2021-10-19T19:11:49.257Z",
+      "updated_at": "2024-03-09T07:38:23.916Z",
       "title": "Introduction to Aamu.app GraphQL",
       "slug": "introduction-to-aamuapp-graphql",
       "description": "How to use the database from a distance",
@@ -82,11 +82,11 @@ Let's see how getting multiple posts goes. Let's get all the blog posts that are
 query {
     BlogPostCollection(
         filter: { status: { EQ: "published" } }
-        sort: { created: DESC }
+        sort: { created_at: DESC }
     ) {
         title
         slug
-        created
+        created_at
         description
     }
 }
@@ -101,13 +101,13 @@ This will give the following results:
       {
         "title": "Introduction to Aamu.app GraphQL",
         "slug": "introduction-to-aamuapp-graphql",
-        "created": "2021-10-19T09:00:00.000Z",
+        "created_at": "2021-10-19T09:00:00.000Z",
         "description": "How to use the database from a distance"
       },
       {
         "title": "Introduction to Aamu.app",
         "slug": "introduction-to-aamu-app",
-        "created": "2021-10-10T09:00:00.000Z",
+        "created_at": "2021-10-10T09:00:00.000Z",
         "description": "Aamu.app is an all-in-one productivity tool"
       }
     ]
@@ -122,12 +122,12 @@ query {
     BlogPostCollection(
         filter: {
             status: { EQ: "published" }
-            updated: { GT: updated: { GT: "2022-01-04T02:15:37.975Z" } }
+            updated_at: { GT: "2022-01-04T02:15:37.975Z" } 
         }
     ) {
 		id
-		created
-		updated
+		created_at
+		updated_at
 		title
 		slug
 		description
@@ -171,8 +171,8 @@ Here is an example mutation query. It will change the **title** of the person an
 mutation {
     Person(id: "29940627-51e8-4fd0-82ab-d718ddfe802f", title: "Chief Procrastination Officer (CPO)") {
         id
-        created
-        updated
+        created_at
+        updated_at
         name
         bio
         title
