@@ -3,7 +3,7 @@
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-09-26T20:39:00.000Z"
-modified: "2025-04-11T14:28:25.227Z"
+modified: "2025-04-11T14:57:01.731Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
   image: 1709958325939.jpg
@@ -62,7 +62,7 @@ We are innovative here as well—you can pay what you want. Or more appropriatel
 
 We want to test if this model works. It feels fair to us, hopefully it proves to work.
 
-What about that name?
+What About That Name?
 ---------------------
 
 Aamu means “morning” in Finnish. I think it’s also quite a beautiful name. And it comes early in the alphabetic. It’s simple and distinctive. And most people start working in the morning (not me). 😃
