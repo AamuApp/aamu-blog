@@ -10,4 +10,7 @@ The original source code is [hugo-PaperMod](https://github.com/adityatelange/hug
 
 ## Install
 
-Install Hugo, close this repository, set your Aamu.app API KEY (edit/rename `env.example`) and ensure the API KEY is read into environment variables.
+- Install Hugo
+- Clone this repository
+- Set your Aamu.app API KEY environment variable. You can do this in several ways - one is to edit `env.example` and rename it to `.env`. 
+
