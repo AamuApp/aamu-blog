@@ -91,7 +91,7 @@ params:
 
   assets:
     disableHLJS: true
-    favicon: "https://st.aamu.app/img/logo-160-wbg.png"
+    favicon: "https://st.aamu.app/img/logo-160-round-wbg.png"
     # favicon16x16: "images/favicon16.png"
     # favicon32x32: "images/favicon32.png"
     #     apple_touch_icon: "<link / abs url>"
