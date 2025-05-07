@@ -4,7 +4,7 @@ import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'f
 import { DateTime } from 'luxon'
 import { wget } from 'node-wget-fetch';
 import { basename } from 'path';
-
+import { parse } from 'node-html-parser';
 import 'dotenv/config';
 
 // store the latest timestamp into a file so that when we update the posts, we will
@@ -65,7 +65,9 @@ const queryNewPosts = {
 				body
 				publishDate
 				heroImage {
-					url
+					url,
+					data,
+					name
 				}
 				author {
 					name
@@ -160,6 +162,30 @@ const writePost = async (post) => {
 		mkdirSync(folderName);
 	}
 
+	const root = parse(post.body);
+	const imgs = root.querySelectorAll('img');
+
+	if (imgs.length) {
+		for (const img of imgs) {
+			const src = img.getAttribute('src');
+
+			if (src) {
+				console.log('...get', src)
+				
+				try {
+					const name = folderName + '/' + Date.now() + basename(src);
+					await wget(src, name);
+					img.setAttribute('src', basename(name))
+					console.log('...got', basename(name))
+				} catch (err) {
+					console.log(err.toString())
+				}
+			}
+		}
+
+		post.body = root.toString();
+	}
+
 	// Download all the images (in markdown's content) for the page
 	// Replace original image links with local links
 	for (const m of post.body.matchAll(/\!\[([^\]]*)\]\((\S+)\)/g)) {
@@ -176,7 +202,14 @@ const writePost = async (post) => {
 
 	// Download the cover image
 	// Replace original image link with local link
-	if (post.heroImage?.url) {
+	if (post.heroImage?.data && post.heroImage.name) {
+		try {
+			writeFileSync(folderName + '/' + post.heroImage.name, Buffer.from(post.heroImage.data, 'base64'));
+			post.heroImage.url = post.heroImage.name;
+		} catch (err) {
+			error(err.toString());
+		}
+	} else if (post.heroImage?.url) {
 		try {
 			await wget(post.heroImage.url, folderName + '/');
 			post.heroImage.url = basename(post.heroImage.url);
