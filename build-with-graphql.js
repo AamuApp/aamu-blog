@@ -170,13 +170,10 @@ const writePost = async (post) => {
 			const src = img.getAttribute('src');
 
 			if (src) {
-				console.log('...get', src)
-				
 				try {
 					const name = folderName + '/' + Date.now() + basename(src);
 					await wget(src, name);
 					img.setAttribute('src', basename(name))
-					console.log('...got', basename(name))
 				} catch (err) {
 					console.log(err.toString())
 				}
