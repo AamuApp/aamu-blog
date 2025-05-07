@@ -1,9 +1,12 @@
 const ENDPOINT = 'https://api.aamu.app/api/v1/graphql/'
+
 import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'fs'
 import { DateTime } from 'luxon'
 import { wget } from 'node-wget-fetch';
 import { basename } from 'path';
-import { inspect } from 'util';
+
+import 'dotenv/config';
+
 // store the latest timestamp into a file so that when we update the posts, we will
 // use this to get only the newer posts
 let latestUpdatedPost = getLatestTimestamp();
