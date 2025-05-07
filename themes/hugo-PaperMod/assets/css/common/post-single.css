@@ -1,3 +1,8 @@
+.post-single {
+    max-width: calc(var(--post-width) + var(--gap) * 2);
+    margin: auto;
+}
+
 .page-header,
 .post-header {
     margin: 24px auto var(--content-gap) auto;
