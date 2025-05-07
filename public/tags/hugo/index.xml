@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Graphql on Aamu.app blog</title>
-    <link>https://aamu.app/blog/tags/graphql/</link>
-    <description>Recent content in Graphql on Aamu.app blog</description>
+    <title>Hugo on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/hugo/</link>
+    <description>Recent content in Hugo on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 07 May 2025 03:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aamu.app/blog/tags/graphql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aamu.app/blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a blog with Aamu.app</title>
       <link>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</link>
       <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</guid>
       <description>&lt;p&gt;How to create a blog with Aamu.app? Here is how I have done it for Aamu.app’s official blog at &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/&#34;&gt;https://aamu.app/blog/&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The ingredients of this blog are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;A database at Aamu.app&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;For writing the blog posts: documents at Aamu.app&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;For creating the actual blog: &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://gohugo.io/&#34; id=&#34;3cc0064a-8cad-48d6-93df-8f6ff1fd33b7&#34;&gt;Hugo&lt;/a&gt; static site generator&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;A server (with a shell access) to host the blog&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Git to publish the blog to the server (pushing the repo)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Introduction to Aamu.app GraphQL</title>
-      <link>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</link>
-      <pubDate>Tue, 19 Oct 2021 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</guid>
-      <description>How to use the database from a distance</description>
     </item>
   </channel>
 </rss>

@@ -1,36 +1,44 @@
-const ENDPOINT = 'https://api.aamu.app/api/v1/graphql/'
+// build-blog-posts.js
 
-import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'fs'
-import { DateTime } from 'luxon'
-import { wget } from 'node-wget-fetch';
+import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'fs';
+import { DateTime } from 'luxon';
+import wget from 'node-wget-fetch';
 import { basename } from 'path';
 import { parse } from 'node-html-parser';
 import 'dotenv/config';
 
-// store the latest timestamp into a file so that when we update the posts, we will
-// use this to get only the newer posts
-let latestUpdatedPost = getLatestTimestamp();
+// Configuration
+const API_ENDPOINT = 'https://api.aamu.app/api/v1/graphql/';
+const CONTENT_DIR = 'content/posts';
+const TIMESTAMP_FILE = 'timestamp';
 
-function getLatestTimestamp() {
-	try {
-		const data = readFileSync('timestamp').toString();
-		return parseInt(data, 10);
-	} catch (err) {
-		return 0;
-	}
+// Tracks the latest post update timestamp to fetch only newer posts
+let latestTimestamp = loadLatestTimestamp();
+
+// Loads the latest timestamp from a file, or returns 0 if not found
+function loadLatestTimestamp() {
+  try {
+    return parseInt(readFileSync(TIMESTAMP_FILE).toString(), 10);
+  } catch {
+    return 0;
+  }
 }
 
-function storeLatestTimestamp() {
-	writeFileSync('timestamp', latestUpdatedPost.toString());
+// Saves the latest timestamp to a file
+function saveLatestTimestamp() {
+  writeFileSync(TIMESTAMP_FILE, latestTimestamp.toString());
 }
 
-const error = (str) => {
-	const FgRed = "\x1b[31m";
-	const Reset = "\x1b[0m"
-	console.error(FgRed + str + Reset);
+// Logs errors in red for visibility
+function logError(message) {
+  const RED = '\x1b[31m';
+  const RESET = '\x1b[0m';
+  console.error(`${RED}${message}${RESET}`);
 }
 
-const template = (post) => `
+// Generates Hugo-compatible front matter and content for a post
+function createPostTemplate(post) {
+  return `
 ---
 author: "${post.author.name}"
 title: "${post.title}"
@@ -39,201 +47,205 @@ modified: "${post.updated_at}"
 description: "${post.description}"
 cover:
   image: ${post.heroImage?.url || ''}
-tags: [${(post.tags || []).map(el => JSON.stringify(el))}]
+tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
 ShowToc: false
 ShowBreadCrumbs: false
 ---
 
 ${post.body}
-`;
+  `.trim();
+}
 
-const queryNewPosts = {
-	query: `
-		query ($updated_at: DateTime!) {
-			BlogPostCollection(
-				filter: {
-					status: { EQ: "published" },
-					updated_at: { GT: $updated_at }
-				}
-			) {
-				id
-				created_at
-				updated_at
-				title
-				slug
-				description
-				body
-				publishDate
-				heroImage {
-					url,
-					data,
-					name
-				}
-				author {
-					name
-				}
-				status
-				tags
-			}
-		}
-	`,
-	variables: {
-		updated_at: DateTime.fromMillis(latestUpdatedPost).toString()
-	}
+// GraphQL query for published posts updated after the latest timestamp
+const newPostsQuery = {
+  query: `
+    query ($updated_at: DateTime!) {
+      BlogPostCollection(
+        filter: {
+          status: { EQ: "published" },
+          updated_at: { GT: $updated_at }
+        }
+      ) {
+        id
+        created_at
+        updated_at
+        title
+        slug
+        description
+        body
+        publishDate
+        heroImage {
+          url
+          data
+          name
+        }
+        author {
+          name
+        }
+        status
+        tags
+      }
+    }
+  `,
+  variables: {
+    updated_at: DateTime.fromMillis(latestTimestamp).toISO(),
+  },
 };
 
-const queryDraftPosts = {
-	query: `
-		{
-			BlogPostCollection(
-				filter: {
-					status: { EQ: "draft" }
-				}
-			) {
-				id
-				created_at
-				updated_at
-				title
-				slug
-				status
-			}
-		}
-		`
+// GraphQL query for draft posts to identify those to delete
+const draftPostsQuery = {
+  query: `
+    {
+      BlogPostCollection(
+        filter: {
+          status: { EQ: "draft" }
+        }
+      ) {
+        id
+        created_at
+        updated_at
+        title
+        slug
+        status
+      }
+    }
+  `,
 };
 
-const request = async (query) => {
-
-	try {
-		const body = JSON.stringify(query);
-
-		const response = await fetch(ENDPOINT, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				'x-api-key': process.env.API_KEY,
-			},
-			body,
-		});
-
-		return await response.json();
-	} catch (err) {
-		console.log(err)
-	}
+// Sends a GraphQL request to the API
+async function sendGraphQLRequest(query) {
+  try {
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': process.env.API_KEY,
+      },
+      body: JSON.stringify(query),
+    });
+    return await response.json();
+  } catch (error) {
+    logError(`GraphQL request failed: ${error.message}`);
+    throw error;
+  }
 }
 
-const fetchPosts = async (post) => {
-	try {
-		console.log('Fetching posts updated/created after', DateTime.fromMillis(latestUpdatedPost).toString())
+// Fetches new/updated published posts and draft posts
+async function fetchPosts() {
+  console.log('Fetching posts updated/created after', DateTime.fromMillis(latestTimestamp).toISO());
+  const [newPostsData, draftPostsData] = await Promise.all([
+    sendGraphQLRequest(newPostsQuery),
+    sendGraphQLRequest(draftPostsQuery),
+  ]);
 
-		const dataNewPosts = await request(queryNewPosts);
-		const dataDraftPosts = await request(queryDraftPosts);
-		// console.log(inspect(dataDraftPosts, { depth: 9, colors: true }));
-		console.log('Fetched', dataNewPosts?.data?.BlogPostCollection.length, 'new/updated posts.');
-		console.log('Fetched', dataDraftPosts?.data?.BlogPostCollection.length, 'draft posts.');
+  const newPosts = newPostsData?.data?.BlogPostCollection || [];
+  const draftPosts = draftPostsData?.data?.BlogPostCollection || [];
 
-		return { dataNewPosts, dataDraftPosts };
-	} catch (err) {
-		console.log(err);
-		throw err;
-	}
+  console.log(`Fetched ${newPosts.length} new/updated posts.`);
+  console.log(`Fetched ${draftPosts.length} draft posts.`);
+
+  return { newPosts, draftPosts };
 }
 
-const deletePost = async (post) => {
-	const folderName = `content/posts/${post.slug}`;
-
-	if (existsSync(folderName)) {
-		rmdirSync(folderName, { recursive: true });
-	}
+// Deletes a post's folder if it exists
+async function deletePost(post) {
+  const folderPath = `${CONTENT_DIR}/${post.slug}`;
+  if (existsSync(folderPath)) {
+    rmdirSync(folderPath, { recursive: true });
+    console.log(`Deleted draft post: ${post.title}`);
+  }
 }
 
-const writePost = async (post) => {
-	const postUpdated = DateTime.fromISO(post.updated_at || post.created_at);
-	const folderName = `content/posts/${post.slug}`;
-	const fileName = `content/posts/${post.slug}/index.md`;
-	console.log('');
-	console.log('Write post:', post.title);
+// Processes and writes a post to the Hugo content directory
+async function writePost(post) {
+  console.log(`\nWriting post: ${post.title}`);
+  const postUpdated = DateTime.fromISO(post.updated_at || post.created_at);
+  const folderPath = `${CONTENT_DIR}/${post.slug}`;
+  const filePath = `${folderPath}/index.md`;
 
-	if (latestUpdatedPost < postUpdated.valueOf()) {
-		latestUpdatedPost = postUpdated.valueOf();
-	}
+  // Update the latest timestamp if this post is newer
+  if (latestTimestamp < postUpdated.valueOf()) {
+    latestTimestamp = postUpdated.valueOf();
+  }
 
-	// Create the folder for the page bundle
-	if (!existsSync(folderName)) {
-		mkdirSync(folderName);
-	}
+  // Create the post's folder if it doesn't exist
+  if (!existsSync(folderPath)) {
+    mkdirSync(folderPath, { recursive: true });
+  }
 
-	const root = parse(post.body);
-	const imgs = root.querySelectorAll('img');
+  // Parse and update image URLs in the post body
+  const htmlRoot = parse(post.body);
+  const images = htmlRoot.querySelectorAll('img');
+  for (const img of images) {
+    const src = img.getAttribute('src');
+    if (src) {
+      try {
+        const imagePath = `${folderPath}/${Date.now()}_${basename(src)}`;
+        await wget(src, imagePath);
+        img.setAttribute('src', basename(imagePath));
+      } catch (error) {
+        logError(`Failed to download image ${src}: ${error.message}`);
+      }
+    }
+  }
+  post.body = htmlRoot.toString();
 
-	if (imgs.length) {
-		for (const img of imgs) {
-			const src = img.getAttribute('src');
+  // Process Markdown image links
+  for (const match of post.body.matchAll(/!\[([^\]]*)\]\((\S+)\)/g)) {
+    const [, alt, url] = match;
+    try {
+      const imagePath = `${folderPath}/${basename(url)}`;
+      await wget(url, imagePath);
+      post.body = post.body.replace(match[0], `![${alt}](${basename(url)})`);
+      console.log(`Fetched image: ${url}`);
+    } catch (error) {
+      logError(`Failed to download Markdown image ${url}: ${error.message}`);
+    }
+  }
 
-			if (src) {
-				try {
-					const name = folderName + '/' + Date.now() + basename(src);
-					await wget(src, name);
-					img.setAttribute('src', basename(name))
-				} catch (err) {
-					console.log(err.toString())
-				}
-			}
-		}
+  // Handle the cover image
+  if (post.heroImage?.data && post.heroImage.name) {
+    try {
+      writeFileSync(`${folderPath}/${post.heroImage.name}`, Buffer.from(post.heroImage.data, 'base64'));
+      post.heroImage.url = post.heroImage.name;
+    } catch (error) {
+      logError(`Failed to save cover image: ${error.message}`);
+    }
+  } else if (post.heroImage?.url) {
+    try {
+      const imagePath = `${folderPath}/${basename(post.heroImage.url)}`;
+      await wget(post.heroImage.url, imagePath);
+      post.heroImage.url = basename(post.heroImage.url);
+    } catch (error) {
+      logError(`Failed to download cover image: ${error.message}`);
+    }
+  }
 
-		post.body = root.toString();
-	}
-
-	// Download all the images (in markdown's content) for the page
-	// Replace original image links with local links
-	for (const m of post.body.matchAll(/\!\[([^\]]*)\]\((\S+)\)/g)) {
-		if (m[2]) {
-			console.log('Fetched image', m[2]);
-			try {
-				await wget(m[2], folderName + '/');
-				post.body = post.body.replace(m[0], `![${m[1]}](${basename(m[2])})`)
-			} catch (err) {
-				error(err.toString());
-			}
-		}
-	}
-
-	// Download the cover image
-	// Replace original image link with local link
-	if (post.heroImage?.data && post.heroImage.name) {
-		try {
-			writeFileSync(folderName + '/' + post.heroImage.name, Buffer.from(post.heroImage.data, 'base64'));
-			post.heroImage.url = post.heroImage.name;
-		} catch (err) {
-			error(err.toString());
-		}
-	} else if (post.heroImage?.url) {
-		try {
-			await wget(post.heroImage.url, folderName + '/');
-			post.heroImage.url = basename(post.heroImage.url);
-		} catch (err) {
-			error(err.toString());
-		}
-	}
-
-	writeFileSync(fileName, template(post));
+  // Write the post to disk
+  writeFileSync(filePath, createPostTemplate(post));
 }
 
-const build = async () => {
-	try {
-		const { dataNewPosts, dataDraftPosts } = await fetchPosts();
+// Main function to build the blog
+async function buildBlog() {
+  try {
+    const { newPosts, draftPosts } = await fetchPosts();
 
-		for (const post of dataNewPosts?.data?.BlogPostCollection) {
-			await writePost(post);
-		}
+    // Process new and updated posts
+    for (const post of newPosts) {
+      await writePost(post);
+    }
 
-		for (const post of dataDraftPosts?.data?.BlogPostCollection) {
-			await deletePost(post);
-		}
-	} catch (err) {
+    // Delete draft posts
+    for (const post of draftPosts) {
+      await deletePost(post);
+    }
 
-	}
+    // Save the latest timestamp
+    saveLatestTimestamp();
+  } catch (error) {
+    logError(`Build failed: ${error.message}`);
+  }
 }
 
-await build();
-
-storeLatestTimestamp();
+// Run the build process
+buildBlog();

@@ -6,13 +6,34 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Oct 2021 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 May 2025 03:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://aamu.app/blog/tags/blog/</link>
+      <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/blog/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Graphql</title>
       <link>https://aamu.app/blog/tags/graphql/</link>
-      <pubDate>Tue, 19 Oct 2021 09:00:00 +0000</pubDate>
+      <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/graphql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Headless-Cms</title>
+      <link>https://aamu.app/blog/tags/headless-cms/</link>
+      <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/headless-cms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://aamu.app/blog/tags/hugo/</link>
+      <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/hugo/</guid>
       <description></description>
     </item>
   </channel>
