@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Creating a contact form with Aamu.app | Aamu.app blog</title>
+<meta name="keywords" content="database, forms">
+<meta name="description" content="Using the Aamu.app database for contact forms">
+<meta name="author" content="Ilkka Huotari">
+<link rel="canonical" href="https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/">
+<link crossorigin="anonymous" href="/blog/assets/css/stylesheet.5c2090814984350b44609999ff2fb8d0b5c2a057fbd31fc6d1f99e9a4ad84b80.css" integrity="sha256-XCCQgUmENQtEYJmZ/y&#43;40LXCoFf70x/G0fmemkrYS4A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://st.aamu.app/img/logo-160-round-wbg.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://aamu.app/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://aamu.app/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://aamu.app/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://aamu.app/blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="module">
+    import PhotoSwipeLightbox from '\/blog\/js\/photoswipe-lightbox.esm.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.post-content',
+      children: 'a.photoswipe-image',
+      pswpModule: () => import('\/blog\/js\/photoswipe.esm.js')
+    });
+    lightbox.init();
+</script>
+<link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Creating a contact form with Aamu.app" />
+<meta property="og:description" content="Using the Aamu.app database for contact forms" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/" />
+<meta property="og:image" content="https://aamu.app/blog/9542027453554270_image.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-05-13T18:10:00+00:00" />
+<meta property="article:modified_time" content="2025-05-13T18:55:39+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://aamu.app/blog/9542027453554270_image.png" />
+<meta name="twitter:title" content="Creating a contact form with Aamu.app"/>
+<meta name="twitter:description" content="Using the Aamu.app database for contact forms"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://aamu.app/blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Creating a contact form with Aamu.app",
+      "item": "https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Creating a contact form with Aamu.app",
+  "name": "Creating a contact form with Aamu.app",
+  "description": "Using the Aamu.app database for contact forms",
+  "keywords": [
+    "database", "forms"
+  ],
+  "articleBody": "There are (at least) three ways to create a contact form with Aamu.app. Let’s look at the first one in detail.\nIngredientsThe ingredients for this contact form are:\nHTML code for the form itself, which you can grab from https://github.com/AamuApp/contact-form\nAamu.app database, with forms enabled\nWhat you would do at your website is that you would add the HTML code, with CSS, to the appropriate location of your site, and tie the form to Aamu.app database with the Aamu.app database’s endpoint url and the Aamu.app database’s API key. Let’s see how to do all this.\nCreating the Aamu.app databaseWe have a ready-made template of the database that you can use for storing the contact form’s data — it’s under the “arrow button” just next to the “plus button” that you would normally create an empty database with. So click the arrow button and select the Contact Form:\nSetting up the database to accept form submissionsIn the database settings, you should first enable the forms API:\nYou should select the table, where the form submissions will go to:\nThen copy the Forms endpoint, and put it into the contact form’s HTML code, into .\nCreating the FormTo create the form, let’s start by grabbing the example HTML code from GitHub. The important part of it is the ...:\nSend The way this form works, is first by the action=\"ENDPOINT_HERE\" which sends the form the API endpoint. Form input field bindingsAnother important point is how the form input fields’ names are matched to the database fields. The way the input field names are created is pretty straightforward — they are basically lowercase words with spaces turned into underscores. The correct input field names can also be seen in the Database settings / Forms. You can copy the ‘s HTML code there and use it in your applications.\nThe form which you can get from GitHub has some other niceties — for example it is submitted by JavaScript on the fly, without causing a round-trip at the server (Aamu.app’s server).\nFor example, in our contact form database, there are three fields: Name, Email, Message. These correspond to form input fields name, email, message. That’s about it!Now, if you have the form in place, point your browser to it, and test if. All the form submissions should end up in the database.\n",
+  "wordCount" : "422",
+  "inLanguage": "en",
+  "image":"https://aamu.app/blog/9542027453554270_image.png","datePublished": "2025-05-13T18:10:00Z",
+  "dateModified": "2025-05-13T18:55:39.054Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ilkka Huotari"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aamu.app blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://st.aamu.app/img/logo-160-round-wbg.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://aamu.app/blog/" accesskey="h" title="Aamu.app blog (Alt + H)">Aamu.app blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch">
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://aamu.app/" title="Aamu.app">
+                    <span>Aamu.app</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://aamu.app/blog/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://aamu.app/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://aamu.app/blog/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Creating a contact form with Aamu.app
+    </h1>
+    <div class="post-description">
+      Using the Aamu.app database for contact forms
+    </div>
+    <div class="post-meta"><span title='2025-05-13 18:10:00 +0000 UTC'>May 13, 2025</span>&nbsp;·&nbsp;<span title='2025-05-13 18:55:39.054 +0000 UTC'>Updated May 13, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Ilkka Huotari
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" srcset="https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image_hu_b16a355572de6ce5.png 360w ,https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image_hu_a5589bd69ec9ad32.png 480w ,https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image_hu_666adc31d406a7db.png 720w ,https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image_hu_ee38e056aeb52209.png 1080w ,https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image_hu_215d223718026818.png 1500w ,https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image.png 1536w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/9542027453554270_image.png" alt="" 
+            width="1536" height="1024">
+        
+</figure>
+  <div class="post-content"><p>There are (at least) three ways to create a contact form with Aamu.app. Let’s look at the first one in detail.</p><h2>Ingredients</h2><p>The ingredients for this contact form are:</p><ul><li><p>HTML code for the form itself, which you can grab from <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/AamuApp/contact-form">https://github.com/AamuApp/contact-form</a></p></li><li><p>Aamu.app database, with <em>forms</em> enabled</p></li></ul><p>What you would do at your website is that you would add the HTML code, with CSS, to the appropriate location of your site, and tie the form to Aamu.app database with the Aamu.app database’s <code>endpoint url</code> and the Aamu.app database’s API key. Let’s see how to do all this.</p><h2>Creating the Aamu.app database</h2><p>We have a ready-made template of the database that you can use for storing the contact form’s data — it’s under the “arrow button” just next to the “plus button” that you would normally create an empty database with. So click the arrow button and select the <em>Contact Form</em>:</p><img src="7595643289565241_image.png" style="width: auto;" id="a1028694-4284-4322-84e0-802f6a75db14"><h2>Setting up the database to accept form submissions</h2><p>In the database settings, you should first enable the forms API:</p><img src="1941558427066652_image.png" style="width: auto;" id="48f331e6-d9b4-4ca2-a8a2-6537091c43b4"><p>You should select the table, where the form submissions will go to:</p><img src="603860601330570_image.png" style="width: auto;" id="a02c541b-d181-41b2-a9fe-b3b29e3ef4aa"><p>Then copy the <strong><em>Forms endpoint</em></strong>, and put it into the contact form’s HTML code, into <code>&lt;form action=”ENDPOINT HERE”&gt;</code>.</p><img src="3004351193813546_image.png" style="width: auto;" id="e39ceeea-314e-4aa1-af82-146979e38e84"><h2>Creating the Form</h2><p>To create the form, let’s start by grabbing the example HTML code from GitHub. The important part of it is the <code>&lt;form&gt;...&lt;/form&gt;</code>:</p><pre><code class="language-html">&lt;form id="contactForm" action="ENDPOINT_HERE" method="POST" enctype="multipart/form-data" &gt;
+	&lt;div&gt;
+		&lt;input placeholder="Name" type="text" name="name" id="form_name" required autofocus&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;input placeholder="Email" type="text" name="email" id="form_email" required&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;textarea placeholder="Message" name="message" id="form_message" required&gt;&lt;/textarea&gt;
+	&lt;/div&gt;
+	&lt;button id="submit" type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre><p>The way this form works, is first by the <code>action="ENDPOINT_HERE"</code> which sends the form the API endpoint. </p><h3>Form input field bindings</h3><p>Another important point is how the form input fields’ names are matched to the database fields. The way the input field names are created is pretty straightforward — they are basically lowercase words with spaces turned into underscores. The correct input field names can also be seen in the <strong><em>Database settings / Forms</em></strong>. You can copy the <code>&lt;form&gt;</code>‘s HTML code there and use it in your applications.</p><p>The form which you can get from <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/AamuApp/contact-form" id="0ec9cb15-f76c-45a5-982b-b3d57ca1801b">GitHub</a> has some other niceties — for example it is submitted by JavaScript on the fly, without causing a round-trip at the server (Aamu.app’s server).</p><p>For example, in our contact form database, there are three fields: <code>Name</code>, <code>Email</code>, <code>Message</code>. These correspond to form input fields <code>name</code>, <code>email</code>, <code>message</code>. </p><h3>That’s about it!</h3><p>Now, if you have the form in place, point your browser to it, and test if. All the form submissions should end up in the database.</p><img src="4381240847085523_image.png" style="width: auto;" id="e7fc64c7-5a3c-4780-a575-776e32216a5c"><p></p><p></p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://aamu.app/blog/tags/database/">Database</a></li>
+      <li><a href="https://aamu.app/blog/tags/forms/">Forms</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Creating a blog with Aamu.app</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://aamu.app/blog/">Aamu.app blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

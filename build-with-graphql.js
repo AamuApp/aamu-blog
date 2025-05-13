@@ -36,11 +36,15 @@ function logError(message) {
 	console.error(`${RED}${message}${RESET}`);
 }
 
+function generateRandomFileName(originalName) {
+	return Math.floor(Math.random() * 10000000000000000) + '_' + basename(originalName);
+}
+
 // Generates Hugo-compatible front matter and content for a post
 function createPostTemplate(post) {
 	return `
 ---
-author: "${post.author.name}"
+author: "${post.author?.name || ''}"
 title: "${post.title}"
 date: "${post.publishDate}"
 modified: "${post.updated_at}"
@@ -180,7 +184,7 @@ async function writePost(post) {
 		const src = img.getAttribute('src');
 		if (src) {
 			try {
-				const imagePath = `${folderPath}/${Date.now()}_${basename(src)}`;
+				const imagePath = `${folderPath}/${generateRandomFileName(src)}`;
 				await wget(src, imagePath);
 				img.setAttribute('src', basename(imagePath));
 			} catch (error) {
@@ -206,8 +210,9 @@ async function writePost(post) {
 	// Handle the cover image
 	if (post.heroImage?.data && post.heroImage.name) {
 		try {
-			writeFileSync(`${folderPath}/${post.heroImage.name}`, Buffer.from(post.heroImage.data, 'base64'));
-			post.heroImage.url = post.heroImage.name;
+			const heroImageName = generateRandomFileName(post.heroImage.name);
+			writeFileSync(`${folderPath}/${heroImageName}`, Buffer.from(post.heroImage.data, 'base64'));
+			post.heroImage.url = heroImageName;
 		} catch (error) {
 			logError(`Failed to save cover image: ${error.message}`);
 		}

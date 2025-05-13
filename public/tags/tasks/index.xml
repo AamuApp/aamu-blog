@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tasks on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/tasks/</link>
+    <description>Recent content in Tasks on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 19 Oct 2021 03:07:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/tasks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Aamu.app GraphQL</title>
+      <link>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</link>
+      <pubDate>Tue, 19 Oct 2021 03:07:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</guid>
+      <description>How to use the database from a distance</description>
+    </item>
+  </channel>
+</rss>

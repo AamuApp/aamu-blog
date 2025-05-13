@@ -1,8 +1,9 @@
 .main.main-home {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: min-content;
-    gap: 10px
+    grid-template-rows: min-content; /* First row */
+    grid-auto-rows: min-content; /* All subsequent rows */
+    gap: 10px;
 }
 
 .main {

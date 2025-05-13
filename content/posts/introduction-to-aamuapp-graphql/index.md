@@ -1,13 +1,12 @@
-
 ---
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app GraphQL"
-date: "2021-10-19T09:00:00.000Z"
-modified: "2024-04-04T05:09:15.949Z"
+date: "2021-10-19T03:07:00.000Z"
+modified: "2025-05-08T12:36:44.893Z"
 description: "How to use the database from a distance"
 cover:
-  image: 1634671479716.jpg
-tags: ["graphql"]
+  image: GraphQL Logo + Wordmark (Rhodamine).png
+tags: ["tasks", "graphql", "database"]
 ShowToc: false
 ShowBreadCrumbs: false
 ---
@@ -35,7 +34,7 @@ Let's assume we are using the database **aamu-blog**, which is the actual databa
 
 ![](1709968790929.jpg)
 
-It has two tables: "Blog post" and "Person". Our GraphQL API will have these fields for this database (you can use for example [Altair GrapQL client](https://altairgraphql.dev/) to see the database schema):
+It has two tables: "Blog post" and "Person". Our GraphQL API will have these fields for this database:
 
 ![](1709968866417.jpg)
 
@@ -47,8 +46,8 @@ Let's see how to get a single item. This is the query:
 query {
   BlogPost (slug: "introduction-to-aamuapp-graphql") {
     id
-    created_at
-    updated_at
+    created
+    updated
     title
     slug
     description
@@ -65,8 +64,8 @@ When you do the query, you will get the data back (if it exists) as json:
   "data": {
     "BlogPost": {
       "id": "3cfa30f8-ab29-459a-ad91-0651ae0b08ad",
-      "created_at": "2021-10-19T19:11:49.257Z",
-      "updated_at": "2024-03-09T07:38:23.916Z",
+      "created": "2021-10-19T19:11:49.257Z",
+      "updated": "2024-03-09T07:38:23.916Z",
       "title": "Introduction to Aamu.app GraphQL",
       "slug": "introduction-to-aamuapp-graphql",
       "description": "How to use the database from a distance",
@@ -82,11 +81,11 @@ Let's see how getting multiple posts goes. Let's get all the blog posts that are
 query {
     BlogPostCollection(
         filter: { status: { EQ: "published" } }
-        sort: { created_at: DESC }
+        sort: { created: DESC }
     ) {
         title
         slug
-        created_at
+        created
         description
     }
 }
@@ -101,13 +100,13 @@ This will give the following results:
       {
         "title": "Introduction to Aamu.app GraphQL",
         "slug": "introduction-to-aamuapp-graphql",
-        "created_at": "2021-10-19T09:00:00.000Z",
+        "created": "2021-10-19T09:00:00.000Z",
         "description": "How to use the database from a distance"
       },
       {
         "title": "Introduction to Aamu.app",
         "slug": "introduction-to-aamu-app",
-        "created_at": "2021-10-10T09:00:00.000Z",
+        "created": "2021-10-10T09:00:00.000Z",
         "description": "Aamu.app is an all-in-one productivity tool"
       }
     ]
@@ -122,12 +121,12 @@ query {
     BlogPostCollection(
         filter: {
             status: { EQ: "published" }
-            updated_at: { GT: "2022-01-04T02:15:37.975Z" } 
+            updated: { GT: updated: { GT: "2022-01-04T02:15:37.975Z" } }
         }
     ) {
 		id
-		created_at
-		updated_at
+		created
+		updated
 		title
 		slug
 		description
@@ -156,26 +155,4 @@ You can get that list by pressing Ctrl-Space.
 
 You can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.
 
-Mutating the database
----------------------
-
-Here we show at how we can mutate database rows.
-
-At the moment you can mutate single objects, which are targeted with the \`id\` field.
-
-Here we update a database row in our **Person** table. We will target the row that we want to change with the **id** field. In Aamu.app, the id field is a string and you can find the correct id by first querying the persons, possibly with some criteria.
-
-Here is an example mutation query. It will change the **title** of the person and return some fields that we want to see about the person.
-
-```plain
-mutation {
-    Person(id: "29940627-51e8-4fd0-82ab-d718ddfe802f", title: "Chief Procrastination Officer (CPO)") {
-        id
-        created_at
-        updated_at
-        name
-        bio
-        title
-    }
-}
-```
+In the next post we will get to know the mutation with GraphQL

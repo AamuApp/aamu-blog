@@ -6,8 +6,15 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 May 2025 03:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 May 2025 18:10:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a contact form with Aamu.app</title>
+      <link>https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/</link>
+      <pubDate>Tue, 13 May 2025 18:10:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/</guid>
+      <description>Using the Aamu.app database for contact forms</description>
+    </item>
     <item>
       <title>Creating a blog with Aamu.app</title>
       <link>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</link>
@@ -18,7 +25,7 @@
     <item>
       <title>Introduction to Aamu.app GraphQL</title>
       <link>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</link>
-      <pubDate>Tue, 19 Oct 2021 09:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 Oct 2021 03:07:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/</guid>
       <description>How to use the database from a distance</description>
     </item>
