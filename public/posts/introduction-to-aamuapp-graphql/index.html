@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="tasks, graphql, database">
 <meta name="description" content="How to use the database from a distance">
 <meta name="author" content="Ilkka Huotari">
-<link rel="canonical" href="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/">
+<link rel="canonical" href="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/">
 <link crossorigin="anonymous" href="/blog/assets/css/stylesheet.5c2090814984350b44609999ff2fb8d0b5c2a057fbd31fc6d1f99e9a4ad84b80.css" integrity="sha256-XCCQgUmENQtEYJmZ/y&#43;40LXCoFf70x/G0fmemkrYS4A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://st.aamu.app/img/logo-160-round-wbg.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/blog/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/blog/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/blog/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/blog/safari-pinned-tab.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://aamu.app/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://aamu.app/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://aamu.app/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://aamu.app/blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/">
+<link rel="alternate" hreflang="en" href="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/">
 <noscript>
     <style>
         #theme-toggle,
@@ -68,14 +68,14 @@
 <link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Introduction to Aamu.app GraphQL" />
 <meta property="og:description" content="How to use the database from a distance" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/" />
-<meta property="og:image" content="http://localhost:1313/blog/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/" />
+<meta property="og:image" content="https://aamu.app/blog/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-19T03:07:00+00:00" />
 <meta property="article:modified_time" content="2025-05-08T12:36:44+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/blog/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png" />
+<meta name="twitter:image" content="https://aamu.app/blog/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png" />
 <meta name="twitter:title" content="Introduction to Aamu.app GraphQL"/>
 <meta name="twitter:description" content="How to use the database from a distance"/>
 
@@ -89,13 +89,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/blog/posts/"
+      "item": "https://aamu.app/blog/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Introduction to Aamu.app GraphQL",
-      "item": "http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/"
+      "item": "https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/"
     }
   ]
 }
@@ -113,7 +113,7 @@
   "articleBody": "Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL.\nAs Wikipedia says it :\nGraphQL is an open-source data query and manipulation language.\nIt has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair .\nTo use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:\nhttps://api.aamu.app/api/v1/graphql/ You can get the API key from your database settings.\nQuerying the database Let’s assume we are using the database aamu-blog, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app (at this moment in time there are only two rows, i.e. posts):\nIt has two tables: “Blog post” and “Person”. Our GraphQL API will have these fields for this database:\nSo, the GraphQL API will create two fields for each table, one for fetching a single item (by an ID), e.g. BlogPost and one (BlogPostCollection) for fetching many items (by some criteria you define).\nLet’s see how to get a single item. This is the query:\nquery { BlogPost (slug: \"introduction-to-aamuapp-graphql\") { id created updated title slug description body status } } When you do the query, you will get the data back (if it exists) as json:\n{ \"data\": { \"BlogPost\": { \"id\": \"3cfa30f8-ab29-459a-ad91-0651ae0b08ad\", \"created\": \"2021-10-19T19:11:49.257Z\", \"updated\": \"2024-03-09T07:38:23.916Z\", \"title\": \"Introduction to Aamu.app GraphQL\", \"slug\": \"introduction-to-aamuapp-graphql\", \"description\": \"How to use the database from a distance\", \"body\": \"Aamu.app database supports two APIs: one for submitting data into the database via standard html forms – this works just one direction. Also you can get and put data into the database via GraphQL. ... etc You can also get items by querying the field BlogPostCollection. This gives you multiple rows. You can also do filtering, sorting and pagination.\nLet’s see how getting multiple posts goes. Let’s get all the blog posts that are published (status is “published”) and the results will be sorted by creation date (older first):\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } } sort: { created: DESC } ) { title slug created description } } This will give the following results:\n{ \"data\": { \"BlogPostCollection\": [ { \"title\": \"Introduction to Aamu.app GraphQL\", \"slug\": \"introduction-to-aamuapp-graphql\", \"created\": \"2021-10-19T09:00:00.000Z\", \"description\": \"How to use the database from a distance\" }, { \"title\": \"Introduction to Aamu.app\", \"slug\": \"introduction-to-aamu-app\", \"created\": \"2021-10-10T09:00:00.000Z\", \"description\": \"Aamu.app is an all-in-one productivity tool\" } ] } } You can use other filtering methods, for example GT (Greater Than):\nquery { BlogPostCollection( filter: { status: { EQ: \"published\" } updated: { GT: updated: { GT: \"2022-01-04T02:15:37.975Z\" } } } ) { id created updated title slug description body heroImage { url } author { name } status tags } } This is the actual query which I’m using to create this blog you are reading. This will fetch all the updated blog posts since I ran this last time (since I built the blog last time). I’m using Hugo to create this blog, and the blog posts are in Aamu’s database and I’m writing this using the Aamu’s Documents feature.\nNote that there is a field called heroImage, which has a subfield url. You can find all the fields with Altair ’s Docs feature. It will fetch the database structure and you will see all the fields that you can query (or mutate).\nWith Altair you can also see what kind of filtering you can do. For example, Altair sees that the updated field is a date and will give you the following filtering options:\nYou can get that list by pressing Ctrl-Space.\nYou can also get similar lists in every spot in the query window – all the fields and filtering options will be easy to see.\nIn the next post we will get to know the mutation with GraphQL\n",
   "wordCount" : "675",
   "inLanguage": "en",
-  "image":"http://localhost:1313/blog/GraphQL%20Logo%20+%20Wordmark%20%28Rhodamine%29.png","datePublished": "2021-10-19T03:07:00Z",
+  "image":"https://aamu.app/blog/GraphQL%20Logo%20+%20Wordmark%20%28Rhodamine%29.png","datePublished": "2021-10-19T03:07:00Z",
   "dateModified": "2025-05-08T12:36:44.893Z",
   "author":{
     "@type": "Person",
@@ -121,7 +121,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/"
+    "@id": "https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/"
   },
   "publisher": {
     "@type": "Organization",
@@ -150,7 +150,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/blog/" accesskey="h" title="Aamu.app blog (Alt + H)">Aamu.app blog</a>
+            <a href="https://aamu.app/blog/" accesskey="h" title="Aamu.app blog (Alt + H)">Aamu.app blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -189,17 +189,17 @@
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blog/archives" title="Archive">
+                <a href="https://aamu.app/blog/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://aamu.app/blog/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blog/tags/" title="Tags">
+                <a href="https://aamu.app/blog/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -222,8 +222,8 @@
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" srcset="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_60362f56ec24d953.png 360w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_9e8d20ff4f32aa44.png 480w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_6e8c0d6b302662ba.png 720w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_8457f67fae34e027.png 1080w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_6b1621d67d02d355.png 1500w ,http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png 5000w" 
-            sizes="(min-width: 768px) 720px, 100vw" src="http://localhost:1313/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png" alt="" 
+        <img loading="eager" srcset="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_60362f56ec24d953.png 360w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_9e8d20ff4f32aa44.png 480w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_6e8c0d6b302662ba.png 720w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_8457f67fae34e027.png 1080w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29_hu_6b1621d67d02d355.png 1500w ,https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png 5000w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/GraphQL%20Logo%20&#43;%20Wordmark%20%28Rhodamine%29.png" alt="" 
             width="5000" height="1364">
         
 </figure>
@@ -363,17 +363,17 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/blog/tags/tasks/">Tasks</a></li>
-      <li><a href="http://localhost:1313/blog/tags/graphql/">Graphql</a></li>
-      <li><a href="http://localhost:1313/blog/tags/database/">Database</a></li>
+      <li><a href="https://aamu.app/blog/tags/tasks/">Tasks</a></li>
+      <li><a href="https://aamu.app/blog/tags/graphql/">Graphql</a></li>
+      <li><a href="https://aamu.app/blog/tags/database/">Database</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/blog/posts/creating-a-blog-with-aamuapp/">
+  <a class="prev" href="https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/">
     <span class="title">« Prev</span>
     <br>
     <span>Creating a blog with Aamu.app</span>
   </a>
-  <a class="next" href="http://localhost:1313/blog/posts/introduction-to-aamu-app/">
+  <a class="next" href="https://aamu.app/blog/posts/introduction-to-aamu-app/">
     <span class="title">Next »</span>
     <br>
     <span>Introduction to Aamu.app</span>
@@ -385,7 +385,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2025 <a href="http://localhost:1313/blog/">Aamu.app blog</a></span>
+    <span>&copy; 2025 <a href="https://aamu.app/blog/">Aamu.app blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
