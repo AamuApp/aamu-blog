@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Creating a Single Page Application with Aamu.app&#39;s database and GraphQL API | Aamu.app blog</title>
+<title>Creating a single-page application with Aamu.app&#39;s database and GraphQL API | Aamu.app blog</title>
 <meta name="keywords" content="graphql, database, forms">
 <meta name="description" content="This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a single-page application. The source code for this application (well, one HTML file with some JavaScript in it) is at GitHub. Using this in real lifeA small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.">
 <meta name="author" content="Ilkka Huotari">
@@ -65,18 +65,18 @@
     });
     lightbox.init();
 </script>
-<link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Creating a Single Page Application with Aamu.app&#39;s database and GraphQL API" />
+<link rel="stylesheet" href="/blog/css/photoswipe.css"><meta property="og:title" content="Creating a single-page application with Aamu.app&#39;s database and GraphQL API" />
 <meta property="og:description" content="This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a single-page application. The source code for this application (well, one HTML file with some JavaScript in it) is at GitHub. Using this in real lifeA small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/" />
-<meta property="og:image" content="https://aamu.app/blog/6258797456305130_image.png" /><meta property="article:section" content="posts" />
+<meta property="og:image" content="https://aamu.app/blog/3612337240714687_image.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-05-15T05:05:00+00:00" />
-<meta property="article:modified_time" content="2025-05-15T05:20:45+00:00" />
+<meta property="article:modified_time" content="2025-05-15T05:32:51+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://aamu.app/blog/6258797456305130_image.png" />
-<meta name="twitter:title" content="Creating a Single Page Application with Aamu.app&#39;s database and GraphQL API"/>
+<meta name="twitter:image" content="https://aamu.app/blog/3612337240714687_image.png" />
+<meta name="twitter:title" content="Creating a single-page application with Aamu.app&#39;s database and GraphQL API"/>
 <meta name="twitter:description" content="This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a single-page application. The source code for this application (well, one HTML file with some JavaScript in it) is at GitHub. Using this in real lifeA small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side."/>
 
 
@@ -94,7 +94,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Creating a Single Page Application with Aamu.app's database and GraphQL API",
+      "name": "Creating a single-page application with Aamu.app's database and GraphQL API",
       "item": "https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/"
     }
   ]
@@ -104,8 +104,8 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Creating a Single Page Application with Aamu.app's database and GraphQL API",
-  "name": "Creating a Single Page Application with Aamu.app\u0027s database and GraphQL API",
+  "headline": "Creating a single-page application with Aamu.app's database and GraphQL API",
+  "name": "Creating a single-page application with Aamu.app\u0027s database and GraphQL API",
   "description": "This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a single-page application. The source code for this application (well, one HTML file with some JavaScript in it) is at GitHub. Using this in real lifeA small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.\n",
   "keywords": [
     "graphql", "database", "forms"
@@ -113,8 +113,8 @@
   "articleBody": "This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a single-page application. The source code for this application (well, one HTML file with some JavaScript in it) is at GitHub. Using this in real lifeA small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.\nYou can see the general principle here and maybe that will guide you enough into real applications.\nCreate the databaseFirst you need the database at Aamu.app. Conveniently, we have a template for it. You can create a database from the template in here:\nThe AppWe will create a sort of reservation calendar, which accepts entries consisting of a title and a date, and show the current entries as a list. It would look like this:\nThe list of entries is fetched from the database with GraphQL, for which you would need an API KEY, which you can create in the Database Settings.\nA new entry is submitted through the Forms endpoint, which you can also get in the Database Settings. We could also send the form data through GraphQL API, but using the forms endpoint is easy and enough for this application.\nBoth of these should be set in the HTML file, where is says like this:\n// Set these! const API_KEY = ''; const FORM_ENDPOINT = '';How the GraphQL part works here?So, when the HTML file is loaded into the browser, this happens:\nasync function getData() { try { const response = await fetch('https://api.aamu.app/api/v1/graphql/', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'x-api-key': API_KEY }, body: JSON.stringify({ query: ` { Sheet1Collection(sort: { startTime: DESC }) { id created_at updated_at title startTime } } `}) }); if (!response.ok) throw new Error(`HTTP error: ${response.status}`); const data = await response.json(); if (data?.errors) { data.errors.forEach(e =\u003e setError(e.message)); } else if (data?.data) { handleData(data.data); } else { setError('No data returned from API'); } } catch (err) { console.log('Error:', err); } } // Get current data from the calendar (database) getData();So, getData() is called, which fetches the rows from the database (table Sheet1) and then presents the data on the screen (function handleData).\nNote that you can do GraphQL queries very easily, using the Fetch API. You can read more about the syntax of the GraphQL queries here in our blog.\nSending the dataAs told, sending happens through the Forms API. Sharing the Forms API endpoint is safe — it can be used only for adding data. That’s it!There’s not much more to it: just fetching data from a database and adding data to a database, while showing it on a screen. This was a really simple application.\n",
   "wordCount" : "476",
   "inLanguage": "en",
-  "image":"https://aamu.app/blog/6258797456305130_image.png","datePublished": "2025-05-15T05:05:00Z",
-  "dateModified": "2025-05-15T05:20:45.777Z",
+  "image":"https://aamu.app/blog/3612337240714687_image.png","datePublished": "2025-05-15T05:05:00Z",
+  "dateModified": "2025-05-15T05:32:51.668Z",
   "author":{
     "@type": "Person",
     "name": "Ilkka Huotari"
@@ -212,19 +212,19 @@
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Creating a Single Page Application with Aamu.app&#39;s database and GraphQL API
+      Creating a single-page application with Aamu.app&#39;s database and GraphQL API
     </h1>
-    <div class="post-meta"><span title='2025-05-15 05:05:00 +0000 UTC'>May 15, 2025</span>&nbsp;·&nbsp;<span title='2025-05-15 05:20:45.777 +0000 UTC'>Updated May 15, 2025</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Ilkka Huotari
+    <div class="post-meta"><span title='2025-05-15 05:05:00 +0000 UTC'>May 15, 2025</span>&nbsp;·&nbsp;<span title='2025-05-15 05:32:51.668 +0000 UTC'>Updated May 15, 2025</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Ilkka Huotari
 
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" srcset="https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image_hu_cb353f1f80bf4b30.png 360w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image_hu_bf2a20b23d9ea472.png 480w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image_hu_159bcd1d67457cff.png 720w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image_hu_f9483a50626ca257.png 1080w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image_hu_b7486c3c5b64a822.png 1500w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image.png 1536w" 
-            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/6258797456305130_image.png" alt="" 
+        <img loading="eager" srcset="https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image_hu_cb353f1f80bf4b30.png 360w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image_hu_bf2a20b23d9ea472.png 480w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image_hu_159bcd1d67457cff.png 720w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image_hu_f9483a50626ca257.png 1080w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image_hu_b7486c3c5b64a822.png 1500w ,https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image.png 1536w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/3612337240714687_image.png" alt="" 
             width="1536" height="1024">
         
 </figure>
-  <div class="post-content"><p>This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a <a target="_blank" rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/Single-page_application" id="e95e17ae-a128-459b-be7b-25bf646a5406">single-page application</a>. The source code for this application (well, one HTML file with some JavaScript in it) is at <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/AamuApp/example-calendar" id="b4a5f114-360a-465f-a38e-78165fde9935">GitHub</a>. </p><h2>Using this in real life</h2><p>A small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.</p><p>You can see the general principle here and maybe that will guide you enough into real applications.</p><h2>Create the database</h2><p>First you need the database at Aamu.app. Conveniently, we have a template for it. You can create a database from the template in here:</p><img src="3711274347495994_image.png" style="width: auto;" id="fba81a7a-632b-4d5e-9c83-38b647b70c19"><h2>The App</h2><p>We will create a sort of reservation calendar, which accepts entries consisting of a title and a date, and show the current entries as a list. It would look like this:</p><img src="1577256200138306_image.png" style="width: auto;" id="be1a014f-ed67-4533-a596-d3ed5fbb0fea"><p>The list of entries is fetched from the database with GraphQL, for which you would need an API KEY, which you can create in the <em>Database Settings</em>.</p><p>A new entry is submitted through the <em>Forms endpoint</em>, which you can also get in the <em>Database Settings</em>. We could also send the form data through GraphQL API, but using the forms endpoint is easy and enough for this application.</p><p>Both of these should be set in the HTML file, where is says like this:</p><pre><code class="language-javascript">// Set these!
+  <div class="post-content"><p>This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a <a target="_blank" rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/Single-page_application" id="e95e17ae-a128-459b-be7b-25bf646a5406">single-page application</a>. The source code for this application (well, one HTML file with some JavaScript in it) is at <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/AamuApp/example-calendar" id="b4a5f114-360a-465f-a38e-78165fde9935">GitHub</a>. </p><h2>Using this in real life</h2><p>A small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.</p><p>You can see the general principle here and maybe that will guide you enough into real applications.</p><h2>Create the database</h2><p>First you need the database at Aamu.app. Conveniently, we have a template for it. You can create a database from the template in here:</p><img src="1397441610415115_image.png" style="width: auto;" id="fba81a7a-632b-4d5e-9c83-38b647b70c19"><h2>The App</h2><p>We will create a sort of reservation calendar, which accepts entries consisting of a title and a date, and show the current entries as a list. It would look like this:</p><img src="3914033296476242_image.png" style="width: auto;" id="be1a014f-ed67-4533-a596-d3ed5fbb0fea"><p>The list of entries is fetched from the database with GraphQL, for which you would need an API KEY, which you can create in the <em>Database Settings</em>.</p><p>A new entry is submitted through the <em>Forms endpoint</em>, which you can also get in the <em>Database Settings</em>. We could also send the form data through GraphQL API, but using the forms endpoint is easy and enough for this application.</p><p>Both of these should be set in the HTML file, where is says like this:</p><pre><code class="language-javascript">// Set these!
 const API_KEY = '';
 const FORM_ENDPOINT = '';</code></pre><h2>How the GraphQL part works here?</h2><p>So, when the HTML file is loaded into the browser, this happens:</p><pre><code class="language-typescript">async function getData() {
 	try {
