@@ -33,6 +33,10 @@
     -webkit-line-clamp: unset;
 }
 
+.post-entry.tag-entry {
+    margin: 20px 0;
+}
+
 .post-entry {
     position: relative;
     padding: var(--gap);
