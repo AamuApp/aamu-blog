@@ -14,9 +14,15 @@
       {{ $code := replaceRE `<pre><code[^>]*>([\s\S]*?)</code></pre>` "$1" $match }}
       {{ $trimmedCode := trim $code "\n \t" }}
       {{ if $trimmedCode }}
-        {{ $highlighted := highlight $trimmedCode $lang (dict "noClasses" false) }}
+        <!-- Decode HTML entities before highlighting -->
+        {{ $decodedCode := $trimmedCode | htmlUnescape }}
+        {{ $highlighted := highlight $decodedCode $lang (dict "noClasses" false) }}
         {{ $innerCode := replaceRE `<div class="highlight"><pre[^>]*><code[^>]*>([\s\S]*?)</code></pre></div>` "$1" $highlighted }}
-        {{ $replacement := printf `<div class="code-wrapper"><pre class="chroma"><code class="language-%s">%s</code></pre><button class="copy-code">copy</button></div>` $lang $innerCode }}
+        <!-- Remove highlighting from HTML entities -->
+        {{ $cleanedCode := replaceRE `<span class="ni">&lt;</span>` "&lt;" $innerCode }}
+        {{ $cleanedCode = replaceRE `<span class="ni">&gt;</span>` "&gt;" $cleanedCode }}
+        {{ $cleanedCode = replaceRE `<span class="ni">&amp;</span>` "&amp;" $cleanedCode }}
+        {{ $replacement := printf `<div class="code-wrapper"><pre class="chroma"><code class="language-%s">%s</code></pre><button class="copy-code">copy</button></div>` $lang $cleanedCode }}
         {{ $content = replace $content $match $replacement }}
       {{ end }}
     {{ end }}
