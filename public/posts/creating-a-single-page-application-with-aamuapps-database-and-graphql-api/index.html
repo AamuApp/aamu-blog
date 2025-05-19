@@ -229,8 +229,6 @@
   
   
   
-  
-  
     
       
       
@@ -260,8 +258,6 @@
         
       
     
-  
-  
   
   
 <p>This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a <a target="_blank" rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/Single-page_application" id="e95e17ae-a128-459b-be7b-25bf646a5406">single-page application</a>. The source code for this application (well, one HTML file with some JavaScript in it) is at <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/AamuApp/example-calendar" id="b4a5f114-360a-465f-a38e-78165fde9935">GitHub</a>. </p><h2>Using this in real life</h2><p>A small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.</p><p>You can see the general principle here and maybe that will guide you enough into real applications.</p><h2>Create the database</h2><p>First you need the database at Aamu.app. Conveniently, we have a template for it. You can create a database from the template in here:</p><img src="3267204705668207_image.png" style="width: auto;" id="fba81a7a-632b-4d5e-9c83-38b647b70c19"><h2>The App</h2><p>We will create a sort of reservation calendar, which accepts entries consisting of a title and a date, and show the current entries as a list. It would look like this:</p><img src="4981572360979767_image.png" style="width: auto;" id="be1a014f-ed67-4533-a596-d3ed5fbb0fea"><p>The list of entries is fetched from the database with GraphQL, for which you would need an API KEY, which you can create in the <em>Database Settings</em>.</p><p>A new entry is submitted through the <em>Forms endpoint</em>, which you can also get in the <em>Database Settings</em>. We could also send the form data through GraphQL API, but using the forms endpoint is easy and enough for this application.</p><p>Both of these should be set in the HTML file, where is says like this:</p><div class="code-wrapper"><pre class="chroma"><code class="language-javascript"><span class="line"><span class="cl"><span class="c1">// Set these!

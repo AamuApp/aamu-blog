@@ -2,10 +2,6 @@
 {{ if .bypass }}
   {{ $content | safeHTML }}
 {{ else }}
-  <!-- Debug: Log input content -->
-  {{ if hugo.IsDevelopment }}
-    {{ printf "DEBUG: Input content: %s" $content | warnf }}
-  {{ end }}
   <!-- Process only raw HTML <pre><code> blocks -->
   {{ $matches := findRE `<pre><code( class="language-[^"]*")?>[\s\S]*?</code></pre>` $content }}
   {{ if $matches }}
@@ -24,10 +20,6 @@
         {{ $content = replace $content $match $replacement }}
       {{ end }}
     {{ end }}
-  {{ end }}
-  <!-- Debug: Log output content -->
-  {{ if hugo.IsDevelopment }}
-    {{ printf "DEBUG: Output content: %s" $content | warnf }}
   {{ end }}
   {{ $content | safeHTML }}
 {{ end }}

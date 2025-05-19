@@ -232,8 +232,6 @@
   
   
   
-  
-  
     
       
       
@@ -319,8 +317,6 @@
         
       
     
-  
-  
   
   
 <p>Aamu.app database supports two APIs: one for submitting data into the database via standard HTML forms – this works just one direction. Also you can get and put data into the database via GraphQL.</p><p>As Wikipedia says it:</p><blockquote><p>GraphQL is an open-source data query and manipulation language.</p></blockquote><p>It has a syntax for reading and writing the database. For testing it out, it is helpful to have a tool. I like Altair.<br>To use Altair or any similar tool you first need to setup it with the database endpoint and the database API key. The database endpoint is:</p><div class="code-wrapper"><pre class="chroma"><code class="language-plaintext"><span class="line"><span class="cl">https://api.aamu.app/api/v1/graphql/</span></span></code></pre><button class="copy-code">copy</button></div><p>You can get the API key from your <em>database settings.</em></p><h2>Querying the database</h2><p>Let's assume we are using the database <strong>aamu-blog</strong>, which is the actual database which holds the blog posts you are reading now! The database looks like this in Aamu.app (at this moment in time there are only two rows, i.e. posts):<br></p><img src="2568020510152844_1709968790929.jpg" class="ql-image" style="width: auto;"><p><br>It has two tables: "Blog post" and "Person". Our GraphQL API will have these fields for this database (you can use for example Altair GrapQL client to see the database schema):<br></p><img src="4292472849893152_1709968866417.jpg" class="ql-image" style="width: auto;"><p><br>So, the GraphQL API will create two fields for each table, one for fetching a single item (by an <strong>ID</strong>), e.g. <strong>BlogPost</strong> and one (<strong>BlogPostCollection</strong>) for fetching many items (by some criteria you define).</p><p>Let's see how to get a single item. This is the query:</p><div class="code-wrapper"><pre class="chroma"><code class="language-plaintext"><span class="line"><span class="cl">query {
