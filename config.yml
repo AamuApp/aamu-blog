@@ -3,7 +3,7 @@
 baseURL: "https://aamu.app/blog/"
 title: Aamu.app blog
 pagination.pagerSize: 5
-theme: [hugo-PaperMod]
+theme: hugo-PaperMod
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -11,7 +11,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-pygmentsUseClasses: true
+pygmentsUseClasses: false
 mainsections: ["posts", "papermod"]
 # googleAnalytics: UA-123-45
 
@@ -90,7 +90,7 @@ params:
       This blog is created with Hugo (static site generator). The source code of this blog is on <a target="_blank" href="https://github.com/AamuApp/aamu-blog">GitHub</a>. With it you can see how Aamu.app's database and its GraphQL API is used to create this site.
 
   assets:
-    disableHLJS: true
+    disableHLJS: true  # Disable Highlight.js to avoid conflicts
     favicon: "https://st.aamu.app/img/logo-160-round-wbg.png"
     # favicon16x16: "images/favicon16.png"
     # favicon32x32: "images/favicon32.png"
@@ -112,16 +112,12 @@ params:
   #     keys: ["title", "permalink", "summary", "content"]
 
 markup:
-  goldmark:
-    renderer:
-      unsafe: true
   highlight:
+    codeFences: false
     noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    style: monokai
+    guessSyntax: true
+    lineNos: false
 
 services:
   instagram:

@@ -37,8 +37,11 @@
   {{- if .Content }}
   <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+    {{- $anchoredContent := partial "anchored_headings.html" .Content }}
+    {{- partial "code_highlight.html" (dict "content" $anchoredContent "bypass" false) }}
+    {{- else }}
+    {{- partial "code_highlight.html" (dict "content" .Content "bypass" false) }}
+    {{- end }}
   </div>
   {{- end }}
 

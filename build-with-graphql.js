@@ -54,6 +54,7 @@ cover:
 tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
 ShowToc: false
 ShowBreadCrumbs: false
+markup: html
 ---
 
 ${post.body}

@@ -1,0 +1,33 @@
+{{ $content := .content }}
+{{ if .bypass }}
+  {{ $content | safeHTML }}
+{{ else }}
+  <!-- Debug: Log input content -->
+  {{ if hugo.IsDevelopment }}
+    {{ printf "DEBUG: Input content: %s" $content | warnf }}
+  {{ end }}
+  <!-- Process only raw HTML <pre><code> blocks -->
+  {{ $matches := findRE `<pre><code( class="language-[^"]*")?>[\s\S]*?</code></pre>` $content }}
+  {{ if $matches }}
+    {{ range $match := $matches }}
+      {{ $lang := "plaintext" }}
+      {{ $langMatch := findRE `language-([a-zA-Z0-9]+)` $match 1 }}
+      {{ if $langMatch }}
+        {{ $lang = replaceRE `language-([a-zA-Z0-9]+)` "$1" (index $langMatch 0) }}
+      {{ end }}
+      {{ $code := replaceRE `<pre><code[^>]*>([\s\S]*?)</code></pre>` "$1" $match }}
+      {{ $trimmedCode := trim $code "\n \t" }}
+      {{ if $trimmedCode }}
+        {{ $highlighted := highlight $trimmedCode $lang (dict "noClasses" false) }}
+        {{ $innerCode := replaceRE `<div class="highlight"><pre[^>]*><code[^>]*>([\s\S]*?)</code></pre></div>` "$1" $highlighted }}
+        {{ $replacement := printf `<div class="code-wrapper"><pre class="chroma"><code class="language-%s">%s</code></pre><button class="copy-code">copy</button></div>` $lang $innerCode }}
+        {{ $content = replace $content $match $replacement }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  <!-- Debug: Log output content -->
+  {{ if hugo.IsDevelopment }}
+    {{ printf "DEBUG: Output content: %s" $content | warnf }}
+  {{ end }}
+  {{ $content | safeHTML }}
+{{ end }}

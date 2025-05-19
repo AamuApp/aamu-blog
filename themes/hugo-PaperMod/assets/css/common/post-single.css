@@ -1,6 +1,7 @@
 .post-single {
     max-width: calc(var(--post-width) + var(--gap) * 2);
     margin: auto;
+    tab-size: 4;
 }
 
 .page-header,
