@@ -163,7 +163,7 @@ async function deletePost(post) {
 
 // Processes and writes a post to the Hugo content directory
 async function writePost(post) {
-	console.log(`\nWriting post: ${post.title}`);
+	console.log(`Writing post: ${post.title}`);
 	const postUpdated = DateTime.fromISO(post.updated_at || post.created_at);
 	const folderPath = `${CONTENT_DIR}/${post.slug}`;
 	const filePath = `${folderPath}/index.md`;
@@ -240,6 +240,8 @@ async function buildBlog() {
 		for (const post of newPosts) {
 			await writePost(post);
 		}
+
+		console.log('');
 
 		// Delete draft posts
 		for (const post of draftPosts) {

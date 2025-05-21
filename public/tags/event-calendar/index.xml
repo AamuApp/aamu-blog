@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Event-Calendar on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/event-calendar/</link>
+    <description>Recent content in Event-Calendar on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 May 2025 03:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/event-calendar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app as a Calendly alternative</title>
+      <link>https://aamu.app/blog/posts/aamuapp-as-a-calendly-alternative/</link>
+      <pubDate>Wed, 21 May 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-as-a-calendly-alternative/</guid>
+      <description>&lt;p&gt;Did you know that you can use Aamu.app as a Calendly alternative? Well, you can, and more, since you can tie it up with Aamu.app’s video meetings. Here’s how.&lt;/p&gt;&lt;p&gt;First, go to: Project settings → Tasks → Event Booking&lt;/p&gt;&lt;img src=&#34;9688067131885958_image.png&#34; style=&#34;width: auto;&#34; id=&#34;c30f960e-1db0-498f-9cfd-0a7d04452f20&#34;&gt;&lt;p&gt;There you will see a host of settings. Set them as you would like — there are a lot of configuration options. In the end, what you want is the link to the event calendar. It looks like this: &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://ilkkah.aamu.app/book-event/1700500094527/15-minute-meeting&#34;&gt;https://ilkkah.aamu.app/book-event/1700500094527/15-minute-meeting&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
