@@ -2,23 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-as-a-calendly-alternative/</loc>
-    <lastmod>2025-05-21T20:13:06+00:00</lastmod>
-  </url><url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2025-05-21T20:13:06+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/calendly/</loc>
-    <lastmod>2025-05-21T20:13:06+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/event-calendar/</loc>
-    <lastmod>2025-05-21T20:13:06+00:00</lastmod>
+    <lastmod>2025-05-27T12:25:02+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2025-05-21T20:13:06+00:00</lastmod>
+    <lastmod>2025-05-27T12:25:02+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/</loc>
+    <lastmod>2025-05-27T12:25:02+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/posts/aamuapp-as-a-calendly-alternative/</loc>
+    <lastmod>2025-05-26T17:37:33+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/calendly/</loc>
+    <lastmod>2025-05-26T17:37:33+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/event-calendar/</loc>
+    <lastmod>2025-05-26T17:37:33+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2025-05-21T20:13:06+00:00</lastmod>
+    <lastmod>2025-05-26T17:37:33+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/</loc>
     <lastmod>2025-05-21T03:02:10+00:00</lastmod>
