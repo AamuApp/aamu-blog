@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Helpdesk on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/helpdesk/</link>
+    <description>Recent content in Helpdesk on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 May 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/helpdesk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up Helpdesk in Aamu.app - Part 1, emails</title>
+      <link>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</link>
+      <pubDate>Fri, 30 May 2025 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</guid>
+      <description>&lt;p&gt;This time, let’s setup Helpdesk.&lt;/p&gt;&lt;p&gt;We are going to use emails as the Helpdesk “route” here — people will contact us through the email. &lt;/p&gt;&lt;p&gt;For emails, we need a domain. We covered domain setup earlier in the &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/&#34; id=&#34;eb6e4907-75f1-4b0e-8083-f09c15d53128&#34;&gt;Emails section here&lt;/a&gt;. So, go read that first and set up your email domain with those instructions.&lt;/p&gt;&lt;p&gt;After that we are going to set up the Helpdesk, which continues in Project settings. &lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
