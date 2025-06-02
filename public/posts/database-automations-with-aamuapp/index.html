@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Database automations with Aamu.app | Aamu.app blog</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="database, automations">
 <meta name="description" content="Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.We start by going into the contact form database and in the 3 dots menu you will see “Automations”.">
 <meta name="author" content="Ilkka Huotari">
 <link rel="canonical" href="https://aamu.app/blog/posts/database-automations-with-aamuapp/">
@@ -69,13 +69,13 @@
 <meta property="og:description" content="Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.We start by going into the contact form database and in the 3 dots menu you will see “Automations”." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aamu.app/blog/posts/database-automations-with-aamuapp/" />
-<meta property="og:image" content="https://aamu.app/blog/8502075159131495_form-automations.jpg" /><meta property="article:section" content="posts" />
+<meta property="og:image" content="https://aamu.app/blog/1876967483747866_form-automations.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-06-02T14:00:00+00:00" />
-<meta property="article:modified_time" content="2025-06-02T14:15:47+00:00" />
+<meta property="article:modified_time" content="2025-06-02T14:17:01+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://aamu.app/blog/8502075159131495_form-automations.jpg" />
+<meta name="twitter:image" content="https://aamu.app/blog/1876967483747866_form-automations.jpg" />
 <meta name="twitter:title" content="Database automations with Aamu.app"/>
 <meta name="twitter:description" content="Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.We start by going into the contact form database and in the 3 dots menu you will see “Automations”."/>
 
@@ -108,13 +108,13 @@
   "name": "Database automations with Aamu.app",
   "description": "Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.\nWe start by going into the contact form database and in the 3 dots menu you will see “Automations”.\n",
   "keywords": [
-    
+    "database", "automations"
   ],
   "articleBody": " Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.\nWe start by going into the contact form database and in the 3 dots menu you will see “Automations”.\nAnd you will see an empty page of Automations. Let’s create one:\nNext you will see a few things, which I will explain here:\nThe Automation will be triggered by some event. At the moment, only Row inserted is supported.\nTriggering table. We need to specify, which table triggers the Automation.\nBindings. When the row is inserted, it has some data, and the different fields are named by some human-readable name which tells what the data is about. Here are those names turned into lowercase character strings, wrapped in {{}}. You can use these bindings in the email that you send out. For example, the {{name}} means the name that the person gave and {{email}} is his/her email address.\nPublishing. When you are ready to take this Automation into use, set this to Public.\nAdd action. Your automation needs actions — at least one. Add it here.\nActionsYour automation needs actions. Currently, two types of actions are supported: Sending an email\nCreating a task\nAnd email needs a sender. And we can only use a sender that we have specified by ourselves. So, in case you haven’t set up Emails yet, now would be a good time to do that.\nHere are the email accounts that I have set up, and I can choose from one of them:\nNext we get to the main point — writing the email template that will be used for sending.\nHere is the screen for writing email templates:\nThe Bindings are explained there again — how they work. You can use them in the body section of the email. And the actual bindings you saw in previous section.\nThe To field would be the email where you want the email to arrive at. The From field was set earlier.\nYou can write a template like this, for example:\nSubject: Contact form submission\nTo: youraddress@gmail.com\nBody:\nHi me! Someone just filled our contact form with this information: Name: {{name}} Email: {{email}} Message: {{message}}Click Save template.\nAt this point you are done — just change the Publishing to Public. And start waiting for the emails to arrive!\n",
   "wordCount" : "422",
   "inLanguage": "en",
-  "image":"https://aamu.app/blog/8502075159131495_form-automations.jpg","datePublished": "2025-06-02T14:00:00Z",
-  "dateModified": "2025-06-02T14:15:47.183Z",
+  "image":"https://aamu.app/blog/1876967483747866_form-automations.jpg","datePublished": "2025-06-02T14:00:00Z",
+  "dateModified": "2025-06-02T14:17:01.943Z",
   "author":{
     "@type": "Person",
     "name": "Ilkka Huotari"
@@ -214,13 +214,13 @@
     <h1 class="post-title entry-hint-parent">
       Database automations with Aamu.app
     </h1>
-    <div class="post-meta"><span title='2025-06-02 14:00:00 +0000 UTC'>June 2, 2025</span>&nbsp;·&nbsp;<span title='2025-06-02 14:15:47.183 +0000 UTC'>Updated June 2, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Ilkka Huotari
+    <div class="post-meta"><span title='2025-06-02 14:00:00 +0000 UTC'>June 2, 2025</span>&nbsp;·&nbsp;<span title='2025-06-02 14:17:01.943 +0000 UTC'>Updated June 2, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Ilkka Huotari
 
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" srcset="https://aamu.app/blog/posts/database-automations-with-aamuapp/8502075159131495_form-automations_hu_487d1d89aaa505af.jpg 360w ,https://aamu.app/blog/posts/database-automations-with-aamuapp/8502075159131495_form-automations_hu_b117deec7c0b9898.jpg 480w ,https://aamu.app/blog/posts/database-automations-with-aamuapp/8502075159131495_form-automations_hu_dfd37487139f0381.jpg 720w ,https://aamu.app/blog/posts/database-automations-with-aamuapp/8502075159131495_form-automations.jpg 896w" 
-            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/database-automations-with-aamuapp/8502075159131495_form-automations.jpg" alt="" 
+        <img loading="eager" srcset="https://aamu.app/blog/posts/database-automations-with-aamuapp/1876967483747866_form-automations_hu_487d1d89aaa505af.jpg 360w ,https://aamu.app/blog/posts/database-automations-with-aamuapp/1876967483747866_form-automations_hu_b117deec7c0b9898.jpg 480w ,https://aamu.app/blog/posts/database-automations-with-aamuapp/1876967483747866_form-automations_hu_dfd37487139f0381.jpg 720w ,https://aamu.app/blog/posts/database-automations-with-aamuapp/1876967483747866_form-automations.jpg 896w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://aamu.app/blog/posts/database-automations-with-aamuapp/1876967483747866_form-automations.jpg" alt="" 
             width="896" height="469">
         
 </figure>
@@ -252,7 +252,7 @@
     
   
   
-<p>Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! </p><p>Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.</p><p>We start by going into the contact form database and in the 3 dots menu you will see “Automations”.</p><img src="2685205101325500_image.png" style="width: auto;" id="af5aed3b-5e86-435a-a07f-d8a0aac7c0dd"><p>And you will see an empty page of Automations. Let’s create one:</p><img src="2476193763788401_image.png" style="width: auto;" id="e07afaab-6184-4f59-9447-42a1daf1fa85"><p>Next you will see a few things, which I will explain here:</p><img src="7925878396364243_image.png" style="width: auto;" id="00977def-cb73-4142-a35b-7692167fa8ff"><ol><li><p>The Automation will be triggered by some event. At the moment, only <code>Row inserted</code> is supported.</p></li><li><p>Triggering table. We need to specify, which table triggers the Automation.</p></li><li><p>Bindings. When the row is inserted, it has some data, and the different fields are named by some human-readable name which tells what the data is about. Here are those names turned into lowercase character strings, wrapped in <code>{{}}</code>. You can use these bindings in the email that you send out. For example, the <code>{{name}}</code> means the name that the person gave and <code>{{email}}</code> is his/her email address.</p></li><li><p>Publishing. When you are ready to take this Automation into use, set this to Public.</p></li><li><p>Add action. Your automation needs actions — at least one. Add it here.</p></li></ol><h2>Actions</h2><p>Your automation needs actions. Currently, two types of actions are supported: </p><ol><li><p>Sending an email</p></li><li><p>Creating a task</p></li></ol><img src="8367866443935417_image.png" style="width: auto;" id="a4165404-d25c-4644-a22f-3c6ce650af52"><p>And email needs a sender. And we can only use a sender that we have specified by ourselves. So, in case you haven’t set up Emails yet, now would be a good time to do that.</p><p>Here are the email accounts that I have set up, and I can choose from one of them:</p><img src="2301201998371396_image.png" style="width: auto;" id="3566e9a6-7acd-47e6-a39f-8fe7376ccab0"><p>Next we get to the main point — writing the email template that will be used for sending.</p><img src="5861225700115866_image.png" style="width: auto;" id="7d779717-651d-4a53-9aa4-397877c13371"><p>Here is the screen for writing email templates:</p><img src="8691359099956204_image.png" style="width: auto;" id="a408b2c6-85ac-48ec-8156-10bd5a581947"><p>The <em>Bindings</em> are explained there again — how they work. You can use them in the body section of the email. And the actual bindings you saw in previous section.</p><p>The <em>To</em> field would be the email where you want the email to arrive at. The <em>From</em> field was set earlier.</p><p>You can write a template like this, for example:</p><p>Subject: Contact form submission<br>To: youraddress@gmail.com<br>Body:</p><div class="code-wrapper"><pre class="chroma"><code class="language-html"><span class="line"><span class="cl">Hi me!
+<p>Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! </p><p>Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.</p><p>We start by going into the contact form database and in the 3 dots menu you will see “Automations”.</p><img src="7420228804252829_image.png" style="width: auto;" id="af5aed3b-5e86-435a-a07f-d8a0aac7c0dd"><p>And you will see an empty page of Automations. Let’s create one:</p><img src="4936701324363928_image.png" style="width: auto;" id="e07afaab-6184-4f59-9447-42a1daf1fa85"><p>Next you will see a few things, which I will explain here:</p><img src="7025607155218934_image.png" style="width: auto;" id="00977def-cb73-4142-a35b-7692167fa8ff"><ol><li><p>The Automation will be triggered by some event. At the moment, only <code>Row inserted</code> is supported.</p></li><li><p>Triggering table. We need to specify, which table triggers the Automation.</p></li><li><p>Bindings. When the row is inserted, it has some data, and the different fields are named by some human-readable name which tells what the data is about. Here are those names turned into lowercase character strings, wrapped in <code>{{}}</code>. You can use these bindings in the email that you send out. For example, the <code>{{name}}</code> means the name that the person gave and <code>{{email}}</code> is his/her email address.</p></li><li><p>Publishing. When you are ready to take this Automation into use, set this to Public.</p></li><li><p>Add action. Your automation needs actions — at least one. Add it here.</p></li></ol><h2>Actions</h2><p>Your automation needs actions. Currently, two types of actions are supported: </p><ol><li><p>Sending an email</p></li><li><p>Creating a task</p></li></ol><img src="1053436805041612_image.png" style="width: auto;" id="a4165404-d25c-4644-a22f-3c6ce650af52"><p>And email needs a sender. And we can only use a sender that we have specified by ourselves. So, in case you haven’t set up Emails yet, now would be a good time to do that.</p><p>Here are the email accounts that I have set up, and I can choose from one of them:</p><img src="828084629582877_image.png" style="width: auto;" id="3566e9a6-7acd-47e6-a39f-8fe7376ccab0"><p>Next we get to the main point — writing the email template that will be used for sending.</p><img src="9829828685067728_image.png" style="width: auto;" id="7d779717-651d-4a53-9aa4-397877c13371"><p>Here is the screen for writing email templates:</p><img src="7275838054860435_image.png" style="width: auto;" id="a408b2c6-85ac-48ec-8156-10bd5a581947"><p>The <em>Bindings</em> are explained there again — how they work. You can use them in the body section of the email. And the actual bindings you saw in previous section.</p><p>The <em>To</em> field would be the email where you want the email to arrive at. The <em>From</em> field was set earlier.</p><p>You can write a template like this, for example:</p><p>Subject: Contact form submission<br>To: youraddress@gmail.com<br>Body:</p><div class="code-wrapper"><pre class="chroma"><code class="language-html"><span class="line"><span class="cl">Hi me!
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Someone just filled our contact form with this information:
 </span></span><span class="line"><span class="cl">
@@ -265,6 +265,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://aamu.app/blog/tags/database/">Database</a></li>
+      <li><a href="https://aamu.app/blog/tags/automations/">Automations</a></li>
     </ul>
 <nav class="paginav">
   <a class="next" href="https://aamu.app/blog/posts/creating-survey-forms-with-aamuapp-form-builder/">
