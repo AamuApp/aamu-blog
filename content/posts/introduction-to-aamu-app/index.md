@@ -1,15 +1,15 @@
-
 ---
 author: "Ilkka Huotari"
 title: "Introduction to Aamu.app"
 date: "2021-09-26T20:39:00.000Z"
-modified: "2025-05-07T12:12:59.929Z"
+modified: "2025-06-04T16:18:29.652Z"
 description: "Aamu.app is an all-in-one productivity tool"
 cover:
-  image: image.png
+  image: 3636669623052033_image.png
 tags: []
 ShowToc: false
 ShowBreadCrumbs: false
+markup: html
 ---
 
 Working collaboratively can sometimes feel like a mess. Too many apps, scattered chats, docs and tasks all over the place. Aamu.app is here to change that. It’s an all-in-one tool that brings everything your team needs into one spot, so you can stop juggling and start getting stuff done.
@@ -40,7 +40,7 @@ And on top of that, all features and all the data is real-time, and every user c
 
 So, those features I promised:
 
-*   Tasks: Keep track of what needs doing with a kanban board, a list, a calendar or a timeline. There exists an appropriate view for every occasion.
+*   Tasks: Keep track of what needs doing with a kanban board, a list or a calendar. There exists an appropriate view for every occasion.
     
 *   Work Together, Live: Edit documents as a team without the “which version is this?” confusion. It even has Penpot 2.x built in—a free design tool—so you don’t need something like Figma.
     
