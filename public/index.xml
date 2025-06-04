@@ -9,6 +9,13 @@
     <lastBuildDate>Wed, 04 Jun 2025 03:50:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Aamu.app Tasks - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</link>
+      <pubDate>Wed, 04 Jun 2025 03:50:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</guid>
+      <description>&lt;p&gt;Let’s go through the features of Aamu.app Tasks. Here is the general overview with labels which we go through next:&lt;/p&gt;&lt;img src=&#34;4677166707985985_image.png&#34; style=&#34;width: auto;&#34; id=&#34;81867541-a77c-4184-a502-9928125b61b1&#34;&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;Search. Will search the currently selected project (or all projects if that is selected).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Currently selected project — or all projects combined.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Create new task.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Sort tasks menu.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Filter tasks menu.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;View selector (list, kanban, calendar).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Create new task quickly in one-line input box.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Task box, showing one task’s details. The green corner is the task status, which is clickable, and closes the task, when clicked. This status indicator is also in many other item types accross Aamu.app.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Aamu.app Tasls - feature overview</title>
       <link>https://aamu.app/blog/posts/aamuapp-tasls-feature-overview/</link>
       <pubDate>Wed, 04 Jun 2025 03:50:00 +0000</pubDate>
