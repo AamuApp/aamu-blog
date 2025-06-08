@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Jun 2025 03:50:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Jun 2025 06:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video Meetings - feature overview</title>
+      <link>https://aamu.app/blog/posts/video-meetings-feature-overview/</link>
+      <pubDate>Sun, 08 Jun 2025 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/video-meetings-feature-overview/</guid>
+      <description>&lt;p&gt;Let’s go through the Aamu.app Video Meetings.&lt;/p&gt;&lt;p&gt;We are using &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://livekit.io/&#34; id=&#34;4d060849-1312-4f49-8381-c585fedf606b&#34;&gt;LiveKit&lt;/a&gt;, which is a modern, open-source, scalable video and audio platform. Our video calling feature resembles Zoom and Microsoft Teams, except that it is of course integrated well with Aamu.app in every way.&lt;/p&gt;&lt;p&gt;As you have probably come to expect, the main section of Meetings resembles every other section in Aamu.app:&lt;/p&gt;&lt;img src=&#34;1840873113535055_image.png&#34; style=&#34;width: auto;&#34; id=&#34;f7af5341-a941-457c-b1dc-2883f68af793&#34;&gt;&lt;p&gt;You have the familiar project picker, the blue plus button for creating a new item (meeting in this case) and tabs (upcoming, past).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Aamu.app Tasks - feature overview</title>
       <link>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</link>
