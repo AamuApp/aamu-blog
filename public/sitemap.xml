@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more/</loc>
+    <lastmod>2025-06-10T09:46:43+00:00</lastmod>
+  </url><url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2025-06-10T08:30:22+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</loc>
-    <lastmod>2025-06-10T08:30:22+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/helpdesk/</loc>
-    <lastmod>2025-06-10T08:30:22+00:00</lastmod>
+    <lastmod>2025-06-10T09:46:43+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2025-06-10T08:30:22+00:00</lastmod>
+    <lastmod>2025-06-10T09:46:43+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</loc>
+    <lastmod>2025-06-10T09:19:42+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/helpdesk/</loc>
+    <lastmod>2025-06-10T09:19:42+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2025-06-10T08:30:22+00:00</lastmod>
+    <lastmod>2025-06-10T09:19:42+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/livekit/</loc>
     <lastmod>2025-06-08T20:38:31+00:00</lastmod>
