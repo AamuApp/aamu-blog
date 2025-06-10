@@ -51,6 +51,7 @@ modified: "${post.updated_at}"
 description: "${post.description}"
 cover:
   image: ${post.heroImage?.url || ''}
+  relative: true
 tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
 ShowToc: false
 ShowBreadCrumbs: false
