@@ -3,27 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://aamu.app/blog/posts/aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more/</loc>
-    <lastmod>2025-06-10T09:51:39+00:00</lastmod>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2025-06-10T09:51:39+00:00</lastmod>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/calendar/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/database/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/docs/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/emails/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/forms/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/helpdesk/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/meetings/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2025-06-10T09:51:39+00:00</lastmod>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/tasks/</loc>
+    <lastmod>2025-06-10T10:25:58+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</loc>
     <lastmod>2025-06-10T09:19:42+00:00</lastmod>
   </url><url>
-    <loc>https://aamu.app/blog/tags/helpdesk/</loc>
-    <lastmod>2025-06-10T09:19:42+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2025-06-10T09:19:42+00:00</lastmod>
-  </url><url>
     <loc>https://aamu.app/blog/tags/livekit/</loc>
-    <lastmod>2025-06-08T20:38:31+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/meetings/</loc>
     <lastmod>2025-06-08T20:38:31+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/video/</loc>
@@ -35,19 +53,10 @@
     <loc>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</loc>
     <lastmod>2025-06-04T22:59:07+00:00</lastmod>
   </url><url>
-    <loc>https://aamu.app/blog/tags/tasks/</loc>
-    <lastmod>2025-06-04T22:59:07+00:00</lastmod>
-  </url><url>
     <loc>https://aamu.app/blog/tags/automations/</loc>
     <lastmod>2025-06-02T18:05:23+00:00</lastmod>
   </url><url>
-    <loc>https://aamu.app/blog/tags/database/</loc>
-    <lastmod>2025-06-02T18:05:23+00:00</lastmod>
-  </url><url>
     <loc>https://aamu.app/blog/posts/database-automations-with-aamuapp/</loc>
-    <lastmod>2025-06-02T18:05:23+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/forms/</loc>
     <lastmod>2025-06-02T18:05:23+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/creating-survey-forms-with-aamuapp-form-builder/</loc>
@@ -58,9 +67,6 @@
   </url><url>
     <loc>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/</loc>
     <lastmod>2025-05-31T08:44:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/emails/</loc>
-    <lastmod>2025-06-08T21:41:51+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</loc>
     <lastmod>2025-06-08T21:41:51+00:00</lastmod>

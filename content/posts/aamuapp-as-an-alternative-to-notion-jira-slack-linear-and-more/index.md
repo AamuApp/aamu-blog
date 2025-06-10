@@ -2,12 +2,12 @@
 author: "Ilkka Huotari"
 title: "Aamu.app as an Alternative to Notion, Jira, Slack, Linear, and More"
 date: "2025-06-10T09:00:00.000Z"
-modified: "2025-06-10T09:51:39.529Z"
+modified: "2025-06-10T10:25:58.068Z"
 description: ""
 cover:
-  image: 375519760234506_aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more.png
+  image: 3533412501506037_aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more.png
   relative: true
-tags: []
+tags: ["tasks", "helpdesk", "database", "docs", "meetings", "emails", "calendar", "forms"]
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

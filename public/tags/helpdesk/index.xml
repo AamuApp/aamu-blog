@@ -6,8 +6,15 @@
     <description>Recent content in Helpdesk on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jun 2025 07:55:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jun 2025 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/helpdesk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app as an Alternative to Notion, Jira, Slack, Linear, and More</title>
+      <link>https://aamu.app/blog/posts/aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more/</link>
+      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more/</guid>
+      <description>&lt;p&gt;The modern digital workplace is a mosaic of specialized applications. Teams often find themselves subscribing to and jumping between Notion for documentation, Jira or Linear for issue tracking, Slack or Microsoft Teams for real-time communication, Calendly for scheduling, and a host of other tools for specific needs like design, forms, or customer support. While each tool excels in its niche, this fragmented approach often leads to &#34;tool fatigue,&#34; constant context switching, spiraling subscription costs, and a general sense of disorganization.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Aamu.app Helpdesk - feature overview</title>
       <link>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</link>
