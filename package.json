@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node build-with-graphql.js && hugo server",
-    "pub": "node build-with-graphql.js && hugo && git add . && git commit -am '..' && echo '\n*** Pushing' && git push web && git push github"
+    "pub": "node build-with-graphql.js && hugo --minify && git add . && git commit -am '..' && echo '\n*** Pushing' && git push web && git push github"
   },
   "keywords": [],
   "author": "",
