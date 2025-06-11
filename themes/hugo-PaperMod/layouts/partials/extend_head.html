@@ -1,7 +1,4 @@
 {{- /* Head custom content area start */ -}}
-{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
-{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
-
 {{- /* photoswipe */}}
 {{- $photoswipe_lightbox_js := resources.Get "js/photoswipe-lightbox.esm.js" }}
 {{- $photoswipe_js := resources.Get "js/photoswipe.esm.js" }}
@@ -15,6 +12,7 @@
     });
     lightbox.init();
 </script>
-<link rel="stylesheet" href="{{ $photoswipe_css.RelPermalink }}">
-
+<style>
+{{- $photoswipe_css.Content | safeCSS -}}
+</style>
 {{- /* Head custom content area end */ -}}
