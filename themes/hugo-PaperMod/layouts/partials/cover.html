@@ -21,14 +21,14 @@
         {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
         {{- if (and (in $processableFormats $cover.MediaType.SubType) ($responsiveImages) (eq $prod true)) }}
         <img srcset="{{- range $size := $sizes -}}
-                        {{- if (ge $cover.Width $size) -}}
-                        {{ printf "%s %s" (($cover.Process (printf "resize %sx webp q75" $size)).Permalink) (printf "%sw ," $size) -}}
-                        {{ end }}
-                    {{- end -}}{{$cover.Permalink }} {{printf "%dw" ($cover.Width)}}"
-             sizes="(min-width: 768px) 300px, calc(100vw - 60px)"
-             src="{{ ($cover.Process "resize 720x jpg").Permalink }}"
-             alt="{{ $alt }}"
-             style="aspect-ratio: {{ $aspectRatio }};">
+                {{- if (ge $cover.Width $size) -}}
+                {{ printf "%s %s" (($cover.Process (printf "resize %sx webp q75" $size)).Permalink) (printf "%sw ," $size) -}}
+                {{ end }}
+            {{- end -}}{{$cover.Permalink }} {{printf "%dw" ($cover.Width)}}"
+            sizes="{{ if $.IsSingle }}(min-width: 768px) 768px, calc(100vw - 60px){{ else }}(min-width: 768px) 300px, calc(100vw - 60px){{ end }}"
+            src="{{ ($cover.Process "resize 720x jpg").Permalink }}"
+            alt="{{ $alt }}"
+            style="aspect-ratio: {{ $aspectRatio }};">
         {{- else }}{{/* Unprocessable image or responsive images disabled */}}
         <img src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}"
              alt="{{ $alt }}"
