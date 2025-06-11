@@ -2,6 +2,7 @@
 {{- if (and .Params.cover.image (not $.isHidden)) }}
 {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
 {{- $loading := cond $.IsSingle "eager" "lazy" }}
+{{- printf "IsSingle: %v, Loading: %s" $.IsSingle $loading | warnf -}} {{/* Debug */}}
 <figure class="entry-cover">
     {{- $responsiveImages := (.Params.cover.responsiveImages | default site.Params.cover.responsiveImages) | default true }}
     {{- $addLink := (and site.Params.cover.linkFullImages $.IsSingle) }}
@@ -9,7 +10,7 @@
     {{- $globalResourcesCover := (resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
     {{- $cover := (or $pageBundleCover $globalResourcesCover)}}
     {{- if $cover -}}{{/* i.e it is present in page bundle */}}
-        {{- $aspectRatio := printf "%d/%d" $cover.Width $cover.Height }}
+        {{- $aspectRatio := printf "%d/%d" $cover.Width $cover.Height | safeCSS }}
         {{- if $addLink }}<a href="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" target="_blank"
             rel="noopener noreferrer">{{ end -}}
         {{- $sizes := (slice "200" "300" "360" "480" "720" "1080" "1500") }}
@@ -19,8 +20,7 @@
         {{- end -}}
         {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
         {{- if (and (in $processableFormats $cover.MediaType.SubType) ($responsiveImages) (eq $prod true)) }}
-        <img loading="{{$loading}}"
-             srcset="{{- range $size := $sizes -}}
+        <img srcset="{{- range $size := $sizes -}}
                         {{- if (ge $cover.Width $size) -}}
                         {{ printf "%s %s" (($cover.Process (printf "resize %sx webp q75" $size)).Permalink) (printf "%sw ," $size) -}}
                         {{ end }}
@@ -30,20 +30,18 @@
              alt="{{ $alt }}"
              style="aspect-ratio: {{ $aspectRatio }};">
         {{- else }}{{/* Unprocessable image or responsive images disabled */}}
-        <img loading="{{$loading}}"
-             src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}"
+        <img src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}"
              alt="{{ $alt }}"
              style="aspect-ratio: {{ $aspectRatio }};">
         {{- end }}
     {{- else }}{{/* For absolute urls and external links, no img processing here */}}
-        {{- $aspectRatio := "3/2" }} {{/* Default aspect ratio for external images */}}
+        {{- $aspectRatio := "3/2" | safeCSS }}
         {{- if $addLink }}<a href="{{ (.Params.cover.image) | absURL }}" target="_blank"
             rel="noopener noreferrer">{{ end -}}
-        <img loading="{{$loading}}"
-             src="{{ (.Params.cover.image) | absURL }}"
+        <img src="{{ (.Params.cover.image) }}"
              alt="{{ $alt }}"
              style="aspect-ratio: {{ $aspectRatio }};">
-    {{- end }}
+        {{- end }}
     {{- if $addLink }}</a>{{ end -}}
     {{/* Display Caption */}}
     {{- if $.IsSingle }}
