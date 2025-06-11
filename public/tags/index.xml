@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jun 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 22:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docs</title>
+      <link>https://aamu.app/blog/tags/docs/</link>
+      <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/docs/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Calendar</title>
       <link>https://aamu.app/blog/tags/calendar/</link>
@@ -20,13 +27,6 @@
       <link>https://aamu.app/blog/tags/database/</link>
       <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/database/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docs</title>
-      <link>https://aamu.app/blog/tags/docs/</link>
-      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/docs/</guid>
       <description></description>
     </item>
     <item>

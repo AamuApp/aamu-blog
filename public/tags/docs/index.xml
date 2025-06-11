@@ -6,8 +6,15 @@
     <description>Recent content in Docs on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jun 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 22:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app Docs - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
+      <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
+      <description>&lt;p&gt;Let’s see the Docs main page. It has all the familiar elements:&lt;/p&gt;&lt;img src=&#34;4168037089645386_image.png&#34; style=&#34;width: auto;&#34; id=&#34;86c169de-1d5f-49ed-b34e-7e56df58aa01&#34;&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;Project picker (or all projects)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Add new Doc&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Doc box&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Search&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Let’s create a new doc:&lt;/p&gt;&lt;img src=&#34;2820731617299088_image.png&#34; style=&#34;width: auto;&#34; id=&#34;da6d07c7-23eb-4f23-9a50-b3bff1b90bd9&#34;&gt;&lt;p&gt;We are met with a title and the content area. What else do we need at this stage? Let’s add a title:&lt;/p&gt;&lt;img src=&#34;4263240469842080_image.png&#34; style=&#34;width: auto;&#34; id=&#34;3abb81fc-ce18-44be-8788-4fa49ae542cf&#34;&gt;&lt;p&gt;So, we got a bit more. A project picker, File menu, &lt;em&gt;Publish&lt;/em&gt; button, Chat section, tags, current editors.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Aamu.app as an Alternative to Notion, Jira, Slack, Linear, and More</title>
       <link>https://aamu.app/blog/posts/aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more/</link>
