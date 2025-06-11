@@ -1,8 +1,8 @@
 {{- /* Head custom content area start */ -}}
 {{- /* photoswipe */}}
-{{- $photoswipe_lightbox_js := resources.Get "js/photoswipe-lightbox.esm.js" }}
-{{- $photoswipe_js := resources.Get "js/photoswipe.esm.js" }}
-{{- $photoswipe_css := resources.Get "css/photoswipe.css" }}
+{{- $photoswipe_lightbox_js := resources.Get "js/photoswipe-lightbox.esm.js" | minify }}
+{{- $photoswipe_js := resources.Get "js/photoswipe.esm.js" | minify }}
+{{- $photoswipe_css := resources.Get "css/photoswipe.css" | minify }}
 <script type="module">
     import PhotoSwipeLightbox from '{{ $photoswipe_lightbox_js.RelPermalink }}';
     const lightbox = new PhotoSwipeLightbox({
