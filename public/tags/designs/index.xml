@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Designs on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/designs/</link>
+    <description>Recent content in Designs on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/designs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Penpot Design Tool - feature overview</title>
+      <link>https://aamu.app/blog/posts/penpot-design-tool-feature-overview/</link>
+      <pubDate>Thu, 12 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/penpot-design-tool-feature-overview/</guid>
+      <description>&lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://penpot.app/&#34; id=&#34;fadb2f75-0c0c-47ea-9bcf-59b3c64c63f3&#34;&gt;Penpot&lt;/a&gt; is integrated with Aamu.app. Let’s see what Penpot is all about.&lt;/p&gt;&lt;p&gt;Penpot is revolutionizing the design world as a free, open-source design and prototyping platform that brings designers and developers together like never before. Built on open web standards like SVG, CSS, and HTML, Penpot eliminates the traditional handoff struggles, offering a collaborative, intuitive, and powerful tool for creating stunning user interfaces and prototypes. Whether you’re a solo designer, a developer, or part of a large team, Penpot’s feature set is designed to streamline workflows and empower creativity. Let’s dive into what makes Penpot stand out, including the exciting features introduced up to version 2.7.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
