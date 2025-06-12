@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "All the productivity apps you could think of (100+)"
 date: "2025-06-12T00:00:00.000Z"
-modified: "2025-06-12T01:17:19.169Z"
+modified: "2025-06-12T02:06:25.127Z"
 description: ""
 cover:
-  image: 7564794060585160_productivity-apps.png
+  image: 1904839154810813_productivity-apps.png
   relative: true
 tags: []
 ShowToc: false
