@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shortcuts on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/shortcuts/</link>
+    <description>Recent content in Shortcuts on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Jun 2025 03:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/shortcuts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keyboard shortcuts in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/keyboard-shortcuts-in-aamuapp/</link>
+      <pubDate>Thu, 12 Jun 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/keyboard-shortcuts-in-aamuapp/</guid>
+      <description>&lt;p&gt;There are certain shortcuts that are very useful in Aamu.app, as they work almost everywhere, in a unified fashion.&lt;/p&gt;&lt;p&gt;One of them is &lt;code&gt;n&lt;/code&gt;, which creates a new task, anywhere you are.&lt;/p&gt;&lt;p&gt;Another is &lt;code&gt;c&lt;/code&gt;, which creates new item, item type being determined where you are in the app at the moment. For example, if you are in Emails, &lt;code&gt;c&lt;/code&gt; will compose a new email.&lt;/p&gt;&lt;p&gt;Almost every type of item has a comment section. Pressing &lt;code&gt;r&lt;/code&gt; will create a new reply (or a new comment) in the comment section. &lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
