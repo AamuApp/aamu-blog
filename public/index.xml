@@ -9,6 +9,13 @@
     <lastBuildDate>Thu, 12 Jun 2025 03:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Internal Links in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/internal-links-in-aamuapp/</link>
+      <pubDate>Thu, 12 Jun 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/internal-links-in-aamuapp/</guid>
+      <description>&lt;p&gt;Everywhere that you write &lt;em&gt;content&lt;/em&gt; in Aamu.app, i.e. comments, tasks, docs etc., can can add &lt;em&gt;internal links&lt;/em&gt; with the slash menu:&lt;/p&gt;&lt;img src=&#34;3932329453852383_image.png&#34; style=&#34;width: auto;&#34; id=&#34;29421ff1-900e-41e9-a6f0-d7f048b315ec&#34;&gt;&lt;p&gt;There you are presented with a dialog window, which has a search input box:&lt;/p&gt;&lt;img src=&#34;4914308983546432_image.png&#34; style=&#34;width: auto;&#34; id=&#34;f6d27260-47a0-4bc6-867e-0cabbb0866ed&#34;&gt;&lt;p&gt;Here my search term is “search for” and it is currently searching for tasks. I can search for any item types in Aamu.app. Switching between tabs can be done with a mouse (obviously), but also with the shortcut &lt;code&gt;Shift + left&lt;/code&gt; and &lt;code&gt;Shift + right&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Keyboard shortcuts in Aamu.app</title>
       <link>https://aamu.app/blog/posts/keyboard-shortcuts-in-aamuapp/</link>
       <pubDate>Thu, 12 Jun 2025 03:00:00 +0000</pubDate>
