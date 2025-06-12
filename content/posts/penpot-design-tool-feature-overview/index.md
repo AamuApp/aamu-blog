@@ -1,11 +1,11 @@
 ---
 author: "Ilkka Huotari"
 title: "Penpot Design Tool - feature overview"
-date: "2025-06-12T00:00:00.000Z"
-modified: "2025-06-12T00:27:08.879Z"
+date: "2025-06-11T23:00:00.000Z"
+modified: "2025-06-12T00:47:25.815Z"
 description: ""
 cover:
-  image: 9697618820656396_penpot-overview.jpg
+  image: 2095768689493027_penpot-overview.jpg
   relative: true
 tags: ["designs"]
 ShowToc: false
