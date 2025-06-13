@@ -6,8 +6,15 @@
     <description>Recent content in Emails on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jun 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/emails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app Emails - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</link>
+      <pubDate>Fri, 13 Jun 2025 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</guid>
+      <description>&lt;p&gt;Earlier we configured Emails, now it’s time to see how to use it. At the main page of Email we see all the familiar elements:&lt;/p&gt;&lt;img src=&#34;4460478873156794_image.png&#34; style=&#34;width: auto;&#34; id=&#34;1b5205fc-4f8b-4b4d-ad80-9d0f919782c3&#34;&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;Search&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Project picker&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Compose a new email (keyboard short &lt;code&gt;c&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Our email address (to make clear where we are, we could in some other project with a different email address)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Tabs. You can add more. The &lt;em&gt;Unknown&lt;/em&gt; tab is activated when there are new emails from people we don’t yet know&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Aamu.app as an Alternative to Notion, Jira, Slack, Linear, and More</title>
       <link>https://aamu.app/blog/posts/aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more/</link>

@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Keyboard shortcuts in Aamu.app"
 date: "2025-06-12T03:00:00.000Z"
-modified: "2025-06-12T03:12:12.863Z"
+modified: "2025-06-12T08:52:45.075Z"
 description: ""
 cover:
-  image: 5465708647818914_keyboard-shortcuts-in-aamuapp.jpg
+  image: 2919230695264223_keyboard-shortcuts-in-aamuapp.jpg
   relative: true
 tags: ["shortcuts"]
 ShowToc: false

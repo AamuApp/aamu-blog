@@ -6,14 +6,21 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Jun 2025 03:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app Emails - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</link>
+      <pubDate>Fri, 13 Jun 2025 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</guid>
+      <description>&lt;p&gt;Earlier we configured Emails, now it’s time to see how to use it. At the main page of Email we see all the familiar elements:&lt;/p&gt;&lt;img src=&#34;4460478873156794_image.png&#34; style=&#34;width: auto;&#34; id=&#34;1b5205fc-4f8b-4b4d-ad80-9d0f919782c3&#34;&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;Search&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Project picker&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Compose a new email (keyboard short &lt;code&gt;c&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Our email address (to make clear where we are, we could in some other project with a different email address)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Tabs. You can add more. The &lt;em&gt;Unknown&lt;/em&gt; tab is activated when there are new emails from people we don’t yet know&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Internal Links in Aamu.app</title>
       <link>https://aamu.app/blog/posts/internal-links-in-aamuapp/</link>
       <pubDate>Thu, 12 Jun 2025 03:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/internal-links-in-aamuapp/</guid>
-      <description>&lt;p&gt;Everywhere that you write &lt;em&gt;content&lt;/em&gt; in Aamu.app, i.e. comments, tasks, docs etc., can can add &lt;em&gt;internal links&lt;/em&gt; with the slash menu:&lt;/p&gt;&lt;img src=&#34;3932329453852383_image.png&#34; style=&#34;width: auto;&#34; id=&#34;29421ff1-900e-41e9-a6f0-d7f048b315ec&#34;&gt;&lt;p&gt;There you are presented with a dialog window, which has a search input box:&lt;/p&gt;&lt;img src=&#34;4914308983546432_image.png&#34; style=&#34;width: auto;&#34; id=&#34;f6d27260-47a0-4bc6-867e-0cabbb0866ed&#34;&gt;&lt;p&gt;Here my search term is “search for” and it is currently searching for tasks. I can search for any item types in Aamu.app. Switching between tabs can be done with a mouse (obviously), but also with the shortcut &lt;code&gt;Shift + left&lt;/code&gt; and &lt;code&gt;Shift + right&lt;/code&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Everywhere that you write &lt;em&gt;content&lt;/em&gt; in Aamu.app, i.e. comments, tasks, docs etc., can can add &lt;em&gt;internal links&lt;/em&gt; with the slash menu:&lt;/p&gt;&lt;img src=&#34;9567158024223956_image.png&#34; style=&#34;width: auto;&#34; id=&#34;29421ff1-900e-41e9-a6f0-d7f048b315ec&#34;&gt;&lt;p&gt;There you are presented with a dialog window, which has a search input box:&lt;/p&gt;&lt;img src=&#34;1435869297912415_image.png&#34; style=&#34;width: auto;&#34; id=&#34;f6d27260-47a0-4bc6-867e-0cabbb0866ed&#34;&gt;&lt;p&gt;Here my search term is “search for” and it is currently searching for tasks. I can search for any item types in Aamu.app. Switching between tabs can be done with a mouse (obviously), but also with the shortcut &lt;code&gt;Shift + left&lt;/code&gt; and &lt;code&gt;Shift + right&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Keyboard shortcuts in Aamu.app</title>
@@ -41,7 +48,7 @@
       <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
       <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
-      <description>&lt;p&gt;Let’s see the Docs main page. It has all the familiar elements:&lt;/p&gt;&lt;img src=&#34;7378424330084732_image.png&#34; style=&#34;width: auto;&#34; id=&#34;86c169de-1d5f-49ed-b34e-7e56df58aa01&#34;&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;Project picker (or all projects)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Add new Doc&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Doc box&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Search&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Let’s create a new doc:&lt;/p&gt;&lt;img src=&#34;4762921196884315_image.png&#34; style=&#34;width: auto;&#34; id=&#34;da6d07c7-23eb-4f23-9a50-b3bff1b90bd9&#34;&gt;&lt;p&gt;We are met with a title and the content area. What else do we need at this stage? Let’s add a title:&lt;/p&gt;&lt;img src=&#34;2576769017505678_image.png&#34; style=&#34;width: auto;&#34; id=&#34;3abb81fc-ce18-44be-8788-4fa49ae542cf&#34;&gt;&lt;p&gt;So, we got a bit more. A project picker, File menu, &lt;em&gt;Publish&lt;/em&gt; button, Chat section, tags, current editors.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Let’s see the Docs main page. It has all the familiar elements:&lt;/p&gt;&lt;img src=&#34;8848021313765306_image.png&#34; style=&#34;width: auto;&#34; id=&#34;86c169de-1d5f-49ed-b34e-7e56df58aa01&#34;&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;Project picker (or all projects)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Add new Doc&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Doc box&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Search&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Let’s create a new doc:&lt;/p&gt;&lt;img src=&#34;9219263311933344_image.png&#34; style=&#34;width: auto;&#34; id=&#34;da6d07c7-23eb-4f23-9a50-b3bff1b90bd9&#34;&gt;&lt;p&gt;We are met with a title and the content area. What else do we need at this stage? Let’s add a title:&lt;/p&gt;&lt;img src=&#34;3747232339462880_image.png&#34; style=&#34;width: auto;&#34; id=&#34;3abb81fc-ce18-44be-8788-4fa49ae542cf&#34;&gt;&lt;p&gt;So, we got a bit more. A project picker, File menu, &lt;em&gt;Publish&lt;/em&gt; button, Chat section, tags, current editors.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Aamu.app as an Alternative to Notion, Jira, Slack, Linear, and More</title>
