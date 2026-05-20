@@ -36,6 +36,10 @@ function logError(message) {
 	console.error(`${RED}${message}${RESET}`);
 }
 
+function normalizeStatus(status) {
+	return String(status || '').toLowerCase();
+}
+
 function generateRandomFileName(originalName) {
 	return Math.floor(Math.random() * 10000000000000000) + '_' + basename(originalName);
 }
@@ -144,8 +148,10 @@ async function fetchPosts() {
 		sendGraphQLRequest(draftPostsQuery),
 	]);
 
-	const newPosts = newPostsData?.data?.BlogPostCollection || [];
-	const draftPosts = draftPostsData?.data?.BlogPostCollection || [];
+	const newPostsResponse = newPostsData?.data?.BlogPostCollection || [];
+	const draftPostsResponse = draftPostsData?.data?.BlogPostCollection || [];
+	const newPosts = newPostsResponse.filter(post => normalizeStatus(post.status) === 'published');
+	const draftPosts = draftPostsResponse.filter(post => normalizeStatus(post.status) === 'draft');
 
 	console.log(`Fetched ${newPosts.length} new/updated posts.`);
 	console.log(`Fetched ${draftPosts.length} draft posts.`);
