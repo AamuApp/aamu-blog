@@ -8,9 +8,14 @@ import { parse } from 'node-html-parser';
 import 'dotenv/config';
 
 // Configuration
-const API_ENDPOINT = 'https://api.aamu.app/api/v1/graphql/';
+const API_BASE_URL = (process.env.AAMU_API_BASE_URL || 'https://ilkkah.aamu.app').replace(/\/$/, '');
+const API_ENDPOINT = process.env.GRAPHQL_ENDPOINT || 'https://api.aamu.app/api/v1/graphql/';
 const CONTENT_DIR = 'content/posts';
 const TIMESTAMP_FILE = 'timestamp';
+const API_KEY = process.env.API_KEY;
+const DOCS_API_KEY = process.env.DOCS_API_KEY || API_KEY;
+const DB_ID = process.env.AAMU_DB_ID || process.env.DB_ID;
+const PROJECT_ID = process.env.AAMU_PROJECT_ID || process.env.PROJECT_ID;
 
 // Tracks the latest post update timestamp to fetch only newer posts
 let latestTimestamp = loadLatestTimestamp();
@@ -36,12 +41,157 @@ function logError(message) {
 	console.error(`${RED}${message}${RESET}`);
 }
 
+function getErrorMessage(error) {
+	return error.cause?.message ? `${error.message}: ${error.cause.message}` : error.message;
+}
+
 function normalizeStatus(status) {
 	return String(status || '').toLowerCase();
 }
 
+function requireApiKey(keyName, keyValue) {
+	if (!keyValue) {
+		throw new Error(`${keyName} environment variable is required.`);
+	}
+}
+
 function generateRandomFileName(originalName) {
 	return Math.floor(Math.random() * 10000000000000000) + '_' + basename(originalName);
+}
+
+function resolveApiUrl(url) {
+	return new URL(url, API_BASE_URL).toString();
+}
+
+function getUrlBasename(url) {
+	try {
+		return basename(new URL(url, API_BASE_URL).pathname);
+	} catch {
+		return basename(url);
+	}
+}
+
+function compactHeaders(headers) {
+	return Object.fromEntries(Object.entries(headers).filter(([, value]) => value));
+}
+
+function getAuthHeaders(extraHeaders = {}) {
+	return compactHeaders({
+		...extraHeaders,
+		'x-api-key': DOCS_API_KEY,
+		'x-project-id': PROJECT_ID,
+	});
+}
+
+function getGraphQLHeaders() {
+	return compactHeaders({
+		'Content-Type': 'application/json',
+		'x-api-key': API_KEY,
+		'x-db-id': DB_ID,
+	});
+}
+
+function extractDocIds(value) {
+	if (!value) return [];
+
+	if (Array.isArray(value)) {
+		return value.flatMap(extractDocIds);
+	}
+
+	if (typeof value === 'object') {
+		return [
+			...extractDocIds(value.id),
+			...extractDocIds(value.doc_id),
+			...extractDocIds(value.docId),
+			...extractDocIds(value.value),
+			...extractDocIds(value.values),
+		];
+	}
+
+	if (typeof value !== 'string') {
+		return [];
+	}
+
+	const trimmed = value.trim();
+	if (!trimmed) return [];
+
+	try {
+		return extractDocIds(JSON.parse(trimmed));
+	} catch {
+		const ids = trimmed.match(/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/gi);
+		return ids?.length ? ids : [trimmed];
+	}
+}
+
+async function fetchDoc(docId) {
+	requireApiKey('DOCS_API_KEY or API_KEY', DOCS_API_KEY);
+	const response = await fetch(`${API_BASE_URL}/api/v1/docs/${encodeURIComponent(docId)}`, {
+		headers: getAuthHeaders(),
+	});
+	const data = await response.json();
+
+	if (!response.ok) {
+		throw new Error(data?.error?.message || `HTTP ${response.status}`);
+	}
+
+	return data?.doc;
+}
+
+async function fetchDocs() {
+	requireApiKey('DOCS_API_KEY or API_KEY', DOCS_API_KEY);
+	const response = await fetch(`${API_BASE_URL}/api/v1/docs/`, {
+		headers: getAuthHeaders(),
+	});
+	const data = await response.json();
+
+	if (!response.ok) {
+		throw new Error(data?.error?.message || `HTTP ${response.status}`);
+	}
+
+	return data?.docs || [];
+}
+
+async function findDocForPost(post) {
+	const docs = await fetchDocs();
+	const normalizedTitle = String(post.title || '').trim().toLowerCase();
+	if (!normalizedTitle) return null;
+
+	const listedDoc = docs.find(doc => String(doc.title || '').trim().toLowerCase() === normalizedTitle);
+	if (!listedDoc?.id) return null;
+
+	return fetchDoc(listedDoc.id);
+}
+
+async function hydratePostBodyFromDoc(post) {
+	const docIds = extractDocIds(post.docs ?? post.doc);
+	for (const docId of docIds) {
+		try {
+			const doc = await fetchDoc(docId);
+			if (doc?.html) {
+				post.body = doc.html;
+				console.log(`Using doc content for post: ${post.title}`);
+				return;
+			}
+			console.log(`Doc ${docId} has no HTML, falling back to body for post: ${post.title}`);
+		} catch (error) {
+			logError(`Failed to fetch doc ${docId} for post "${post.title}": ${getErrorMessage(error)}`);
+		}
+	}
+
+	try {
+		const doc = await findDocForPost(post);
+		if (doc?.html) {
+			post.body = doc.html;
+			console.log(`Using doc content matched by title for post: ${post.title}`);
+			return;
+		}
+
+		if (!String(post.body || '').trim()) {
+			logError(`No doc content or body found for post "${post.title}".`);
+		}
+	} catch (error) {
+		logError(`Failed to find doc by title for post "${post.title}": ${getErrorMessage(error)}`);
+	}
 }
 
 // Generates Hugo-compatible front matter and content for a post
@@ -66,9 +216,10 @@ ${post.body}
   `.trim();
 }
 
-// GraphQL query for published posts updated after the latest timestamp
-const newPostsQuery = {
-	query: `
+function createNewPostsQuery(docField) {
+	const docSelection = docField ? `        ${docField}` : '';
+	return {
+		query: `
     query ($updated_at: DateTime!) {
       BlogPostCollection(
         filter: {
@@ -83,6 +234,7 @@ const newPostsQuery = {
         slug
         description
         body
+${docSelection}
         publishDate
         heroImage {
           url
@@ -96,11 +248,12 @@ const newPostsQuery = {
         tags
       }
     }
-  `,
-	variables: {
-		updated_at: DateTime.fromMillis(latestTimestamp).toISO(),
-	},
-};
+	`,
+		variables: {
+			updated_at: DateTime.fromMillis(Math.max(0, latestTimestamp - 1)).toISO(),
+		},
+	};
+}
 
 // GraphQL query for draft posts to identify those to delete
 const draftPostsQuery = {
@@ -125,26 +278,53 @@ const draftPostsQuery = {
 // Sends a GraphQL request to the API
 async function sendGraphQLRequest(query) {
 	try {
+		requireApiKey('API_KEY', API_KEY);
 		const response = await fetch(API_ENDPOINT, {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'x-api-key': process.env.API_KEY,
-			},
+			headers: getGraphQLHeaders(),
 			body: JSON.stringify(query),
 		});
-		return await response.json();
+		const data = await response.json();
+
+		if (!response.ok) {
+			throw new Error(data?.error?.message || `HTTP ${response.status}`);
+		}
+		if (data?.errors?.length) {
+			throw new Error(data.errors.map(error => error.message).join('; '));
+		}
+
+		return data;
 	} catch (error) {
-		logError(`GraphQL request failed: ${error.message}`);
+		logError(`GraphQL request failed: ${getErrorMessage(error)}`);
 		throw error;
 	}
+}
+
+async function getPostDocField() {
+	const data = await sendGraphQLRequest({
+		query: `
+      {
+        __type(name: "BlogPost") {
+          fields {
+            name
+          }
+        }
+      }
+    `,
+	});
+
+	const fieldNames = data?.data?.__type?.fields?.map(field => field.name) || [];
+	if (fieldNames.includes('docs')) return 'docs';
+	if (fieldNames.includes('doc')) return 'doc';
+	return null;
 }
 
 // Fetches new/updated published posts and draft posts
 async function fetchPosts() {
 	console.log('Fetching posts updated/created after', DateTime.fromMillis(latestTimestamp).toISO());
+	const docField = await getPostDocField();
 	const [newPostsData, draftPostsData] = await Promise.all([
-		sendGraphQLRequest(newPostsQuery),
+		sendGraphQLRequest(createNewPostsQuery(docField)),
 		sendGraphQLRequest(draftPostsQuery),
 	]);
 
@@ -185,16 +365,19 @@ async function writePost(post) {
 		mkdirSync(folderPath, { recursive: true });
 	}
 
+	await hydratePostBodyFromDoc(post);
+
 	// Parse and update image URLs in the post body
-	const htmlRoot = parse(post.body);
+	const htmlRoot = parse(post.body || '');
 	const images = htmlRoot.querySelectorAll('img');
 	for (const img of images) {
 		const src = img.getAttribute('src');
 		if (src) {
 			try {
-				const imagePath = `${folderPath}/${generateRandomFileName(src)}`;
-				await wget(src, imagePath);
-				img.setAttribute('src', basename(imagePath));
+				const imageUrl = resolveApiUrl(src);
+				const imagePath = `${folderPath}/${generateRandomFileName(getUrlBasename(imageUrl))}`;
+				await wget(imageUrl, imagePath);
+				img.setAttribute('src', getUrlBasename(imagePath));
 			} catch (error) {
 				logError(`Failed to download image ${src}: ${error.message}`);
 			}
@@ -206,9 +389,11 @@ async function writePost(post) {
 	for (const match of post.body.matchAll(/!\[([^\]]*)\]\((\S+)\)/g)) {
 		const [, alt, url] = match;
 		try {
-			const imagePath = `${folderPath}/${basename(url)}`;
-			await wget(url, imagePath);
-			post.body = post.body.replace(match[0], `![${alt}](${basename(url)})`);
+			const imageUrl = resolveApiUrl(url);
+			const imageName = getUrlBasename(imageUrl);
+			const imagePath = `${folderPath}/${imageName}`;
+			await wget(imageUrl, imagePath);
+			post.body = post.body.replace(match[0], `![${alt}](${imageName})`);
 			console.log(`Fetched image: ${url}`);
 		} catch (error) {
 			logError(`Failed to download Markdown image ${url}: ${error.message}`);
@@ -226,9 +411,11 @@ async function writePost(post) {
 		}
 	} else if (post.heroImage?.url) {
 		try {
-			const imagePath = `${folderPath}/${basename(post.heroImage.url)}`;
-			await wget(post.heroImage.url, imagePath);
-			post.heroImage.url = basename(post.heroImage.url);
+			const imageUrl = resolveApiUrl(post.heroImage.url);
+			const imageName = getUrlBasename(imageUrl);
+			const imagePath = `${folderPath}/${imageName}`;
+			await wget(imageUrl, imagePath);
+			post.heroImage.url = imageName;
 		} catch (error) {
 			logError(`Failed to download cover image: ${error.message}`);
 		}
