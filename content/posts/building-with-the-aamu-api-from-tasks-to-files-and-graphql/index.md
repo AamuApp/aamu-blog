@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Files and GraphQL"
 date: "2026-05-22T07:00:00.000Z"
-modified: "2026-05-22T08:35:32.029Z"
+modified: "2026-05-22T12:23:10.970Z"
 description: ""
 cover:
-  image: 8572722314106475_ChatGPT Image May 22, 2026, 10_29_15 AM.png
+  image: 6930534276419764_ChatGPT Image May 22, 2026, 10_29_15 AM.png
   relative: true
 tags: ["api", "ai", "graphql"]
 ShowToc: false
@@ -87,23 +87,158 @@ Content-Type: application/json
 <pre><code>&lt;img src="/file/browser/FILEPOINTER_ID/FILE_VERSION_ID/image.png"&gt;</code></pre>
 <p>Tasks, docs, and comments can also include a <code>files</code> array so the uploaded files are tracked as attachments alongside the HTML content.</p>
 
+
 <h2>Databases and GraphQL</h2>
-<p>The REST Database API creates databases and table schema. Row data is then handled through the GraphQL endpoint. This gives AI tools a discoverable schema for each database while keeping structured data access flexible.</p>
+<p>The REST Database API is responsible for creating databases and changing table schema. Row data is handled through the generated GraphQL API. This split is useful for AI agents: REST gives a simple way to set up structure, and GraphQL gives a discoverable, typed way to work with rows.</p>
+
+<h3>1. Create a database</h3>
+<p>Start by creating a database inside a project. The request uses the project-scoped Database write permission and the <code>x-project-id</code> header.</p>
 <pre><code>POST /api/v1/databases/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
 
 {
   "name": "Customer feedback"
 }</code></pre>
-<p>Columns can be added through REST:</p>
+<p>The response includes the new database id and the first table id. Keep both values: the database id is used as <code>x-db-id</code> for GraphQL, and the table id is used when adding columns.</p>
+<pre><code>{
+  "database": {
+    "id": "DB_ID",
+    "pid": "PROJECT_ID",
+    "name": "Customer feedback",
+    "tables": ["TABLE_ID"],
+    "table_id": "TABLE_ID"
+  }
+}</code></pre>
+
+<h3>2. Add columns</h3>
+<p>Next, define the table schema. Columns can be added one at a time or as an array. Useful column types include <code>text</code>, <code>longtext</code>, <code>number</code>, <code>status</code>, <code>checkbox</code>, <code>timedate</code>, <code>timeline</code>, <code>tags</code>, <code>file</code>, <code>files</code>, and <code>document</code>.</p>
 <pre><code>POST /api/v1/databases/{dbId}/tables/{tableId}/columns
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
 
 {
   "columns": [
-    { "name": "Customer", "type": "text" },
-    { "name": "Status", "type": "status" }
+    {
+      "name": "Customer",
+      "type": "text",
+      "gtype": "customer"
+    },
+    {
+      "name": "Message",
+      "type": "longtext",
+      "gtype": "message"
+    },
+    {
+      "name": "Status",
+      "type": "status",
+      "gtype": "status",
+      "values": [
+        { "name": "New", "value": "new", "color": "cornflowerblue" },
+        { "name": "Reviewed", "value": "reviewed", "color": "forestgreen" }
+      ]
+    },
+    {
+      "name": "Source document",
+      "type": "document",
+      "gtype": "sourceDocument"
+    }
   ]
 }</code></pre>
-<p>After that, clients can query and mutate rows through <code>/api/v1/graphql/</code>, using <code>x-db-id</code> to select the database.</p>
+<p>The <code>gtype</code> value becomes the GraphQL field name. If you omit it, Aamu generates one from the column name, but explicit names make integrations easier to maintain.</p>
+
+<h3>3. Discover the GraphQL schema</h3>
+<p>Once columns exist, the database has a generated GraphQL schema. Send <code>x-db-id</code> with GraphQL calls so Aamu knows which database schema to use.</p>
+<pre><code>POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "query IntrospectionQuery { __schema { queryType { fields { name } } mutationType { fields { name } } } }"
+}</code></pre>
+<p>For AI agents, introspection is especially useful. The agent can inspect available query and mutation names before constructing row operations.</p>
+
+<h3>4. Add data with GraphQL</h3>
+<p>After the schema is generated, create rows through GraphQL mutations. Exact mutation names are generated from the table schema, so introspection is the safest source of truth. A typical mutation shape looks like this:</p>
+<pre><code>POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "mutation CreateFeedback($input: FeedbackInput!) { createFeedback(input: $input) { id customer message status sourceDocument } }",
+  "variables": {
+    "input": {
+      "customer": "Ada Lovelace",
+      "message": "The onboarding flow was clear.",
+      "status": "new",
+      "sourceDocument": "DOC_ID"
+    }
+  }
+}</code></pre>
+<p>The important idea is that row fields use the column <code>gtype</code> values. In this example, <code>sourceDocument</code> is a <code>document</code> column, and its value is a Docs id.</p>
+
+<h3>5. Query data with GraphQL</h3>
+<p>Rows can be fetched through GraphQL queries. Again, exact query names depend on the generated schema, but the fields are based on your columns.</p>
+<pre><code>POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "query ListFeedback { feedbackRows { id customer message status sourceDocument } }"
+}</code></pre>
+<p>For larger integrations, use variables for filters, pagination, and sort arguments when the generated schema exposes them. The recommended workflow is: create schema with REST, introspect GraphQL, then query or mutate rows with the discovered field names.</p>
+
+<h2>Using Databases and Docs together</h2>
+<p>Docs and Databases work well together. A database can hold structured state, while Docs can hold rich long-form context. The bridge between the two is the <code>document</code> column type: its value is the id of a Docs document.</p>
+
+<h3>Create the document first</h3>
+<p>For example, an integration might create a detailed customer interview note as a Doc:</p>
+<pre><code>POST /api/v1/docs/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "title": "Interview notes: Ada Lovelace",
+  "html": "&lt;h1&gt;Interview notes&lt;/h1&gt;&lt;p&gt;Ada liked the onboarding flow and asked for more examples.&lt;/p&gt;"
+}</code></pre>
+<p>The response includes the document id:</p>
+<pre><code>{
+  "doc": {
+    "id": "DOC_ID",
+    "title": "Interview notes: Ada Lovelace"
+  }
+}</code></pre>
+
+<h3>Store the Doc id in a database row</h3>
+<p>Then store that <code>DOC_ID</code> in a database row using a column whose type is <code>document</code>.</p>
+<pre><code>{
+  "input": {
+    "customer": "Ada Lovelace",
+    "message": "Asked for more examples.",
+    "status": "reviewed",
+    "sourceDocument": "DOC_ID"
+  }
+}</code></pre>
+<p>This gives you a compact structured row that can be filtered, sorted, and queried, while preserving the full narrative in a rich Docs document.</p>
+
+<h3>Fetch structured data, then fetch the Doc</h3>
+<p>A client or AI agent can first query the database row:</p>
+<pre><code>POST /api/v1/graphql/
+x-db-id: DB_ID
+
+{
+  "query": "query { feedbackRows { id customer status sourceDocument } }"
+}</code></pre>
+<p>Then it can fetch the linked document when it needs the full context:</p>
+<pre><code>GET /api/v1/docs/DOC_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>This pattern is useful for CRM notes, research summaries, incident reports, product feedback, interview notes, project decisions, and any workflow where a table needs to reference rich text.</p>
 
 <h2>Why this works well for AI agents</h2>
 <p>The Aamu API is intentionally close to the product model. An AI agent can create a task, attach files, write a doc, schedule a meeting, submit a form response, or work with structured database rows without inventing a parallel workflow.</p>
