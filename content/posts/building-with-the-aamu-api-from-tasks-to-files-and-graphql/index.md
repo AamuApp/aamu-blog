@@ -1,11 +1,11 @@
 ---
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Files and GraphQL"
-date: "2026-05-22T07:15:00.000Z"
-modified: "2026-05-22T16:44:30.220Z"
+date: "2026-05-22T07:10:00.000Z"
+modified: "2026-05-22T16:47:55.803Z"
 description: ""
 cover:
-  image: 4450095172664464_ChatGPT Image May 22, 2026, 10_29_15 AM.png
+  image: 3561406848436295_ChatGPT Image May 22, 2026, 10_29_15 AM.png
   relative: true
 tags: ["api", "ai", "graphql"]
 ShowToc: false
@@ -63,6 +63,26 @@ Content-Type: application/json
     "status": "active",
     "files": [],
     "comments": []
+  }
+}</code></pre>
+
+<h3>PATCH: update a task</h3>
+<pre><code>PATCH /api/v1/tasks/TASK_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "title": "Prepare customer summary and next steps",
+  "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;"
+}</code></pre>
+<p>Example response:</p>
+<pre><code>{
+  "task": {
+    "id": "TASK_ID",
+    "title": "Prepare customer summary and next steps",
+    "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;",
+    "status": "active"
   }
 }</code></pre>
 
@@ -150,6 +170,25 @@ Content-Type: application/json
   }
 }</code></pre>
 
+<h3>PATCH: update a doc</h3>
+<pre><code>PATCH /api/v1/docs/DOC_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "title": "Weekly API Report, revised",
+  "html": "&lt;h1&gt;Weekly API Report&lt;/h1&gt;&lt;p&gt;All checks passed after the retry.&lt;/p&gt;"
+}</code></pre>
+<p>Example response:</p>
+<pre><code>{
+  "doc": {
+    "id": "DOC_ID",
+    "title": "Weekly API Report, revised",
+    "html": "&lt;h1&gt;Weekly API Report&lt;/h1&gt;&lt;p&gt;All checks passed after the retry.&lt;/p&gt;"
+  }
+}</code></pre>
+
 <h2>Meetings</h2>
 <p>The Meetings API can create and update project meetings. It supports fields such as name, HTML description, start time, end time, and invitee emails.</p>
 <h3>GET: list meetings</h3>
@@ -190,6 +229,29 @@ Content-Type: application/json
     "name": "API rollout review",
     "status": "public",
     "html": "&lt;p&gt;Review integration status and next steps.&lt;/p&gt;"
+  }
+}</code></pre>
+
+<h3>PATCH: update a meeting</h3>
+<pre><code>PATCH /api/v1/meetings/MEETING_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "name": "API rollout review, updated",
+  "html": "&lt;p&gt;Review production results and decide follow-up actions.&lt;/p&gt;",
+  "start_time": 1779462000000,
+  "end_time": 1779465600000
+}</code></pre>
+<p>Example response:</p>
+<pre><code>{
+  "meeting": {
+    "id": "MEETING_ID",
+    "name": "API rollout review, updated",
+    "html": "&lt;p&gt;Review production results and decide follow-up actions.&lt;/p&gt;",
+    "start_time": 1779462000000,
+    "end_time": 1779465600000
   }
 }</code></pre>
 
@@ -429,6 +491,38 @@ Content-Type: application/json
   }
 }</code></pre>
 
+<h3>POST: update row data with GraphQL</h3>
+<p>GraphQL updates are also sent to <code>/api/v1/graphql/</code> with HTTP POST. The mutation name depends on the generated schema, so use introspection to confirm the exact name and input type.</p>
+<pre><code>POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "mutation UpdateFeedback($id: ID!, $input: FeedbackInput!) { updateFeedback(id: $id, input: $input) { id customer message status sourceDocument } }",
+  "variables": {
+    "id": "ROW_ID",
+    "input": {
+      "customer": "Ada Lovelace",
+      "message": "The onboarding flow was clear, and examples would help advanced users.",
+      "status": "reviewed",
+      "sourceDocument": "DOC_ID"
+    }
+  }
+}</code></pre>
+<p>Example response:</p>
+<pre><code>{
+  "data": {
+    "updateFeedback": {
+      "id": "ROW_ID",
+      "customer": "Ada Lovelace",
+      "message": "The onboarding flow was clear, and examples would help advanced users.",
+      "status": "reviewed",
+      "sourceDocument": "DOC_ID"
+    }
+  }
+}</code></pre>
+
 <h2>Using Databases and Docs together</h2>
 <p>Docs and Databases work well together. A database can hold structured state, while Docs can hold rich long-form context. The bridge between the two is the <code>document</code> column type: its value is the id of a Docs document.</p>
 <h3>GET: fetch a linked Doc after querying a row</h3>
@@ -518,6 +612,9 @@ customer=Ada%20Lovelace&amp;message=The%20onboarding%20flow%20was%20clear.</code
   "id": "ROW_ID"
 }</code></pre>
 <p>New authenticated integrations should prefer <code>/api/v1/forms/{id}/submissions</code> for form submissions and <code>/api/v1/graphql/</code> for database row operations.</p>
+
+<h2>Update support summary</h2>
+<p>Update support is intentionally feature-specific. Tasks, Docs, and Meetings expose REST <code>PATCH</code> endpoints. Database rows are updated through GraphQL mutations. Forms submissions and public form posts create rows; they are not update endpoints. Files are currently uploaded and fetched through the Files API, while replacing or deleting files should be modeled explicitly by the feature that references them.</p>
 
 <h2>Why this works well for AI agents</h2>
 <p>The Aamu API is intentionally close to the product model. An AI agent can create a task, attach files, write a doc, schedule a meeting, submit a form response, or work with structured database rows without inventing a parallel workflow.</p>
