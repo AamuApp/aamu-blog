@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-22T19:25:56.962Z"
+modified: "2026-05-22T19:29:41.486Z"
 description: ""
 cover:
   image: 497a93a5ef0d67b4_ChatGPT Image May 22, 2026, 10_29_15 AM.png
@@ -24,7 +24,6 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
       "title": "Review API integration",
       "html": "&lt;p&gt;Check the rollout notes.&lt;/p&gt;",
       "status": "active",
-      "files": [],
       "comments": []
     }
   ]
@@ -43,7 +42,6 @@ Content-Type: application/json
     "title": "Prepare customer summary",
     "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;",
     "status": "active",
-    "files": [],
     "comments": []
   }
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PATCH: update a task</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
@@ -71,8 +69,7 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
     "comments": [
       {
         "id": "COMMENT_ID",
-        "html": "&lt;p&gt;Draft summary added.&lt;/p&gt;",
-        "files": []
+        "html": "&lt;p&gt;Draft summary added.&lt;/p&gt;"
       }
     ]
   }
@@ -102,8 +99,7 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
       "pid": "YOUR_PROJECT_ID",
       "title": "Weekly API Report",
       "status": "public",
-      "html": "",
-      "files": []
+      "html": ""
     }
   ]
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a doc</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/docs/
@@ -120,8 +116,7 @@ Content-Type: application/json
     "pid": "YOUR_PROJECT_ID",
     "title": "Weekly API Report",
     "status": "public",
-    "html": "&lt;h1&gt;Weekly API Report&lt;/h1&gt;&lt;p&gt;All checks passed.&lt;/p&gt;",
-    "files": []
+    "html": "&lt;h1&gt;Weekly API Report&lt;/h1&gt;&lt;p&gt;All checks passed.&lt;/p&gt;"
   }
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PATCH: update a doc</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PATCH /api/v1/docs/DOC_ID
 x-api-key: YOUR_API_KEY
