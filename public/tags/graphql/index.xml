@@ -6,12 +6,12 @@
     <description>Recent content in Graphql on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 May 2026 07:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2026 07:10:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/graphql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building with the Aamu API: From Tasks to Files and GraphQL</title>
       <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-files-and-graphql/</link>
-      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-files-and-graphql/</guid>
       <description>&lt;h1&gt;Building with the Aamu API: From Tasks to Files and GraphQL&lt;/h1&gt;
 &lt;p&gt;Aamu now exposes a broad project API for teams and AI agents that need to create, read, and update real work inside Aamu. The API is designed around the same building blocks people use in the UI: tasks, docs, meetings, forms, files, databases, and database rows through GraphQL.&lt;/p&gt;

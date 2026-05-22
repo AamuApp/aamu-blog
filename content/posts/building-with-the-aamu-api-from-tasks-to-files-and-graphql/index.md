@@ -1,11 +1,11 @@
 ---
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Files and GraphQL"
-date: "2026-05-22T07:00:00.000Z"
-modified: "2026-05-22T12:23:10.970Z"
+date: "2026-05-22T07:10:00.000Z"
+modified: "2026-05-22T16:38:07.745Z"
 description: ""
 cover:
-  image: 6930534276419764_ChatGPT Image May 22, 2026, 10_29_15 AM.png
+  image: 1562961818320103_ChatGPT Image May 22, 2026, 10_29_15 AM.png
   relative: true
 tags: ["api", "ai", "graphql"]
 ShowToc: false
@@ -239,6 +239,282 @@ x-db-id: DB_ID
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre>
 <p>This pattern is useful for CRM notes, research summaries, incident reports, product feedback, interview notes, project decisions, and any workflow where a table needs to reference rich text.</p>
+
+
+<h2>GET and POST examples by feature</h2>
+<p>The examples below use placeholder ids. Replace <code>YOUR_API_KEY</code>, <code>YOUR_PROJECT_ID</code>, <code>DOC_ID</code>, <code>TASK_ID</code>, <code>FORM_ID</code>, <code>FILE_ID</code>, <code>DB_ID</code>, and <code>TABLE_ID</code> with values from your own Aamu workspace.</p>
+
+<h3>Tasks: list and create work</h3>
+<p>Use <code>GET /api/v1/tasks/</code> to list non-repository tasks in a project.</p>
+<pre><code>GET /api/v1/tasks/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "tasks": [
+    {
+      "id": "TASK_ID",
+      "pid": "YOUR_PROJECT_ID",
+      "title": "Review API integration",
+      "html": "&lt;p&gt;Check the rollout notes.&lt;/p&gt;",
+      "status": "active",
+      "files": [],
+      "comments": []
+    }
+  ]
+}</code></pre>
+<p>Create a task with <code>POST /api/v1/tasks/</code>:</p>
+<pre><code>POST /api/v1/tasks/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "title": "Prepare customer summary",
+  "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;"
+}</code></pre>
+
+<h3>Task comments: read a task and add a comment</h3>
+<p>To read the comments for a task, fetch the task itself:</p>
+<pre><code>GET /api/v1/tasks/TASK_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "task": {
+    "id": "TASK_ID",
+    "title": "Prepare customer summary",
+    "html": "&lt;p&gt;Summarize the latest feedback.&lt;/p&gt;",
+    "comments": [
+      {
+        "id": "COMMENT_ID",
+        "html": "&lt;p&gt;Draft summary added.&lt;/p&gt;",
+        "files": []
+      }
+    ]
+  }
+}</code></pre>
+<p>Add a comment with <code>POST /api/v1/tasks/{id}/comments</code>:</p>
+<pre><code>POST /api/v1/tasks/TASK_ID/comments
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "html": "&lt;p&gt;I reviewed the customer notes and added follow-up actions.&lt;/p&gt;"
+}</code></pre>
+
+<h3>Docs: list and create documents</h3>
+<p>Use <code>GET /api/v1/docs/</code> to list project documents.</p>
+<pre><code>GET /api/v1/docs/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "docs": [
+    {
+      "id": "DOC_ID",
+      "pid": "YOUR_PROJECT_ID",
+      "title": "Weekly API Report",
+      "status": "public",
+      "html": ""
+    }
+  ]
+}</code></pre>
+<p>Create a document with <code>POST /api/v1/docs/</code>:</p>
+<pre><code>POST /api/v1/docs/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "title": "Weekly API Report",
+  "html": "&lt;h1&gt;Weekly API Report&lt;/h1&gt;&lt;p&gt;All checks passed.&lt;/p&gt;"
+}</code></pre>
+
+<h3>Meetings: list and create meetings</h3>
+<p>Use <code>GET /api/v1/meetings/</code> to list meetings in a project.</p>
+<pre><code>GET /api/v1/meetings/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "meetings": [
+    {
+      "id": "MEETING_ID",
+      "pid": "YOUR_PROJECT_ID",
+      "name": "API rollout review",
+      "status": "public",
+      "html": "&lt;p&gt;Review integration status.&lt;/p&gt;"
+    }
+  ]
+}</code></pre>
+<p>Create a meeting with <code>POST /api/v1/meetings/</code>:</p>
+<pre><code>POST /api/v1/meetings/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "name": "API rollout review",
+  "html": "&lt;p&gt;Review integration status and next steps.&lt;/p&gt;",
+  "start_time": 1779458400000,
+  "end_time": 1779462000000
+}</code></pre>
+
+<h3>Forms: list forms and submit responses</h3>
+<p>Use <code>GET /api/v1/forms/</code> to list forms available through the API key.</p>
+<pre><code>GET /api/v1/forms/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "forms": [
+    {
+      "id": "FORM_ID",
+      "pid": "YOUR_PROJECT_ID",
+      "name": "Feedback form",
+      "status": "public",
+      "table_id": "TABLE_ID",
+      "fields": []
+    }
+  ]
+}</code></pre>
+<p>Submit a form response with <code>POST /api/v1/forms/{id}/submissions</code>:</p>
+<pre><code>POST /api/v1/forms/FORM_ID/submissions
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "fields": {
+    "email": "person@example.com",
+    "message": "I would like to hear more."
+  }
+}</code></pre>
+
+<h3>Public forms: GET and POST on the same URL</h3>
+<p>Public browser forms use the same URL for viewing and submitting. This does not use a Team API key.</p>
+<pre><code>GET /shared/form/FORM_ID</code></pre>
+<p>Example output is HTML: the rendered public form page.</p>
+<pre><code>&lt;form action="https://your-team.aamu.app/shared/form/FORM_ID" method="post" enctype="multipart/form-data"&gt;
+  ...
+&lt;/form&gt;</code></pre>
+<p>The browser submits the form with <code>POST /shared/form/FORM_ID</code>:</p>
+<pre><code>POST /shared/form/FORM_ID
+Content-Type: multipart/form-data
+
+form_builder=1
+email=person@example.com
+message=I would like to hear more.</code></pre>
+
+<h3>Files: get metadata and upload a file</h3>
+<p>Use <code>GET /api/v1/files/{id}</code> to read file metadata.</p>
+<pre><code>GET /api/v1/files/FILE_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "file": {
+    "id": "FILEPOINTER_ID",
+    "file_id": "FILE_VERSION_ID",
+    "name": "example.png",
+    "type": "image/png",
+    "browser_url": "/file/browser/FILEPOINTER_ID/FILE_VERSION_ID/example.png",
+    "download_url": "/file/dl/FILEPOINTER_ID/FILE_VERSION_ID/example.png"
+  }
+}</code></pre>
+<p>Uploading uses two API POSTs and one signed PUT:</p>
+<pre><code>POST /api/v1/files/prepare-upload
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "name": "example.png",
+  "type": "image/png",
+  "size": 12345
+}</code></pre>
+<p>After uploading bytes to the returned signed URL, complete the upload:</p>
+<pre><code>POST /api/v1/files/complete-upload
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "file_id": "FILE_VERSION_ID",
+  "bucket": "files",
+  "key": "...",
+  "name": "example.png",
+  "type": "image/png",
+  "size": 12345
+}</code></pre>
+
+<h3>Databases: create schema, then use GraphQL for rows</h3>
+<p>Database creation is a REST POST:</p>
+<pre><code>POST /api/v1/databases/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "name": "Customer feedback"
+}</code></pre>
+<p>Add columns with another REST POST:</p>
+<pre><code>POST /api/v1/databases/DB_ID/tables/TABLE_ID/columns
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+
+{
+  "columns": [
+    { "name": "Customer", "type": "text", "gtype": "customer" },
+    { "name": "Message", "type": "longtext", "gtype": "message" }
+  ]
+}</code></pre>
+<p>There is no generic REST <code>GET /api/v1/databases/{id}/rows</code>. Instead, row reads happen through GraphQL POST. A query is still a read operation, but it is sent as HTTP POST to the GraphQL endpoint.</p>
+<pre><code>POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "query { feedbackRows { id customer message } }"
+}</code></pre>
+<p>Example output:</p>
+<pre><code>{
+  "data": {
+    "feedbackRows": [
+      {
+        "id": "ROW_ID",
+        "customer": "Ada Lovelace",
+        "message": "The onboarding flow was clear."
+      }
+    ]
+  }
+}</code></pre>
+<p>Add row data with a GraphQL mutation:</p>
+<pre><code>POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "mutation CreateFeedback($input: FeedbackInput!) { createFeedback(input: $input) { id customer message } }",
+  "variables": {
+    "input": {
+      "customer": "Ada Lovelace",
+      "message": "The onboarding flow was clear."
+    }
+  }
+}</code></pre>
+
+<h3>Legacy direct table submit</h3>
+<p>Older generated database form snippets can submit directly to a table endpoint:</p>
+<pre><code>POST /api/v1/db/TABLE_ID
+Content-Type: application/x-www-form-urlencoded
+
+customer=Ada%20Lovelace&message=The%20onboarding%20flow%20was%20clear.</code></pre>
+<p>This is best treated as a legacy/browser form integration. New authenticated API integrations should prefer <code>/api/v1/forms/{id}/submissions</code> for form submissions and <code>/api/v1/graphql/</code> for database row operations.</p>
 
 <h2>Why this works well for AI agents</h2>
 <p>The Aamu API is intentionally close to the product model. An AI agent can create a task, attach files, write a doc, schedule a meeting, submit a form response, or work with structured database rows without inventing a parallel workflow.</p>
