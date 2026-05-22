@@ -9,6 +9,13 @@
     <lastBuildDate>Fri, 22 May 2026 07:10:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Building with the Aamu API: From Tasks to Docs and GraphQL</title>
+      <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</link>
+      <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Building with the Aamu API: From Tasks to Files and GraphQL</title>
       <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-files-and-graphql/</link>
       <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
