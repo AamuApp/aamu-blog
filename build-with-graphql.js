@@ -1,5 +1,6 @@
 // build-blog-posts.js
 
+import { createHash } from 'crypto';
 import { existsSync, mkdirSync, rmdirSync, readFileSync, writeFileSync } from 'fs';
 import { DateTime } from 'luxon';
 import wget from 'node-wget-fetch';
@@ -53,14 +54,19 @@ function normalizeStatus(status) {
 	return String(status || '').toLowerCase();
 }
 
+function formatTimestamp(timestamp) {
+	return DateTime.fromMillis(timestamp).toISO({ suppressMilliseconds: false });
+}
+
 function requireApiKey(keyName, keyValue) {
 	if (!keyValue) {
 		throw new Error(`${keyName} environment variable is required.`);
 	}
 }
 
-function generateRandomFileName(originalName) {
-	return Math.floor(Math.random() * 10000000000000000) + '_' + basename(originalName);
+function generateStableFileName(identifier, originalName) {
+	const hash = createHash('sha256').update(identifier).digest('hex').slice(0, 16);
+	return `${hash}_${basename(originalName)}`;
 }
 
 function resolveApiUrl(url) {
@@ -105,10 +111,12 @@ function extractDocIds(value) {
 	if (typeof value === 'object') {
 		return [
 			...extractDocIds(value.id),
+			...extractDocIds(value._id),
 			...extractDocIds(value.doc_id),
 			...extractDocIds(value.docId),
 			...extractDocIds(value.value),
 			...extractDocIds(value.values),
+			...extractDocIds(value.uuid),
 		];
 	}
 
@@ -151,6 +159,7 @@ async function hydratePostBodyFromDoc(post) {
 	];
 	const docIds = [...new Set(docValues.flatMap(extractDocIds))];
 	if (!docIds.length) {
+		console.log(`No doc ids found for post: ${post.title}`);
 		if (!String(post.body || '').trim()) {
 			logError(`No doc id or body found for post "${post.title}".`);
 		}
@@ -198,17 +207,9 @@ ${post.body}
   `.trim();
 }
 
-function createNewPostsQuery(docFields) {
+function createPostSelection(docFields) {
 	const docSelection = docFields.map(field => `        ${field}`).join('\n');
-	return {
-		query: `
-    query ($updated_at: DateTime!) {
-      BlogPostCollection(
-        filter: {
-          status: { EQ: "published" },
-          updated_at: { GT: $updated_at }
-        }
-      ) {
+	return `
         id
         created_at
         updated_at
@@ -228,6 +229,20 @@ ${docSelection}
         }
         status
         tags
+`;
+}
+
+function createNewPostsQuery(docFields) {
+	return {
+		query: `
+    query ($updated_at: DateTime!) {
+      BlogPostCollection(
+        filter: {
+          status: { EQ: "published" },
+          updated_at: { GT: $updated_at }
+        }
+      ) {
+${createPostSelection(docFields)}
       }
     }
 	`,
@@ -308,8 +323,9 @@ async function getPostDocFields() {
 
 // Fetches new/updated published posts and draft posts
 async function fetchPosts() {
-	console.log('Fetching posts updated/created after', DateTime.fromMillis(latestTimestamp).toISO());
+	console.log('Fetching posts updated/created after', formatTimestamp(latestTimestamp));
 	const docFields = await getPostDocFields();
+	console.log(`Detected BlogPost doc fields: ${docFields.length ? docFields.join(', ') : '(none)'}`);
 	const [newPostsData, draftPostsData] = await Promise.all([
 		sendGraphQLRequest(createNewPostsQuery(docFields)),
 		sendGraphQLRequest(draftPostsQuery),
@@ -342,11 +358,6 @@ async function writePost(post) {
 	const folderPath = `${CONTENT_DIR}/${post.slug}`;
 	const filePath = `${folderPath}/index.md`;
 
-	// Update the latest timestamp if this post is newer
-	if (latestTimestamp < postUpdated.valueOf()) {
-		latestTimestamp = postUpdated.valueOf();
-	}
-
 	// Create the post's folder if it doesn't exist
 	if (!existsSync(folderPath)) {
 		mkdirSync(folderPath, { recursive: true });
@@ -362,9 +373,10 @@ async function writePost(post) {
 		if (src) {
 			try {
 				const imageUrl = resolveApiUrl(src);
-				const imagePath = `${folderPath}/${generateRandomFileName(getUrlBasename(imageUrl))}`;
+				const imageName = generateStableFileName(imageUrl, getUrlBasename(imageUrl));
+				const imagePath = `${folderPath}/${imageName}`;
 				await wget(imageUrl, imagePath);
-				img.setAttribute('src', getUrlBasename(imagePath));
+				img.setAttribute('src', imageName);
 			} catch (error) {
 				logError(`Failed to download image ${src}: ${error.message}`);
 			}
@@ -377,7 +389,7 @@ async function writePost(post) {
 		const [, alt, url] = match;
 		try {
 			const imageUrl = resolveApiUrl(url);
-			const imageName = getUrlBasename(imageUrl);
+			const imageName = generateStableFileName(imageUrl, getUrlBasename(imageUrl));
 			const imagePath = `${folderPath}/${imageName}`;
 			await wget(imageUrl, imagePath);
 			post.body = post.body.replace(match[0], `![${alt}](${imageName})`);
@@ -390,7 +402,7 @@ async function writePost(post) {
 	// Handle the cover image
 	if (post.heroImage?.data && post.heroImage.name) {
 		try {
-			const heroImageName = generateRandomFileName(post.heroImage.name);
+			const heroImageName = generateStableFileName(post.heroImage.data, post.heroImage.name);
 			writeFileSync(`${folderPath}/${heroImageName}`, Buffer.from(post.heroImage.data, 'base64'));
 			post.heroImage.url = heroImageName;
 		} catch (error) {
@@ -399,7 +411,7 @@ async function writePost(post) {
 	} else if (post.heroImage?.url) {
 		try {
 			const imageUrl = resolveApiUrl(post.heroImage.url);
-			const imageName = getUrlBasename(imageUrl);
+			const imageName = generateStableFileName(imageUrl, getUrlBasename(imageUrl));
 			const imagePath = `${folderPath}/${imageName}`;
 			await wget(imageUrl, imagePath);
 			post.heroImage.url = imageName;
@@ -410,6 +422,11 @@ async function writePost(post) {
 
 	// Write the post to disk
 	writeFileSync(filePath, createPostTemplate(post));
+
+	// Update the latest timestamp only after the post has been written.
+	if (latestTimestamp < postUpdated.valueOf()) {
+		latestTimestamp = postUpdated.valueOf();
+	}
 }
 
 // Main function to build the blog

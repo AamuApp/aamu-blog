@@ -13,9 +13,7 @@
       <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</link>
       <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</guid>
-      <description>&lt;h1&gt;Building with the Aamu API: From Tasks to Files and GraphQL&lt;/h1&gt;
-&lt;p&gt;Aamu exposes a project API for teams and AI agents that need to create, read, and update real work inside Aamu. The API follows the same building blocks people use in the UI: tasks, docs, meetings, forms, files, databases, and database rows through GraphQL.&lt;/p&gt;
-&lt;p&gt;The API is described by an OpenAPI document at &lt;code&gt;/.well-known/openapi.json&lt;/code&gt;. That document is useful both for humans and for AI tools that need to discover available operations.&lt;/p&gt;</description>
+      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu exposes a project API for teams and AI agents that need to create, read, and update real work inside Aamu. The API follows the same building blocks people use in the UI: tasks, docs, meetings, forms, files, databases, and database rows through GraphQL.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The API is described by an OpenAPI document at &lt;code&gt;/.well-known/openapi.json&lt;/code&gt;. That document is useful both for humans and for AI tools that need to discover available operations.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
