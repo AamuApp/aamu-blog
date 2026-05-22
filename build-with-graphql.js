@@ -6,6 +6,9 @@ import wget from 'node-wget-fetch';
 import { basename } from 'path';
 import { parse } from 'node-html-parser';
 import 'dotenv/config';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.envrc', override: false });
 
 // Configuration
 const API_BASE_URL = (process.env.AAMU_API_BASE_URL || 'https://ilkkah.aamu.app').replace(/\/$/, '');
@@ -16,6 +19,7 @@ const API_KEY = process.env.API_KEY;
 const DOCS_API_KEY = process.env.DOCS_API_KEY || API_KEY;
 const DB_ID = process.env.AAMU_DB_ID || process.env.DB_ID;
 const PROJECT_ID = process.env.AAMU_PROJECT_ID || process.env.PROJECT_ID;
+const BLOG_DOC_FIELD = process.env.BLOG_DOC_FIELD;
 
 // Tracks the latest post update timestamp to fetch only newer posts
 let latestTimestamp = loadLatestTimestamp();
@@ -137,33 +141,22 @@ async function fetchDoc(docId) {
 	return data?.doc;
 }
 
-async function fetchDocs() {
-	requireApiKey('DOCS_API_KEY or API_KEY', DOCS_API_KEY);
-	const response = await fetch(`${API_BASE_URL}/api/v1/docs/`, {
-		headers: getAuthHeaders(),
-	});
-	const data = await response.json();
-
-	if (!response.ok) {
-		throw new Error(data?.error?.message || `HTTP ${response.status}`);
+async function hydratePostBodyFromDoc(post) {
+	const docValues = [
+		post.docs,
+		post.doc,
+		...Object.entries(post)
+			.filter(([key]) => /^docs?\w*$/i.test(key))
+			.map(([, value]) => value),
+	];
+	const docIds = [...new Set(docValues.flatMap(extractDocIds))];
+	if (!docIds.length) {
+		if (!String(post.body || '').trim()) {
+			logError(`No doc id or body found for post "${post.title}".`);
+		}
+		return;
 	}
 
-	return data?.docs || [];
-}
-
-async function findDocForPost(post) {
-	const docs = await fetchDocs();
-	const normalizedTitle = String(post.title || '').trim().toLowerCase();
-	if (!normalizedTitle) return null;
-
-	const listedDoc = docs.find(doc => String(doc.title || '').trim().toLowerCase() === normalizedTitle);
-	if (!listedDoc?.id) return null;
-
-	return fetchDoc(listedDoc.id);
-}
-
-async function hydratePostBodyFromDoc(post) {
-	const docIds = extractDocIds(post.docs ?? post.doc);
 	for (const docId of docIds) {
 		try {
 			const doc = await fetchDoc(docId);
@@ -178,19 +171,8 @@ async function hydratePostBodyFromDoc(post) {
 		}
 	}
 
-	try {
-		const doc = await findDocForPost(post);
-		if (doc?.html) {
-			post.body = doc.html;
-			console.log(`Using doc content matched by title for post: ${post.title}`);
-			return;
-		}
-
-		if (!String(post.body || '').trim()) {
-			logError(`No doc content or body found for post "${post.title}".`);
-		}
-	} catch (error) {
-		logError(`Failed to find doc by title for post "${post.title}": ${getErrorMessage(error)}`);
+	if (!String(post.body || '').trim()) {
+		logError(`No doc content or body found for post "${post.title}".`);
 	}
 }
 
@@ -216,8 +198,8 @@ ${post.body}
   `.trim();
 }
 
-function createNewPostsQuery(docField) {
-	const docSelection = docField ? `        ${docField}` : '';
+function createNewPostsQuery(docFields) {
+	const docSelection = docFields.map(field => `        ${field}`).join('\n');
 	return {
 		query: `
     query ($updated_at: DateTime!) {
@@ -250,7 +232,7 @@ ${docSelection}
     }
 	`,
 		variables: {
-			updated_at: DateTime.fromMillis(Math.max(0, latestTimestamp - 1)).toISO(),
+			updated_at: DateTime.fromMillis(latestTimestamp).toISO(),
 		},
 	};
 }
@@ -300,7 +282,7 @@ async function sendGraphQLRequest(query) {
 	}
 }
 
-async function getPostDocField() {
+async function getPostDocFields() {
 	const data = await sendGraphQLRequest({
 		query: `
       {
@@ -314,17 +296,22 @@ async function getPostDocField() {
 	});
 
 	const fieldNames = data?.data?.__type?.fields?.map(field => field.name) || [];
-	if (fieldNames.includes('docs')) return 'docs';
-	if (fieldNames.includes('doc')) return 'doc';
-	return null;
+	if (BLOG_DOC_FIELD) {
+		if (!fieldNames.includes(BLOG_DOC_FIELD)) {
+			throw new Error(`BLOG_DOC_FIELD="${BLOG_DOC_FIELD}" was not found in BlogPost fields.`);
+		}
+		return [BLOG_DOC_FIELD];
+	}
+
+	return fieldNames.filter(fieldName => /^docs?\w*$/i.test(fieldName));
 }
 
 // Fetches new/updated published posts and draft posts
 async function fetchPosts() {
 	console.log('Fetching posts updated/created after', DateTime.fromMillis(latestTimestamp).toISO());
-	const docField = await getPostDocField();
+	const docFields = await getPostDocFields();
 	const [newPostsData, draftPostsData] = await Promise.all([
-		sendGraphQLRequest(createNewPostsQuery(docField)),
+		sendGraphQLRequest(createNewPostsQuery(docFields)),
 		sendGraphQLRequest(draftPostsQuery),
 	]);
 
