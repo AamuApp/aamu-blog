@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T00:05:15.853Z"
+modified: "2026-05-24T04:04:04.249Z"
 description: ""
 cover:
   image: 497a93a5ef0d67b4_ChatGPT Image May 22, 2026, 10_29_15 AM.png
@@ -14,7 +14,7 @@ markup: html
 ---
 
 <p xmlns="http://www.w3.org/1999/xhtml">Aamu exposes a project API for teams and AI agents that need to create, read, and update real work inside Aamu. The API follows the same building blocks people use in the UI: tasks, docs, meetings, forms, files, databases, and database rows through GraphQL.</p><p xmlns="http://www.w3.org/1999/xhtml">The API is described by an OpenAPI document at <code>/.well-known/openapi.json</code>. That document is useful both for humans and for AI tools that need to discover available operations.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Authentication and project scope</h2><p xmlns="http://www.w3.org/1999/xhtml">Every API request uses a Team API key in the <code>x-api-key</code> header. Project-scoped resources also use <code>x-project-id</code>. When an API key has access to multiple projects, the project header disambiguates which project the request should use.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">API keys can be scoped by feature and permission. For example, one key can have read-only Docs access, while another can create tasks, upload files, and submit forms in selected projects.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
+x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">API keys can be scoped by feature and permission. For example, one key can have read-only Docs access, while another can create tasks, upload files, and submit forms in selected projects.</p><h2 xmlns="http://www.w3.org/1999/xhtml">API actor</h2><p xmlns="http://www.w3.org/1999/xhtml">Write operations can set the acting user with <code>x-aamu-actor</code>. The value can be a username, such as <code>ai</code> or <code>badding</code>, or a user id. The actor must be a member of the scoped project.</p><p xmlns="http://www.w3.org/1999/xhtml">When the header is omitted, Aamu uses the project <code>ai</code> user when available, otherwise the project owner. The same fallback applies across project item writes: tasks, docs, meetings, form submissions, file upload registration, and database creation/schema operations.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">x-aamu-actor: ai</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "tasks": [
@@ -34,7 +34,7 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
       "comments": []
     }
   ]
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list project users</h3><p xmlns="http://www.w3.org/1999/xhtml">Use the Users endpoint to resolve usernames to user ids before assigning task users.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list project users</h3><p xmlns="http://www.w3.org/1999/xhtml">Use the Users endpoint to resolve usernames to user ids before assigning task users or choosing an API actor.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">You can also filter by exact username:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/?username=badding
 x-api-key: YOUR_API_KEY
@@ -50,6 +50,7 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a task</h3><p xmlns="http://www.w3.org/1999/xhtml">Create accepts the same task workflow fields as update. If <code>users</code> is provided, the API applies the assignment changes through the same task user helpers as the UI. Dates, repetition, and reminders go through the task date-change helper.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai
 Content-Type: application/json
 
 {
@@ -85,6 +86,7 @@ Content-Type: application/json
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PATCH: update a task</h3><p xmlns="http://www.w3.org/1999/xhtml">Update supports title, HTML, status, assigned users, start and end dates, repetition, and reminders. Fields with side effects are routed through the same internal helpers as UI operations.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai
 Content-Type: application/json
 
 {
