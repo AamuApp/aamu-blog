@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T10:32:17.007Z"
+modified: "2026-05-24T18:09:02.425Z"
 description: ""
 cover:
   image: fa0b0db5a902b347_aamuapp-api.png
@@ -67,7 +67,34 @@ x-aamu-actor: ai</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example res
     "id": "TICKET_ID",
     "has_draft": false
   }
-}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
+}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Emails</h2><p xmlns="http://www.w3.org/1999/xhtml">The Email API follows the same human-in-the-loop model as Helpdesk: integrations can list email threads, write or generate a user-specific reply draft, and send that draft only through an explicit send command.</p><p xmlns="http://www.w3.org/1999/xhtml">Drafts are stored in the same user-specific comment draft location the email UI uses and the email is marked with <code>hasDraft</code>. Use <code>x-aamu-actor</code> to select whose draft is written, generated or sent.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list emails</h3><p xmlns="http://www.w3.org/1999/xhtml"><code>limit</code> controls the maximum number of email threads returned. Use <code>status=unanswered</code> or <code>unanswered=true</code> when building an AI reply queue.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/emails/?status=unanswered&amp;limit=20
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PUT: write a reply draft</h3><p xmlns="http://www.w3.org/1999/xhtml">The API chooses the original sender/contact as the default recipient when possible. You can pass <code>to</code> explicitly if the integration wants to override recipients.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PUT /api/v1/emails/EMAIL_ID/reply-draft
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai
+Content-Type: application/json
+
+{
+  "html": "&lt;p&gt;Hei, kiitos viestistä. Palaamme tähän pian.&lt;/p&gt;",
+  "mode": "replace",
+  "to": [
+    { "address": "customer@example.com", "name": "Customer" }
+  ]
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: generate a reply draft</h3><p xmlns="http://www.w3.org/1999/xhtml">Email draft generation supports optional <code>instructions</code> for tone, language or constraints. By default it uses Team Brain retrieval as context, so the API key needs both Emails write scope and Team Brain read scope for the project.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/emails/EMAIL_ID/reply-draft/generate
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai
+Content-Type: application/json
+
+{
+  "instructions": "Answer in Finnish and keep it short.",
+  "use_team_brain": true,
+  "mode": "replace"
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: send a reply draft</h3><p xmlns="http://www.w3.org/1999/xhtml">Sending uses the same email-comment/send path as the UI. The endpoint sends the current draft for the API actor, clears it, and returns the sent comment plus the updated email thread. Use Emails comment permission for this endpoint.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/emails/EMAIL_ID/reply-draft/send
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "tasks": [
