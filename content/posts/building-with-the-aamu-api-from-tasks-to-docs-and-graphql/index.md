@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T05:07:55.526Z"
+modified: "2026-05-24T10:22:35.195Z"
 description: ""
 cover:
   image: 497a93a5ef0d67b4_ChatGPT Image May 22, 2026, 10_29_15 AM.png
@@ -32,7 +32,7 @@ Content-Type: application/json
       "urls": []
     }
   ]
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Use Team Brain read scope for the project. When Helpdesk draft generation is configured to use Team Brain, the same Team Brain read scope is required in addition to Helpdesk write scope.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Helpdesk</h2><p xmlns="http://www.w3.org/1999/xhtml">The Helpdesk API is designed for human-in-the-loop support automation. Integrations can read new tickets and prepare reply drafts, but reply-draft endpoints do not send messages to customers.</p><p xmlns="http://www.w3.org/1999/xhtml">Reply drafts are stored in the same user-specific comment draft location the UI uses, and the ticket is marked with <code>hasDraft</code>. In practice this means the draft appears in the Helpdesk reply editor for the API actor, ready for a human to review and send.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tickets</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/helpdesk/tickets/?status=open&amp;unanswered=true
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Use Team Brain read scope for the project. When Helpdesk draft generation is configured to use Team Brain, the same Team Brain read scope is required in addition to Helpdesk write scope.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Helpdesk</h2><p xmlns="http://www.w3.org/1999/xhtml">The Helpdesk API is designed for human-in-the-loop support automation. Integrations can read new tickets, prepare reply drafts, and send a draft only through an explicit send command.</p><p xmlns="http://www.w3.org/1999/xhtml">Reply drafts are stored in the same user-specific comment draft location the UI uses, and the ticket is marked with <code>hasDraft</code>. In practice this means the draft appears in the Helpdesk reply editor for the API actor, ready for a human to review and send.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tickets</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/helpdesk/tickets/?status=open&amp;unanswered=true
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PUT: write a reply draft</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PUT /api/v1/helpdesk/tickets/TICKET_ID/reply-draft
 x-api-key: YOUR_API_KEY
@@ -53,7 +53,21 @@ Content-Type: application/json
   "instructions": "Answer in Finnish, friendly and concise.",
   "use_team_brain": true,
   "mode": "replace"
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The generated draft is saved as the API actor’s Helpdesk comment draft. Sending the actual reply remains a separate human action.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The generated draft is saved as the API actor’s Helpdesk comment draft. It is not sent automatically.</p><h3 xmlns="http://www.w3.org/1999/xhtml">POST: send a reply draft</h3><p xmlns="http://www.w3.org/1999/xhtml">Sending is deliberately separate from writing or generating a draft. The send endpoint takes the current draft for the API actor, sends it through the same Helpdesk comment/email path as the UI, clears the draft, and returns the sent comment plus the updated ticket.</p><p xmlns="http://www.w3.org/1999/xhtml">Use Helpdesk comment permission for this endpoint. <code>x-aamu-actor</code> selects whose draft is sent, so integrations can safely keep AI-generated drafts under an <code>ai</code> actor or send as a specific user when that is intended.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/helpdesk/tickets/TICKET_ID/reply-draft/send
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "comment_path": "comments.3",
+  "comment": {
+    "id": "COMMENT_ID",
+    "html": "&lt;p&gt;Hei, kiitos viestistä...&lt;/p&gt;",
+    "from": "ai"
+  },
+  "ticket": {
+    "id": "TICKET_ID",
+    "has_draft": false
+  }
+}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "tasks": [
