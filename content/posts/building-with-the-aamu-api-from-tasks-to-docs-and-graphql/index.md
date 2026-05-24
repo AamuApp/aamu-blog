@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T20:09:51.952Z"
+modified: "2026-05-24T20:28:28.559Z"
 description: ""
 cover:
   image: 35e2bf8ba348955c_aamuapp-api.png
@@ -32,7 +32,18 @@ Content-Type: application/json
       "urls": []
     }
   ]
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Use Team Brain read scope for the project. When Helpdesk draft generation is configured to use Team Brain, the same Team Brain read scope is required in addition to Helpdesk write scope.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Helpdesk</h2><p xmlns="http://www.w3.org/1999/xhtml">The Helpdesk API is designed for human-in-the-loop support automation. Integrations can read new tickets, prepare reply drafts, and send a draft only through an explicit send command.</p><p xmlns="http://www.w3.org/1999/xhtml">Reply drafts are stored in the same user-specific comment draft location the UI uses, and the ticket is marked with <code>hasDraft</code>. In practice this means the draft appears in the Helpdesk reply editor for the API actor, ready for a human to review and send.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tickets</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/helpdesk/tickets/?status=open&amp;unanswered=true
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Use Team Brain read scope for the project. When Helpdesk draft generation is configured to use Team Brain, the same Team Brain read scope is required in addition to Helpdesk write scope.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Users</h2><p xmlns="http://www.w3.org/1999/xhtml">The Users API resolves project members for actor headers, task assignees and integrations that need stable Aamu user ids. It accepts any project read scope, such as Tasks, Docs, Helpdesk or Emails.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list users</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The older <code>?username=...</code> query filter is still supported for backwards compatibility, but one-user lookups should use the resource endpoint below.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: get one user</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/badding
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The path value can be a username or user id. Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "user": {
+    "id": "USER_ID",
+    "username": "badding",
+    "name": "Badding",
+    "email": "badding@example.com"
+  }
+}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Helpdesk</h2><p xmlns="http://www.w3.org/1999/xhtml">The Helpdesk API is designed for human-in-the-loop support automation. Integrations can read new tickets, prepare reply drafts, and send a draft only through an explicit send command.</p><p xmlns="http://www.w3.org/1999/xhtml">Reply drafts are stored in the same user-specific comment draft location the UI uses, and the ticket is marked with <code>hasDraft</code>. In practice this means the draft appears in the Helpdesk reply editor for the API actor, ready for a human to review and send.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tickets</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/helpdesk/tickets/?status=open&amp;unanswered=true
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: resolve a Helpdesk actor</h3><p xmlns="http://www.w3.org/1999/xhtml">Use this endpoint to check a Helpdesk actor and the project Helpdesk mailbox used for email tickets. The actor can be a username or user id. The response includes safe mailbox metadata only, never passwords or tokens.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/helpdesk/actors/ile
 x-api-key: YOUR_API_KEY
