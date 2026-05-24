@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T20:28:28.559Z"
+modified: "2026-05-24T20:39:13.112Z"
 description: ""
 cover:
   image: 35e2bf8ba348955c_aamuapp-api.png
@@ -109,6 +109,18 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
       "configured": true
     }
   }
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: send a new email</h3><p xmlns="http://www.w3.org/1999/xhtml">Use this endpoint to send a new outbound email, not a reply to an existing thread. It creates a draft for the API actor, sends it through the same project email path as the UI, and returns the sent email thread. Use Emails comment permission for this endpoint.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/emails/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ile
+Content-Type: application/json
+
+{
+  "subject": "Test email from Aamu API",
+  "html": "&lt;p&gt;Hello from the Aamu Email API.&lt;/p&gt;",
+  "to": [
+    { "address": "ilkkah@gmail.com", "name": "Ilkka" }
+  ]
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PUT: write a reply draft</h3><p xmlns="http://www.w3.org/1999/xhtml">The API chooses the original sender/contact as the default recipient when possible. You can pass <code>to</code> explicitly if the integration wants to override recipients.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PUT /api/v1/emails/EMAIL_ID/reply-draft
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
