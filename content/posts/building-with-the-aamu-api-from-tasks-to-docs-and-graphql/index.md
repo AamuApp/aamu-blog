@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T21:12:52.723Z"
+modified: "2026-05-24T21:32:05.149Z"
 description: ""
 cover:
-  image: 35e2bf8ba348955c_aamuapp-api.png
+  image: afbb9a1096f82be0_aamuapp-api.png
   relative: true
 tags: ["api", "ai", "graphql"]
 ShowToc: false
