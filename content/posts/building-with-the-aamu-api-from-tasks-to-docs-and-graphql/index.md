@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-22T19:29:41.486Z"
+modified: "2026-05-24T00:05:15.853Z"
 description: ""
 cover:
   image: 497a93a5ef0d67b4_ChatGPT Image May 22, 2026, 10_29_15 AM.png
@@ -14,7 +14,7 @@ markup: html
 ---
 
 <p xmlns="http://www.w3.org/1999/xhtml">Aamu exposes a project API for teams and AI agents that need to create, read, and update real work inside Aamu. The API follows the same building blocks people use in the UI: tasks, docs, meetings, forms, files, databases, and database rows through GraphQL.</p><p xmlns="http://www.w3.org/1999/xhtml">The API is described by an OpenAPI document at <code>/.well-known/openapi.json</code>. That document is useful both for humans and for AI tools that need to discover available operations.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Authentication and project scope</h2><p xmlns="http://www.w3.org/1999/xhtml">Every API request uses a Team API key in the <code>x-api-key</code> header. Project-scoped resources also use <code>x-project-id</code>. When an API key has access to multiple projects, the project header disambiguates which project the request should use.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">API keys can be scoped by feature and permission. For example, one key can have read-only Docs access, while another can create tasks, upload files, and submit forms in selected projects.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
+x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">API keys can be scoped by feature and permission. For example, one key can have read-only Docs access, while another can create tasks, upload files, and submit forms in selected projects.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Tasks</h2><p xmlns="http://www.w3.org/1999/xhtml">The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list tasks</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "tasks": [
@@ -24,40 +24,93 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
       "title": "Review API integration",
       "html": "&lt;p&gt;Check the rollout notes.&lt;/p&gt;",
       "status": "active",
+      "start_at": 1779872400000,
+      "end_at": 1779876000000,
+      "repeat": "weekly",
+      "reminders": [
+        { "d": 0, "h": 0, "m": 15 }
+      ],
+      "users": ["USER_ID"],
       "comments": []
     }
   ]
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a task</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/tasks/
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list project users</h3><p xmlns="http://www.w3.org/1999/xhtml">Use the Users endpoint to resolve usernames to user ids before assigning task users.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">You can also filter by exact username:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/users/?username=badding
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "users": [
+    {
+      "id": "USER_ID",
+      "username": "badding",
+      "name": "badding",
+      "email": "person@example.com"
+    }
+  ]
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a task</h3><p xmlns="http://www.w3.org/1999/xhtml">Create accepts the same task workflow fields as update. If <code>users</code> is provided, the API applies the assignment changes through the same task user helpers as the UI. Dates, repetition, and reminders go through the task date-change helper.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
   "title": "Prepare customer summary",
-  "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;"
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;",
+  "status": "active",
+  "users": ["USER_ID_1", "USER_ID_2"],
+  "start_at": "2026-05-27T09:00:00.000Z",
+  "end_at": "2026-05-27T10:00:00.000Z",
+  "reminders": [
+    { "minutes_before": 15 },
+    { "d": 0, "h": 1, "m": 0 }
+  ],
+  "comments": [
+    { "html": "&lt;p&gt;Created from the external workflow.&lt;/p&gt;" }
+  ]
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">For repeating tasks, set <code>repeat</code> or <code>repetition</code> to <code>daily</code>, <code>weekly</code>, <code>monthly</code>, or <code>yearly</code>. Leave it out for a one-time task.</p><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "task": {
     "id": "TASK_ID",
     "pid": "YOUR_PROJECT_ID",
     "title": "Prepare customer summary",
     "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;",
     "status": "active",
+    "start_at": 1779872400000,
+    "end_at": 1779876000000,
+    "reminders": [
+      { "d": 0, "h": 0, "m": 15 },
+      { "d": 0, "h": 1, "m": 0 }
+    ],
+    "users": ["USER_ID_1", "USER_ID_2"],
     "comments": []
   }
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PATCH: update a task</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PATCH: update a task</h3><p xmlns="http://www.w3.org/1999/xhtml">Update supports title, HTML, status, assigned users, start and end dates, repetition, and reminders. Fields with side effects are routed through the same internal helpers as UI operations.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
   "title": "Prepare customer summary and next steps",
-  "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;"
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;",
+  "status": "complete",
+  "users": ["USER_ID_1", "USER_ID_2"],
+  "start_at": 1779872400000,
+  "end_at": 1779876000000,
+  "repeat": "weekly",
+  "reminders": [
+    { "minutes_before": 15 }
+  ]
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Use <code>null</code> to clear <code>start_at</code>, <code>end_at</code>, <code>repeat</code>, or <code>reminders</code>. Use an empty reminder array to remove all reminders.</p><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "task": {
     "id": "TASK_ID",
     "title": "Prepare customer summary and next steps",
     "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;",
-    "status": "active"
+    "status": "complete",
+    "start_at": 1779872400000,
+    "end_at": 1779876000000,
+    "repeat": "weekly",
+    "reminders": [
+      { "d": 0, "h": 0, "m": 15 }
+    ],
+    "users": ["USER_ID_1", "USER_ID_2"]
   }
 }</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Task comments</h2><p xmlns="http://www.w3.org/1999/xhtml">Task comments use the same HTML-oriented content model as tasks. Comments are returned as part of the task response.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: read a task with comments</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/tasks/TASK_ID
 x-api-key: YOUR_API_KEY
@@ -282,7 +335,7 @@ Content-Type: application/json
     "browser_url": "/file/browser/FILEPOINTER_ID/FILE_VERSION_ID/example.png",
     "download_url": "/file/dl/FILEPOINTER_ID/FILE_VERSION_ID/example.png"
   }
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The <code>browser_url</code> can be embedded in Docs or Tasks HTML, and the same file can also be included in a <code>files</code> attachment array.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Databases and GraphQL</h2><p xmlns="http://www.w3.org/1999/xhtml">The REST Database API creates databases and changes table schema. Row data is handled through the generated GraphQL API. In other words, schema setup uses REST, while row reads and writes use GraphQL.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: read row data with GraphQL</h3><p xmlns="http://www.w3.org/1999/xhtml">GraphQL reads are sent as HTTP POST requests to <code>/api/v1/graphql/</code>. This is normal GraphQL behavior: the operation is a read, even though the HTTP method is POST.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The <code>browser_url</code> can be embedded in Docs or Tasks HTML. The old item-level <code>files</code> field is deprecated and is not returned by the current API.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Databases and GraphQL</h2><p xmlns="http://www.w3.org/1999/xhtml">The REST Database API creates databases and changes table schema. Row data is handled through the generated GraphQL API. In other words, schema setup uses REST, while row reads and writes use GraphQL.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: read row data with GraphQL</h3><p xmlns="http://www.w3.org/1999/xhtml">GraphQL reads are sent as HTTP POST requests to <code>/api/v1/graphql/</code>. This is normal GraphQL behavior: the operation is a read, even though the HTTP method is POST.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
 x-api-key: YOUR_API_KEY
 x-db-id: DB_ID
 Content-Type: application/json
