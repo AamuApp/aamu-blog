@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-05-24T20:58:39.757Z"
+modified: "2026-05-24T21:12:52.723Z"
 description: ""
 cover:
   image: 35e2bf8ba348955c_aamuapp-api.png
@@ -109,7 +109,10 @@ x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml
       "configured": true
     }
   }
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a new email draft</h3><p xmlns="http://www.w3.org/1999/xhtml">Use this endpoint to create a new outbound email draft for the API actor without sending it. The draft appears in the same email draft list the UI uses. Use Emails write permission for this endpoint.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/emails/drafts/
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: search email contacts</h3><p xmlns="http://www.w3.org/1999/xhtml">Use contacts when selecting recipients for new drafts or sent emails. The API also auto-resolves address-only recipients to existing contacts by email address. Missing contacts are created only when <code>create_missing_contacts</code> is explicitly set to <code>true</code>.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/emails/contacts/?q=ilkkah&amp;limit=10
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ile</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a new email draft</h3><p xmlns="http://www.w3.org/1999/xhtml">Use this endpoint to create a new outbound email draft for the API actor without sending it. The draft appears in the same email draft list the UI uses. Use Emails write permission for this endpoint.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/emails/drafts/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 x-aamu-actor: ile
@@ -120,7 +123,8 @@ Content-Type: application/json
   "html": "&lt;p&gt;This draft has not been sent.&lt;/p&gt;",
   "to": [
     { "address": "ilkkah@gmail.com", "name": "Ilkka" }
-  ]
+  ],
+  "create_missing_contacts": true
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: send a new email</h3><p xmlns="http://www.w3.org/1999/xhtml">Use this endpoint to send a new outbound email, not a reply to an existing thread. It creates a draft for the API actor, sends it through the same project email path as the UI, and returns the sent email thread. Use Emails comment permission for this endpoint.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/emails/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
