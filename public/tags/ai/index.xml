@@ -6,8 +6,15 @@
     <description>Recent content in Ai on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 May 2026 07:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 08:28:30 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI customer support with Aamu.app: Team Brain, drafts, and human review</title>
+      <link>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</link>
+      <pubDate>Mon, 01 Jun 2026 08:28:30 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</guid>
+      <description>How Aamu.app uses Team Brain, AI-generated drafts, and human review to make customer support faster without losing control.</description>
+    </item>
     <item>
       <title>Building with the Aamu API: From Tasks to Docs and GraphQL</title>
       <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</link>

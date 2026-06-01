@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Team-Brain on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/team-brain/</link>
+    <description>Recent content in Team-Brain on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jun 2026 08:28:30 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/team-brain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI customer support with Aamu.app: Team Brain, drafts, and human review</title>
+      <link>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</link>
+      <pubDate>Mon, 01 Jun 2026 08:28:30 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</guid>
+      <description>How Aamu.app uses Team Brain, AI-generated drafts, and human review to make customer support faster without losing control.</description>
+    </item>
+  </channel>
+</rss>
