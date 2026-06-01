@@ -13,7 +13,7 @@
       <link>https://aamu.app/blog/posts/database-automations-with-aamuapp/</link>
       <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/database-automations-with-aamuapp/</guid>
-      <description>&lt;p&gt;Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! &lt;/p&gt;&lt;p&gt;Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.&lt;/p&gt;&lt;p&gt;We start by going into the contact form database and in the 3 dots menu you will see “Automations”.&lt;/p&gt;</description>
+      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Earlier we created the contact form. Let’s spice it up a little bit — let’s create an automation for it! &lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Since we might want to get an email notification when someone sends us a message through the contact form, let’s do that. Let’s create an automation that sends an email to us.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;We start by going into the contact form database and in the 3 dots menu you will see “Automations”.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

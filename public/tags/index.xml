@@ -72,45 +72,17 @@
       <description></description>
     </item>
     <item>
-      <title>Calendar</title>
-      <link>https://aamu.app/blog/tags/calendar/</link>
-      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/calendar/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Database</title>
-      <link>https://aamu.app/blog/tags/database/</link>
-      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/database/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Forms</title>
-      <link>https://aamu.app/blog/tags/forms/</link>
-      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/forms/</guid>
+      <title>Livekit</title>
+      <link>https://aamu.app/blog/tags/livekit/</link>
+      <pubDate>Sun, 08 Jun 2025 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/livekit/</guid>
       <description></description>
     </item>
     <item>
       <title>Meetings</title>
       <link>https://aamu.app/blog/tags/meetings/</link>
-      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/meetings/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tasks</title>
-      <link>https://aamu.app/blog/tags/tasks/</link>
-      <pubDate>Tue, 10 Jun 2025 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/tasks/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Livekit</title>
-      <link>https://aamu.app/blog/tags/livekit/</link>
       <pubDate>Sun, 08 Jun 2025 06:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/livekit/</guid>
+      <guid>https://aamu.app/blog/tags/meetings/</guid>
       <description></description>
     </item>
     <item>
@@ -121,10 +93,31 @@
       <description></description>
     </item>
     <item>
+      <title>Tasks</title>
+      <link>https://aamu.app/blog/tags/tasks/</link>
+      <pubDate>Wed, 04 Jun 2025 03:50:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/tasks/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Automations</title>
       <link>https://aamu.app/blog/tags/automations/</link>
       <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/automations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Database</title>
+      <link>https://aamu.app/blog/tags/database/</link>
+      <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/database/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Forms</title>
+      <link>https://aamu.app/blog/tags/forms/</link>
+      <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/forms/</guid>
       <description></description>
     </item>
     <item>
