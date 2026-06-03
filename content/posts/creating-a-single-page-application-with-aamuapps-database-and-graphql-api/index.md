@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Creating a single-page application with Aamu.app's database and GraphQL API"
 date: "2025-05-15T05:05:00.000Z"
-modified: "2026-06-01T19:14:39.919Z"
+modified: "2026-06-03T06:07:17.146Z"
 description: ""
 cover:
   image: 4fce81ca007bb1b0_image.png
@@ -13,42 +13,85 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
-<p xmlns="http://www.w3.org/1999/xhtml">This time, let’s create a simple application, which uses just HTML, JavaScript and Aamu.app’s database through GraphQL. So, it’s what is known as a <a target="_blank" rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/Single-page_application" id="e95e17ae-a128-459b-be7b-25bf646a5406">single-page application</a>. The source code for this application (well, one HTML file with some JavaScript in it) is at <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/AamuApp/example-calendar" id="b4a5f114-360a-465f-a38e-78165fde9935">GitHub</a>. </p><h2 xmlns="http://www.w3.org/1999/xhtml">Using this in real life</h2><p xmlns="http://www.w3.org/1999/xhtml">A small warning is in order: this uses the database API key, which gives write permissions to the database. So, using this on the public Internet like this is not advised. In those cases you should do the API access on the server side.</p><p xmlns="http://www.w3.org/1999/xhtml">You can see the general principle here and maybe that will guide you enough into real applications.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Create the database</h2><p xmlns="http://www.w3.org/1999/xhtml">First you need the database at Aamu.app. Conveniently, we have a template for it. You can create a database from the template in here:</p><img xmlns="http://www.w3.org/1999/xhtml" src="0f23b4f874c43c0b_image.png" style="width: auto; --upload-progress: 0%;" id="fba81a7a-632b-4d5e-9c83-38b647b70c19"><h2 xmlns="http://www.w3.org/1999/xhtml">The App</h2><p xmlns="http://www.w3.org/1999/xhtml">We will create a sort of reservation calendar, which accepts entries consisting of a title and a date, and show the current entries as a list. It would look like this:</p><img xmlns="http://www.w3.org/1999/xhtml" src="16242e5550ea3f83_image.png" style="width: auto; --upload-progress: 0%;" id="be1a014f-ed67-4533-a596-d3ed5fbb0fea"><p xmlns="http://www.w3.org/1999/xhtml">The list of entries is fetched from the database with GraphQL, for which you would need an API KEY, which you can create in the <em>Database Settings</em>.</p><p xmlns="http://www.w3.org/1999/xhtml">A new entry is submitted through the <em>Forms endpoint</em>, which you can also get in the <em>Database Settings</em>. We could also send the form data through GraphQL API, but using the forms endpoint is easy and enough for this application.</p><p xmlns="http://www.w3.org/1999/xhtml">Both of these should be set in the HTML file, where is says like this:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-javascript">// Set these!
-const API_KEY = '';
-const FORM_ENDPOINT = '';</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">How the GraphQL part works here?</h2><p xmlns="http://www.w3.org/1999/xhtml">So, when the HTML file is loaded into the browser, this happens:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-typescript">async function getData() {
-	try {
-		const response = await fetch('https://api.aamu.app/api/v1/graphql/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json',
-				'x-api-key': API_KEY
-			},
-			body: JSON.stringify({ query: `
-				{
-				Sheet1Collection(sort: { startTime: DESC }) {
-					id
-					created_at
-					updated_at
-					title
-					startTime
-				}
-				}
-			`})
-		});
-		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-		const data = await response.json();
-		if (data?.errors) {
-			data.errors.forEach(e =&gt; setError(e.message));
-		} else if (data?.data) {
-			handleData(data.data);
-		} else {
-			setError('No data returned from API');
-		}
-	} catch (err) {
-		console.log('Error:', err);
-	}
+<p xmlns="http://www.w3.org/1999/xhtml">Aamu.app's Database and GraphQL API can be used as the data layer for a small web application. In this example, we will build a simple reservation calendar: the page lists existing reservations from an Aamu Database and lets visitors add a new reservation.</p><p xmlns="http://www.w3.org/1999/xhtml">The important update is security. A public single-page app should not contain a database API key in its JavaScript. Use the GraphQL API from a server-side endpoint, serverless function, or backend proxy. For public form submissions, use the Aamu Forms endpoint, which is designed for browser-side submissions and does not expose a general database API key.</p><h2 xmlns="http://www.w3.org/1999/xhtml">What we are building</h2><p xmlns="http://www.w3.org/1999/xhtml">The application has two jobs:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p>read existing rows from an Aamu Database with GraphQL, and</p></li><li><p>add new rows through an Aamu Forms endpoint.</p></li></ul><p xmlns="http://www.w3.org/1999/xhtml">The safe production flow looks like this:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">Browser SPA
+  -&gt; your /api/reservations endpoint
+  -&gt; Aamu GraphQL API
+  -&gt; Aamu Database
+
+Browser form
+  -&gt; Aamu Forms endpoint
+  -&gt; Aamu Database</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The browser talks to your own public endpoint for reading data. Your endpoint keeps the Aamu API key private and forwards the GraphQL request to Aamu. For adding a row, the browser can post to the Forms endpoint because that endpoint is intentionally limited to form submissions.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Why split reads and writes?</h2><p xmlns="http://www.w3.org/1999/xhtml">GraphQL is the flexible database API. It can read rows and, depending on permissions, write or update data. That flexibility is useful, but it also means the API key should be treated as a server-side secret.</p><p xmlns="http://www.w3.org/1999/xhtml">The Forms endpoint is narrower. It is meant to accept public submissions into a configured table. That makes it a better fit for browser-side "add this form submission" actions.</p><p xmlns="http://www.w3.org/1999/xhtml">So the practical rule is:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p>Use GraphQL from server-side code.</p></li><li><p>Use Forms endpoint from public HTML or frontend JavaScript.</p></li><li><p>Do not publish an Aamu database API key in browser code.</p></li></ul><h2 xmlns="http://www.w3.org/1999/xhtml">Create the database</h2><p xmlns="http://www.w3.org/1999/xhtml">Start by creating a database in Aamu.app. For this example, imagine a simple reservation table with fields like:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p><code>Title</code></p></li><li><p><code>Start time</code></p></li></ul><p xmlns="http://www.w3.org/1999/xhtml">The exact table and field names affect the generated GraphQL type and field names. In the old example, the table was called <code>Sheet1</code>, which produced a collection named <code>Sheet1Collection</code>. In a real app, give the table a clearer name, such as <code>Reservation</code>.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Enable Forms for new reservations</h2><p xmlns="http://www.w3.org/1999/xhtml">Open the database settings and enable Forms. Select the reservation table as the destination table. Copy the Forms endpoint.</p><p xmlns="http://www.w3.org/1999/xhtml">Your form can then submit new rows without needing an API key in the browser:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-html">&lt;form action="FORMS_ENDPOINT_HERE" method="POST"&gt;
+  &lt;label&gt;
+    Title
+    &lt;input name="title" required&gt;
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    Start time
+    &lt;input name="start_time" type="datetime-local" required&gt;
+  &lt;/label&gt;
+
+  &lt;button type="submit"&gt;Reserve&lt;/button&gt;
+&lt;/form&gt;</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Use the field names shown in the Aamu Forms settings. They are the source of truth for the input <code>name</code> attributes.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Read rows with a backend endpoint</h2><p xmlns="http://www.w3.org/1999/xhtml">For reading existing reservations, create a small server-side endpoint. It can be a Node server, a serverless function, a Cloudflare Worker, a Vercel function, a Netlify function, or any backend you already use.</p><p xmlns="http://www.w3.org/1999/xhtml">The backend stores these values privately:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">AAMU_API_KEY=your_private_api_key
+AAMU_DB_ID=your_database_id
+AAMU_GRAPHQL_ENDPOINT=https://api.aamu.app/api/v1/graphql/</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Then it sends the GraphQL request to Aamu:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-javascript">export async function listReservations() {
+  const response = await fetch(process.env.AAMU_GRAPHQL_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'x-api-key': process.env.AAMU_API_KEY,
+      'x-db-id': process.env.AAMU_DB_ID
+    },
+    body: JSON.stringify({
+      query: [
+        '{',
+        '  ReservationCollection(sort: { startTime: ASC }) {',
+        '    id',
+        '    title',
+        '    startTime',
+        '  }',
+        '}'
+      ].join('\n')
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error('Aamu GraphQL error: ' + response.status);
+  }
+
+  const data = await response.json();
+
+  if (data.errors?.length) {
+    throw new Error(data.errors.map((error) =&gt; error.message).join('; '));
+  }
+
+  return data.data.ReservationCollection;
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Adjust the collection name and fields to match your database schema. If your table is still named <code>Sheet1</code>, the collection may be <code>Sheet1Collection</code>. If your table is named <code>Reservation</code>, the generated collection name is easier to understand.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Call your backend from the SPA</h2><p xmlns="http://www.w3.org/1999/xhtml">Now the browser can fetch reservations from your own endpoint:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-javascript">async function getReservations() {
+  const response = await fetch('/api/reservations');
+
+  if (!response.ok) {
+    throw new Error('Failed to load reservations: ' + response.status);
+  }
+
+  const reservations = await response.json();
+  renderReservations(reservations);
 }
 
-// Get current data from the calendar (database)
-getData();</code></pre><p xmlns="http://www.w3.org/1999/xhtml">So, <code>getData()</code> is called, which fetches the rows from the database (table <code>Sheet1</code>) and then presents the data on the screen (function <code>handleData</code>).</p><p xmlns="http://www.w3.org/1999/xhtml">Note that you can do GraphQL queries very easily, using the <a target="_blank" rel="noopener noreferrer nofollow" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" id="94e3a788-2a1b-4f15-8833-5b83f74d1131">Fetch API</a>. You can read more about the syntax of the GraphQL queries here <a target="_blank" rel="noopener noreferrer nofollow" href="https://aamu.app/blog/posts/introduction-to-aamuapp-graphql/" id="ff24c621-1729-4551-aae8-c5a881014ab7">in our blog</a>.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Sending the data</h2><p xmlns="http://www.w3.org/1999/xhtml">As told, sending happens through the Forms API. Sharing the Forms API endpoint is safe — it can be used only for adding data. </p><h2 xmlns="http://www.w3.org/1999/xhtml">That’s it!</h2><p xmlns="http://www.w3.org/1999/xhtml">There’s not much more to it: just fetching data from a database and adding data to a database, while showing it on a screen. This was a really simple application.</p>
+getReservations();</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The frontend never sees the Aamu API key. It only sees the data your endpoint returns.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Submit new rows with Forms</h2><p xmlns="http://www.w3.org/1999/xhtml">For a smoother user experience, the SPA can submit the form with JavaScript while still using the Forms endpoint:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-javascript">const form = document.querySelector('form');
+
+form.addEventListener('submit', async (event) =&gt; {
+  event.preventDefault();
+
+  const response = await fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form)
+  });
+
+  if (!response.ok) {
+    throw new Error('Reservation failed: ' + response.status);
+  }
+
+  form.reset();
+  await getReservations();
+});</code></pre><p xmlns="http://www.w3.org/1999/xhtml">This keeps writes simple. The Forms endpoint accepts the submission, Aamu stores a new row, and the app reloads the visible list from your backend endpoint.</p><h2 xmlns="http://www.w3.org/1999/xhtml">What about a pure HTML demo?</h2><p xmlns="http://www.w3.org/1999/xhtml">For a local demo or learning exercise, you may see examples where the API key is placed directly in the HTML file. That can be useful to understand the moving parts, but it is not appropriate for a public website.</p><p xmlns="http://www.w3.org/1999/xhtml">Once the page is public, everything in the HTML and JavaScript is public too. If a database API key is there, visitors can read it. Treat that as a hard line: use a backend for GraphQL.</p><h2 xmlns="http://www.w3.org/1999/xhtml">What this gives you</h2><p xmlns="http://www.w3.org/1999/xhtml">This small architecture is already useful:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p>Aamu Database stores the structured data.</p></li><li><p>GraphQL gives the app flexible read access from server-side code.</p></li><li><p>Forms endpoint lets the browser add rows safely.</p></li><li><p>The frontend stays a normal single-page app.</p></li><li><p>The team can still open Aamu and work with the rows directly.</p></li></ul><p xmlns="http://www.w3.org/1999/xhtml">That last point is the quiet advantage. You are not only building an app around a database. You are building an app around a database that your team can also use inside the same workspace as docs, tasks, automations, and customer work.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Testing checklist</h2><p xmlns="http://www.w3.org/1999/xhtml">If the app does not work, check these first:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p>The backend has <code>AAMU_API_KEY</code> and <code>AAMU_DB_ID</code> set.</p></li><li><p>The GraphQL query uses the generated collection and field names for your database.</p></li><li><p>The browser calls your backend endpoint, not Aamu GraphQL directly.</p></li><li><p>The form action points to the current Forms endpoint.</p></li><li><p>The input <code>name</code> attributes match the Forms field bindings.</p></li><li><p>After submitting, a new row appears in the Aamu Database.</p></li></ul><h2 xmlns="http://www.w3.org/1999/xhtml">That's it</h2><p xmlns="http://www.w3.org/1999/xhtml">The safe version of this app is still small: a single-page frontend, a tiny backend endpoint for GraphQL reads, and a Forms endpoint for browser-side submissions. That is enough to build many useful public-facing tools without exposing your database API key.</p>
