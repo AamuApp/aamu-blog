@@ -118,7 +118,7 @@
       <link>https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/</link>
       <pubDate>Tue, 27 May 2025 04:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Let’s tackle a bigger subject — emails. Due to the nature of the game, it involves some pretty techy stuff, domains and other scary things. This is the same for Helpdesk, which shares those domain settings with Emails.&lt;/p&gt;&lt;h2 xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Email domain&lt;/h2&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Emails work so that one project can hold one &lt;em&gt;Email domain&lt;/em&gt;. This project can hold one email account for each project user. Those email accounts are personal — others won’t be able to see your email account’s emails or contacts.&lt;/p&gt;</description>
+      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Email setup is one of the more technical parts of Aamu.app because it touches domains, DNS records, mailboxes, and project settings. The good news is that the flow is understandable once you separate it into three layers: the team owns the email domain, the project chooses which domain it uses, and each user configures their own mailbox.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The same domain setup is also useful for Helpdesk, because Helpdesk email tickets need a configured email route too. If you plan to use both Emails and Helpdesk, set up the email domain carefully once and reuse it where needed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Aamu.app as a Calendly alternative</title>
