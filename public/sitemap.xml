@@ -3,26 +3,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</loc>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
+  </url><url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-06-03T06:52:01+00:00</lastmod>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/ai/</loc>
-    <lastmod>2026-06-03T06:43:09+00:00</lastmod>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/team-brain/</loc>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
+  </url><url>
+    <loc>https://aamu.app/blog/tags/workspace/</loc>
+    <lastmod>2026-06-03T11:14:55+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</loc>
     <lastmod>2026-06-01T18:18:46+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/helpdesk/</loc>
     <lastmod>2026-06-03T06:28:03+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-03T06:52:01+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-06-03T06:43:09+00:00</lastmod>
-  </url><url>
-    <loc>https://aamu.app/blog/tags/team-brain/</loc>
-    <lastmod>2026-06-01T18:18:46+00:00</lastmod>
   </url><url>
     <loc>https://aamu.app/blog/tags/api/</loc>
     <lastmod>2026-06-03T06:43:09+00:00</lastmod>

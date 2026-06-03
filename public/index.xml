@@ -6,8 +6,15 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Jun 2026 08:28:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 10:59:23 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk</title>
+      <link>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</link>
+      <pubDate>Wed, 03 Jun 2026 10:59:23 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</guid>
+      <description>How Aamu.app works as an AI workspace alternative for teams that want docs, chat, tasks, support, and shared knowledge in one connected system.</description>
+    </item>
     <item>
       <title>AI customer support with Aamu.app: Team Brain, drafts, and human review</title>
       <link>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</link>

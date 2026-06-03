@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Team-Brain on Aamu.app blog</title>
-    <link>https://aamu.app/blog/tags/team-brain/</link>
-    <description>Recent content in Team-Brain on Aamu.app blog</description>
+    <title>Workspace on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/workspace/</link>
+    <description>Recent content in Workspace on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 03 Jun 2026 10:59:23 +0000</lastBuildDate>
-    <atom:link href="https://aamu.app/blog/tags/team-brain/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aamu.app/blog/tags/workspace/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk</title>
       <link>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</link>
       <pubDate>Wed, 03 Jun 2026 10:59:23 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</guid>
       <description>How Aamu.app works as an AI workspace alternative for teams that want docs, chat, tasks, support, and shared knowledge in one connected system.</description>
-    </item>
-    <item>
-      <title>AI customer support with Aamu.app: Team Brain, drafts, and human review</title>
-      <link>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</link>
-      <pubDate>Mon, 01 Jun 2026 08:28:30 +0000</pubDate>
-      <guid>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</guid>
-      <description>How Aamu.app uses Team Brain, AI-generated drafts, and human review to make customer support faster without losing control.</description>
     </item>
   </channel>
 </rss>
