@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Database automations with Aamu.app"
 date: "2025-06-02T14:00:00.000Z"
-modified: "2026-06-03T06:22:23.343Z"
+modified: "2026-06-04T23:36:20.462Z"
 description: ""
 cover:
-  image: f4c2b9d1b62d0290_form-automations.jpg
+  image: 53a4abe3b615fc4f_automations.png
   relative: true
 tags: ["database", "automations", "forms"]
 ShowToc: false
