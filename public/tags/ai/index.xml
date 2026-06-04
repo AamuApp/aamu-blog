@@ -6,8 +6,15 @@
     <description>Recent content in Ai on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jun 2026 10:59:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 23:05:57 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Aamu.app uses Team Brain to answer from your company knowledge</title>
+      <link>https://aamu.app/blog/posts/how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge/</link>
+      <pubDate>Thu, 04 Jun 2026 23:05:57 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge/</guid>
+      <description>How Team Brain helps Aamu.app answer from maintained company knowledge instead of generic AI guesses.</description>
+    </item>
     <item>
       <title>Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk</title>
       <link>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</link>
