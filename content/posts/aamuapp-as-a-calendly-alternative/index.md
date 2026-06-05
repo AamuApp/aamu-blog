@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Aamu.app as a Calendly alternative"
 date: "2025-05-21T03:00:00.000Z"
-modified: "2026-06-03T06:11:09.288Z"
+modified: "2026-06-05T06:53:17.870Z"
 description: ""
 cover:
-  image: d52055ff94a652c8_calendly-alternative.png
+  image: 39b44dde205ce42c_calendly-alt.png
   relative: true
 tags: ["calendly", "event-calendar"]
 ShowToc: false
