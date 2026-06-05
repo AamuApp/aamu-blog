@@ -13,7 +13,7 @@
       <link>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</link>
       <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app can be used as a lightweight headless CMS for a static blog. This official blog is built that way: the post metadata lives in an Aamu Database, the article text is written in Aamu Docs, and a build script turns everything into a Hugo site.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The result is a practical publishing workflow. Writers can use Aamu Docs, editors can manage status and metadata in the Database, and the public site stays fast because Hugo generates static HTML that can be hosted almost anywhere.&lt;/p&gt;</description>
+      <description>How this Hugo blog uses Aamu.app as a headless CMS with database rows, Docs content, GraphQL, generated Markdown, and static publishing.</description>
     </item>
   </channel>
 </rss>

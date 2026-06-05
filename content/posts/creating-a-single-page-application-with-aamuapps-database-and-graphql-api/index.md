@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Creating a single-page application with Aamu.app's database and GraphQL API"
 date: "2025-05-15T05:05:00.000Z"
-modified: "2026-06-03T06:07:17.146Z"
-description: ""
+modified: "2026-06-05T09:02:49.755Z"
+description: "How to build a single-page application on top of Aamu.app databases using the generated GraphQL API for structured row data."
 cover:
   image: 4fce81ca007bb1b0_image.png
   relative: true
-tags: ["graphql", "database", "forms"]
+tags: ["api", "database", "graphql"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

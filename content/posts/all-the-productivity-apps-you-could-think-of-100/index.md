@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "All the productivity apps you could think of (100+)"
 date: "2025-06-12T00:00:00.000Z"
-modified: "2026-06-03T06:52:01.908Z"
-description: ""
+modified: "2026-06-05T09:02:55.781Z"
+description: "A broad map of productivity app categories and how teams can think about choosing tools for planning, communication, knowledge, and work."
 cover:
   image: 9ab3d2b0ad21e511_productivity-apps.png
   relative: true
-tags: []
+tags: ["workspace", "productivity"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

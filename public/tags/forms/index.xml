@@ -13,21 +13,14 @@
       <link>https://aamu.app/blog/posts/database-automations-with-aamuapp/</link>
       <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/database-automations-with-aamuapp/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app database automations let a database row start follow-up work automatically. They are especially useful with forms: a public form collects the data, the response becomes a database row, and an automation can send an email or create a task when that row is inserted.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;This article uses the contact form idea as an example, but the same pattern works for survey responses, onboarding requests, bug reports, event registrations, lead forms, and internal request queues.&lt;/p&gt;</description>
+      <description>How Aamu.app database automations can turn structured rows, forms, and workflow events into useful actions inside a team workspace.</description>
     </item>
     <item>
       <title>Creating survey forms with Aamu.app Form Builder</title>
       <link>https://aamu.app/blog/posts/creating-survey-forms-with-aamuapp-form-builder/</link>
       <pubDate>Mon, 02 Jun 2025 06:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/creating-survey-forms-with-aamuapp-form-builder/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app Forms let you build survey forms, feedback forms, sign-up forms, internal request forms, and small data-collection workflows without wiring together a separate form tool and a separate spreadsheet. The form is public when you publish it, and the responses are stored in an Aamu database table.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;That database connection is the important part. A form is not just a page that sends you an email. Each submission becomes structured data that you can review, filter, export through your workflow, automate, or use from the Aamu API.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Creating a single-page application with Aamu.app&#39;s database and GraphQL API</title>
-      <link>https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/</link>
-      <pubDate>Thu, 15 May 2025 05:05:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app&#39;s Database and GraphQL API can be used as the data layer for a small web application. In this example, we will build a simple reservation calendar: the page lists existing reservations from an Aamu Database and lets visitors add a new reservation.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The important update is security. A public single-page app should not contain a database API key in its JavaScript. Use the GraphQL API from a server-side endpoint, serverless function, or backend proxy. For public form submissions, use the Aamu Forms endpoint, which is designed for browser-side submissions and does not expose a general database API key.&lt;/p&gt;</description>
+      <description>How to create survey forms with Aamu.app Form Builder and store responses in a connected database for follow-up and reporting.</description>
     </item>
     <item>
       <title>Creating a contact form with Aamu.app</title>

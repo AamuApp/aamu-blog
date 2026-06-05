@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/design/</link>
+    <description>Recent content in Design on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Jun 2025 23:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Penpot Design Tool - feature overview</title>
+      <link>https://aamu.app/blog/posts/penpot-design-tool-feature-overview/</link>
+      <pubDate>Wed, 11 Jun 2025 23:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/penpot-design-tool-feature-overview/</guid>
+      <description>An overview of Penpot in Aamu.app for open-source design work, files, collaboration, and project-connected design workflows.</description>
+    </item>
+  </channel>
+</rss>

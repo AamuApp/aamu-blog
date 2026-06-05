@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Database automations with Aamu.app"
 date: "2025-06-02T14:00:00.000Z"
-modified: "2026-06-04T23:36:20.462Z"
-description: ""
+modified: "2026-06-05T08:58:10.085Z"
+description: "How Aamu.app database automations can turn structured rows, forms, and workflow events into useful actions inside a team workspace."
 cover:
   image: 53a4abe3b615fc4f_automations.png
   relative: true
 tags: ["database", "automations", "forms"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

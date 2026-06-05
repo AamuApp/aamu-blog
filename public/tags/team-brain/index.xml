@@ -6,8 +6,22 @@
     <description>Recent content in Team-Brain on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 03:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 04:15:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/team-brain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI support in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/ai-support-in-aamuapp/</link>
+      <pubDate>Fri, 05 Jun 2026 04:15:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/ai-support-in-aamuapp/</guid>
+      <description>A reading path for Aamu.app&amp;#39;s AI support workflow: AI workspace, Team Brain, customer support drafts, Helpdesk triage, and Linear comparison.</description>
+    </item>
+    <item>
+      <title>Aamu.app vs Linear Triage: customer conversations, Team Brain, and human-reviewed AI support</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</link>
+      <pubDate>Fri, 05 Jun 2026 04:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</guid>
+      <description>A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.</description>
+    </item>
     <item>
       <title>From Helpdesk ticket to Team Brain: AI triage, Docs, and human review in Aamu.app</title>
       <link>https://aamu.app/blog/posts/from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review/</link>
@@ -35,6 +49,20 @@
       <pubDate>Mon, 01 Jun 2026 08:28:30 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</guid>
       <description>How Aamu.app uses Team Brain, AI-generated drafts, and human review to make customer support faster without losing control.</description>
+    </item>
+    <item>
+      <title>Aamu.app Docs - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
+      <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
+      <description>An overview of Aamu.app Docs for writing, sharing, linking, searching, and turning team knowledge into useful workspace context.</description>
+    </item>
+    <item>
+      <title>Aamu.app Helpdesk - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</link>
+      <pubDate>Tue, 10 Jun 2025 07:55:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</guid>
+      <description>An overview of Aamu.app Helpdesk for email support, live chat, ticket handling, internal notes, Team Brain, and AI reply drafts.</description>
     </item>
   </channel>
 </rss>

@@ -23,11 +23,32 @@
       <description>How Team Brain helps Aamu.app answer from maintained company knowledge instead of generic AI guesses.</description>
     </item>
     <item>
+      <title>Building with the Aamu API: From Tasks to Docs and GraphQL</title>
+      <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</link>
+      <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</guid>
+      <description>A practical guide to the Aamu API for tasks, docs, meetings, files, forms, email workflows, and GraphQL database rows.</description>
+    </item>
+    <item>
+      <title>Internal Links in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/internal-links-in-aamuapp/</link>
+      <pubDate>Thu, 12 Jun 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/internal-links-in-aamuapp/</guid>
+      <description>How internal links in Aamu.app connect docs, tasks, projects, meetings, support tickets, files, and other workspace context.</description>
+    </item>
+    <item>
       <title>Aamu.app Docs - feature overview</title>
       <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
       <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app Docs is the shared writing and knowledge layer inside the Aamu workspace. A Doc can be an internal note, a project plan, meeting preparation, support knowledge, API-maintained content, or even the source text for a public blog post.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The important point is that Docs are not isolated files. They belong to projects, can be searched, tagged, discussed, linked from other Aamu items, used as Team Brain knowledge sources, and updated through the Aamu API.&lt;/p&gt;</description>
+      <description>An overview of Aamu.app Docs for writing, sharing, linking, searching, and turning team knowledge into useful workspace context.</description>
+    </item>
+    <item>
+      <title>Creating a blog with Aamu.app</title>
+      <link>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</link>
+      <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</guid>
+      <description>How this Hugo blog uses Aamu.app as a headless CMS with database rows, Docs content, GraphQL, generated Markdown, and static publishing.</description>
     </item>
   </channel>
 </rss>

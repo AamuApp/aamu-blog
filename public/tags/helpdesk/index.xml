@@ -6,8 +6,15 @@
     <description>Recent content in Helpdesk on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 04:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 04:15:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/helpdesk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI support in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/ai-support-in-aamuapp/</link>
+      <pubDate>Fri, 05 Jun 2026 04:15:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/ai-support-in-aamuapp/</guid>
+      <description>A reading path for Aamu.app&amp;#39;s AI support workflow: AI workspace, Team Brain, customer support drafts, Helpdesk triage, and Linear comparison.</description>
+    </item>
     <item>
       <title>Aamu.app vs Linear Triage: customer conversations, Team Brain, and human-reviewed AI support</title>
       <link>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</link>
@@ -41,21 +48,21 @@
       <link>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</link>
       <pubDate>Tue, 10 Jun 2025 07:55:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app Helpdesk is the customer-support part of the Aamu workspace. It brings customer email, website live chat, tickets, internal comments, tasks, and AI-assisted support into the same project-based system.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;This overview assumes you have already seen the setup articles for &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/&#34;&gt;Helpdesk email&lt;/a&gt; and &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/&#34;&gt;Helpdesk Livechat&lt;/a&gt;. Here we focus on how the Helpdesk is used day to day.&lt;/p&gt;&lt;h2 xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The Helpdesk model&lt;/h2&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu Helpdesk is organized by project. A project can have its own Helpdesk users, shared support email address, live chat widget, AI settings, and knowledge sources.&lt;/p&gt;</description>
+      <description>An overview of Aamu.app Helpdesk for email support, live chat, ticket handling, internal notes, Team Brain, and AI reply drafts.</description>
     </item>
     <item>
       <title>Setting up Helpdesk in Aamu.app - Part 2, livechat</title>
       <link>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/</link>
       <pubDate>Fri, 30 May 2025 11:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu Helpdesk can receive support requests by email, but it can also talk to visitors while they are still on your website. That is what Aamu Livechat is for: a public chat widget connected to the same Helpdesk project where your team handles tickets, comments, assignments, follow-up tasks, and customer conversations.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;This article continues from &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/&#34;&gt;Part 1: Helpdesk emails&lt;/a&gt;. Email support is the slower, asynchronous route. Livechat is the real-time route, with an optional email fallback when nobody is available and optional AI answers when the project allows them.&lt;/p&gt;</description>
+      <description>How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling.</description>
     </item>
     <item>
       <title>Setting up Helpdesk in Aamu.app - Part 1, emails</title>
       <link>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</link>
       <pubDate>Fri, 30 May 2025 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu Helpdesk can receive customer emails and turn them into tickets. This is useful when you want a shared support address such as &lt;code&gt;support@example.com&lt;/code&gt;, but you also want the actual support work to happen in Aamu: assignment, replies, internal comments, tasks, live chat, and later AI-assisted drafts.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;This article covers the email route for Helpdesk. Live chat is covered in the next part.&lt;/p&gt;&lt;h2 xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Before you start&lt;/h2&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Helpdesk email needs an email domain and mailbox setup. If you have not configured email domains yet, start with &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/&#34;&gt;Setting up Emails in Aamu.app&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>How to set up Aamu.app Helpdesk email support so incoming customer messages become manageable support tickets in your workspace.</description>
     </item>
   </channel>
 </rss>

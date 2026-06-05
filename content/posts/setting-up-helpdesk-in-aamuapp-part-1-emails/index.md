@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Setting up Helpdesk in Aamu.app - Part 1, emails"
 date: "2025-05-30T09:00:00.000Z"
-modified: "2026-06-03T06:15:15.817Z"
-description: ""
+modified: "2026-06-05T08:58:12.057Z"
+description: "How to set up Aamu.app Helpdesk email support so incoming customer messages become manageable support tickets in your workspace."
 cover:
   image: 91c0954eb3ba199a_setting-up-helpdesk-in-aamuapp-part-1-emails.png
   relative: true
 tags: ["helpdesk", "emails"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

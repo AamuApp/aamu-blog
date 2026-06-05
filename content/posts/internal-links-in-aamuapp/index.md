@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Internal Links in Aamu.app"
 date: "2025-06-12T03:00:00.000Z"
-modified: "2026-06-03T06:35:18.880Z"
-description: ""
+modified: "2026-06-05T09:02:56.725Z"
+description: "How internal links in Aamu.app connect docs, tasks, projects, meetings, support tickets, files, and other workspace context."
 cover:
   image: 2cc4aab6b590322a_internal-links-in-aamuapp.png
   relative: true
-tags: []
+tags: ["workspace", "docs"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

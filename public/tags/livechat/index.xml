@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Livechat on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/livechat/</link>
+    <description>Recent content in Livechat on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Jun 2025 07:55:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/livechat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app Helpdesk - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</link>
+      <pubDate>Tue, 10 Jun 2025 07:55:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</guid>
+      <description>An overview of Aamu.app Helpdesk for email support, live chat, ticket handling, internal notes, Team Brain, and AI reply drafts.</description>
+    </item>
+    <item>
+      <title>Setting up Helpdesk in Aamu.app - Part 2, livechat</title>
+      <link>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/</link>
+      <pubDate>Fri, 30 May 2025 11:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/</guid>
+      <description>How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling.</description>
+    </item>
+  </channel>
+</rss>

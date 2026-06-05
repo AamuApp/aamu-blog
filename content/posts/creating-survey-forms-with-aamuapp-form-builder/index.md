@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Creating survey forms with Aamu.app Form Builder"
 date: "2025-06-02T06:00:00.000Z"
-modified: "2026-06-03T06:19:56.694Z"
-description: ""
+modified: "2026-06-05T08:58:10.702Z"
+description: "How to create survey forms with Aamu.app Form Builder and store responses in a connected database for follow-up and reporting."
 cover:
   image: 31432cbc778c3bd5_form-builder.png
   relative: true
 tags: ["forms", "database"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

@@ -8,6 +8,8 @@ cover:
   image: 5cd0eec40e669eae_team-brain-cubism-1.png
   relative: true
 tags: ["ai", "helpdesk", "team-brain"]
+series: ["AI support in Aamu.app"]
+seriesWeight: 30
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

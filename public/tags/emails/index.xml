@@ -13,14 +13,21 @@
       <link>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</link>
       <pubDate>Fri, 13 Jun 2025 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu.app Emails is a shared, project-based email workspace for teams. It gives a project its own mailbox, keeps conversations in the same place as the rest of the work, and connects email threads to contacts, tasks, tags, comments, files, and automations.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The goal is not to replace every personal inbox. It is to make team email useful when messages belong to a project, customer process, sales flow, support queue, operations workflow, or any other shared context.&lt;/p&gt;</description>
+      <description>An overview of Aamu.app Emails: shared project inboxes, contacts, drafts, attachments, tasks, and API-assisted email workflows.</description>
     </item>
     <item>
       <title>Setting up Helpdesk in Aamu.app - Part 1, emails</title>
       <link>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</link>
       <pubDate>Fri, 30 May 2025 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu Helpdesk can receive customer emails and turn them into tickets. This is useful when you want a shared support address such as &lt;code&gt;support@example.com&lt;/code&gt;, but you also want the actual support work to happen in Aamu: assignment, replies, internal comments, tasks, live chat, and later AI-assisted drafts.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;This article covers the email route for Helpdesk. Live chat is covered in the next part.&lt;/p&gt;&lt;h2 xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Before you start&lt;/h2&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Helpdesk email needs an email domain and mailbox setup. If you have not configured email domains yet, start with &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer nofollow&#34; href=&#34;https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/&#34;&gt;Setting up Emails in Aamu.app&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>How to set up Aamu.app Helpdesk email support so incoming customer messages become manageable support tickets in your workspace.</description>
+    </item>
+    <item>
+      <title>Setting up Emails in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/</link>
+      <pubDate>Tue, 27 May 2025 04:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/</guid>
+      <description>How to set up Aamu.app Emails for a project mailbox, shared inbox work, contacts, sending, replies, and connected follow-up tasks.</description>
     </item>
   </channel>
 </rss>

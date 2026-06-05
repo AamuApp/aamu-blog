@@ -13,7 +13,21 @@
       <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</link>
       <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</guid>
-      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Aamu exposes a project API for teams and AI agents that need to create, read, and update real work inside Aamu. The API follows the same building blocks people use in the UI: tasks, docs, meetings, forms, files, databases, and database rows through GraphQL.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;The API is described by an OpenAPI document at &lt;code&gt;/.well-known/openapi.json&lt;/code&gt;. That document is useful both for humans and for AI tools that need to discover available operations.&lt;/p&gt;</description>
+      <description>A practical guide to the Aamu API for tasks, docs, meetings, files, forms, email workflows, and GraphQL database rows.</description>
+    </item>
+    <item>
+      <title>Creating a single-page application with Aamu.app&#39;s database and GraphQL API</title>
+      <link>https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/</link>
+      <pubDate>Thu, 15 May 2025 05:05:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/</guid>
+      <description>How to build a single-page application on top of Aamu.app databases using the generated GraphQL API for structured row data.</description>
+    </item>
+    <item>
+      <title>Creating a blog with Aamu.app</title>
+      <link>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</link>
+      <pubDate>Wed, 07 May 2025 03:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</guid>
+      <description>How this Hugo blog uses Aamu.app as a headless CMS with database rows, Docs content, GraphQL, generated Markdown, and static publishing.</description>
     </item>
   </channel>
 </rss>

@@ -50,6 +50,79 @@
     border: none;
 }
 
+.series-links {
+    margin: 36px 0 24px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+}
+
+.series-links-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.series-links-kicker,
+.series-links-position {
+    margin: 0;
+}
+
+.series-links-kicker {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.series-links-position {
+    color: var(--secondary);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.series-links-list {
+    margin: 0;
+    padding-inline-start: 22px;
+}
+
+.series-links-list li {
+    margin: 8px 0;
+    padding-inline-start: 4px;
+}
+
+.series-links-list li::marker {
+    color: var(--secondary);
+}
+
+.series-links-list .is-current {
+    font-weight: 700;
+}
+
+.series-links-list .is-current a {
+    box-shadow: none;
+    color: var(--primary);
+}
+
+.series-links-hub {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .series-links-header {
+        display: block;
+    }
+
+    .series-links-position {
+        margin-top: 4px;
+        white-space: normal;
+    }
+}
+
 
 /* Generated using: hugo gen chromastyles --style=monokai */
 

@@ -1,0 +1,30 @@
+{{- with .Params.series }}
+{{- $seriesName := index . 0 }}
+{{- $seriesPages := where site.RegularPages "Params.series" "intersect" (slice $seriesName) }}
+{{- $seriesPages = sort $seriesPages "Params.seriesWeight" }}
+{{- $total := len $seriesPages }}
+{{- $position := 0 }}
+{{- range $index, $page := $seriesPages }}
+  {{- if eq $page.RelPermalink $.RelPermalink }}
+    {{- $position = add $index 1 }}
+  {{- end }}
+{{- end }}
+{{- if gt $total 1 }}
+<nav class="series-links" aria-label="{{ $seriesName }}">
+  <div class="series-links-header">
+    <p class="series-links-kicker">{{ $seriesName }}</p>
+    {{- if gt $position 0 }}
+    <p class="series-links-position">Part {{ $position }} of {{ $total }}</p>
+    {{- end }}
+  </div>
+  <ol class="series-links-list">
+    {{- range $index, $page := $seriesPages }}
+    <li class="{{ if eq $page.RelPermalink $.RelPermalink }}is-current{{ end }}">
+      <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+    </li>
+    {{- end }}
+  </ol>
+  <a class="series-links-hub" href="{{ relref $ "/posts/ai-support-in-aamuapp" }}">View the AI support hub</a>
+</nav>
+{{- end }}
+{{- end }}

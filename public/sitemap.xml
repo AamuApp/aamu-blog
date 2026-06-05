@@ -4,47 +4,55 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-06-05T07:32:53+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</loc>
-    <lastmod>2026-06-05T04:31:46+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/ai/</loc>
-    <lastmod>2026-06-05T06:42:30+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/ai-support-in-aamuapp/</loc>
+    <lastmod>2026-06-05T04:15:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/helpdesk/</loc>
-    <lastmod>2026-06-05T06:42:30+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/linear/</loc>
-    <lastmod>2026-06-05T04:31:46+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-05T07:32:53+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-06-05T07:32:53+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/triage/</loc>
-    <lastmod>2026-06-05T04:31:46+00:00</lastmod>
+    <loc>https://aamu.app/blog/tags/team-brain/</loc>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</loc>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/series/ai-support-in-aamu.app/</loc>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/comparisons/</loc>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/series/</loc>
+    <lastmod>2026-06-05T09:02:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/docs/</loc>
-    <lastmod>2026-06-05T05:07:52+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review/</loc>
     <lastmod>2026-06-05T05:07:52+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/team-brain/</loc>
-    <lastmod>2026-06-05T06:42:30+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge/</loc>
@@ -52,11 +60,11 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</loc>
-    <lastmod>2026-06-03T20:16:41+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:58+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/workspace/</loc>
-    <lastmod>2026-06-03T20:16:41+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:58+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</loc>
@@ -64,155 +72,135 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
-    <lastmod>2026-06-03T06:43:09+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</loc>
-    <lastmod>2026-06-03T06:43:09+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/graphql/</loc>
-    <lastmod>2026-06-03T06:43:09+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</loc>
-    <lastmod>2026-06-03T06:40:59+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/emails/</loc>
-    <lastmod>2026-06-03T06:40:59+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/internal-links-in-aamuapp/</loc>
-    <lastmod>2026-06-03T06:35:18+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/keyboard-shortcuts-in-aamuapp/</loc>
-    <lastmod>2026-06-03T06:37:23+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/shortcuts/</loc>
-    <lastmod>2026-06-03T06:37:23+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/all-the-productivity-apps-you-could-think-of-100/</loc>
-    <lastmod>2026-06-03T06:52:01+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/designs/</loc>
-    <lastmod>2026-06-03T06:31:23+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/penpot-design-tool-feature-overview/</loc>
-    <lastmod>2026-06-03T06:31:23+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</loc>
-    <lastmod>2026-06-03T06:29:41+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</loc>
-    <lastmod>2026-06-03T06:28:03+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/livekit/</loc>
-    <lastmod>2026-06-03T06:26:07+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/meetings/</loc>
-    <lastmod>2026-06-03T06:26:07+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/video/</loc>
-    <lastmod>2026-06-03T06:26:07+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/video-meetings-feature-overview/</loc>
-    <lastmod>2026-06-03T06:26:07+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</loc>
-    <lastmod>2026-06-05T07:32:53+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/tasks/</loc>
-    <lastmod>2026-06-05T07:32:53+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</loc>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/emails/</loc>
+    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/internal-links-in-aamuapp/</loc>
+    <lastmod>2026-06-05T09:02:56+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/keyboard-shortcuts-in-aamuapp/</loc>
+    <lastmod>2026-06-05T09:02:56+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/productivity/</loc>
+    <lastmod>2026-06-05T09:02:56+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/all-the-productivity-apps-you-could-think-of-100/</loc>
+    <lastmod>2026-06-05T09:02:55+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/design/</loc>
+    <lastmod>2026-06-05T09:02:55+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/penpot-design-tool-feature-overview/</loc>
+    <lastmod>2026-06-05T09:02:55+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</loc>
+    <lastmod>2026-06-05T09:02:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</loc>
+    <lastmod>2026-06-05T09:02:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/livechat/</loc>
+    <lastmod>2026-06-05T09:02:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/meetings/</loc>
+    <lastmod>2026-06-05T09:02:53+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/scheduling/</loc>
+    <lastmod>2026-06-05T09:02:53+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/video-meetings-feature-overview/</loc>
+    <lastmod>2026-06-05T09:02:53+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</loc>
+    <lastmod>2026-06-05T08:58:09+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/automations/</loc>
-    <lastmod>2026-06-04T23:36:20+00:00</lastmod>
+    <lastmod>2026-06-05T08:58:10+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/database/</loc>
-    <lastmod>2026-06-04T23:36:20+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/database-automations-with-aamuapp/</loc>
-    <lastmod>2026-06-04T23:36:20+00:00</lastmod>
+    <lastmod>2026-06-05T08:58:10+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/forms/</loc>
-    <lastmod>2026-06-04T23:36:20+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/creating-survey-forms-with-aamuapp-form-builder/</loc>
-    <lastmod>2026-06-03T06:19:56+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/chat/</loc>
-    <lastmod>2026-06-03T06:18:10+00:00</lastmod>
+    <lastmod>2026-06-05T08:58:10+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-2-livechat/</loc>
-    <lastmod>2026-06-03T06:18:10+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:52+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/</loc>
-    <lastmod>2026-06-03T06:15:15+00:00</lastmod>
+    <lastmod>2026-06-05T08:58:12+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/setting-up-emails-in-aamuapp/</loc>
-    <lastmod>2026-06-05T06:49:44+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:51+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/aamuapp-as-a-calendly-alternative/</loc>
-    <lastmod>2026-06-05T06:53:17+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/calendly/</loc>
-    <lastmod>2026-06-05T06:53:17+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/event-calendar/</loc>
-    <lastmod>2026-06-05T06:53:17+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:50+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/creating-a-single-page-application-with-aamuapps-database-and-graphql-api/</loc>
-    <lastmod>2026-06-03T06:07:17+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/creating-a-contact-form-with-aamuapp/</loc>
-    <lastmod>2026-06-03T05:57:14+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/blog/</loc>
-    <lastmod>2026-06-03T05:50:21+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:48+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/creating-a-blog-with-aamuapp/</loc>
-    <lastmod>2026-06-03T05:50:21+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/headless-cms/</loc>
-    <lastmod>2026-06-03T05:50:21+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/hugo/</loc>
-    <lastmod>2026-06-03T05:50:21+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:48+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/introduction-to-aamu-app/</loc>
-    <lastmod>2026-06-03T04:07:56+00:00</lastmod>
+    <lastmod>2026-06-05T09:02:47+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/archives.fr/</loc>
@@ -228,8 +216,5 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/search.fr/</loc>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/series/</loc>
   </url>
 </urlset>

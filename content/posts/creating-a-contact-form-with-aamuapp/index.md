@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Creating a contact form with Aamu.app"
 date: "2025-05-13T18:10:00.000Z"
-modified: "2026-06-03T05:57:14.392Z"
+modified: "2026-06-05T09:02:49.098Z"
 description: "Using the Aamu.app database for contact forms"
 cover:
   image: 45701b3de5a5b8c3_image.png
   relative: true
-tags: ["database", "forms"]
+tags: ["forms", "database"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

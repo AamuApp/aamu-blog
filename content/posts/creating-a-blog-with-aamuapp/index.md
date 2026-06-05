@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Creating a blog with Aamu.app"
 date: "2025-05-07T03:00:00.000Z"
-modified: "2026-06-03T05:50:21.036Z"
-description: ""
+modified: "2026-06-05T09:02:48.432Z"
+description: "How this Hugo blog uses Aamu.app as a headless CMS with database rows, Docs content, GraphQL, generated Markdown, and static publishing."
 cover:
   image: 3d5366cd5d3fd8a3_hero-blog.png
   relative: true
-tags: ["headless-cms", "hugo", "graphql", "blog", "database"]
+tags: ["blog", "docs", "database", "api"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

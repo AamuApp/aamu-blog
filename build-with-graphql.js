@@ -22,6 +22,29 @@ const DB_ID = process.env.AAMU_DB_ID || process.env.DB_ID;
 const PROJECT_ID = process.env.AAMU_PROJECT_ID || process.env.PROJECT_ID;
 const BLOG_DOC_FIELD = process.env.BLOG_DOC_FIELD;
 
+const seriesBySlug = new Map([
+	['aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk', {
+		series: ['AI support in Aamu.app'],
+		seriesWeight: 10,
+	}],
+	['how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge', {
+		series: ['AI support in Aamu.app'],
+		seriesWeight: 20,
+	}],
+	['ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review', {
+		series: ['AI support in Aamu.app'],
+		seriesWeight: 30,
+	}],
+	['from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review', {
+		series: ['AI support in Aamu.app'],
+		seriesWeight: 40,
+	}],
+	['aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support', {
+		series: ['AI support in Aamu.app'],
+		seriesWeight: 50,
+	}],
+]);
+
 // Tracks the latest post update timestamp to fetch only newer posts
 let latestTimestamp = loadLatestTimestamp();
 
@@ -187,6 +210,12 @@ async function hydratePostBodyFromDoc(post) {
 
 // Generates Hugo-compatible front matter and content for a post
 function createPostTemplate(post) {
+	const seriesMetadata = seriesBySlug.get(post.slug);
+	const seriesFrontMatter = seriesMetadata ? [
+		`series: [${seriesMetadata.series.map(series => JSON.stringify(series)).join(', ')}]`,
+		`seriesWeight: ${seriesMetadata.seriesWeight}`,
+	].join('\n') : '';
+
 	return `
 ---
 author: "${post.author?.name || ''}"
@@ -198,6 +227,7 @@ cover:
   image: ${post.heroImage?.url || ''}
   relative: true
 tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
+${seriesFrontMatter}
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

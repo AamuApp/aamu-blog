@@ -2,12 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk"
 date: "2026-06-03T10:59:23.000Z"
-modified: "2026-06-03T20:16:41.146Z"
+modified: "2026-06-05T09:02:58.512Z"
 description: "How Aamu.app works as an AI workspace alternative for teams that want docs, chat, tasks, support, and shared knowledge in one connected system."
 cover:
   image: 02a30b6c2ad7a77a_aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more.png
   relative: true
-tags: ["ai", "workspace", "team-brain"]
+tags: ["ai", "workspace", "team-brain", "comparisons"]
+series: ["AI support in Aamu.app"]
+seriesWeight: 10
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

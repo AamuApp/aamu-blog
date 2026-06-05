@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Tasks - feature overview"
 date: "2025-06-04T03:50:00.000Z"
-modified: "2026-06-05T07:32:53.003Z"
-description: ""
+modified: "2026-06-05T08:58:09.519Z"
+description: "An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, files, linked context, and AI-assisted follow-up."
 cover:
   image: 0557ebd6fc61b5a6_tasks.png
   relative: true
 tags: ["tasks"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

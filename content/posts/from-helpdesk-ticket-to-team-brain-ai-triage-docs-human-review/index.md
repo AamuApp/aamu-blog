@@ -8,6 +8,8 @@ cover:
   image: 07e3fc14ecb220e7_triage.png
   relative: true
 tags: ["ai", "helpdesk", "team-brain", "docs"]
+series: ["AI support in Aamu.app"]
+seriesWeight: 40
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html

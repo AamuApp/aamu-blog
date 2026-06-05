@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Docs - feature overview"
 date: "2025-06-11T22:00:00.000Z"
-modified: "2026-06-03T06:29:41.319Z"
-description: ""
+modified: "2026-06-05T09:02:54.784Z"
+description: "An overview of Aamu.app Docs for writing, sharing, linking, searching, and turning team knowledge into useful workspace context."
 cover:
   image: 05146cf24c27c40e_aamuapp-docs-feature-overview.png
   relative: true
-tags: ["docs"]
+tags: ["docs", "team-brain"]
+
 ShowToc: false
 ShowBreadCrumbs: false
 markup: html
