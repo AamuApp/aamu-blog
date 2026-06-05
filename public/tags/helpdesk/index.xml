@@ -6,8 +6,15 @@
     <description>Recent content in Helpdesk on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 03:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 04:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/helpdesk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app vs Linear Triage: customer conversations, Team Brain, and human-reviewed AI support</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</link>
+      <pubDate>Fri, 05 Jun 2026 04:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</guid>
+      <description>A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.</description>
+    </item>
     <item>
       <title>From Helpdesk ticket to Team Brain: AI triage, Docs, and human review in Aamu.app</title>
       <link>https://aamu.app/blog/posts/from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review/</link>
