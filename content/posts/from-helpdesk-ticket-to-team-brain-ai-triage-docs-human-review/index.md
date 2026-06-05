@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "From Helpdesk ticket to Team Brain: AI triage, Docs, and human review in Aamu.app"
 date: "2026-06-05T03:30:00.000Z"
-modified: "2026-06-05T03:47:21.872Z"
+modified: "2026-06-05T05:07:52.002Z"
 description: "How Aamu.app connects Helpdesk AI triage, Docs, Team Brain, tasks, and human review so support teams can answer from maintained knowledge."
 cover:
-  image: 4adca09671e153ca_triage.png
+  image: 07e3fc14ecb220e7_triage.png
   relative: true
 tags: ["ai", "helpdesk", "team-brain", "docs"]
 ShowToc: false
