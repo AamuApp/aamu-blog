@@ -1,0 +1,164 @@
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.envrc', override: false });
+
+const API_KEY = process.env.API_KEY;
+const DOCS_API_KEY = process.env.DOCS_API_KEY || API_KEY;
+const DB_ID = process.env.AAMU_DB_ID || process.env.DB_ID;
+const API_BASE_URL = (process.env.AAMU_API_BASE_URL || 'https://ilkkah.aamu.app').replace(/\/$/, '');
+const GRAPHQL_ENDPOINT = process.env.GRAPHQL_ENDPOINT || 'https://api.aamu.app/api/v1/graphql/';
+const PROJECT_ID = process.env.AAMU_PROJECT_ID || process.env.PROJECT_ID || 'a257707a-ba42-4bec-a927-b80e9df05cf5';
+
+const title = 'From Helpdesk ticket to Team Brain: AI triage, Docs, and human review in Aamu.app';
+const slug = 'from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review';
+
+const html = `<p xmlns="http://www.w3.org/1999/xhtml">A support ticket often looks small on the surface. One customer asks one question. A support person writes one answer. The ticket is closed, and the team moves on.</p><p xmlns="http://www.w3.org/1999/xhtml">But inside that small exchange there is usually more work hiding: what is the customer actually asking, can the team answer safely, is there an existing policy, should someone be assigned, should a task be created, and should the answer become reusable knowledge for next time?</p><p xmlns="http://www.w3.org/1999/xhtml">This is the kind of workflow Aamu.app Helpdesk AI triage is designed for. It is not only a button that writes a reply. It helps the team understand the ticket, decide the next action, create or find supporting knowledge, and keep a human in control before anything is sent to the customer.</p><p xmlns="http://www.w3.org/1999/xhtml">This article continues the same product direction as <a target="_blank" rel="noopener noreferrer nofollow" href="https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/">AI customer support with Aamu.app: Team Brain, drafts, and human review</a> and <a target="_blank" rel="noopener noreferrer nofollow" href="https://aamu.app/blog/posts/how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge/">How Aamu.app uses Team Brain to answer from your company knowledge</a>. The focus here is the full loop from a Helpdesk ticket to better Team Brain knowledge.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Why triage matters before drafting</h2><p xmlns="http://www.w3.org/1999/xhtml">A reply draft is useful only after the team knows what kind of situation it is handling. Some tickets are straightforward product questions. Some are unclear. Some need a human with commercial, product, or security context. Some reveal that the company's documentation is missing or outdated.</p><p xmlns="http://www.w3.org/1999/xhtml">If AI jumps directly to a polished answer, it can make the wrong thing look finished. Aamu's triage step is meant to slow the workflow down just enough to make the right next action visible.</p><p xmlns="http://www.w3.org/1999/xhtml">A triage result can include:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p><strong>Intent</strong>: what the customer is asking or trying to do.</p></li><li><p><strong>Suggested action</strong>: for example, draft a reply, assign to a human, create follow-up work, or look for existing documentation.</p></li><li><p><strong>Summary</strong>: a short plain-language explanation of the ticket.</p></li><li><p><strong>Suggested reply</strong>: a draft when the answer is safe enough to prepare.</p></li><li><p><strong>Suggested follow-up work</strong>: a task or documentation improvement when the question exposes missing knowledge.</p></li><li><p><strong>Risk flags</strong>: things the human should not overlook before answering.</p></li><li><p><strong>Relevant knowledge</strong>: what Team Brain or related Docs could confirm, and what was not found.</p></li></ul><p xmlns="http://www.w3.org/1999/xhtml">That structure turns AI from a writing shortcut into a decision support layer for support work.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Example: a self-hosting question</h2><p xmlns="http://www.w3.org/1999/xhtml">Consider a simple Finnish support email:</p><blockquote xmlns="http://www.w3.org/1999/xhtml"><p>Voiko Aamu.appia self-hostata?</p></blockquote><p xmlns="http://www.w3.org/1999/xhtml">A generic AI tool might answer from broad assumptions about SaaS products. That would be risky. Self-hosting can involve infrastructure, licensing, data residency, security commitments, enterprise exceptions, and roadmap expectations. A customer-facing answer should come from an approved policy, not from a guess.</p><p xmlns="http://www.w3.org/1999/xhtml">A good triage result should say something like: this is a self-hosting availability question, it may need product or commercial confirmation, and the team should avoid claiming that self-hosting is supported or unsupported unless a maintained source confirms it.</p><p xmlns="http://www.w3.org/1999/xhtml">If an approved internal policy already exists as an Aamu Doc, the next question is whether Helpdesk AI can use it. It may be a Doc in the workspace, but not yet included in that project's Team Brain sources. That distinction matters.</p><p xmlns="http://www.w3.org/1999/xhtml">Aamu can help surface that difference: the relevant Doc exists, but it is not currently part of the Helpdesk project's knowledge sources. The team can then add it, reindex Team Brain, and ask AI to draft a reply from the newly available source.</p><h2 xmlns="http://www.w3.org/1999/xhtml">The knowledge feedback loop</h2><p xmlns="http://www.w3.org/1999/xhtml">The most valuable part of AI support is not a single generated answer. It is the loop that improves future answers.</p><p xmlns="http://www.w3.org/1999/xhtml">Aamu's intended workflow looks like this:</p><ol xmlns="http://www.w3.org/1999/xhtml"><li><p>A customer asks a question in Helpdesk.</p></li><li><p>The user clicks <strong>Triage with AI</strong>.</p></li><li><p>AI summarizes the request, flags risks, and suggests a next action.</p></li><li><p>If knowledge is missing, the user can ask AI to create or update a Doc.</p></li><li><p>If a useful Doc already exists, the user can add it to Team Brain sources.</p></li><li><p>The user can reindex Team Brain immediately from the same AI thread.</p></li><li><p>AI can then draft a reply using the maintained knowledge.</p></li><li><p>A human reviews, edits, and sends the final answer.</p></li></ol><p xmlns="http://www.w3.org/1999/xhtml">This turns support gaps into maintained company knowledge. The next time someone asks the same question, the answer can start from a stronger source.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Docs as operational knowledge</h2><p xmlns="http://www.w3.org/1999/xhtml">Aamu Docs are useful as normal documents, but in this workflow they also become operational support infrastructure.</p><p xmlns="http://www.w3.org/1999/xhtml">A Doc can hold an internal policy, a customer-facing answer, a product limitation, a setup guide, or a support procedure. When the Doc is added to a Helpdesk project's Team Brain sources, it becomes material AI can retrieve for support drafts and triage.</p><p xmlns="http://www.w3.org/1999/xhtml">That is a useful boundary. A document can exist in the workspace without automatically becoming AI support knowledge. The team chooses which Docs should be available to Team Brain for a given Helpdesk project.</p><p xmlns="http://www.w3.org/1999/xhtml">Aamu also marks Docs that are connected to Team Brain, so users can see when a document is already being used as a knowledge source. That helps avoid the common problem where teams write the right policy but forget to connect it to the system that needs it.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Searching before creating</h2><p xmlns="http://www.w3.org/1999/xhtml">One important detail is that AI should not create duplicate documentation every time it sees a missing answer. Sometimes the policy already exists. It is just not in the right source list, not indexed yet, or not obvious from the current ticket context.</p><p xmlns="http://www.w3.org/1999/xhtml">That is why Aamu includes a document-search intent in the AI workflow. When the user asks AI to find an existing policy or documentation, AI can search Aamu Docs and related knowledge instead of immediately creating a new Doc.</p><p xmlns="http://www.w3.org/1999/xhtml">For the self-hosting example, the best answer is not always "create internal documentation." If a document named something like "Aamu Self-Hosting Policy" already exists, AI should be able to point to it and explain whether it is already part of Team Brain sources.</p><p xmlns="http://www.w3.org/1999/xhtml">This makes AI less noisy. It helps the team maintain one good source instead of accumulating several almost-identical notes.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Intent routing keeps actions explicit</h2><p xmlns="http://www.w3.org/1999/xhtml">The same text box can support different user instructions, but the action behind the instruction should be explicit. "Draft a reply" and "Send the reply" are not the same request.</p><p xmlns="http://www.w3.org/1999/xhtml">Aamu's AI workflow separates intents such as:</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><p><strong>draft_reply</strong>: create or update a reply draft for human review.</p></li><li><p><strong>send_reply</strong>: send an existing draft only when the user explicitly asks for sending.</p></li><li><p><strong>search_doc</strong>: look for existing documentation.</p></li><li><p><strong>create_doc</strong>: create a new document when needed.</p></li><li><p><strong>update_doc</strong>: improve an existing document.</p></li><li><p><strong>create_task</strong> and <strong>update_task</strong>: turn support follow-up into trackable work.</p></li><li><p><strong>create_email_draft</strong>, <strong>create_database</strong>, and <strong>create_meeting</strong>: create other workspace artifacts when the instruction calls for them.</p></li></ul><p xmlns="http://www.w3.org/1999/xhtml">This matters for trust. A reply draft can be created freely because it is still only a draft. Sending a reply is a higher-impact action and should require a clear user instruction. Searching Docs is different from creating Docs. Creating follow-up work is different from answering the customer.</p><p xmlns="http://www.w3.org/1999/xhtml">The intent router is not just technical plumbing. It is how the UI preserves human control while still letting AI do useful work.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Assigning work to a human</h2><p xmlns="http://www.w3.org/1999/xhtml">Some tickets should not be answered by AI at all. If triage suggests <strong>assign to human</strong>, Aamu can show the normal assignment control directly inside the Helpdesk AI result. The user does not need to copy the suggestion into another screen or remember what to do next.</p><p xmlns="http://www.w3.org/1999/xhtml">This is a small UI detail, but it changes the feel of the workflow. The AI suggestion becomes actionable in the place where the user is already thinking about the ticket.</p><p xmlns="http://www.w3.org/1999/xhtml">The same principle applies to knowledge actions. If AI creates or finds a useful Doc, the thread can show an <strong>Add to Team Brain sources</strong> action. After that, it can offer <strong>Reindex Team Brain now</strong>. The next best step is visible in context.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Keeping the AI thread on the ticket</h2><p xmlns="http://www.w3.org/1999/xhtml">A triage result should not disappear when the user refreshes the page. A support decision is part of the ticket history, especially when it includes risk flags, user instructions, created Docs, or a decision to assign work to a human.</p><p xmlns="http://www.w3.org/1999/xhtml">Aamu stores the AI triage state on the Helpdesk item. That means the result, the user's follow-up instructions, and the AI's responses can remain connected to the support ticket.</p><p xmlns="http://www.w3.org/1999/xhtml">This makes the AI interaction feel less like a temporary chat window and more like part of the work record. If someone else opens the ticket later, they can see what AI suggested, what the user asked it to do, and what artifacts were created or linked.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Why this is different from a separate AI dialog</h2><p xmlns="http://www.w3.org/1999/xhtml">A general AI dialog is useful for open-ended work. But Helpdesk triage belongs inside the Helpdesk item because the ticket itself is the context.</p><p xmlns="http://www.w3.org/1999/xhtml">The user should be able to read the customer message, run triage, add an instruction, create or find a Doc, connect it to Team Brain, draft a reply, assign the ticket, and send the answer without losing the thread. The AI UI should support the work that is already happening instead of pulling the user into a separate place.</p><p xmlns="http://www.w3.org/1999/xhtml">Under the hood, the same AI command infrastructure can still be shared. The important product choice is that Helpdesk users get the workflow inline, where the ticket, the AI reasoning, and the next action are all visible together.</p><h2 xmlns="http://www.w3.org/1999/xhtml">A safer kind of support automation</h2><p xmlns="http://www.w3.org/1999/xhtml">Aamu's approach is intentionally human-in-the-loop. AI can read context, summarize, search, draft, create Docs, suggest tasks, and prepare the next step. The human decides what is true enough, complete enough, and safe enough to send.</p><p xmlns="http://www.w3.org/1999/xhtml">That is especially important for support teams because customer communication is not just text generation. It includes policy, trust, account context, legal caution, commercial judgment, and the ability to admit uncertainty.</p><p xmlns="http://www.w3.org/1999/xhtml">The goal is not to make support people disappear. The goal is to give them a better starting point, reduce repeated work, and turn each useful support decision into reusable knowledge.</p><h2 xmlns="http://www.w3.org/1999/xhtml">The bottom line</h2><p xmlns="http://www.w3.org/1999/xhtml">Helpdesk AI triage in Aamu.app connects the support ticket, Team Brain, Docs, tasks, assignment, and reply drafts into one workflow.</p><p xmlns="http://www.w3.org/1999/xhtml">When a customer asks a question, AI can help identify the intent, suggest the next action, find or create the right knowledge, add it to Team Brain, reindex it, and draft a reply. A human still reviews the result and decides what happens next.</p><p xmlns="http://www.w3.org/1999/xhtml">That is the larger promise: not just faster replies, but a support system that gets smarter because the team keeps turning real customer questions into maintained company knowledge.</p>`;
+
+const post = {
+	title,
+	slug,
+	description:
+		'How Aamu.app connects Helpdesk AI triage, Docs, Team Brain, tasks, and human review so support teams can answer from maintained knowledge.',
+	body: '',
+	publishDate: '2026-06-05T12:00:00.000Z',
+	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
+	status: 'published',
+	tags: ['ai', 'helpdesk', 'team-brain', 'docs'],
+};
+
+if (!API_KEY) {
+	throw new Error('API_KEY environment variable is required.');
+}
+
+if (!DB_ID) {
+	throw new Error('AAMU_DB_ID or DB_ID environment variable is required.');
+}
+
+async function requestJson(url, options) {
+	const response = await fetch(url, options);
+	const data = await response.json().catch(() => ({}));
+
+	if (!response.ok) {
+		throw new Error(data?.error?.message || `HTTP ${response.status}`);
+	}
+
+	return data;
+}
+
+async function graphql(query, variables = {}) {
+	const data = await requestJson(GRAPHQL_ENDPOINT, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'x-api-key': API_KEY,
+			'x-db-id': DB_ID,
+		},
+		body: JSON.stringify({ query, variables }),
+	});
+
+	if (data?.errors?.length) {
+		throw new Error(data.errors.map(error => error.message).join('; '));
+	}
+
+	return data.data;
+}
+
+async function upsertDoc() {
+	const headers = {
+		'Content-Type': 'application/json',
+		'x-api-key': DOCS_API_KEY,
+		'x-project-id': PROJECT_ID,
+	};
+	const list = await requestJson(`${API_BASE_URL}/api/v1/docs/`, { headers });
+	const existing = list.docs?.find(doc => doc.title === title);
+	const body = JSON.stringify({
+		title,
+		status: 'public',
+		html,
+		project_id: PROJECT_ID,
+		pid: PROJECT_ID,
+	});
+
+	if (existing) {
+		const data = await requestJson(`${API_BASE_URL}/api/v1/docs/${encodeURIComponent(existing.id)}`, {
+			method: 'PATCH',
+			headers,
+			body,
+		});
+		return { action: 'updated', doc: data.doc || { ...existing, html } };
+	}
+
+	const data = await requestJson(`${API_BASE_URL}/api/v1/docs/`, {
+		method: 'POST',
+		headers,
+		body,
+	});
+	return { action: 'created', doc: data.doc || data };
+}
+
+async function findExistingPostId() {
+	const data = await graphql(`
+		{
+			BlogPostCollection {
+				id
+				slug
+			}
+		}
+	`);
+
+	return data.BlogPostCollection.find(row => row.slug === slug)?.id;
+}
+
+async function upsertBlogPost(docId) {
+	const existingId = await findExistingPostId();
+	const data = await graphql(
+		`
+			mutation UpsertBlogPost(
+				$id: ID
+				$title: String
+				$slug: String
+				$description: String
+				$body: String
+				$publishDate: DateTime
+				$author: String
+				$status: String
+				$tags: [String]
+				$doc: String
+			) {
+				BlogPost(
+					id: $id
+					title: $title
+					slug: $slug
+					description: $description
+					body: $body
+					publishDate: $publishDate
+					author: $author
+					status: $status
+					tags: $tags
+					doc: $doc
+				) {
+					id
+					title
+					slug
+					status
+					publishDate
+					tags
+					doc
+					author {
+						id
+						name
+					}
+				}
+			}
+		`,
+		{ id: existingId, ...post, doc: docId },
+	);
+
+	return { action: existingId ? 'updated' : 'created', post: data.BlogPost };
+}
+
+const docResult = await upsertDoc();
+const docId = docResult.doc.id;
+const postResult = await upsertBlogPost(docId);
+
+console.log(JSON.stringify({ doc: { action: docResult.action, id: docId, title }, blogPost: postResult }, null, 2));

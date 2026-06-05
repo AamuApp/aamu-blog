@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "How Aamu.app uses Team Brain to answer from your company knowledge"
 date: "2026-06-04T23:05:57.000Z"
-modified: "2026-06-04T23:28:15.032Z"
+modified: "2026-06-05T03:06:05.526Z"
 description: "How Team Brain helps Aamu.app answer from maintained company knowledge instead of generic AI guesses."
 cover:
   image: eac95a8fd1a8e8e9_team-brain-2.png
