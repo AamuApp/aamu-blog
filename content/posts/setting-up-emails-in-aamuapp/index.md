@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Setting up Emails in Aamu.app"
 date: "2025-05-27T04:00:00.000Z"
-modified: "2026-06-03T06:13:15.666Z"
+modified: "2026-06-05T06:49:44.009Z"
 description: ""
 cover:
-  image: 208c2a682cdeded5_aamuapp-emails.jpg
+  image: 2b3723c55a85e58f_set-emails.png
   relative: true
 tags: []
 ShowToc: false
