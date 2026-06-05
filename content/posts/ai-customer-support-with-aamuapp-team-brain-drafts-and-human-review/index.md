@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "AI customer support with Aamu.app: Team Brain, drafts, and human review"
 date: "2026-06-01T08:28:30.222Z"
-modified: "2026-06-04T23:32:48.300Z"
+modified: "2026-06-05T06:42:30.805Z"
 description: "How Aamu.app uses Team Brain, AI-generated drafts, and human review to make customer support faster without losing control."
 cover:
-  image: f97b41e8e18e18f6_team-brain-3.png
+  image: 5cd0eec40e669eae_team-brain-cubism-1.png
   relative: true
 tags: ["ai", "helpdesk", "team-brain"]
 ShowToc: false
