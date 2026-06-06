@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "How to build a support knowledge base that AI can actually use"
 date: "2026-06-06T20:00:00.000Z"
-modified: "2026-06-06T20:20:39.190Z"
+modified: "2026-06-06T20:23:26.401Z"
 description: "How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing."
 cover:
-  image: 8e5f72df82304cef_knowledge-base.png
+  image: 651f8404e035be08_knowledge-base.png
   relative: true
 tags: ["ai", "helpdesk", "team-brain", "docs"]
 series: ["AI support in Aamu.app"]
