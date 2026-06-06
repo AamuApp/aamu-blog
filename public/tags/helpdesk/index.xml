@@ -6,14 +6,21 @@
     <description>Recent content in Helpdesk on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 04:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 08:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/helpdesk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to build a support knowledge base that AI can actually use</title>
+      <link>https://aamu.app/blog/posts/how-to-build-a-support-knowledge-base-that-ai-can-actually-use/</link>
+      <pubDate>Sat, 06 Jun 2026 08:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/how-to-build-a-support-knowledge-base-that-ai-can-actually-use/</guid>
+      <description>How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing.</description>
+    </item>
     <item>
       <title>AI support in Aamu.app</title>
       <link>https://aamu.app/blog/posts/ai-support-in-aamuapp/</link>
       <pubDate>Fri, 05 Jun 2026 04:15:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/ai-support-in-aamuapp/</guid>
-      <description>A reading path for Aamu.app&amp;#39;s AI support workflow: AI workspace, Team Brain, customer support drafts, Helpdesk triage, and Linear comparison.</description>
+      <description>A reading path for Aamu.app&amp;#39;s AI support workflow: AI workspace, Team Brain, support knowledge bases, customer support drafts, Helpdesk triage, and Linear comparison.</description>
     </item>
     <item>
       <title>Aamu.app vs Linear Triage: customer conversations, Team Brain, and human-reviewed AI support</title>

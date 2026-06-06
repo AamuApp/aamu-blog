@@ -31,17 +31,21 @@ const seriesBySlug = new Map([
 		series: ['AI support in Aamu.app'],
 		seriesWeight: 20,
 	}],
-	['ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review', {
+	['how-to-build-a-support-knowledge-base-that-ai-can-actually-use', {
 		series: ['AI support in Aamu.app'],
 		seriesWeight: 30,
 	}],
-	['from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review', {
+	['ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review', {
 		series: ['AI support in Aamu.app'],
 		seriesWeight: 40,
 	}],
-	['aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support', {
+	['from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review', {
 		series: ['AI support in Aamu.app'],
 		seriesWeight: 50,
+	}],
+	['aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support', {
+		series: ['AI support in Aamu.app'],
+		seriesWeight: 60,
 	}],
 ]);
 
