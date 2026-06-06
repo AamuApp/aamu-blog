@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 04:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 08:30:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Api</title>
+      <link>https://aamu.app/blog/tags/api/</link>
+      <pubDate>Sat, 06 Jun 2026 08:30:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Integrations</title>
+      <link>https://aamu.app/blog/tags/integrations/</link>
+      <pubDate>Sat, 06 Jun 2026 08:30:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/integrations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webhooks</title>
+      <link>https://aamu.app/blog/tags/webhooks/</link>
+      <pubDate>Sat, 06 Jun 2026 08:30:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/webhooks/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai</title>
       <link>https://aamu.app/blog/tags/ai/</link>
@@ -48,13 +69,6 @@
       <link>https://aamu.app/blog/tags/workspace/</link>
       <pubDate>Wed, 03 Jun 2026 10:59:23 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/workspace/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Api</title>
-      <link>https://aamu.app/blog/tags/api/</link>
-      <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/api/</guid>
       <description></description>
     </item>
     <item>

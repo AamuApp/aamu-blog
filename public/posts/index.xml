@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 04:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 08:30:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Outbound webhooks in Aamu.app: real-time events for tasks, Helpdesk, email, and more</title>
+      <link>https://aamu.app/blog/posts/outbound-webhooks-in-aamuapp-real-time-events-tasks-helpdesk-email/</link>
+      <pubDate>Sat, 06 Jun 2026 08:30:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/outbound-webhooks-in-aamuapp-real-time-events-tasks-helpdesk-email/</guid>
+      <description>How Aamu.app outbound webhooks send signed real-time events for tasks, Helpdesk, email, forms, meetings, files, docs, databases, projects, and teams.</description>
+    </item>
     <item>
       <title>AI support in Aamu.app</title>
       <link>https://aamu.app/blog/posts/ai-support-in-aamuapp/</link>
