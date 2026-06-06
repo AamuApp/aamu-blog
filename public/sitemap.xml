@@ -4,11 +4,31 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/ai/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/ai-support-in-aamuapp/</loc>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/helpdesk/</loc>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/team-brain/</loc>
+    <lastmod>2026-06-06T20:40:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/series/ai-support-in-aamu.app/</loc>
@@ -19,28 +39,12 @@
     <lastmod>2026-06-06T20:23:26+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/helpdesk/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/posts/how-to-build-a-support-knowledge-base-that-ai-can-actually-use/</loc>
     <lastmod>2026-06-06T20:23:26+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/series/</loc>
     <lastmod>2026-06-06T20:23:26+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/team-brain/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
@@ -57,10 +61,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/webhooks/</loc>
     <lastmod>2026-06-06T11:41:13+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/ai-support-in-aamuapp/</loc>
-    <lastmod>2026-06-06T20:37:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/</loc>
