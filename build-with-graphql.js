@@ -49,6 +49,13 @@ const seriesBySlug = new Map([
 	}],
 ]);
 
+const coverBySlug = new Map([
+	['ai-support-in-aamuapp', {
+		image: 'ai-articles.png',
+		alt: 'Aamu.app AI support articles',
+	}],
+]);
+
 // Tracks the latest post update timestamp to fetch only newer posts
 let latestTimestamp = loadLatestTimestamp();
 
@@ -219,6 +226,9 @@ function createPostTemplate(post) {
 		`series: [${seriesMetadata.series.map(series => JSON.stringify(series)).join(', ')}]`,
 		`seriesWeight: ${seriesMetadata.seriesWeight}`,
 	].join('\n') : '';
+	const coverMetadata = coverBySlug.get(post.slug);
+	const coverImage = post.heroImage?.url || coverMetadata?.image || '';
+	const coverAlt = coverMetadata?.alt ? `  alt: "${coverMetadata.alt}"` : '';
 
 	return `
 ---
@@ -228,8 +238,9 @@ date: "${post.publishDate}"
 modified: "${post.updated_at}"
 description: "${post.description}"
 cover:
-  image: ${post.heroImage?.url || ''}
+  image: ${coverImage}
   relative: true
+${coverAlt}
 tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
 ${seriesFrontMatter}
 ShowToc: false
