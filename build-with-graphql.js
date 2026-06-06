@@ -183,9 +183,8 @@ async function hydratePostBodyFromDoc(post) {
 	const docIds = [...new Set(docValues.flatMap(extractDocIds))];
 	if (!docIds.length) {
 		console.log(`No doc ids found for post: ${post.title}`);
-		if (!String(post.body || '').trim()) {
-			logError(`No doc id or body found for post "${post.title}".`);
-		}
+		post.body = '';
+		logError(`No doc id found for post "${post.title}".`);
 		return;
 	}
 
@@ -197,14 +196,15 @@ async function hydratePostBodyFromDoc(post) {
 				console.log(`Using doc content for post: ${post.title}`);
 				return;
 			}
-			console.log(`Doc ${docId} has no HTML, falling back to body for post: ${post.title}`);
+			console.log(`Doc ${docId} has no HTML for post: ${post.title}`);
 		} catch (error) {
 			logError(`Failed to fetch doc ${docId} for post "${post.title}": ${getErrorMessage(error)}`);
 		}
 	}
 
 	if (!String(post.body || '').trim()) {
-		logError(`No doc content or body found for post "${post.title}".`);
+		post.body = '';
+		logError(`No doc content found for post "${post.title}".`);
 	}
 }
 
@@ -233,7 +233,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
-${post.body}
+${post.body || ''}
   `.trim();
 }
 
@@ -246,7 +246,6 @@ function createPostSelection(docFields) {
         title
         slug
         description
-        body
 ${docSelection}
         publishDate
         heroImage {

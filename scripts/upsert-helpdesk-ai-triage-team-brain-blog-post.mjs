@@ -19,7 +19,6 @@ const post = {
 	slug,
 	description:
 		'How Aamu.app connects Helpdesk AI triage, Docs, Team Brain, tasks, and human review so support teams can answer from maintained knowledge.',
-	body: '',
 	publishDate: '2026-06-05T12:00:00.000Z',
 	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
 	status: 'published',
@@ -118,7 +117,6 @@ async function upsertBlogPost(docId) {
 				$title: String
 				$slug: String
 				$description: String
-				$body: String
 				$publishDate: DateTime
 				$author: String
 				$status: String
@@ -130,7 +128,6 @@ async function upsertBlogPost(docId) {
 					title: $title
 					slug: $slug
 					description: $description
-					body: $body
 					publishDate: $publishDate
 					author: $author
 					status: $status

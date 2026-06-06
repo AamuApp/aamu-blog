@@ -19,7 +19,6 @@ const post = {
 	slug,
 	description:
 		'A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.',
-	body: '',
 	publishDate: '2026-06-05T14:00:00.000Z',
 	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
 	status: 'published',
@@ -118,7 +117,6 @@ async function upsertBlogPost(docId) {
 				$title: String
 				$slug: String
 				$description: String
-				$body: String
 				$publishDate: DateTime
 				$author: String
 				$status: String
@@ -130,7 +128,6 @@ async function upsertBlogPost(docId) {
 					title: $title
 					slug: $slug
 					description: $description
-					body: $body
 					publishDate: $publishDate
 					author: $author
 					status: $status

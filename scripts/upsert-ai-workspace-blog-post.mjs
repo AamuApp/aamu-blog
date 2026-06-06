@@ -11,7 +11,6 @@ const post = {
 	slug: 'aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk',
 	description:
 		'How Aamu.app works as an AI workspace alternative for teams that want docs, chat, tasks, support, and shared knowledge in one connected system.',
-	body: '',
 	publishDate: '2026-06-03T10:59:23.000Z',
 	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
 	status: 'published',
@@ -71,7 +70,6 @@ const data = await graphql(
 			$title: String
 			$slug: String
 			$description: String
-			$body: String
 			$publishDate: DateTime
 			$author: String
 			$status: String
@@ -83,7 +81,6 @@ const data = await graphql(
 				title: $title
 				slug: $slug
 				description: $description
-				body: $body
 				publishDate: $publishDate
 				author: $author
 				status: $status
