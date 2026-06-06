@@ -1,8 +1,8 @@
 ---
 author: "Ilkka Huotari"
 title: "How to build a support knowledge base that AI can actually use"
-date: "2026-06-06T08:00:00.000Z"
-modified: "2026-06-06T20:19:17.841Z"
+date: "2026-06-06T20:00:00.000Z"
+modified: "2026-06-06T20:20:39.190Z"
 description: "How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing."
 cover:
   image: 8e5f72df82304cef_knowledge-base.png
