@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "AI support in Aamu.app"
 date: "2026-06-06T20:37:00.000Z"
-modified: "2026-06-06T20:40:16.785Z"
+modified: "2026-06-07T01:17:41.653Z"
 description: "A reading path for Aamu.app's AI support workflow: AI workspace, Team Brain, support knowledge bases, customer support drafts, Helpdesk triage, and Linear comparison."
 cover:
   image: ai-articles.png

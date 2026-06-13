@@ -2,12 +2,13 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-06-05T09:02:57.645Z"
-description: "A practical guide to the Aamu API for tasks, docs, meetings, files, forms, email workflows, and GraphQL database rows."
+modified: "2026-06-13T04:53:46.953Z"
+description: "A practical guide to the Aamu API for tasks, docs, meetings, files, forms, email workflows, GraphQL database rows, and database activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
   relative: true
-tags: ["api", "docs", "tasks", "graphql"]
+
+tags: ["api", "docs", "tasks", "graphql", "databases"]
 
 ShowToc: false
 ShowBreadCrumbs: false
@@ -509,110 +510,154 @@ Content-Type: application/json
     "browser_url": "/file/browser/FILEPOINTER_ID/FILE_VERSION_ID/example.png",
     "download_url": "/file/dl/FILEPOINTER_ID/FILE_VERSION_ID/example.png"
   }
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The <code>browser_url</code> can be embedded in Docs or Tasks HTML. The old item-level <code>files</code> field is deprecated and is not returned by the current API.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Databases and GraphQL</h2><p xmlns="http://www.w3.org/1999/xhtml">GraphQL is the main database data API. The REST Database API creates databases and changes table schema, while row reads and writes use the generated GraphQL API. In other words, schema setup uses REST, and database row data uses GraphQL.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: read row data with GraphQL</h3><p xmlns="http://www.w3.org/1999/xhtml">GraphQL reads are sent as HTTP POST requests to <code>/api/v1/graphql/</code>. This is normal GraphQL behavior: the operation is a read, even though the HTTP method is POST.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
-x-api-key: YOUR_API_KEY
-x-db-id: DB_ID
-Content-Type: application/json
-
-{
-  "query": "query { feedbackRows { id customer message status sourceDocument } }"
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
-  "data": {
-    "feedbackRows": [
-      {
-        "id": "ROW_ID",
-        "customer": "Ada Lovelace",
-        "message": "The onboarding flow was clear.",
-        "status": "new",
-        "sourceDocument": "DOC_ID"
-      }
-    ]
-  }
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a database</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The <code>browser_url</code> can be embedded in Docs or Tasks HTML. The old item-level <code>files</code> field is deprecated and is not returned by the current API.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Databases and GraphQL</h2><p xmlns="http://www.w3.org/1999/xhtml">GraphQL is the main database row API. The REST Database API creates databases, adds tables, and changes table schema. Row reads and writes then use the generated GraphQL schema for that database.</p><p xmlns="http://www.w3.org/1999/xhtml">A useful mental model is: use REST to shape the database, and use GraphQL to work with the rows inside it. This keeps schema setup explicit while giving integrations a typed query and mutation surface for actual data.</p><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a database</h3><p xmlns="http://www.w3.org/1999/xhtml">Creating a database also creates its first table. The response returns both the database id and the initial table id.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
-  "name": "Customer feedback"
+  "name": "Small-team CRM"
 }</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "database": {
     "id": "DB_ID",
     "pid": "YOUR_PROJECT_ID",
-    "name": "Customer feedback",
-    "tables": ["TABLE_ID"],
-    "table_id": "TABLE_ID"
+    "name": "Small-team CRM",
+    "tables": ["DEALS_TABLE_ID"],
+    "table_id": "DEALS_TABLE_ID"
   }
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add columns</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables/TABLE_ID/columns
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add a table</h3><p xmlns="http://www.w3.org/1999/xhtml">Use the table endpoint when the integration needs a related table, for example companies next to deals, contacts next to accounts, or products next to orders.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+
+{
+  "name": "Companies",
+  "gtype": "Companies"
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "table": {
+    "id": "COMPANIES_TABLE_ID",
+    "name": "Companies",
+    "gtype": "Companies",
+    "columns": []
+  },
+  "database": {
+    "id": "DB_ID",
+    "tables": ["DEALS_TABLE_ID", "COMPANIES_TABLE_ID"]
+  }
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add columns</h3><p xmlns="http://www.w3.org/1999/xhtml">Columns are added to one table at a time. A reference column links rows in the current table to rows in another table in the same database.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables/COMPANIES_TABLE_ID/columns
 x-api-key: YOUR_API_KEY
 Content-Type: application/json
 
 {
   "columns": [
-    { "name": "Customer", "type": "text", "gtype": "customer" },
-    { "name": "Message", "type": "longtext", "gtype": "message" },
-    { "name": "Status", "type": "status", "gtype": "status" },
-    { "name": "Source document", "type": "document", "gtype": "sourceDocument" }
+    { "name": "Company name", "type": "text", "gtype": "companyName" },
+    { "name": "Website", "type": "text", "gtype": "website" }
   ]
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Then add fields to the first table and link each deal to a company:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables/DEALS_TABLE_ID/columns
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+
+{
   "columns": [
-    { "id": "COLUMN_ID", "name": "Customer", "type": "text", "gtype": "customer" },
-    { "id": "COLUMN_ID_2", "name": "Message", "type": "longtext", "gtype": "message" },
-    { "id": "COLUMN_ID_3", "name": "Status", "type": "status", "gtype": "status" },
-    { "id": "COLUMN_ID_4", "name": "Source document", "type": "document", "gtype": "sourceDocument" }
+    { "name": "Deal name", "type": "text", "gtype": "dealName" },
+    { "name": "Stage", "type": "status", "gtype": "stage" },
+    {
+      "name": "Company",
+      "type": "reference",
+      "gtype": "company",
+      "options": {
+        "type": "one_to_one",
+        "table": "COMPANIES_TABLE_ID",
+        "column_show": "companyName"
+      }
+    }
   ]
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add row data with GraphQL</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml"><code>options.type</code> can be <code>one_to_one</code> or <code>one_to_many</code>. <code>options.table</code> points to the target table, and <code>options.column_show</code> points to the target column shown as the reference label. The target can be either the column id or its <code>gtype</code>.</p><p xmlns="http://www.w3.org/1999/xhtml">Reference columns currently target another table. Same-table references are rejected because the generated database GraphQL schema does not support circular references yet. <code>automatic_reference</code> is also not part of the public API yet.</p><h3 xmlns="http://www.w3.org/1999/xhtml">POST: inspect the generated GraphQL schema</h3><p xmlns="http://www.w3.org/1999/xhtml">The exact query and mutation names come from the generated schema. Use introspection after creating or changing schema, especially when an integration creates its own table <code>gtype</code> values.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
 x-api-key: YOUR_API_KEY
 x-db-id: DB_ID
 Content-Type: application/json
 
 {
-  "query": "mutation CreateFeedback($input: FeedbackInput!) { createFeedback(input: $input) { id customer message status sourceDocument } }",
+  "query": "{ __schema { mutationType { fields { name } } queryType { fields { name } } } }"
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add row data with GraphQL</h3><p xmlns="http://www.w3.org/1999/xhtml">Create target rows first, then store the referenced row id in the reference field. A <code>one_to_one</code> reference receives one row id. A <code>one_to_many</code> reference receives an array of row ids.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "mutation CreateCompany($companyName: String, $website: String) { Companies(companyName: $companyName, website: $website) { id companyName website } }",
   "variables": {
-    "input": {
-      "customer": "Ada Lovelace",
-      "message": "The onboarding flow was clear.",
-      "status": "new",
-      "sourceDocument": "DOC_ID"
-    }
+    "companyName": "Acme Ltd",
+    "website": "https://example.com"
+  }
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Then create a deal and pass the company row id to the reference column:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "mutation CreateDeal($dealName: String, $stage: String, $company: String) { Sheet1(dealName: $dealName, stage: $stage, company: $company) { id dealName stage company { id companyName website } } }",
+  "variables": {
+    "dealName": "Website redesign",
+    "stage": "new",
+    "company": "COMPANY_ROW_ID"
   }
 }</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "data": {
-    "createFeedback": {
-      "id": "ROW_ID",
-      "customer": "Ada Lovelace",
-      "message": "The onboarding flow was clear.",
-      "status": "new",
-      "sourceDocument": "DOC_ID"
+    "Sheet1": {
+      "id": "DEAL_ROW_ID",
+      "dealName": "Website redesign",
+      "stage": "new",
+      "company": {
+        "id": "COMPANY_ROW_ID",
+        "companyName": "Acme Ltd",
+        "website": "https://example.com"
+      }
     }
   }
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: read row data with GraphQL</h3><p xmlns="http://www.w3.org/1999/xhtml">GraphQL reads are sent as HTTP POST requests to <code>/api/v1/graphql/</code>. This is normal GraphQL behavior: the operation is a read, even though the HTTP method is POST.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
+x-api-key: YOUR_API_KEY
+x-db-id: DB_ID
+Content-Type: application/json
+
+{
+  "query": "query { Sheet1Rows { id dealName stage company { id companyName website } } }"
 }</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: update row data with GraphQL</h3><p xmlns="http://www.w3.org/1999/xhtml">GraphQL updates are also sent to <code>/api/v1/graphql/</code> with HTTP POST. The mutation name depends on the generated schema, so use introspection to confirm the exact name and input type.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
 x-api-key: YOUR_API_KEY
 x-db-id: DB_ID
 Content-Type: application/json
 
 {
-  "query": "mutation UpdateFeedback($id: ID!, $input: FeedbackInput!) { updateFeedback(id: $id, input: $input) { id customer message status sourceDocument } }",
+  "query": "mutation UpdateDeal($id: ID!, $dealName: String, $stage: String, $company: String) { updateSheet1(id: $id, dealName: $dealName, stage: $stage, company: $company) { id dealName stage company { id companyName } } }",
   "variables": {
-    "id": "ROW_ID",
-    "input": {
-      "customer": "Ada Lovelace",
-      "message": "The onboarding flow was clear, and examples would help advanced users.",
-      "status": "reviewed",
-      "sourceDocument": "DOC_ID"
-    }
+    "id": "DEAL_ROW_ID",
+    "dealName": "Website redesign",
+    "stage": "won",
+    "company": "COMPANY_ROW_ID"
   }
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
-  "data": {
-    "updateFeedback": {
-      "id": "ROW_ID",
-      "customer": "Ada Lovelace",
-      "message": "The onboarding flow was clear, and examples would help advanced users.",
-      "status": "reviewed",
-      "sourceDocument": "DOC_ID"
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">GET: read database activity</h3><p xmlns="http://www.w3.org/1999/xhtml">Database activity records describe cell-level row changes. They are useful for row detail timelines, audit views, CRM history, and integrations that need to react to field changes after data has been written through the UI or API.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/databases/DB_ID/activity?table_id=DEALS_TABLE_ID&amp;row_id=DEAL_ROW_ID&amp;limit=20
+x-api-key: YOUR_API_KEY</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
+  "activity": [
+    {
+      "id": "ACTIVITY_ID",
+      "dbid": "DB_ID",
+      "tableid": "DEALS_TABLE_ID",
+      "rowid": "DEAL_ROW_ID",
+      "dataid": "CELL_DATA_ID",
+      "colid": "stage",
+      "op": "update",
+      "oldvalue": "new",
+      "newvalue": "won",
+      "userId": "USER_ID",
+      "created": 1780000000000,
+      "render": {
+        "field": { "id": "stage", "name": "Stage", "type": "status" },
+        "old_display": "New",
+        "new_display": "Won",
+        "summary": "Stage changed from New to Won"
+      }
     }
-  }
-}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Using Databases and Docs together</h2><p xmlns="http://www.w3.org/1999/xhtml">Docs and Databases work well together. A database can hold structured state, while Docs can hold rich long-form context. The bridge between the two is the <code>document</code> column type: its value is the id of a Docs document.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: fetch a linked Doc after querying a row</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/docs/DOC_ID
+  ]
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml"><code>op</code> is <code>insert</code>, <code>update</code> or <code>delete</code>. <code>oldvalue</code> and <code>newvalue</code> keep the stored value shape for the column: strings for text/status/reference values, arrays for list-like columns, and objects for structured columns such as timeline and file. The optional <code>render</code> object is a convenience summary for display.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Using Databases and Docs together</h2><p xmlns="http://www.w3.org/1999/xhtml">Docs and Databases work well together. A database can hold structured state, while Docs can hold rich long-form context. The bridge between the two is the <code>document</code> column type: its value is the id of a Docs document.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: fetch a linked Doc after querying a row</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/docs/DOC_ID
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
   "doc": {
