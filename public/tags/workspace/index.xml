@@ -6,8 +6,15 @@
     <description>Recent content in Workspace on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jun 2026 10:59:23 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 10:17:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/workspace/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI commands in Aamu.app: turning comments into workspace actions</title>
+      <link>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</link>
+      <pubDate>Mon, 15 Jun 2026 10:17:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</guid>
+      <description>How Aamu.app AI commands turn comments, chats, and current-page context into workspace actions such as tasks, meeting updates, reply drafts, and database row changes.</description>
+    </item>
     <item>
       <title>Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk</title>
       <link>https://aamu.app/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/</link>
