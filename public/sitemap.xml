@@ -4,7 +4,35 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-06-14T10:30:02+00:00</lastmod>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/crm/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/database/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/emails/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/how-to-use-aamuapp-as-a-small-team-crm/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/tasks/</loc>
+    <lastmod>2026-06-15T02:38:28+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/ai/</loc>
@@ -16,14 +44,6 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/helpdesk/</loc>
-    <lastmod>2026-06-14T10:30:02+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-14T10:30:02+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
     <lastmod>2026-06-14T10:30:02+00:00</lastmod>
   </url>
   <url>
@@ -103,15 +123,7 @@
     <lastmod>2026-06-13T04:53:46+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/tasks/</loc>
-    <lastmod>2026-06-13T04:53:46+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</loc>
-    <lastmod>2026-06-05T09:02:57+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/emails/</loc>
     <lastmod>2026-06-05T09:02:57+00:00</lastmod>
   </url>
   <url>
@@ -169,10 +181,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/automations/</loc>
     <lastmod>2026-06-05T08:58:10+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/database/</loc>
-    <lastmod>2026-06-05T09:02:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/database-automations-with-aamuapp/</loc>
