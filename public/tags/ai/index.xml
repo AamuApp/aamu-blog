@@ -64,5 +64,12 @@
       <guid>https://aamu.app/blog/posts/ai-customer-support-with-aamuapp-team-brain-drafts-and-human-review/</guid>
       <description>How Aamu.app uses Team Brain, AI-generated drafts, and human review to make customer support faster without losing control.</description>
     </item>
+    <item>
+      <title>Aamu.app Docs - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
+      <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
+      <description>An overview of Aamu.app Docs: the editor, SlashMenu blocks, AI help, sharing, snapshots, comments, Team Brain, and the Docs API.</description>
+    </item>
   </channel>
 </rss>

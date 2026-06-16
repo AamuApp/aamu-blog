@@ -6,15 +6,8 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Jun 2026 19:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 10:17:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Daily backups from Aamu.app to S3-compatible storage</title>
-      <link>https://aamu.app/blog/posts/daily-backups-from-aamuapp-to-s3-compatible-storage/</link>
-      <pubDate>Tue, 16 Jun 2026 19:30:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/posts/daily-backups-from-aamuapp-to-s3-compatible-storage/</guid>
-      <description>How Aamu.app can export daily team backups as readable JSON files to S3-compatible object storage.</description>
-    </item>
     <item>
       <title>AI commands in Aamu.app: turning comments into workspace actions</title>
       <link>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</link>
@@ -125,7 +118,7 @@
       <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
       <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
-      <description>An overview of Aamu.app Docs for writing, sharing, linking, searching, and turning team knowledge into useful workspace context.</description>
+      <description>An overview of Aamu.app Docs: the editor, SlashMenu blocks, AI help, sharing, snapshots, comments, Team Brain, and the Docs API.</description>
     </item>
     <item>
       <title>Aamu.app Helpdesk - feature overview</title>
