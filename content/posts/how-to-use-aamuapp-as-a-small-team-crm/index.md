@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "How to use Aamu.app as a small-team CRM"
 date: "2026-06-15T08:00:00.000Z"
-modified: "2026-06-15T10:29:38.669Z"
+modified: "2026-06-16T14:15:22.776Z"
 description: "How to use the Aamu.app CRM template to track companies, contacts, deals, tasks, emails, meetings, docs, and activity in one small-team workspace."
 cover:
   image: 0accb36cb28ec3f0_crm.png

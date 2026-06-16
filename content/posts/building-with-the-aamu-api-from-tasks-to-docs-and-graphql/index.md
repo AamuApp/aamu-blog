@@ -2,8 +2,8 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-06-13T04:53:46.953Z"
-description: "A practical guide to the Aamu API for tasks, docs, meetings, files, forms, email workflows, GraphQL database rows, and database activity timelines."
+modified: "2026-06-16T19:16:32.872Z"
+description: "A practical guide to the Aamu API for tasks, docs, meetings, files, forms, email workflows, database column types, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
   relative: true
@@ -543,14 +543,15 @@ Content-Type: application/json
     "id": "DB_ID",
     "tables": ["DEALS_TABLE_ID", "COMPANIES_TABLE_ID"]
   }
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add columns</h3><p xmlns="http://www.w3.org/1999/xhtml">Columns are added to one table at a time. A reference column links rows in the current table to rows in another table in the same database.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables/COMPANIES_TABLE_ID/columns
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: add columns</h3><p xmlns="http://www.w3.org/1999/xhtml">Columns are added to one table at a time. A reference column links rows in the current table to rows in another table in the same database.</p><p xmlns="http://www.w3.org/1999/xhtml">The public column types are <code>text</code>, <code>longtext</code>, <code>link</code>, <code>document</code>, <code>documents</code>, <code>number</code>, <code>status</code>, <code>checkbox</code>, <code>timedate</code>, <code>timeline</code>, <code>tags</code>, <code>file</code>, <code>files</code>, <code>reference</code>, <code>contact</code>, <code>user</code>, <code>task</code>, <code>tasks</code>, <code>email</code>, <code>emails</code>, <code>meeting</code>, and <code>meetings</code>. List-like fields such as <code>documents</code>, <code>tags</code>, <code>tasks</code>, <code>emails</code>, and <code>meetings</code> are written as arrays in GraphQL.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables/COMPANIES_TABLE_ID/columns
 x-api-key: YOUR_API_KEY
 Content-Type: application/json
 
 {
   "columns": [
     { "name": "Company name", "type": "text", "gtype": "companyName" },
-    { "name": "Website", "type": "text", "gtype": "website" }
+    { "name": "Website", "type": "link", "gtype": "website" },
+    { "name": "Customer docs", "type": "documents", "gtype": "customerDocs" }
   ]
 }</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Then add fields to the first table and link each deal to a company:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/databases/DB_ID/tables/DEALS_TABLE_ID/columns
 x-api-key: YOUR_API_KEY
@@ -571,7 +572,7 @@ Content-Type: application/json
       }
     }
   ]
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml"><code>options.type</code> can be <code>one_to_one</code> or <code>one_to_many</code>. <code>options.table</code> points to the target table, and <code>options.column_show</code> points to the target column shown as the reference label. The target can be either the column id or its <code>gtype</code>.</p><p xmlns="http://www.w3.org/1999/xhtml">Reference columns currently target another table. Same-table references are rejected because the generated database GraphQL schema does not support circular references yet. <code>automatic_reference</code> is also not part of the public API yet.</p><h3 xmlns="http://www.w3.org/1999/xhtml">POST: inspect the generated GraphQL schema</h3><p xmlns="http://www.w3.org/1999/xhtml">The exact query and mutation names come from the generated schema. Use introspection after creating or changing schema, especially when an integration creates its own table <code>gtype</code> values.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml"><code>options.type</code> can be <code>one_to_one</code> or <code>one_to_many</code>. <code>options.table</code> points to the target table, and <code>options.column_show</code> points to the target column shown as the reference label. The target can be either the column id or its <code>gtype</code>.</p><p xmlns="http://www.w3.org/1999/xhtml"><code>document</code> receives one existing Aamu Doc id. <code>documents</code> receives an array of existing Doc ids. The API links those Doc cells back to the database row, so create or resolve the Docs first instead of sending placeholder ids.</p><p xmlns="http://www.w3.org/1999/xhtml">Reference columns currently target another table. Same-table references are rejected because the generated database GraphQL schema does not support circular references yet. <code>automatic_reference</code> is also not part of the public API yet.</p><h3 xmlns="http://www.w3.org/1999/xhtml">POST: inspect the generated GraphQL schema</h3><p xmlns="http://www.w3.org/1999/xhtml">The exact query and mutation names come from the generated schema. Use introspection after creating or changing schema, especially when an integration creates its own table <code>gtype</code> values.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
 x-api-key: YOUR_API_KEY
 x-db-id: DB_ID
 Content-Type: application/json
@@ -584,10 +585,11 @@ x-db-id: DB_ID
 Content-Type: application/json
 
 {
-  "query": "mutation CreateCompany($companyName: String, $website: String) { Companies(companyName: $companyName, website: $website) { id companyName website } }",
+  "query": "mutation CreateCompany($companyName: String, $website: String, $customerDocs: [String]) { Companies(companyName: $companyName, website: $website, customerDocs: $customerDocs) { id companyName website customerDocs } }",
   "variables": {
     "companyName": "Acme Ltd",
-    "website": "https://example.com"
+    "website": "https://example.com",
+    "customerDocs": ["DOC_ID_1", "DOC_ID_2"]
   }
 }</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Then create a deal and pass the company row id to the reference column:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/graphql/
 x-api-key: YOUR_API_KEY
@@ -610,7 +612,8 @@ Content-Type: application/json
       "company": {
         "id": "COMPANY_ROW_ID",
         "companyName": "Acme Ltd",
-        "website": "https://example.com"
+        "website": "https://example.com",
+        "customerDocs": ["DOC_ID_1", "DOC_ID_2"]
       }
     }
   }
