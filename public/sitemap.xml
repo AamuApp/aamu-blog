@@ -7,6 +7,34 @@
     <lastmod>2026-06-16T19:48:27+00:00</lastmod>
   </url>
   <url>
+    <loc>https://aamu.app/blog/tags/backups/</loc>
+    <lastmod>2026-06-16T19:38:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/daily-backups-from-aamuapp-to-s3-compatible-storage/</loc>
+    <lastmod>2026-06-16T19:38:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/data/</loc>
+    <lastmod>2026-06-16T19:38:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/integrations/</loc>
+    <lastmod>2026-06-16T19:38:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-06-16T19:48:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-06-16T19:48:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/workspace/</loc>
+    <lastmod>2026-06-16T19:38:39+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://aamu.app/blog/tags/ai/</loc>
     <lastmod>2026-06-16T19:48:27+00:00</lastmod>
   </url>
@@ -19,20 +47,8 @@
     <lastmod>2026-06-15T10:16:43+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-16T19:48:27+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-06-16T19:48:27+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/tags/tasks/</loc>
     <lastmod>2026-06-16T19:16:32+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/workspace/</loc>
-    <lastmod>2026-06-15T10:35:56+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/crm/</loc>
@@ -81,10 +97,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
     <lastmod>2026-06-16T19:16:32+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/integrations/</loc>
-    <lastmod>2026-06-06T11:41:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/outbound-webhooks-in-aamuapp-real-time-events-tasks-helpdesk-email/</loc>
