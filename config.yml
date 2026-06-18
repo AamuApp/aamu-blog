@@ -51,7 +51,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  description: "Aamu.app blog"
   author: Theme PaperMod
 
   defaultTheme: auto
