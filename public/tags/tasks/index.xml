@@ -34,14 +34,14 @@
       <link>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</link>
       <pubDate>Fri, 13 Jun 2025 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</guid>
-      <description>An overview of Aamu.app Emails: shared project inboxes, contacts, drafts, attachments, tasks, and API-assisted email workflows.</description>
+      <description>An overview of Aamu.app Emails: shared project inboxes, contacts, drafts, attachments, tasks, and human-reviewed Email API workflows.</description>
     </item>
     <item>
       <title>Aamu.app Tasks - feature overview</title>
       <link>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</link>
       <pubDate>Wed, 04 Jun 2025 03:50:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</guid>
-      <description>An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, files, linked context, and AI-assisted follow-up.</description>
+      <description>An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API.</description>
     </item>
   </channel>
 </rss>

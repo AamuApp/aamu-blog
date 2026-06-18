@@ -23,6 +23,41 @@
       <description>A practical guide to the Aamu API for tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines.</description>
     </item>
     <item>
+      <title>Aamu.app Emails - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</link>
+      <pubDate>Fri, 13 Jun 2025 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</guid>
+      <description>An overview of Aamu.app Emails: shared project inboxes, contacts, drafts, attachments, tasks, and human-reviewed Email API workflows.</description>
+    </item>
+    <item>
+      <title>Aamu.app Docs - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</link>
+      <pubDate>Wed, 11 Jun 2025 22:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-docs-feature-overview/</guid>
+      <description>An overview of Aamu.app Docs: the editor, SlashMenu blocks, AI help, sharing, snapshots, comments, Team Brain, and the Docs API.</description>
+    </item>
+    <item>
+      <title>Aamu.app Helpdesk - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</link>
+      <pubDate>Tue, 10 Jun 2025 07:55:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-helpdesk-feature-overview/</guid>
+      <description>An overview of Aamu.app Helpdesk for email support, live chat, tickets, Team Brain, AI reply drafts, and the Helpdesk API.</description>
+    </item>
+    <item>
+      <title>Video Meetings - feature overview</title>
+      <link>https://aamu.app/blog/posts/video-meetings-feature-overview/</link>
+      <pubDate>Sun, 08 Jun 2025 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/video-meetings-feature-overview/</guid>
+      <description>An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API.</description>
+    </item>
+    <item>
+      <title>Aamu.app Tasks - feature overview</title>
+      <link>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</link>
+      <pubDate>Wed, 04 Jun 2025 03:50:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-tasks-feature-overview/</guid>
+      <description>An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API.</description>
+    </item>
+    <item>
       <title>Database automations with Aamu.app</title>
       <link>https://aamu.app/blog/posts/database-automations-with-aamuapp/</link>
       <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
