@@ -52,7 +52,7 @@ outputs:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Aamu.app blog"
-  author: Theme PaperMod
+  author: Aamu.app
 
   defaultTheme: auto
   # disableThemeToggle: true
