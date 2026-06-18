@@ -6,8 +6,64 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Jun 2026 20:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 18:54:24 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Api</title>
+      <link>https://aamu.app/blog/tags/api/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automations</title>
+      <link>https://aamu.app/blog/tags/automations/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/automations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crm</title>
+      <link>https://aamu.app/blog/tags/crm/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/crm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Database</title>
+      <link>https://aamu.app/blog/tags/database/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/database/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emails</title>
+      <link>https://aamu.app/blog/tags/emails/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/emails/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Forms</title>
+      <link>https://aamu.app/blog/tags/forms/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/forms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tasks</title>
+      <link>https://aamu.app/blog/tags/tasks/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/tasks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webhooks</title>
+      <link>https://aamu.app/blog/tags/webhooks/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/webhooks/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Backups</title>
       <link>https://aamu.app/blog/tags/backups/</link>
@@ -51,34 +107,6 @@
       <description></description>
     </item>
     <item>
-      <title>Tasks</title>
-      <link>https://aamu.app/blog/tags/tasks/</link>
-      <pubDate>Mon, 15 Jun 2026 10:17:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/tasks/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Crm</title>
-      <link>https://aamu.app/blog/tags/crm/</link>
-      <pubDate>Mon, 15 Jun 2026 08:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/crm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Database</title>
-      <link>https://aamu.app/blog/tags/database/</link>
-      <pubDate>Mon, 15 Jun 2026 08:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/database/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Emails</title>
-      <link>https://aamu.app/blog/tags/emails/</link>
-      <pubDate>Mon, 15 Jun 2026 08:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/emails/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Helpdesk</title>
       <link>https://aamu.app/blog/tags/helpdesk/</link>
       <pubDate>Sat, 06 Jun 2026 20:37:00 +0000</pubDate>
@@ -100,31 +128,10 @@
       <description></description>
     </item>
     <item>
-      <title>Api</title>
-      <link>https://aamu.app/blog/tags/api/</link>
-      <pubDate>Sat, 06 Jun 2026 08:30:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/api/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Webhooks</title>
-      <link>https://aamu.app/blog/tags/webhooks/</link>
-      <pubDate>Sat, 06 Jun 2026 08:30:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/webhooks/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Comparisons</title>
       <link>https://aamu.app/blog/tags/comparisons/</link>
       <pubDate>Fri, 05 Jun 2026 04:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/comparisons/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Automations</title>
-      <link>https://aamu.app/blog/tags/automations/</link>
-      <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/automations/</guid>
       <description></description>
     </item>
     <item>
@@ -167,13 +174,6 @@
       <link>https://aamu.app/blog/tags/scheduling/</link>
       <pubDate>Sun, 08 Jun 2025 06:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/scheduling/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Forms</title>
-      <link>https://aamu.app/blog/tags/forms/</link>
-      <pubDate>Mon, 02 Jun 2025 14:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/forms/</guid>
       <description></description>
     </item>
     <item>

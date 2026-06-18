@@ -6,8 +6,15 @@
     <description>Recent content in Crm on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 15 Jun 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 18:54:24 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/crm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From form submission to follow-up: workflows with Aamu.app</title>
+      <link>https://aamu.app/blog/posts/from-form-submission-to-follow-up-workflows-with-aamuapp/</link>
+      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/from-form-submission-to-follow-up-workflows-with-aamuapp/</guid>
+      <description>How to connect Aamu Forms, Databases, Automations, Webhooks, Tasks, Emails, and CRM into practical end-to-end workflows.</description>
+    </item>
     <item>
       <title>How to use Aamu.app as a small-team CRM</title>
       <link>https://aamu.app/blog/posts/how-to-use-aamuapp-as-a-small-team-crm/</link>
