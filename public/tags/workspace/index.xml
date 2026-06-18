@@ -18,9 +18,9 @@
     <item>
       <title>AI commands in Aamu.app: turning comments into workspace actions</title>
       <link>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</link>
-      <pubDate>Mon, 15 Jun 2026 10:17:00 +0000</pubDate>
+      <pubDate>Mon, 15 Jun 2026 10:30:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</guid>
-      <description>How Aamu.app AI commands turn comments, chats, and current-page context into workspace actions such as tasks, meeting updates, reply drafts, and database row changes.</description>
+      <description>How Aamu.app AI routes natural-language requests to workspace operations across tasks, Docs, Forms, databases, automations, Helpdesk, Email, meetings, and files.</description>
     </item>
     <item>
       <title>Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk</title>
