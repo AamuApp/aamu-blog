@@ -51,7 +51,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Aamu.app blog"
+  description: "Stop switching between disconnected apps. All of your favorite productivity tools in one workspace — finally unified."
   author: Aamu.app
 
   defaultTheme: auto
