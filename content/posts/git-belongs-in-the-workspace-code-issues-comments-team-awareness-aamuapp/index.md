@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app"
 date: "2026-06-19T09:00:00.000Z"
-modified: "2026-06-19T11:36:24.701Z"
+modified: "2026-06-19T11:38:40.070Z"
 description: "How Aamu.app keeps Git repositories, issue-like tasks, pull requests, code review comments, and notifications inside one shared team workspace."
 cover:
-  image: a41ef40ca19e8312_git.png
+  image: 3ba2026aefa5c582_git.png
   relative: true
 
 tags: ["git", "workspace", "tasks", "collaboration", "notifications"]
