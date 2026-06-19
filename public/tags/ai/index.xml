@@ -6,8 +6,15 @@
     <description>Recent content in Ai on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 15 Jun 2026 10:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 18:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ask Aamu for product help with AI</title>
+      <link>https://aamu.app/blog/posts/ask-aamu-for-product-help-with-ai/</link>
+      <pubDate>Fri, 19 Jun 2026 18:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/ask-aamu-for-product-help-with-ai/</guid>
+      <description>How to use the aamu: prefix in Launch AI and the public support.aamu.app API to get product help grounded in Aamu documentation.</description>
+    </item>
     <item>
       <title>AI commands in Aamu.app: turning comments into workspace actions</title>
       <link>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</link>
