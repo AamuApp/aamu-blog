@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-06-18T23:52:19.609Z"
+modified: "2026-06-19T00:39:06.024Z"
 description: "A practical guide to the Aamu API for tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
@@ -410,40 +410,49 @@ Content-Type: application/json
     "start_time": 1779462000000,
     "end_time": 1779465600000
   }
-}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Forms API</h2><p xmlns="http://www.w3.org/1999/xhtml">The authenticated Forms API lets integrations list forms, inspect fields, and submit responses. A submitted response creates a row in the database table connected to the form.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list forms</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/forms/
+}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Forms API</h2><p xmlns="http://www.w3.org/1999/xhtml">The authenticated Forms API lets integrations create Forms, update their questions and settings, list and inspect Forms, and submit responses. Published Form responses become rows in the connected database table.</p><h3 xmlns="http://www.w3.org/1999/xhtml">POST: create a Form</h3><p xmlns="http://www.w3.org/1999/xhtml">Use Forms write scope. With <code>publish: true</code>, Aamu creates the backing database and table, maps Form fields to database columns, and publishes the Form.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/forms/
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
-  "forms": [
-    {
-      "id": "FORM_ID",
-      "pid": "YOUR_PROJECT_ID",
-      "name": "Feedback form",
-      "status": "public",
-      "table_id": "TABLE_ID",
-      "fields": [
-        { "id": "COLUMN_ID", "name": "Email", "type": "text", "gtype": "email" },
-        { "id": "COLUMN_ID_2", "name": "Message", "type": "longtext", "gtype": "message" }
-      ]
-    }
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: USER_ID_OR_USERNAME
+Content-Type: application/json
+
+{
+  "name": "Contact Form",
+  "description": "Send us a message.",
+  "publish": true,
+  "fields": [
+    { "title": "Name", "type": "short_text", "required": true },
+    { "title": "Email address", "type": "email", "required": true },
+    { "title": "Message", "type": "long_text" }
   ]
-}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: submit a form response</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/forms/FORM_ID/submissions
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Supported field types include short and long text, email, number, date/time, choice fields, files, paragraphs, and page breaks. Email fields use a text-backed database column but render as HTML email inputs in the public Form.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: list and inspect Forms</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /api/v1/forms/
+GET /api/v1/forms/FORM_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">PATCH: update a Form</h3><p xmlns="http://www.w3.org/1999/xhtml">Update metadata without changing questions, or supply <code>fields</code> to replace the question list. Stable <code>item_id</code> values preserve field identity across updates. Setting <code>publish: true</code> publishes a draft Form or publishes newly added fields into the backing table.</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">PATCH /api/v1/forms/FORM_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "description": "Updated contact form.",
+  "publish": true,
+  "fields": [
+    { "item_id": "name", "title": "Name", "type": "short_text", "required": true },
+    { "item_id": "email-address", "title": "Email address", "type": "email", "required": true },
+    { "item_id": "message", "title": "How can we help?", "type": "long_text", "required": true }
+  ]
+}</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: submit a Form response</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/forms/FORM_ID/submissions
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
   "fields": {
-    "email": "person@example.com",
+    "name": "Ada Example",
+    "email-address": "ada@example.com",
     "message": "I would like to hear more."
   }
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">{
-  "submission": {
-    "id": "ROW_ID",
-    "form_id": "FORM_ID",
-    "db_id": "DB_ID",
-    "table_id": "TABLE_ID"
-  }
-}</code></pre><h2 xmlns="http://www.w3.org/1999/xhtml">Public forms</h2><p xmlns="http://www.w3.org/1999/xhtml">Public browser forms use the same URL for viewing and submitting. They do not use a Team API key. This is separate from the authenticated Forms API.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: render a public form</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /shared/form/FORM_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response is HTML:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">&lt;form action="https://your-team.aamu.app/shared/form/FORM_ID" method="post" enctype="multipart/form-data"&gt;
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">The response contains the created row id together with the Form, database, and table ids.</p><h2 xmlns="http://www.w3.org/1999/xhtml">Public forms</h2><p xmlns="http://www.w3.org/1999/xhtml">Public browser forms use the same URL for viewing and submitting. They do not use a Team API key. This is separate from the authenticated Forms API.</p><h3 xmlns="http://www.w3.org/1999/xhtml">GET: render a public form</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">GET /shared/form/FORM_ID</code></pre><p xmlns="http://www.w3.org/1999/xhtml">Example response is HTML:</p><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">&lt;form action="https://your-team.aamu.app/shared/form/FORM_ID" method="post" enctype="multipart/form-data"&gt;
   &lt;input type="hidden" name="form_builder" value="1"&gt;
   ...
 &lt;/form&gt;</code></pre><h3 xmlns="http://www.w3.org/1999/xhtml">POST: submit a public form</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /shared/form/FORM_ID
