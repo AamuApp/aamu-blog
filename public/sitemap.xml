@@ -4,7 +4,39 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-06-19T05:34:19+00:00</lastmod>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/collaboration/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/git/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/git-belongs-in-the-workspace-code-issues-comments-team-awareness-aamuapp/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/notifications/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/tasks/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/workspace/</loc>
+    <lastmod>2026-06-19T11:33:03+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
@@ -35,18 +67,6 @@
     <lastmod>2026-06-19T00:39:06+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-19T05:34:19+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-06-19T05:34:19+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/tasks/</loc>
-    <lastmod>2026-06-19T05:34:19+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/tags/webhooks/</loc>
     <lastmod>2026-06-19T05:32:28+00:00</lastmod>
   </url>
@@ -65,10 +85,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/integrations/</loc>
     <lastmod>2026-06-19T05:32:28+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/workspace/</loc>
-    <lastmod>2026-06-19T00:39:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/ai/</loc>

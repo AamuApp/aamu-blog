@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Collaboration on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/collaboration/</link>
+    <description>Recent content in Collaboration on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 19 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/collaboration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/git-belongs-in-the-workspace-code-issues-comments-team-awareness-aamuapp/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/git-belongs-in-the-workspace-code-issues-comments-team-awareness-aamuapp/</guid>
+      <description>How Aamu.app keeps Git repositories, issue-like tasks, pull requests, code review comments, and notifications inside one shared team workspace.</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,15 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Jun 2026 18:54:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app</title>
+      <link>https://aamu.app/blog/posts/git-belongs-in-the-workspace-code-issues-comments-team-awareness-aamuapp/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/git-belongs-in-the-workspace-code-issues-comments-team-awareness-aamuapp/</guid>
+      <description>How Aamu.app keeps Git repositories, issue-like tasks, pull requests, code review comments, and notifications inside one shared team workspace.</description>
+    </item>
     <item>
       <title>From form submission to follow-up: workflows with Aamu.app</title>
       <link>https://aamu.app/blog/posts/from-form-submission-to-follow-up-workflows-with-aamuapp/</link>

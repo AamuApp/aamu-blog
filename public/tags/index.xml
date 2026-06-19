@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Jun 2026 18:54:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collaboration</title>
+      <link>https://aamu.app/blog/tags/collaboration/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/collaboration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://aamu.app/blog/tags/git/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Notifications</title>
+      <link>https://aamu.app/blog/tags/notifications/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/notifications/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tasks</title>
+      <link>https://aamu.app/blog/tags/tasks/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/tasks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workspace</title>
+      <link>https://aamu.app/blog/tags/workspace/</link>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/workspace/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Api</title>
       <link>https://aamu.app/blog/tags/api/</link>
@@ -51,13 +86,6 @@
       <description></description>
     </item>
     <item>
-      <title>Tasks</title>
-      <link>https://aamu.app/blog/tags/tasks/</link>
-      <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/tasks/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Webhooks</title>
       <link>https://aamu.app/blog/tags/webhooks/</link>
       <pubDate>Thu, 18 Jun 2026 18:54:24 +0000</pubDate>
@@ -83,13 +111,6 @@
       <link>https://aamu.app/blog/tags/integrations/</link>
       <pubDate>Tue, 16 Jun 2026 20:30:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/integrations/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Workspace</title>
-      <link>https://aamu.app/blog/tags/workspace/</link>
-      <pubDate>Tue, 16 Jun 2026 20:30:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/workspace/</guid>
       <description></description>
     </item>
     <item>
