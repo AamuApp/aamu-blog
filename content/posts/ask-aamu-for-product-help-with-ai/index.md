@@ -2,10 +2,10 @@
 author: "Ilkka Huotari"
 title: "Ask Aamu for product help with AI"
 date: "2026-06-19T18:00:00.000Z"
-modified: "2026-06-19T20:23:03.737Z"
+modified: "2026-06-19T20:30:41.259Z"
 description: "How to use the aamu: prefix in Launch AI and the public support.aamu.app API to get product help grounded in Aamu documentation."
 cover:
-  image: 280785426f33af1e_aamuhelp.png
+  image: a63aadc678d92828_aamuhelp.png
   relative: true
 
 tags: ["ai", "support", "team-brain", "api"]
