@@ -34,6 +34,11 @@ const newsletterHtml = String.raw`<p xmlns="http://www.w3.org/1999/xhtml">Newsle
 <pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">https://{team}.aamu.app/newsletter/unsubscribe/{subscriberId}/{token}</code></pre>
 <p xmlns="http://www.w3.org/1999/xhtml">The public confirmation page keeps the result deliberately simple: the recipient sees that they have been unsubscribed and will no longer receive the newsletter.</p>
 
+<h2 xmlns="http://www.w3.org/1999/xhtml">Publish a signup form with Aamu Forms</h2>
+<p xmlns="http://www.w3.org/1999/xhtml">The <strong>Signup form</strong> tab creates a public, editable Aamu Form for the newsletter. The form starts with email and name fields, but it remains a normal Aamu Form: the team can edit its title, description, fields, visual theme, public URL, thank-you page, and custom CSS.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">Publishing the signup form also creates its backing Database and a <code>row_inserted</code> automation. Each form response remains in the Database as submission and consent history. The automation then upserts the normalized email address into the newsletter's canonical subscriber list.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">This avoids making the Form Database a second delivery list. The Database records what was submitted and when; <code>newsletter_subscribers</code> remains the source of truth for whether an address currently receives the newsletter. Repeated submissions update the existing subscriber instead of creating duplicates.</p>
+
 <h2 xmlns="http://www.w3.org/1999/xhtml">A reusable template with deliberate placeholders</h2>
 <p xmlns="http://www.w3.org/1999/xhtml">The content template defines the repeatable structure editors see when they create an issue. It contains one issue-content area and one unsubscribe element. This prevents an essential compliance link from becoming an afterthought in each new message.</p>
 <p xmlns="http://www.w3.org/1999/xhtml">The wrapper controls the surrounding email HTML. It contains exactly one <code>{{CONTENT}}</code> placeholder for the rendered issue and can use <code>{{SUBJECT}}</code> where the subject belongs. Keeping content and wrapper separate makes it possible to adjust the publication's shared visual frame without rewriting every issue.</p>
@@ -48,7 +53,7 @@ const newsletterHtml = String.raw`<p xmlns="http://www.w3.org/1999/xhtml">Newsle
 <p xmlns="http://www.w3.org/1999/xhtml">Mailbox provisioning is intentionally not part of the Newsletter API. Domain verification and sender configuration remain an administrative UI step, while routine publication work can be automated after the mailbox is ready.</p>
 
 <h2 xmlns="http://www.w3.org/1999/xhtml">Automate newsletters through the API</h2>
-<p xmlns="http://www.w3.org/1999/xhtml">The project-scoped Newsletter API can list, create, and update newsletters; create and edit draft issues; manage subscribers; send a test; and explicitly send a production issue. Requests use a Team API key with the Newsletters scope and the project header.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">The project-scoped Newsletter API can list, create, and update newsletters; create the signup Form–Database–Automation workflow; create and edit draft issues; manage subscribers; send a test; and explicitly send a production issue. Requests use a Team API key with the Newsletters scope and the project header.</p>
 <pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre>
 <p xmlns="http://www.w3.org/1999/xhtml">A simple automated flow can create a newsletter issue from approved content, add or synchronize subscribers, send a test to the API actor, and leave production sending as a separate action. Subscriber API responses never expose unsubscribe tokens.</p>
@@ -60,6 +65,8 @@ x-project-id: YOUR_PROJECT_ID</code></pre>
 
 POST /api/v1/newsletters/{newsletterId}/issues/{issueId}/send-test
 POST /api/v1/newsletters/{newsletterId}/issues/{issueId}/send</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml">The signup workflow is created idempotently. The first request creates the resources; later requests return the same connected form and automation:</p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/{newsletterId}/signup-form</code></pre>
 <p xmlns="http://www.w3.org/1999/xhtml">The separate send endpoints matter for AI and other automations. Creating or revising a draft is reversible; delivering email to a list is an external side effect. Aamu keeps that boundary visible instead of treating every content update as permission to publish.</p>
 <p xmlns="http://www.w3.org/1999/xhtml">For the complete endpoint overview, authentication model, and examples alongside the rest of the platform, see <a href="/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/">Building with the Aamu API</a>.</p>
 
@@ -80,14 +87,17 @@ const apiPost = {
 	tags: ['api', 'newsletters', 'docs', 'tasks', 'graphql', 'databases', 'automations'],
 };
 
-const newsletterApiSection = String.raw`<h2 xmlns="http://www.w3.org/1999/xhtml">Newsletters</h2><p xmlns="http://www.w3.org/1999/xhtml">The Newsletters API manages project-scoped newsletters, draft and sent issues, and subscribers. It also keeps test delivery and production delivery as explicit operations. Use the <strong>Newsletters</strong> read or write scope together with <code>x-project-id</code>.</p><p xmlns="http://www.w3.org/1999/xhtml">Mailbox setup is an administrative UI step: configure a verified email domain, Address, and Sender name before sending. The API handles the publication workflow after that mailbox exists.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create a newsletter</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/
+const newsletterApiSection = String.raw`<h2 xmlns="http://www.w3.org/1999/xhtml">Newsletters</h2><p xmlns="http://www.w3.org/1999/xhtml">The Newsletters API manages project-scoped newsletters, signup forms, draft and sent issues, and subscribers. It also keeps test delivery and production delivery as explicit operations. Use the <strong>Newsletters</strong> read or write scope together with <code>x-project-id</code>.</p><p xmlns="http://www.w3.org/1999/xhtml">Mailbox setup is an administrative UI step: configure a verified email domain, Address, and Sender name before sending. The API handles the publication workflow after that mailbox exists.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create a newsletter</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
   "name": "Product updates"
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create and update an issue</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create a public signup workflow</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai</code></pre><p xmlns="http://www.w3.org/1999/xhtml">This idempotent endpoint creates a published Aamu Form, its backing Database table, and a published <code>row_inserted</code> automation with a <code>subscribe_to_newsletter</code> action. The response includes the form, Database and table ids, automation, and public form URL. The Database keeps form-response history while the newsletter subscriber collection remains the delivery source of truth.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create and update an issue</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
 {
   "subject": "June product update",
   "html": "&lt;p&gt;What changed this month...&lt;/p&gt;"
@@ -181,7 +191,18 @@ function replaceOnce(value, search, replacement, label) {
 }
 
 function updateApiHtml(source) {
-	if (source.includes('>Newsletters</h2>')) return source;
+	if (source.includes('>Newsletters</h2>')) {
+		if (source.includes('/signup-form')) return source;
+		return replaceOnce(
+			source,
+			'<h3 xmlns="http://www.w3.org/1999/xhtml">Create and update an issue</h3>',
+			`<h3 xmlns="http://www.w3.org/1999/xhtml">Create a public signup workflow</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai</code></pre><p xmlns="http://www.w3.org/1999/xhtml">This idempotent endpoint creates a published Aamu Form, its backing Database table, and a published <code>row_inserted</code> automation with a <code>subscribe_to_newsletter</code> action. The response includes the form, Database and table ids, automation, and public form URL. The Database keeps form-response history while the newsletter subscriber collection remains the delivery source of truth.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create and update an issue</h3>`,
+			'Newsletter issue heading',
+		);
+	}
 
 	let html = source;
 	html = replaceOnce(

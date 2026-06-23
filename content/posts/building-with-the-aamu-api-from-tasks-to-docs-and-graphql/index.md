@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-06-23T00:06:21.765Z"
+modified: "2026-06-23T00:59:30.996Z"
 description: "A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
@@ -459,7 +459,10 @@ Content-Type: application/json
 
 {
   "name": "Product updates"
-}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create and update an issue</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
+}</code></pre><p xmlns="http://www.w3.org/1999/xhtml">List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create a public signup workflow</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: ai</code></pre><p xmlns="http://www.w3.org/1999/xhtml">This idempotent endpoint creates a published Aamu Form, its backing Database table, and a published <code>row_inserted</code> automation with a <code>subscribe_to_newsletter</code> action. The response includes the form, Database and table ids, automation, and public form URL. The Database keeps form-response history while the newsletter subscriber collection remains the delivery source of truth.</p><h3 xmlns="http://www.w3.org/1999/xhtml">Create and update an issue</h3><pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
 {
   "subject": "June product update",
   "html": "&lt;p&gt;What changed this month...&lt;/p&gt;"
