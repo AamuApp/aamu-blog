@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Newsletters on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/newsletters/</link>
+    <description>Recent content in Newsletters on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/newsletters/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Newsletters in Aamu.app: from subscribers to sending</title>
+      <link>https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/</guid>
+      <description>Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API.</description>
+    </item>
+    <item>
+      <title>Building with the Aamu API: From Tasks to Docs and GraphQL</title>
+      <link>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</link>
+      <pubDate>Fri, 22 May 2026 07:10:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</guid>
+      <description>A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines.</description>
+    </item>
+  </channel>
+</rss>
