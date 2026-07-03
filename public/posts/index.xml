@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 09:48:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs</title>
+      <link>https://aamu.app/blog/posts/why-aamuapp-uses-a-central-server-and-sharedb-ot-instead-of-crdt/</link>
+      <pubDate>Fri, 03 Jul 2026 09:48:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/why-aamuapp-uses-a-central-server-and-sharedb-ot-instead-of-crdt/</guid>
+      <description>&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;Collaborative editing is one of those technical choices that looks simple from the outside and becomes very nuanced once you build a real product around it.&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;A common question is: why not use CRDTs?&lt;/p&gt;&lt;p xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;CRDTs are a powerful approach to collaboration. They are especially attractive for local-first software, offline editing, peer-to-peer synchronization, and systems where multiple replicas need to merge changes automatically without a single central authority deciding the final order of operations.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Newsletters in Aamu.app: from subscribers to sending</title>
       <link>https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/</link>

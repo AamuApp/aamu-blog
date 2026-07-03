@@ -4,7 +4,23 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-06-26T16:52:19+00:00</lastmod>
+    <lastmod>2026-07-03T09:48:18+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-07-03T09:48:18+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-07-03T09:48:18+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/tech/</loc>
+    <lastmod>2026-07-03T09:48:18+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/why-aamuapp-uses-a-central-server-and-sharedb-ot-instead-of-crdt/</loc>
+    <lastmod>2026-07-03T09:48:18+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
@@ -25,14 +41,6 @@
   <url>
     <loc>https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/</loc>
     <lastmod>2026-06-23T00:59:29+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-06-26T16:52:19+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-06-26T16:52:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/ai/</loc>
