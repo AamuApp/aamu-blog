@@ -4,15 +4,39 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/ai/</loc>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/company-brain-in-aamuapp-ai-across-your-workspace/</loc>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/company-brain/</loc>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/knowledge/</loc>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/meetings/</loc>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/team-brain/</loc>
+    <lastmod>2026-07-10T20:44:39+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/tech/</loc>
@@ -24,11 +48,11 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/automations/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/email/</loc>
@@ -36,15 +60,11 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/newsletters/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/</loc>
     <lastmod>2026-06-23T00:59:29+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/ai/</loc>
-    <lastmod>2026-06-19T21:38:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/ask-aamu-for-product-help-with-ai/</loc>
@@ -53,10 +73,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/support/</loc>
     <lastmod>2026-06-19T21:35:51+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/team-brain/</loc>
-    <lastmod>2026-06-19T21:38:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/collaboration/</loc>
@@ -76,7 +92,7 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/tasks/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/workspace/</loc>
@@ -132,11 +148,11 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/ai-support-in-aamuapp/</loc>
-    <lastmod>2026-06-19T21:38:19+00:00</lastmod>
+    <lastmod>2026-07-10T13:28:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/helpdesk/</loc>
-    <lastmod>2026-06-19T21:38:19+00:00</lastmod>
+    <lastmod>2026-07-10T13:28:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/series/ai-support-in-aamu.app/</loc>
@@ -144,7 +160,7 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/docs/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/how-to-build-a-support-knowledge-base-that-ai-can-actually-use/</loc>
@@ -184,15 +200,15 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/databases/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/graphql/</loc>
-    <lastmod>2026-07-04T23:15:26+00:00</lastmod>
+    <lastmod>2026-07-05T06:12:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/aamuapp-emails-feature-overview/</loc>
@@ -228,10 +244,6 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/livechat/</loc>
-    <lastmod>2026-06-18T18:48:46+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/meetings/</loc>
     <lastmod>2026-06-18T18:48:46+00:00</lastmod>
   </url>
   <url>

@@ -23,11 +23,11 @@ const html = String.raw`
 <p xmlns="http://www.w3.org/1999/xhtml"><strong>Company Brain</strong> is Aamu.app's answer to that problem. It gives Launch AI and <code>@ai</code> a permission-aware way to retrieve information from the Aamu workspace, answer a question, and link back to the objects where the answer was found.</p>
 
 <h2 xmlns="http://www.w3.org/1999/xhtml">From a support knowledge base to workspace knowledge</h2>
-<p xmlns="http://www.w3.org/1999/xhtml">Aamu already has Team Brain for maintained Helpdesk knowledge. Team Brain works well when a team wants to choose canonical support sources such as Docs, FAQ snippets, web pages, sitemaps, or selected resolved tickets. It answers a focused question: what approved knowledge should support use?</p>
+<p xmlns="http://www.w3.org/1999/xhtml">Aamu already has the Helpdesk Knowledge Base for maintained Helpdesk knowledge. The Helpdesk Knowledge Base works well when a team wants to choose canonical support sources such as Docs, FAQ snippets, web pages, sitemaps, or selected resolved tickets. It answers a focused question: what approved knowledge should support use?</p>
 <p xmlns="http://www.w3.org/1999/xhtml">Company Brain has a broader job. It makes the operational information already stored in Aamu retrievable for internal questions. Instead of requiring every useful fact to be copied into a separate knowledge source, Company Brain indexes the top-level workspace objects that the team uses every day.</p>
 <p xmlns="http://www.w3.org/1999/xhtml">The two layers complement each other:</p>
 <ul xmlns="http://www.w3.org/1999/xhtml">
-  <li><p><strong>Team Brain</strong> contains selected, maintained knowledge for workflows such as Helpdesk answers and customer-facing drafts.</p></li>
+  <li><p><strong>Helpdesk Knowledge Base</strong> contains selected, maintained knowledge for workflows such as Helpdesk answers and customer-facing drafts.</p></li>
   <li><p><strong>Company Brain</strong> helps people ask broader questions across the work taking place in Aamu.</p></li>
 </ul>
 
@@ -232,7 +232,7 @@ async function updateHubDoc(docs, posts) {
 			BlogPost(id: $id, description: $description, tags: $tags) { id slug updated_at }
 		}`, {
 			id: hubPost.id,
-			description: "A reading path for Aamu.app's AI support: Company Brain, Team Brain, AI commands, support knowledge, drafts, meetings, and human review.",
+			description: "A reading path for Aamu.app's AI support: Company Brain, Helpdesk Knowledge Base, AI commands, support knowledge, drafts, meetings, and human review.",
 			tags: Array.from(new Set([...(hubPost.tags || []), 'company-brain']))
 		});
 	}
