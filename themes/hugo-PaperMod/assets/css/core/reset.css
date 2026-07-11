@@ -71,6 +71,8 @@ ul {
 
 a {
     text-decoration: underline;
+    color: #ff4242;
+    font-weight: 600;
 }
 
 body,
