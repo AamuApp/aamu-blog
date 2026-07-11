@@ -1,9 +1,9 @@
 ---
 author: "Ilkka Huotari"
-title: "How Aamu.app uses Team Brain to answer from your company knowledge"
+title: "How Aamu.app uses the Helpdesk Knowledge Base for grounded support answers"
 date: "2026-06-04T23:05:57.000Z"
-modified: "2026-07-11T12:07:09.991Z"
-description: "How Team Brain helps Aamu.app answer from maintained company knowledge instead of generic AI guesses."
+modified: "2026-07-11T12:19:29.633Z"
+description: "How the Helpdesk Knowledge Base helps Aamu.app answer support questions from maintained sources instead of generic AI guesses."
 cover:
   image: eac95a8fd1a8e8e9_team-brain-2.png
   relative: true

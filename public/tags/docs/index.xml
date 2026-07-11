@@ -16,18 +16,18 @@
       <description>How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing.</description>
     </item>
     <item>
-      <title>From Helpdesk ticket to Team Brain: AI triage, Docs, and human review in Aamu.app</title>
+      <title>From Helpdesk ticket to Helpdesk Knowledge Base: AI triage, Docs, and human review in Aamu.app</title>
       <link>https://aamu.app/blog/posts/from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review/</link>
-      <pubDate>Fri, 05 Jun 2026 03:30:00 +0000</pubDate>
+      <pubDate>Fri, 05 Jun 2026 12:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/from-helpdesk-ticket-to-team-brain-ai-triage-docs-human-review/</guid>
-      <description>How Aamu.app connects Helpdesk AI triage, Docs, Team Brain, tasks, and human review so support teams can answer from maintained knowledge.</description>
+      <description>How Aamu.app connects Helpdesk AI triage, Docs, Helpdesk Knowledge Base, tasks, and human review so support teams can answer from maintained knowledge.</description>
     </item>
     <item>
-      <title>How Aamu.app uses Team Brain to answer from your company knowledge</title>
+      <title>How Aamu.app uses the Helpdesk Knowledge Base for grounded support answers</title>
       <link>https://aamu.app/blog/posts/how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge/</link>
       <pubDate>Thu, 04 Jun 2026 23:05:57 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/how-aamuapp-uses-team-brain-to-answer-from-your-company-knowledge/</guid>
-      <description>How Team Brain helps Aamu.app answer from maintained company knowledge instead of generic AI guesses.</description>
+      <description>How the Helpdesk Knowledge Base helps Aamu.app answer support questions from maintained sources instead of generic AI guesses.</description>
     </item>
     <item>
       <title>Building with the Aamu API: From Tasks to Docs and GraphQL</title>

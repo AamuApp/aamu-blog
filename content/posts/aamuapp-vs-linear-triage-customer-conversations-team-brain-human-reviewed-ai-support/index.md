@@ -1,14 +1,14 @@
 ---
 author: "Ilkka Huotari"
-title: "Aamu.app vs Linear Triage: customer conversations, Team Brain, and human-reviewed AI support"
-date: "2026-06-05T04:00:00.000Z"
-modified: "2026-07-11T12:07:08.335Z"
+title: "Aamu.app vs Linear Triage: customer conversations, Helpdesk Knowledge Base, and human-reviewed AI support"
+date: "2026-06-05T14:00:00.000Z"
+modified: "2026-07-11T12:19:24.286Z"
 description: "A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake."
 cover:
   image: e4737e705d443371_aamu-linear.png
   relative: true
 
-tags: ["ai", "helpdesk", "team-brain", "comparisons"]
+tags: ["ai", "helpdesk", "triage", "linear"]
 series: ["AI support in Aamu.app"]
 seriesWeight: 60
 ShowToc: false
