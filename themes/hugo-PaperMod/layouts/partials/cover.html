@@ -12,7 +12,7 @@
         {{- $aspectRatio := printf "%d/%d" $cover.Width $cover.Height | safeCSS }}
         {{- if $addLink }}<a href="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" target="_blank"
             rel="noopener noreferrer">{{ end -}}
-        {{- $sizes := (slice "200" "300" "360" "480" "720" "1080" "1500") }}
+        {{- $sizes := (slice "200" "300" "360" "480" "720" "1500") }}
         {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
         {{- if hugo.IsExtended -}}
             {{- $processableFormats = $processableFormats | append "webp" -}}
@@ -21,7 +21,7 @@
         {{- if (and (in $processableFormats $cover.MediaType.SubType) ($responsiveImages) (eq $prod true)) }}
         <img srcset="{{- range $size := $sizes -}}
                 {{- if (ge $cover.Width $size) -}}
-                {{ printf "%s %s" (($cover.Process (printf "resize %sx webp q75" $size)).Permalink) (printf "%sw ," $size) -}}
+                {{ printf "%s %s" (($cover.Process (printf "resize %sx webp q95" $size)).Permalink) (printf "%sw ," $size) -}}
                 {{ end }}
             {{- end -}}{{$cover.Permalink }} {{printf "%dw" ($cover.Width)}}"
             sizes="{{ if $.IsSingle }}(min-width: 768px) 768px, calc(100vw - 60px){{ else }}(min-width: 768px) 300px, calc(100vw - 60px){{ end }}"
