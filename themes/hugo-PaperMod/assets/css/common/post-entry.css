@@ -99,13 +99,16 @@
     text-align: center;
 }
 
+.main.main-home .entry-cover img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
 .entry-cover img {
     border-radius: var(--radius);
     pointer-events: none;
     width: 100%;
     height: auto;
-    max-height: 200px;
-    object-fit: cover;
 }
 
 .entry-cover a {
