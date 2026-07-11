@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sdk on Aamu.app blog</title>
+    <link>https://aamu.app/blog/tags/sdk/</link>
+    <description>Recent content in Sdk on Aamu.app blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Jul 2026 09:30:00 +0000</lastBuildDate>
+    <atom:link href="https://aamu.app/blog/tags/sdk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open-source Livechat SDKs for Android and iOS</title>
+      <link>https://aamu.app/blog/posts/open-source-livechat-sdks-for-android-and-ios/</link>
+      <pubDate>Sat, 11 Jul 2026 09:30:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/open-source-livechat-sdks-for-android-and-ios/</guid>
+      <description>Introducing open-source, headless Aamu Livechat client libraries for Android and iOS, with native APIs for Chat, Email, sessions, reconnects, and events.</description>
+    </item>
+  </channel>
+</rss>
