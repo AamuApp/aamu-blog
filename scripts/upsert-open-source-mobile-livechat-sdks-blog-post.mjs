@@ -185,37 +185,22 @@ async function findExistingPost() {
 
 async function uploadHeroImage() {
 	const bytes = await readFile(heroImagePath);
-	const headers = {
-		'Content-Type': 'application/json',
-		'x-api-key': FILES_API_KEY,
-		'x-project-id': PROJECT_ID,
-		'x-aamu-actor': 'ai',
-	};
-	const prepared = await requestJson(`${API_BASE_URL}/api/v1/files/prepare-upload`, {
+	const form = new FormData();
+	form.append('file', new Blob([bytes], { type: heroImageType }), heroImageName);
+	const response = await fetch(`${API_BASE_URL}/api/v1/files/`, {
 		method: 'POST',
-		headers,
-		body: JSON.stringify({ name: heroImageName, type: heroImageType, size: bytes.length }),
+		headers: {
+			'x-api-key': FILES_API_KEY,
+			'x-project-id': PROJECT_ID,
+			'x-aamu-actor': 'ai',
+		},
+		body: form,
 	});
-	const upload = prepared?.upload;
-	if (!upload?.url || !prepared?.complete) {
-		throw new Error('Files API did not return an upload URL and completion payload.');
+	const completed = await response.json().catch(() => ({}));
+	if (!response.ok) {
+		throw new Error(completed?.error?.message || completed?.message || `HTTP ${response.status}`);
 	}
-
-	const uploadResponse = await fetch(upload.url, {
-		method: upload.method || 'PUT',
-		headers: upload.headers || { 'Content-Type': heroImageType },
-		body: bytes,
-	});
-	if (!uploadResponse.ok) {
-		throw new Error(`Hero image upload failed with HTTP ${uploadResponse.status}.`);
-	}
-
-	const completed = await requestJson(`${API_BASE_URL}/api/v1/files/complete-upload`, {
-		method: 'POST',
-		headers,
-		body: JSON.stringify(prepared.complete),
-	});
-	const file = completed?.file;
+	const file = completed.file;
 	if (!file?.fid || !file?.pointer) {
 		throw new Error('Files API did not return fid and pointer for the hero image.');
 	}
