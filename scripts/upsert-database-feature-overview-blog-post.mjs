@@ -9,6 +9,85 @@ const author = process.env.AAMU_BLOG_AUTHOR || '29940627-51e8-4fd0-82ab-d718ddfe
 const title = 'Aamu.app Databases: a practical feature guide';
 const slug = 'aamuapp-databases-practical-feature-guide';
 
+// Keep this reference in sync with FORMULA_FUNCTION_CATALOG in some-companies-lib.
+const formulaFunctions = [
+	['Logical', 'IF(condition, value_if_true, [value_if_false])', 'Returns one of two values based on a condition.'],
+	['Logical', 'IFERROR(value, fallback)', 'Returns fallback when evaluating value produces an error.'],
+	['Logical', 'AND(condition, ...)', 'Returns true when every condition is truthy.'],
+	['Logical', 'OR(condition, ...)', 'Returns true when any condition is truthy.'],
+	['Logical', 'NOT(value)', 'Reverses a boolean value.'],
+	['Logical', 'XOR(condition, ...)', 'Returns true when an odd number of conditions are truthy.'],
+	['Logical', 'SWITCH(value, case, result, ..., [default])', 'Matches a value to cases and returns the corresponding result.'],
+	['Logical', 'COALESCE(value, ...)', 'Returns the first non-empty value.'],
+	['Text', 'CONCAT(value, ...)', 'Joins values without a separator.'],
+	['Text', 'JOIN(separator, value, ...)', 'Joins values using a separator.'],
+	['Text', 'LOWER(text)', 'Converts text to lowercase.'],
+	['Text', 'UPPER(text)', 'Converts text to uppercase.'],
+	['Text', 'TRIM(text)', 'Removes leading and trailing whitespace and collapses internal whitespace.'],
+	['Text', 'LENGTH(value)', 'Returns the length of text or a list.'],
+	['Text', 'LEN(value)', 'Alias for LENGTH.'],
+	['Text', 'LEFT(text, [count])', 'Returns characters from the beginning of text.'],
+	['Text', 'RIGHT(text, [count])', 'Returns characters from the end of text.'],
+	['Text', 'MID(text, start, count)', 'Returns characters starting at a one-based position.'],
+	['Text', 'SUBSTITUTE(text, search, replacement, [occurrence])', 'Replaces all or one occurrence of text.'],
+	['Text', 'REPLACE(text, start, count, replacement)', 'Replaces characters at a one-based position.'],
+	['Text', 'CONTAINS(text, search)', 'Tests whether text contains a value.'],
+	['Text', 'STARTS_WITH(text, prefix)', 'Tests whether text starts with a value.'],
+	['Text', 'ENDS_WITH(text, suffix)', 'Tests whether text ends with a value.'],
+	['Math', 'ROUND(number, [precision])', 'Rounds a number to a number of decimal places.'],
+	['Math', 'ABS(number)', 'Returns the absolute value of a number.'],
+	['Math', 'FLOOR(number, [significance])', 'Rounds a number down to a multiple.'],
+	['Math', 'CEILING(number, [significance])', 'Rounds a number up to a multiple.'],
+	['Math', 'MOD(number, divisor)', 'Returns the remainder after division.'],
+	['Math', 'POWER(number, exponent)', 'Raises a number to a power.'],
+	['Math', 'SQRT(number)', 'Returns the non-negative square root.'],
+	['Math', 'MIN(value, ...)', 'Returns the smallest numeric value.'],
+	['Math', 'MAX(value, ...)', 'Returns the largest numeric value.'],
+	['Math', 'SUM(value, ...)', 'Returns the sum of numeric values.'],
+	['Math', 'AVERAGE(value, ...)', 'Returns the average of numeric values.'],
+	['Math', 'COUNT(value, ...)', 'Counts non-empty values.'],
+	['Relation', 'SUM_FIELD(records, field)', 'Sums a field from records returned by LOOKUP_RECORDS.'],
+	['Relation', 'AVERAGE_FIELD(records, field)', 'Averages a field from records returned by LOOKUP_RECORDS.'],
+	['Relation', 'MIN_FIELD(records, field)', 'Returns the smallest numeric field value from records.'],
+	['Relation', 'MAX_FIELD(records, field)', 'Returns the largest numeric field value from records.'],
+	['Relation', 'COUNT_FIELD(records, field)', 'Counts non-empty field values in records.'],
+	['Relation', 'LOOKUP_ONE(table, field, value, [field, value, ...], [$order_by, field], [$order, direction])', 'Returns the first matching record from a Database table.'],
+	['Relation', 'LOOKUP_RECORDS(table, field, value, [field, value, ...], [$order_by, field], [$order, direction], [$limit, count])', 'Returns matching records from a Database table.'],
+	['Date', 'NOW()', 'Returns the formula evaluation time as an ISO timestamp.'],
+	['Date', 'TODAY()', 'Returns the formula evaluation date in UTC.'],
+	['Date', 'DATE(year, month, day)', 'Creates a UTC date. Month is one-based.'],
+	['Date', 'YEAR(date)', 'Returns the UTC year of a date.'],
+	['Date', 'MONTH(date)', 'Returns the one-based UTC month of a date.'],
+	['Date', 'DAY(date)', 'Returns the UTC day of the month.'],
+	['Date', 'DATE_ADD(date, amount, [unit])', 'Adds days, weeks, months, years, hours, minutes, or seconds to a date.'],
+	['Date', 'DATE_DIFF(start, end, [unit])', 'Returns elapsed days, weeks, hours, minutes, or seconds.'],
+	['Date', 'DAYS_BETWEEN(start, end)', 'Returns elapsed days between dates.'],
+	['Info', 'ISBLANK(value)', 'Tests whether a value is null, undefined, or empty text.'],
+	['Info', 'ISNUMBER(value)', 'Tests whether a value is a finite number.'],
+	['Info', 'ISTEXT(value)', 'Tests whether a value is text.'],
+	['List', 'FIRST(values)', 'Returns the first item in a list.'],
+	['List', 'LAST(values)', 'Returns the last item in a list.'],
+	['List', 'NTH(values, position)', 'Returns an item at a one-based position.'],
+	['List', 'UNIQUE(values)', 'Returns unique list values while preserving order.'],
+	['List', 'SORT(values, [direction])', 'Returns a sorted copy of a list; direction is asc or desc.'],
+];
+
+const escapeHtml = value => String(value)
+	.replaceAll('&', '&amp;')
+	.replaceAll('<', '&lt;')
+	.replaceAll('>', '&gt;')
+	.replaceAll('"', '&quot;');
+
+const formulaReferenceHtml = [...new Set(formulaFunctions.map(([category]) => category))]
+	.map(category => {
+		const rows = formulaFunctions
+			.filter(([itemCategory]) => itemCategory === category)
+			.map(([, signature, description]) => `<tr><td><code>${escapeHtml(signature)}</code></td><td>${escapeHtml(description)}</td></tr>`)
+			.join('');
+		return `<h3 xmlns="http://www.w3.org/1999/xhtml">${escapeHtml(category)} functions</h3><table xmlns="http://www.w3.org/1999/xhtml"><thead><tr><th>Function</th><th>Description</th></tr></thead><tbody>${rows}</tbody></table>`;
+	})
+	.join('\n');
+
 const parseEnvrc = path => Object.fromEntries(
 	fs.readFileSync(path, 'utf8')
 		.split(/\n/)
@@ -94,12 +173,68 @@ const html = String.raw`<p xmlns="http://www.w3.org/1999/xhtml">Aamu.app Databas
 
 <h2 xmlns="http://www.w3.org/1999/xhtml">Formula columns</h2>
 <p xmlns="http://www.w3.org/1999/xhtml">Formula columns calculate read-only values from the row. The formula editor suggests fields and functions, validates the expression, and previews a result from existing data before the column is saved.</p>
-<p xmlns="http://www.w3.org/1999/xhtml">The function catalogue covers common logical, text, numeric, date, list, and information operations. Examples include <code>IF</code>, <code>IFERROR</code>, <code>CONCAT</code>, <code>ROUND</code>, <code>SUM</code>, <code>AVERAGE</code>, <code>TODAY</code>, <code>DATE_ADD</code>, <code>ISBLANK</code>, <code>UNIQUE</code>, and <code>SORT</code>.</p>
-<p xmlns="http://www.w3.org/1999/xhtml">Formulas can follow Reference fields and can also query tables with <code>LOOKUP_ONE</code> and <code>LOOKUP_RECORDS</code>. Relation helpers such as <code>SUM_FIELD</code>, <code>AVERAGE_FIELD</code>, and <code>COUNT_FIELD</code> can summarize values returned by those lookups.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">Formula expressions are parsed by Aamu's formula engine; they are not evaluated as JavaScript. A formula can use literals, row fields, operators, parentheses, and the supported functions listed below. Function names are case-insensitive, while field names use the column's stable API identifier.</p>
+
+<h3 xmlns="http://www.w3.org/1999/xhtml">Values and field references</h3>
+<p xmlns="http://www.w3.org/1999/xhtml">Text can use single or double quotes. Numbers support decimals and exponent notation. The literal values <code>true</code>, <code>false</code>, and <code>null</code> are also supported.</p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">"Active customer"
+125.50
+true
+customer_name
+created_at
+company.country</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml">A simple field reference such as <code>amount</code> reads that field from the current row. Reference columns can be followed with dot notation, such as <code>company.name</code>. A one-to-many Reference produces a list, so following a field can produce a list of values.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">Every formula row also has the built-in fields <code>id</code>, <code>created_at</code>, and <code>updated_at</code>. Dates use ISO-formatted values, and date functions use UTC.</p>
+
+<h3 xmlns="http://www.w3.org/1999/xhtml">Operators</h3>
+<table xmlns="http://www.w3.org/1999/xhtml"><thead><tr><th>Operators</th><th>Purpose</th></tr></thead><tbody>
+	<tr><td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>^</code></td><td>Addition, subtraction, multiplication, division, remainder, and exponentiation. If either side of <code>+</code> is text, the values are concatenated.</td></tr>
+	<tr><td><code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code></td><td>Equality and inequality. The double and triple forms currently use the same strict comparison behavior.</td></tr>
+	<tr><td><code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code></td><td>Greater than, greater than or equal, less than, and less than or equal.</td></tr>
+	<tr><td><code>&amp;&amp;</code>, <code>||</code>, <code>!</code></td><td>Logical AND, OR, and NOT. AND and OR short-circuit.</td></tr>
+	<tr><td><code>+value</code>, <code>-value</code></td><td>Unary numeric conversion and negation.</td></tr>
+	<tr><td><code>(...)</code></td><td>Controls evaluation order.</td></tr>
+</tbody></table>
+<p xmlns="http://www.w3.org/1999/xhtml">Division or remainder by zero returns <code>null</code>. Numeric results must be finite; invalid numeric results produce a formula error.</p>
+
+<h3 xmlns="http://www.w3.org/1999/xhtml">Formula examples</h3>
 <pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">IF(status == "won", amount, 0)
 DATE_DIFF(created_at, TODAY(), "days")
-SUM_FIELD(LOOKUP_RECORDS("LineItems", "order", id), "total")</code></pre>
-<p xmlns="http://www.w3.org/1999/xhtml">Stable API identifiers are also the field names used in formulas. Choosing clear identifiers makes the schema easier to use in both formulas and integrations.</p>
+CONCAT(company.name, " — ", contact_name)
+SUM_FIELD(LOOKUP_RECORDS("LineItems", "order", id), "total")
+IFERROR(company.country, "Country not set")</code></pre>
+
+<h3 xmlns="http://www.w3.org/1999/xhtml">Lookup functions</h3>
+<p xmlns="http://www.w3.org/1999/xhtml"><code>LOOKUP_ONE</code> and <code>LOOKUP_RECORDS</code> query another table in the same Database. The table name and condition field names are stable API identifiers written as strings. Conditions are supplied as field/value pairs and all supplied conditions must match.</p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code class="language-plaintext">LOOKUP_ONE("Companies", "domain", email_domain)
+
+LOOKUP_RECORDS(
+  "Invoices",
+  "customer", id,
+  "status", "open",
+  "$order_by", "due_date",
+  "$order", "asc",
+  "$limit", 100
+)</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml"><code>$order_by</code> accepts a column identifier, <code>id</code>, <code>created_at</code>, or <code>updated_at</code>. <code>$order</code> is <code>asc</code> or <code>desc</code>. <code>$limit</code> is available to <code>LOOKUP_RECORDS</code> and can be from 1 to 1,000. <code>LOOKUP_ONE</code> always returns at most one record; <code>LOOKUP_RECORDS</code> returns a list.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">Lookup functions require server-side Database data. The editor can validate the expression before saving, but a complete preview of a lookup may require saving the Formula so Aamu can evaluate it on the server.</p>
+
+<h3 xmlns="http://www.w3.org/1999/xhtml">Supported functions</h3>
+<p xmlns="http://www.w3.org/1999/xhtml">Square brackets in a signature mark an optional argument. An ellipsis means that the function accepts more values up to the formula argument limit.</p>
+${formulaReferenceHtml}
+
+<h3 xmlns="http://www.w3.org/1999/xhtml">Evaluation behavior and limits</h3>
+<ul xmlns="http://www.w3.org/1999/xhtml">
+	<li><p><code>IF</code>, <code>IFERROR</code>, <code>AND</code>, <code>OR</code>, and <code>SWITCH</code> evaluate lazily. A branch that is not selected is not evaluated.</p></li>
+	<li><p><code>NOW()</code> and <code>TODAY()</code> use one consistent evaluation time for the formula calculation. <code>TODAY()</code> returns the UTC date.</p></li>
+	<li><p><code>DATE_ADD</code> supports day, week, month, year, hour, minute, and second units in singular or plural form. <code>DATE_DIFF</code> supports day, week, hour, minute, and second units.</p></li>
+	<li><p><code>LEFT</code>, <code>RIGHT</code>, <code>MID</code>, <code>REPLACE</code>, and <code>NTH</code> use one-based positions where a position is requested.</p></li>
+	<li><p>A formula can contain at most 4,096 characters, 1,000 tokens, 100 function arguments, 64 expression nesting levels, and a field path of 32 parts.</p></li>
+	<li><p>Reference traversal is limited to 10 levels. A lookup can return at most 1,000 rows.</p></li>
+	<li><p>A text result can contain at most 100,000 characters and an array result at most 10,000 items. Circular and non-finite results are rejected.</p></li>
+</ul>
+<p xmlns="http://www.w3.org/1999/xhtml">Formula errors are stored separately from the computed value and can be exposed through Database APIs. Use <code>IFERROR</code> when a fallback is an intentional part of the calculation; otherwise, let the error remain visible so an invalid field, date, lookup, or argument does not silently become misleading data.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">Stable API identifiers are the field names used in formulas. Choosing clear identifiers makes the schema easier to use in formulas, CSV imports, GraphQL, and REST integrations.</p>
 
 <h2 xmlns="http://www.w3.org/1999/xhtml">Mass actions</h2>
 <p xmlns="http://www.w3.org/1999/xhtml">Select multiple rows when an operation should apply to a set. Current mass actions can:</p>
@@ -187,11 +322,11 @@ POST   /api/v1/databases/{dbId}/restore</code></pre>
 const post = {
 	title,
 	slug,
-	description: 'A practical guide to Aamu.app Databases: typed columns, Grid views, filters, grouping, formulas, relations, history, bulk editing, backups, automations, and APIs.',
+	description: 'A practical reference for Aamu.app Databases: typed columns, views, filters, formulas and functions, relations, history, bulk editing, backups, automations, and APIs.',
 	publishDate: '2026-07-19T09:00:00.000Z',
 	author,
 	status: 'published',
-	tags: ['database', 'databases', 'documentation', 'api', 'automations'],
+	tags: ['database', 'databases', 'documentation', 'formulas', 'api', 'automations'],
 };
 
 if (!apiKey) throw new Error(`API key not found in the environment or ${envPath}.`);
@@ -233,13 +368,23 @@ async function upsertDoc() {
 async function upsertBlogPost(docId) {
 	const found = await graphql(`query FindBlogPost($slug: String!) { BlogPost(slug: $slug) { id } }`, { slug });
 	const existingId = found.BlogPost?.id;
+	const variables = existingId
+		? {
+			id: existingId,
+			title: post.title,
+			slug: post.slug,
+			description: post.description,
+			tags: post.tags,
+			doc: docId,
+		}
+		: { id: null, ...post, doc: docId };
 	const data = await graphql(`
 		mutation UpsertBlogPost($id: ID, $title: String, $slug: String, $description: String, $publishDate: DateTime, $author: String, $status: String, $tags: [String], $doc: String) {
 			BlogPost(id: $id, title: $title, slug: $slug, description: $description, publishDate: $publishDate, author: $author, status: $status, tags: $tags, doc: $doc) {
 				id title slug description status publishDate tags doc author { id name }
 			}
 		}
-	`, { id: existingId, ...post, doc: docId });
+	`, variables);
 	return { action: existingId ? 'updated' : 'created', post: data.BlogPost };
 }
 
