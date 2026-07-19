@@ -34,7 +34,7 @@ languages:
           url: https://aamu.app/
           weight: 5
         - name: Archive
-          url: archives
+          url: archives/
           weight: 5
         - name: Search
           url: search/
@@ -48,6 +48,10 @@ outputs:
     - HTML
     - RSS
     - JSON
+  # Keep one site-wide RSS feed. Per-tag feeds are not search-result pages and
+  # only create "crawled, currently not indexed" noise in Search Console.
+  term:
+    - HTML
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -79,7 +83,7 @@ params:
     # imageHeight: 120
     buttons:
       - name: Archives
-        url: archives
+        url: archives/
       - name: Tags
         url: tags
 
