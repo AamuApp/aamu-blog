@@ -1,0 +1,8 @@
+<aside class="post-toc-shell" hidden>
+  <nav class="post-toc" aria-label="On this page">
+    <p class="post-toc-title">On this page</p>
+    <ul class="post-toc-list"></ul>
+  </nav>
+</aside>
+{{- $postToc := resources.Get "js/post-toc.js" | minify | fingerprint }}
+<script defer src="{{ $postToc.RelPermalink }}" integrity="{{ $postToc.Data.Integrity }}"></script>

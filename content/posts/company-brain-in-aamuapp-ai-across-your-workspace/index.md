@@ -8,7 +8,7 @@ cover:
   image: 30a101146e38e15a_company-brain.png
   relative: true
 
-tags: ["ai", "company-brain", "team-brain", "knowledge", "meetings"]
+tags: ["ai", "company-brain", "knowledge", "meetings"]
 
 ShowToc: false
 ShowBreadCrumbs: false

@@ -15,6 +15,96 @@
     width: 100%;
 }
 
+.post-content :is(h1, h2, h3) {
+    scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.post-single {
+    position: relative;
+}
+
+.post-toc-shell {
+    display: none;
+}
+
+@media (min-width: 1300px) {
+    .post-toc-shell:not([hidden]) {
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: calc(100% + 32px);
+        display: block;
+        width: 230px;
+    }
+
+    .post-toc {
+        position: sticky;
+        top: calc(var(--header-height) + 24px);
+        max-height: calc(100vh - var(--header-height) - 48px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+    }
+
+    .post-toc-title {
+        margin: 0 0 12px;
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .post-toc-list {
+        margin: 0;
+        padding: 0;
+        border-inline-start: 1px solid var(--border);
+        list-style: none;
+    }
+
+    .post-toc-list li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .post-toc-list a {
+        display: block;
+        margin-inline-start: -1px;
+        padding: 5px 8px 5px 14px;
+        border-inline-start: 2px solid transparent;
+        color: var(--secondary);
+        font-size: 15px;
+        line-height: 1.35;
+        transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease;
+        text-decoration: none;
+    }
+
+    .post-toc-list a:hover {
+        color: var(--primary);
+    }
+
+    .post-toc-list a.is-active {
+        border-inline-start-color: var(--primary);
+        background: color-mix(in srgb, var(--primary) 6%, transparent);
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .post-toc-level-2 a {
+        padding-inline-start: 14px;
+    }
+
+    .post-toc-level-3 a {
+        padding-inline-start: 28px;
+        font-size: 13px;
+    }
+}
+
+@media print {
+    .post-toc-shell {
+        display: none !important;
+    }
+}
+
 .relative {
     position: relative;
 }
