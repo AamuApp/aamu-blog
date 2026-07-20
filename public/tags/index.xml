@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 02:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 19:52:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://aamu.app/blog/tags/ai/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/ai/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Api</title>
       <link>https://aamu.app/blog/tags/api/</link>
-      <pubDate>Sun, 19 Jul 2026 02:45:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Databases</title>
+      <link>https://aamu.app/blog/tags/databases/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/databases/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docs</title>
+      <link>https://aamu.app/blog/tags/docs/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/docs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Integrations</title>
+      <link>https://aamu.app/blog/tags/integrations/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/integrations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openapi</title>
+      <link>https://aamu.app/blog/tags/openapi/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/openapi/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +62,6 @@
       <link>https://aamu.app/blog/tags/database/</link>
       <pubDate>Sun, 19 Jul 2026 02:45:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/database/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Databases</title>
-      <link>https://aamu.app/blog/tags/databases/</link>
-      <pubDate>Sun, 19 Jul 2026 02:45:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/databases/</guid>
       <description></description>
     </item>
     <item>
@@ -90,13 +118,6 @@
       <link>https://aamu.app/blog/tags/sdk/</link>
       <pubDate>Sat, 11 Jul 2026 09:30:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/sdk/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ai</title>
-      <link>https://aamu.app/blog/tags/ai/</link>
-      <pubDate>Fri, 10 Jul 2026 08:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/ai/</guid>
       <description></description>
     </item>
     <item>
@@ -233,25 +254,11 @@
       <description></description>
     </item>
     <item>
-      <title>Integrations</title>
-      <link>https://aamu.app/blog/tags/integrations/</link>
-      <pubDate>Tue, 16 Jun 2026 20:30:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/integrations/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Aamu.app Helpdesk</title>
       <link>https://aamu.app/blog/tags/helpdesk/</link>
       <pubDate>Sat, 06 Jun 2026 20:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/helpdesk/</guid>
       <description>Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, grounded reply drafts, and connected support workflows.</description>
-    </item>
-    <item>
-      <title>Docs</title>
-      <link>https://aamu.app/blog/tags/docs/</link>
-      <pubDate>Sat, 06 Jun 2026 20:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/docs/</guid>
-      <description></description>
     </item>
     <item>
       <title>Linear</title>

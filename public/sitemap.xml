@@ -4,14 +4,46 @@
 
   <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-07-19T03:33:47+00:00</lastmod>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/posts/aamuapp-databases-practical-feature-guide/</loc>
-    <lastmod>2026-07-19T03:33:47+00:00</lastmod>
+    <loc>https://aamu.app/blog/tags/ai/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/api/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/databases/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/docs/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/integrations/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/openapi/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/using-third-party-apis-through-aamuapp-ai/</loc>
+    <lastmod>2026-07-20T19:53:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/aamuapp-databases-practical-feature-guide/</loc>
     <lastmod>2026-07-19T03:33:47+00:00</lastmod>
   </url>
   <url>
@@ -23,23 +55,11 @@
     <lastmod>2026-07-19T03:33:47+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/databases/</loc>
-    <lastmod>2026-07-19T03:33:47+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/tags/documentation/</loc>
     <lastmod>2026-07-19T03:33:47+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/formulas/</loc>
-    <lastmod>2026-07-19T03:33:47+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-07-19T03:33:47+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
     <lastmod>2026-07-19T03:33:47+00:00</lastmod>
   </url>
   <url>
@@ -69,10 +89,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/sdk/</loc>
     <lastmod>2026-07-11T09:42:01+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/ai/</loc>
-    <lastmod>2026-07-19T03:14:15+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/company-brain-in-aamuapp-ai-across-your-workspace/</loc>
@@ -179,10 +195,6 @@
     <lastmod>2026-06-16T19:38:39+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/integrations/</loc>
-    <lastmod>2026-06-19T05:32:28+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/</loc>
     <lastmod>2026-06-19T21:13:07+00:00</lastmod>
   </url>
@@ -197,10 +209,6 @@
   <url>
     <loc>https://aamu.app/blog/series/ai-support-in-aamu.app/</loc>
     <lastmod>2026-07-11T12:19:30+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/docs/</loc>
-    <lastmod>2026-07-11T12:19:29+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/how-to-build-a-support-knowledge-base-that-ai-can-actually-use/</loc>

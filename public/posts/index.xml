@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 02:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 19:52:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using third-party APIs through Aamu.app AI</title>
+      <link>https://aamu.app/blog/posts/using-third-party-apis-through-aamuapp-ai/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/using-third-party-apis-through-aamuapp-ai/</guid>
+      <description>How Aamu.app AI uses OpenAPI descriptions and user-owned credentials to read data from external services and turn the result into Aamu Docs and Database rows.</description>
+    </item>
     <item>
       <title>Aamu.app Databases: a practical feature guide</title>
       <link>https://aamu.app/blog/posts/aamuapp-databases-practical-feature-guide/</link>
