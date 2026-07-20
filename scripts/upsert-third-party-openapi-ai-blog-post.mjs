@@ -25,7 +25,7 @@ const html = String.raw`
 <p xmlns="http://www.w3.org/1999/xhtml">This means Aamu does not need a built-in connector for every possible service. You provide an OpenAPI description and a credential with the required permissions. The available actions then depend on the operations described by that document and on what the credential is allowed to access.</p>
 
 <h2 xmlns="http://www.w3.org/1999/xhtml">Add a service in Third-Party API keys</h2>
-<p xmlns="http://www.w3.org/1999/xhtml">External service credentials belong in <a href="/settings/third_party_api_keys">Settings → Third-Party API keys</a>. For each service, you can add:</p>
+<p xmlns="http://www.w3.org/1999/xhtml">External service credentials belong in <strong>Settings → Third-Party API keys</strong>. For each service, you can add:</p>
 <ul xmlns="http://www.w3.org/1999/xhtml">
   <li><p>a service identifier and a label that helps you recognise it,</p></li>
   <li><p>the API key or token,</p></li>
@@ -76,7 +76,7 @@ const html = String.raw`
 
 <h2 xmlns="http://www.w3.org/1999/xhtml">Getting started</h2>
 <ol xmlns="http://www.w3.org/1999/xhtml">
-  <li><p>Open <a href="/settings/third_party_api_keys">Settings → Third-Party API keys</a>.</p></li>
+  <li><p>Open <strong>Settings → Third-Party API keys</strong>.</p></li>
   <li><p>Add the service's API key or access token.</p></li>
   <li><p>Paste the service's OpenAPI 3.0 or 3.1 JSON/YAML description.</p></li>
   <li><p>Open Launch AI or write an <code>@ai</code> request that describes the outcome you want.</p></li>
