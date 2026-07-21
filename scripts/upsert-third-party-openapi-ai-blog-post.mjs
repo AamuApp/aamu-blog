@@ -53,6 +53,33 @@ const html = String.raw`
 <p xmlns="http://www.w3.org/1999/xhtml">This is a good Database use case because each conversation becomes a row that you can filter, sort, assign, enrich, and process further. The same request could also create a Doc with a short summary of the recurring topics.</p>
 <p xmlns="http://www.w3.org/1999/xhtml">The exact result depends on the service API. Aamu does not assume that every X account, token, or OpenAPI document exposes private messages. The API description and the permissions granted to your credential define the real boundary.</p>
 
+<h2 xmlns="http://www.w3.org/1999/xhtml">Example: Stripe customers and payment intents</h2>
+<p xmlns="http://www.w3.org/1999/xhtml">A concrete example is importing Stripe customers and payment intents into a native Aamu Database. The important part is that Aamu can preserve the relationship between the records instead of creating two unrelated tables.</p>
+<p xmlns="http://www.w3.org/1999/xhtml"><strong>You</strong></p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code>Can you get customers and their payment intents from Stripe and create a database from it?
+
+If you can create references in the tables that would be event better.</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml"><strong>AI</strong></p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code>Yes. Please select the Stripe resources for:
+
+GetCustomers — /v1/customers
+
+GetPaymentIntents — /v1/payment_intents
+
+I’ll use them to create a native Aamu database with separate Customers and PaymentIntents tables, linked through the customer ID reference.</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml"><strong>You</strong></p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code>GetCustomers — /v1/customers
+
+GetPaymentIntents — /v1/payment_intents</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml"><strong>AI</strong></p>
+<pre xmlns="http://www.w3.org/1999/xhtml"><code>Your native Aamu database “stripe import” has been created successfully with:
+
+Customers table
+
+PaymentIntents table
+
+1 reference linking payment intents to their customers</code></pre>
+<p xmlns="http://www.w3.org/1999/xhtml">In this example, the <code>customer</code> value in a PaymentIntent is matched with the corresponding customer record and stored as an Aamu reference. Payment intents without a customer value, or without a matching customer in the imported data, remain unlinked. The result is a relational Aamu Database that can be filtered and extended like any other Aamu data.</p>
 <h2 xmlns="http://www.w3.org/1999/xhtml">Examples from other services</h2>
 <p xmlns="http://www.w3.org/1999/xhtml">The same pattern can be useful in many kinds of work:</p>
 <ul xmlns="http://www.w3.org/1999/xhtml">
@@ -179,9 +206,7 @@ async function upsertBlogPost(docId, existing) {
 const docs = await getDocs();
 const docResult = await upsertDoc(docs);
 const existingPost = await getExistingPost();
-const postResult = await upsertBlogPost(docResult.doc.id, existingPost);
-
-console.log(JSON.stringify({
-	doc: { action: docResult.action, id: docResult.doc.id, title: docResult.doc.title },
-	post: { action: postResult.action, id: postResult.post.id, slug: postResult.post.slug, status: postResult.post.status }
-}, null, 2));
+const docId = docResult.doc?.id || docResult.doc?._id;
+if (!docId) throw new Error('The blog document was saved but no document id was returned.');
+const postResult = await upsertBlogPost(docId, existingPost);
+console.log(JSON.stringify({ doc: docResult.action, post: postResult.action, post_id: postResult.post?.id || null }, null, 2));
