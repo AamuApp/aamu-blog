@@ -11,13 +11,16 @@ const API_BASE_URL = (process.env.AAMU_API_BASE_URL || 'https://ilkkah.aamu.app'
 const GRAPHQL_ENDPOINT = process.env.GRAPHQL_ENDPOINT || 'https://api.aamu.app/api/v1/graphql/';
 const PROJECT_ID = process.env.AAMU_PROJECT_ID || process.env.PROJECT_ID || 'a257707a-ba42-4bec-a927-b80e9df05cf5';
 
-const title = 'Open-source Livechat SDKs for Android and iOS';
-const slug = 'open-source-livechat-sdks-for-android-and-ios';
+const title = 'Open-source Livechat clients for web, Android, and iOS';
+const slug = 'open-source-livechat-clients-for-web-android-and-ios';
+const previousTitle = 'Open-source Livechat SDKs for Android and iOS';
+const previousSlug = 'open-source-livechat-sdks-for-android-and-ios';
 const heroImagePath = new URL('../assets/images/open-source-mobile-livechat-sdks.jpg', import.meta.url);
 const heroImageName = 'open-source-mobile-livechat-sdks.jpg';
 const heroImageType = 'image/jpeg';
 
-const html = String.raw`<p xmlns="http://www.w3.org/1999/xhtml">A web chat widget can bring customer conversations into a website with one embedded component. Mobile applications need a different integration boundary. Their navigation, visual language, accessibility behavior, lifecycle, and state management already belong to the native application.</p>
+const html = String.raw`<p xmlns="http://www.w3.org/1999/xhtml">We now provide open-source Aamu Livechat clients for the web, Android, and iOS. <a href="https://github.com/AamuApp/aamu-livechat-web" target="_blank" rel="noopener noreferrer">Aamu Livechat for the web</a> is a ready-made web client that can be embedded in a website.</p>
+<p xmlns="http://www.w3.org/1999/xhtml">A web chat widget can bring customer conversations into a website with one embedded component. Mobile applications need a different integration boundary. Their navigation, visual language, accessibility behavior, lifecycle, and state management already belong to the native application.</p>
 <p xmlns="http://www.w3.org/1999/xhtml">That is why we have created two open-source, headless Aamu Livechat client libraries: one for Android and one for iOS. They handle the Livechat protocol and leave the interface to the application that embeds them.</p>
 <p xmlns="http://www.w3.org/1999/xhtml">The source is available now:</p>
 <ul xmlns="http://www.w3.org/1999/xhtml">
@@ -110,11 +113,11 @@ const post = {
 	title,
 	slug,
 	description:
-		'Introducing open-source, headless Aamu Livechat client libraries for Android and iOS, with native APIs for Chat, Email, sessions, reconnects, and events.',
+		'Introducing open-source Aamu Livechat clients for the web, Android, and iOS, including a ready-made web client and headless native APIs for Chat, Email, sessions, reconnects, and events.',
 	publishDate: '2026-07-11T09:30:00.000Z',
 	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
 	status: 'draft',
-	tags: ['livechat', 'android', 'ios', 'open-source', 'sdk', 'mobile'],
+	tags: ['livechat', 'web', 'android', 'ios', 'open-source', 'sdk', 'mobile'],
 };
 
 if (!API_KEY) throw new Error('API_KEY environment variable is required.');
@@ -148,7 +151,7 @@ async function upsertDoc() {
 		'x-project-id': PROJECT_ID,
 	};
 	const list = await requestJson(`${API_BASE_URL}/api/v1/docs/`, { headers });
-	const existing = list.docs?.find(doc => doc.title === title);
+	const existing = list.docs?.find(doc => doc.title === title || doc.title === previousTitle);
 	const body = JSON.stringify({
 		title,
 		status: 'public',
@@ -180,7 +183,7 @@ async function findExistingPost() {
 			}
 		}
 	`);
-	return data.BlogPostCollection.find(row => row.slug === slug);
+	return data.BlogPostCollection.find(row => row.slug === slug || row.slug === previousSlug);
 }
 
 async function uploadHeroImage() {
@@ -224,7 +227,7 @@ async function upsertBlogPost(docId) {
 			name: existingHero.name || heroImageName,
 			url: existingHero.url || undefined,
 		}
-		: await uploadHeroImage();
+		: undefined;
 	const data = await graphql(
 		`
 			mutation UpsertBlogPost(
@@ -263,7 +266,7 @@ async function upsertBlogPost(docId) {
 				}
 			}
 		`,
-		{ id: existing?.id, ...post, doc: docId, heroImage },
+		{ id: existing?.id, ...post, doc: docId, ...(heroImage ? { heroImage } : {}) },
 	);
 	return { action: existing ? 'updated' : 'created', heroImage: canReuseHero ? 'reused' : 'uploaded', post: data.BlogPost };
 }
