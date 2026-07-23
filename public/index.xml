@@ -48,7 +48,7 @@
       <link>https://aamu.app/blog/posts/why-aamuapp-uses-a-central-server-and-sharedb-ot-instead-of-crdt/</link>
       <pubDate>Fri, 03 Jul 2026 09:48:00 +0000</pubDate>
       <guid>https://aamu.app/blog/posts/why-aamuapp-uses-a-central-server-and-sharedb-ot-instead-of-crdt/</guid>
-      <description>&lt;p&gt;Collaborative editing is one of those technical choices that looks simple from the outside and becomes very nuanced once you build a real product around it.&lt;/p&gt;&lt;p&gt;A common question is: why not use CRDTs?&lt;/p&gt;&lt;p&gt;CRDTs are a powerful approach to collaboration. They are especially attractive for local-first software, offline editing, peer-to-peer synchronization, and systems where multiple replicas need to merge changes automatically without a single central authority deciding the final order of operations.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Collaborative editing is one of those technical choices that looks simple from the outside and becomes very nuanced once you build a real product around it. Distributed systems have a remarkable talent for turning “just keep two copies in sync” into a career.&lt;/p&gt;&lt;p&gt;A common question is: why not use CRDTs?&lt;/p&gt;&lt;p&gt;CRDTs are a powerful approach to collaboration. They are especially attractive for local-first software, offline editing, peer-to-peer synchronization, and systems where multiple replicas need to merge changes automatically without a single central authority deciding the final order of operations.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Newsletters in Aamu.app: from subscribers to sending</title>

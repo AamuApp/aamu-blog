@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Creating a blog with Aamu.app"
 date: "2025-05-07T03:00:00.000Z"
-modified: "2026-06-05T09:02:48.432Z"
+modified: "2026-07-23T11:33:37.023Z"
 description: "How this Hugo blog uses Aamu.app as a headless CMS with database rows, Docs content, GraphQL, generated Markdown, and static publishing."
 cover:
   image: 3d5366cd5d3fd8a3_hero-blog.png
@@ -15,7 +15,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
-<p>Aamu.app can be used as a lightweight headless CMS for a static blog. This official blog is built that way: the post metadata lives in an Aamu Database, the article text is written in Aamu Docs, and a build script turns everything into a Hugo site.</p><p>The result is a practical publishing workflow. Writers can use Aamu Docs, editors can manage status and metadata in the Database, and the public site stays fast because Hugo generates static HTML that can be hosted almost anywhere.</p><h2>What we are building</h2><p>The basic flow looks like this:</p><pre><code class="language-plaintext">Aamu Docs
+<p>Aamu.app can be used as a lightweight headless CMS for a static blog. This official blog is built that way: the post metadata lives in an Aamu Database, the article text is written in Aamu Docs, and a build script turns everything into a Hugo site. A headless CMS sounds dramatic, but mostly it means the content and the website can stop arguing about who owns the furniture.</p><p>The result is a practical publishing workflow. Writers can use Aamu Docs, editors can manage status and metadata in the Database, and the public site stays fast because Hugo generates static HTML that can be hosted almost anywhere.</p><h2>What we are building</h2><p>The basic flow looks like this:</p><pre><code class="language-plaintext">Aamu Docs
   -&gt; BlogPost row in Aamu Database
   -&gt; GraphQL API + Docs API
   -&gt; Hugo content files
