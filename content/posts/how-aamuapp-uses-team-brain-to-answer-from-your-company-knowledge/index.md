@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "How Aamu.app uses the Helpdesk Knowledge Base for grounded support answers"
 date: "2026-06-04T23:05:57.000Z"
-modified: "2026-07-23T11:33:30.150Z"
+modified: "2026-07-23T11:39:43.485Z"
 description: "How the Helpdesk Knowledge Base helps Aamu.app answer support questions from maintained sources instead of generic AI guesses."
 cover:
   image: eac95a8fd1a8e8e9_team-brain-2.png
   relative: true
 
 tags: ["ai", "team-brain", "docs", "helpdesk"]
+
 series: ["AI support in Aamu.app"]
 seriesWeight: 20
 ShowToc: false

@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-07-23T11:33:32.174Z"
+modified: "2026-07-23T11:39:43.444Z"
 description: "A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
   relative: true
 
 tags: ["api", "newsletters", "docs", "tasks", "graphql", "databases", "automations"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

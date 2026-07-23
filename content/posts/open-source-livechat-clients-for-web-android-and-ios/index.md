@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Open-source Livechat clients for web, Android, and iOS"
 date: "2026-07-11T09:30:00.000Z"
-modified: "2026-07-23T11:32:13.375Z"
+modified: "2026-07-23T11:40:13.647Z"
 description: "Introducing open-source Aamu Livechat clients for the web, Android, and iOS, including a ready-made web client and headless native APIs for Chat, Email, sessions, reconnects, and events."
 cover:
   image: 2edd4f7a78a38f1e_livechat.png
   relative: true
 
 tags: ["livechat", "web", "android", "ios", "open-source", "sdk", "mobile"]
+aliases: ["/blog/posts/open-source-livechat-sdks-for-android-and-ios/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

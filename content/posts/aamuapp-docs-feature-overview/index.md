@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Docs - feature overview"
 date: "2025-06-11T22:00:00.000Z"
-modified: "2026-06-18T18:48:45.808Z"
+modified: "2026-07-23T11:39:43.417Z"
 description: "An overview of Aamu.app Docs: the editor, SlashMenu blocks, AI help, sharing, snapshots, comments, Team Brain, and the Docs API."
 cover:
   image: 05146cf24c27c40e_aamuapp-docs-feature-overview.png
   relative: true
 
 tags: ["docs", "team-brain", "ai", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

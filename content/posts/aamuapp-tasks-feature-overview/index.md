@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Tasks - feature overview"
 date: "2025-06-04T03:50:00.000Z"
-modified: "2026-06-18T18:48:45.449Z"
+modified: "2026-07-23T11:39:43.279Z"
 description: "An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API."
 cover:
   image: 0557ebd6fc61b5a6_tasks.png
   relative: true
 
 tags: ["tasks", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

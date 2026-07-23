@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Outbound webhooks in Aamu.app: real-time events for tasks, Helpdesk, email, and more"
 date: "2026-06-06T08:30:00.000Z"
-modified: "2026-07-23T11:33:34.298Z"
+modified: "2026-07-23T11:39:43.526Z"
 description: "How Aamu.app outbound webhooks send signed real-time events for tasks, Helpdesk, email, forms, meetings, files, docs, databases, projects, and teams."
 cover:
   image: bb9891d8d4dd98b5_webhooks.png
   relative: true
 
 tags: ["api", "webhooks", "integrations"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

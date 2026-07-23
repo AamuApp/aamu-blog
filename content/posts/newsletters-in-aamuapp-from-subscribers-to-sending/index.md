@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Newsletters in Aamu.app: from subscribers to sending"
 date: "2026-06-23T00:00:00.000Z"
-modified: "2026-07-23T11:33:33.244Z"
+modified: "2026-07-23T11:39:43.653Z"
 description: "Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API."
 cover:
   image: 2f8a174f63e318e3_newsletters.png
   relative: true
 
 tags: ["newsletters", "email", "api", "automations"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "AI commands in Aamu.app: turning comments into workspace actions"
 date: "2026-06-15T10:30:00.000Z"
-modified: "2026-07-23T11:33:33.679Z"
+modified: "2026-07-23T11:39:43.581Z"
 description: "How Aamu.app AI routes natural-language requests to workspace operations across tasks, Docs, Forms, databases, automations, Helpdesk, Email, meetings, and files."
 cover:
   image: 7ae3b88a179c75d6_aamuapp-ai-commands.png
   relative: true
 
 tags: ["ai", "workspace", "api", "automations"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

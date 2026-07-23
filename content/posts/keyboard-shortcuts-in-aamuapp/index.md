@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Keyboard shortcuts in Aamu.app"
 date: "2025-06-12T03:00:00.000Z"
-modified: "2026-06-05T09:02:56.229Z"
+modified: "2026-07-23T11:39:43.362Z"
 description: "A guide to Aamu.app keyboard shortcuts for faster navigation, search, task handling, comments, emails, and daily workspace flow."
 cover:
   image: 975bbc6009e1ba20_keyboard-shortcuts-in-aamuapp.jpg
   relative: true
 
 tags: ["workspace", "productivity"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

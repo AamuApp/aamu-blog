@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Emails - feature overview"
 date: "2025-06-13T09:00:00.000Z"
-modified: "2026-06-18T18:48:46.024Z"
+modified: "2026-07-23T11:39:43.404Z"
 description: "An overview of Aamu.app Emails: shared project inboxes, contacts, drafts, attachments, tasks, and human-reviewed Email API workflows."
 cover:
   image: 724c1d727217e521_emails-feature-overview.png
   relative: true
 
 tags: ["emails", "tasks", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

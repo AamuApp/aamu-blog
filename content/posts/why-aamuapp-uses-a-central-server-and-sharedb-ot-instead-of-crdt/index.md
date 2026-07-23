@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs"
 date: "2026-07-03T09:48:00.000Z"
-modified: "2026-07-23T11:33:32.939Z"
+modified: "2026-07-23T11:39:43.667Z"
 description: ""
 cover:
   image: cbcc796d13ec0ce7_ot-crdt.png
   relative: true
 
 tags: ["tech"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

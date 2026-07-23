@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Using third-party APIs through Aamu.app AI"
 date: "2026-07-20T19:52:00.000Z"
-modified: "2026-07-23T11:33:28.573Z"
+modified: "2026-07-23T11:39:43.727Z"
 description: "How Aamu.app AI uses OpenAPI descriptions and user-owned credentials to read data from external services and turn the result into Aamu Docs and Database rows."
 cover:
   image: 5d2841e6b7184aee_third-party-apis.png
   relative: true
 
 tags: ["ai", "openapi", "api", "integrations", "databases", "docs"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

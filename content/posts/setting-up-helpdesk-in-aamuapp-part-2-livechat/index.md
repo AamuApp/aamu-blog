@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Setting up Helpdesk in Aamu.app - Part 2, livechat"
 date: "2025-05-30T11:00:00.000Z"
-modified: "2026-06-05T09:02:52.006Z"
+modified: "2026-07-23T11:39:43.210Z"
 description: "How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling."
 cover:
   image: 2964f47091dd17b2_helpdesk-chat.png
   relative: true
 
 tags: ["helpdesk", "livechat"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

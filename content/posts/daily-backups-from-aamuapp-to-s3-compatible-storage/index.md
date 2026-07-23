@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Daily backups from Aamu.app to S3-compatible storage"
 date: "2026-06-16T20:30:00.000Z"
-modified: "2026-07-23T11:33:35.245Z"
+modified: "2026-07-23T11:39:43.595Z"
 description: "How Aamu.app can export daily team backups as readable JSON files to S3-compatible object storage."
 cover:
   image: c4083f2137b31c92_daily-backups.png
   relative: true
 
 tags: ["backups", "data", "workspace", "integrations"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

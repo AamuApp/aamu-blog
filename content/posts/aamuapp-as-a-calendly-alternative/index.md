@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app as a Calendly alternative"
 date: "2025-05-21T03:00:00.000Z"
-modified: "2026-07-23T11:33:36.717Z"
+modified: "2026-07-23T11:39:43.431Z"
 description: "How Aamu.app Event Booking works as a Calendly alternative with booking pages, availability, project meetings, and connected follow-up."
 cover:
   image: 39b44dde205ce42c_calendly-alt.png
   relative: true
 
 tags: ["scheduling", "meetings", "comparisons"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

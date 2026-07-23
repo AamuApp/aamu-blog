@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Setting up Emails in Aamu.app"
 date: "2025-05-27T04:00:00.000Z"
-modified: "2026-06-05T09:02:51.070Z"
+modified: "2026-07-23T11:39:43.253Z"
 description: "How to set up Aamu.app Emails for a project mailbox, shared inbox work, contacts, sending, replies, and connected follow-up tasks."
 cover:
   image: 2b3723c55a85e58f_set-emails.png
   relative: true
 
 tags: ["emails"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

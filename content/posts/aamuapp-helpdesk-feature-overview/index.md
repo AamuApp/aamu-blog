@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Helpdesk - feature overview"
 date: "2025-06-10T07:55:00.000Z"
-modified: "2026-06-18T18:48:46.137Z"
+modified: "2026-07-23T11:39:43.335Z"
 description: "An overview of Aamu.app Helpdesk for email support, live chat, tickets, Team Brain, AI reply drafts, and the Helpdesk API."
 cover:
   image: 04ff86754b3ae72a_helpdesk-feature-overview.png
   relative: true
 
 tags: ["helpdesk", "livechat", "team-brain", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

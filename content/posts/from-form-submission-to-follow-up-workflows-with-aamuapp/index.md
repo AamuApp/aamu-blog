@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "From form submission to follow-up: workflows with Aamu.app"
 date: "2026-06-18T18:54:24.913Z"
-modified: "2026-07-23T11:33:34.938Z"
+modified: "2026-07-23T11:39:43.609Z"
 description: "How to connect Aamu Forms, Databases, Automations, Webhooks, Tasks, Emails, and CRM into practical end-to-end workflows."
 cover:
   image: d80d1eea58d76352_workflows.png
   relative: true
 
 tags: ["forms", "database", "automations", "webhooks", "tasks", "emails", "crm", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

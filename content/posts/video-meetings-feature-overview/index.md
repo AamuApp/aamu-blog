@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Video Meetings - feature overview"
 date: "2025-06-08T06:00:00.000Z"
-modified: "2026-06-18T18:48:46.376Z"
+modified: "2026-07-23T11:39:43.293Z"
 description: "An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API."
 cover:
   image: 8d7b7886b7e0ca5b_aamuapp-video-meetings.png
   relative: true
 
 tags: ["meetings", "scheduling", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

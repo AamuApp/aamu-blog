@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Database automations with Aamu.app"
 date: "2025-06-02T14:00:00.000Z"
-modified: "2026-06-18T18:41:30.038Z"
+modified: "2026-07-23T11:39:43.266Z"
 description: "How Aamu.app database automations and the Automations API turn inserted or updated rows into emails and follow-up tasks."
 cover:
   image: 53a4abe3b615fc4f_automations.png
   relative: true
 
 tags: ["database", "automations", "forms", "api"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

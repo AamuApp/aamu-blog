@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Company Brain in Aamu.app: AI across your workspace"
 date: "2026-07-10T08:00:00.000Z"
-modified: "2026-07-23T11:33:32.595Z"
+modified: "2026-07-23T11:39:43.682Z"
 description: "How Aamu.app Company Brain lets Launch AI and @ai answer from permission-aware workspace data with links back to tasks, Docs, meetings, databases, tickets, and other sources."
 cover:
   image: 30a101146e38e15a_company-brain.png
   relative: true
 
 tags: ["ai", "company-brain", "knowledge", "meetings"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Penpot Design Tool - feature overview"
 date: "2025-06-11T23:00:00.000Z"
-modified: "2026-06-18T18:48:46.641Z"
+modified: "2026-07-23T11:39:43.391Z"
 description: "An overview of Penpot in Aamu.app for open-source design work, collaboration, project-connected workflows, and current API availability."
 cover:
   image: 0330b70ac15d135c_penpot-overview.jpg
   relative: true
 
 tags: ["design", "workspace"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

@@ -222,6 +222,9 @@ async function hydratePostBodyFromDoc(post) {
 // Generates Hugo-compatible front matter and content for a post
 function createPostTemplate(post) {
 	const seriesMetadata = seriesBySlug.get(post.slug);
+	const aliases = Array.isArray(post.aliases)
+		? post.aliases
+		: String(post.aliases || '').split(/[,\n]/).map(alias => alias.trim()).filter(Boolean);
 	const seriesFrontMatter = seriesMetadata ? [
 		`series: [${seriesMetadata.series.map(series => JSON.stringify(series)).join(', ')}]`,
 		`seriesWeight: ${seriesMetadata.seriesWeight}`,
@@ -242,6 +245,7 @@ cover:
   relative: true
 ${coverAlt}
 tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
+${aliases.length ? `aliases: [${aliases.map(alias => JSON.stringify(alias)).join(', ')}]` : ''}
 ${seriesFrontMatter}
 ShowToc: false
 ShowBreadCrumbs: false
@@ -261,6 +265,7 @@ function createPostSelection(docFields) {
         title
         slug
         description
+        aliases
 ${docSelection}
         publishDate
         heroImage {

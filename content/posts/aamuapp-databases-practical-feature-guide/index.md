@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Databases: a practical feature guide"
 date: "2026-07-19T02:45:00.000Z"
-modified: "2026-07-23T11:33:29.502Z"
+modified: "2026-07-23T11:39:43.712Z"
 description: "A practical reference for Aamu.app Databases: typed columns, views, filters, formulas and functions, relations, history, bulk editing, backups, automations, and APIs."
 cover:
   image: 87d9f4ca97dcddf5_databases.png
   relative: true
 
 tags: ["database", "databases", "documentation", "formulas", "api", "automations"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false

@@ -2,13 +2,14 @@
 author: "Ilkka Huotari"
 title: "Aamu.app vs Asana: tasks are better when they remember why they exist"
 date: "2026-07-23T06:55:00.000Z"
-modified: "2026-07-23T11:33:28.250Z"
+modified: "2026-07-23T11:39:43.742Z"
 description: "A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge."
 cover:
   image: 888664cd8d8ec795_aamuapp-vs-asana.png
   relative: true
 
 tags: ["comparisons", "tasks", "docs", "team-brain"]
+
 
 ShowToc: false
 ShowBreadCrumbs: false
