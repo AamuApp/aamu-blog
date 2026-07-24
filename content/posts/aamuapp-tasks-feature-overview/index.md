@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Aamu.app Tasks - feature overview"
 date: "2025-06-04T03:50:00.000Z"
 modified: "2026-07-24T23:08:47.117Z"
@@ -15,7 +19,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Aamu.app Tasks?","answer":"An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API."},{"question":"Who is Aamu.app Tasks for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app tasks."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

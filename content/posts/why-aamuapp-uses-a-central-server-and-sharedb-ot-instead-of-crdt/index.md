@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs"
 date: "2026-07-03T09:48:00.000Z"
 modified: "2026-07-24T23:08:45.071Z"
@@ -15,7 +19,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs?","answer":"This article explains Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs."},{"question":"Who is Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs for?","answer":"Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs is most useful for small and growing teams evaluating productivity software."},{"question":"What does Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to why aamu.app uses a central server and sharedb/ot instead of crdts."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

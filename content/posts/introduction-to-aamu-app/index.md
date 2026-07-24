@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Introduction to Aamu.app"
 date: "2021-09-26T20:39:00.000Z"
 modified: "2026-07-24T23:08:46.027Z"
@@ -15,7 +19,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Introduction to Aamu.app?","answer":"Aamu.app is an all-in-one productivity tool"},{"question":"Who is Introduction to Aamu.app for?","answer":"Introduction to Aamu.app is most useful for small and growing teams evaluating productivity software."},{"question":"What does Introduction to Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to introduction to aamu.app."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Setting up Helpdesk in Aamu.app - Part 2, livechat"
 date: "2025-05-30T11:00:00.000Z"
 modified: "2026-07-24T23:08:42.336Z"
@@ -15,7 +19,7 @@ audience: "small and growing support teams"
 faq: [{"question":"What is Setting up Helpdesk in Aamu.app - Part 2, livechat?","answer":"How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling."},{"question":"Who is Setting up Helpdesk in Aamu.app - Part 2, livechat for?","answer":"This guide is intended for small and growing support teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for setting up helpdesk in aamu.app - part 2, livechat."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

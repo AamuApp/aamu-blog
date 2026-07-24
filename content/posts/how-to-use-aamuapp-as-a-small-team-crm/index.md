@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "How to use Aamu.app as a small-team CRM"
 date: "2026-06-15T08:00:00.000Z"
 modified: "2026-07-24T23:08:42.498Z"
@@ -15,7 +19,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is How to use Aamu.app as a small-team CRM?","answer":"How to use the Aamu.app CRM template to track companies, contacts, deals, related work, activity, and API-driven database automations."},{"question":"Who is How to use Aamu.app as a small-team CRM for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for how to use aamu.app as a small-team crm."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

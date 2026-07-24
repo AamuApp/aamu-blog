@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "AI support in Aamu.app"
 date: "2026-06-05T04:15:00.000Z"
 modified: "2026-07-24T23:08:43.758Z"
@@ -15,7 +19,7 @@ audience: "small and growing support teams"
 faq: [{"question":"What is AI support in Aamu.app?","answer":"A reading path for Aamu.app's AI support workflow: AI workspace, Company Brain, the Helpdesk Knowledge Base, support knowledge bases, customer support drafts, Helpdesk triage, and Linear comparison."},{"question":"Who is AI support in Aamu.app for?","answer":"AI support in Aamu.app is most useful for small and growing support teams."},{"question":"What does AI support in Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to ai support in aamu.app."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

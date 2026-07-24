@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Daily backups from Aamu.app to S3-compatible storage"
 date: "2026-06-16T20:30:00.000Z"
 modified: "2026-07-24T23:08:43.289Z"
@@ -15,7 +19,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Daily backups from Aamu.app to S3-compatible storage?","answer":"How Aamu.app can export daily team backups as readable JSON files to S3-compatible object storage."},{"question":"Who is Daily backups from Aamu.app to S3-compatible storage for?","answer":"This guide is intended for small and growing teams evaluating productivity software."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for daily backups from aamu.app to s3-compatible storage."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

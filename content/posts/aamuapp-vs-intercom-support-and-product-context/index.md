@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Aamu.app vs Intercom: support should not need a passport to reach product"
 date: "2026-07-24T16:00:00.000Z"
 modified: "2026-07-24T23:04:13.902Z"
@@ -15,7 +19,7 @@ audience: "small and growing teams evaluating customer support software"
 faq: [{"question":"Can Aamu.app replace Intercom?","answer":"For some small and growing teams, it can. Aamu.app is a strong fit when customer conversations need to connect with documentation, tasks, and internal knowledge."},{"question":"How does Aamu.app AI help with customer support?","answer":"Aamu.app can retrieve context from Team Brain and prepare reply drafts. A human can review important replies before they are sent."},{"question":"When is Intercom the better choice?","answer":"Intercom may be the better choice when customer messaging, engagement, and a specialised support operation are the organisation’s main requirements."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

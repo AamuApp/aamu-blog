@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Open-source Livechat clients for web, Android, and iOS"
 date: "2026-07-11T09:30:00.000Z"
 modified: "2026-07-24T23:08:45.867Z"
@@ -15,7 +19,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Open-source Livechat clients for web, Android, and iOS?","answer":"Introducing open-source Aamu Livechat clients for the web, Android, and iOS, including a ready-made web client and headless native APIs for Chat, Email, sessions, reconnects, and events."},{"question":"Who is Open-source Livechat clients for web, Android, and iOS for?","answer":"Open-source Livechat clients for web, Android, and iOS is most useful for developers and technical teams."},{"question":"What does Open-source Livechat clients for web, Android, and iOS include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to open-source livechat clients for web, android, and ios."}]
 aliases: ["/posts/open-source-livechat-sdks-for-android-and-ios/"]
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

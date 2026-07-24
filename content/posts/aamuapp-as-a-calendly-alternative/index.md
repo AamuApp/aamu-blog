@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Aamu.app as a Calendly alternative"
 date: "2025-05-21T03:00:00.000Z"
 modified: "2026-07-24T23:08:48.194Z"
@@ -15,7 +19,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"How does Aamu.app compare with Calendly?","answer":"How Aamu.app Event Booking works as a Calendly alternative with booking pages, availability, project meetings, and connected follow-up."},{"question":"When is Aamu.app as a Calendly alternative a good fit?","answer":"How Aamu.app Event Booking works as a Calendly alternative with booking pages, availability, project meetings, and connected follow-up. It is most relevant for small and growing teams evaluating productivity software."},{"question":"When might a specialised tool be the better choice?","answer":"A specialised tool may be better when its deeper, dedicated workflow is the main requirement."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---

@@ -1,5 +1,9 @@
 ---
 author: "Ilkka Huotari"
+authorPage: "/blog/authors/ilkka-huotari/"
+authorTitle: "Founder"
+authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be hard to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased to my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
+authorImage: ""
 title: "Newsletters in Aamu.app: from subscribers to sending"
 date: "2026-06-23T00:00:00.000Z"
 modified: "2026-07-24T23:08:45.543Z"
@@ -15,7 +19,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Newsletters in Aamu.app: from subscribers to sending?","answer":"Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API."},{"question":"Who is Newsletters in Aamu.app: from subscribers to sending for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for newsletters in aamu.app: from subscribers to sending."}]
 
 
-ShowToc: true
+ShowToc: false
 ShowBreadCrumbs: false
 markup: html
 ---
