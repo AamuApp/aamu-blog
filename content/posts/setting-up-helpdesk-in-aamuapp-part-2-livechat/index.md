@@ -2,13 +2,17 @@
 author: "Ilkka Huotari"
 title: "Setting up Helpdesk in Aamu.app - Part 2, livechat"
 date: "2025-05-30T11:00:00.000Z"
-modified: "2026-07-23T11:39:43.210Z"
+modified: "2026-07-24T23:01:15.048Z"
 description: "How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling."
 cover:
   image: 2964f47091dd17b2_helpdesk-chat.png
   relative: true
 
 tags: ["helpdesk", "livechat"]
+directAnswer: "How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling."
+contentType: "how-to"
+audience: "small and growing support teams"
+
 
 
 ShowToc: false
@@ -16,6 +20,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
+<p><strong>Short answer:</strong> How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling.</p>
 <p>Aamu Helpdesk can receive support requests by email, but it can also talk to visitors while they are still on your website. That is what Aamu Livechat is for: a public chat widget connected to the same Helpdesk project where your team handles tickets, comments, assignments, follow-up tasks, and customer conversations.</p><p>This article continues from <a target="_blank" rel="noopener noreferrer nofollow" href="https://aamu.app/blog/posts/setting-up-helpdesk-in-aamuapp-part-1-emails/">Part 1: Helpdesk emails</a>. Email support is the slower, asynchronous route. Livechat is the real-time route, with an optional email fallback when nobody is available and optional AI answers when the project allows them.</p><h2>Before you start</h2><p>You need a project with Helpdesk enabled and the right users added to the Helpdesk project. If you have not done that yet, set up the Helpdesk project and users first.</p><p>For the best customer experience, also configure Helpdesk email before adding Livechat. Livechat can fall back to an email-style message when the chat cannot be handled immediately, so the email route gives visitors another way to reach you.</p><h2>Open the Livechat settings</h2><p>Open the project settings for the project that should receive the chats, then go to the Helpdesk Livechat settings. The route looks like this:</p><pre><code class="language-plaintext">/project/edit/PROJECT_ID/helpdesk/livechat</code></pre><p>This page contains the public widget code, the texts shown in the widget, and the AI settings for live chat. Team admins can edit the project-level Helpdesk Livechat settings.</p><h2>Add the widget to your website</h2><p>Aamu gives you an HTML snippet for the public website. It uses the hosted Livechat script and an <code>aamu-livechat</code> element with your Aamu host and project id.</p><pre><code class="language-html">&lt;script defer src="https://st.aamu.app/livechat.js"&gt;&lt;/script&gt;
 &lt;aamu-livechat
   data-username=""

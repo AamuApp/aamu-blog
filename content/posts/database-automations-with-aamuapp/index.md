@@ -2,13 +2,17 @@
 author: "Ilkka Huotari"
 title: "Database automations with Aamu.app"
 date: "2025-06-02T14:00:00.000Z"
-modified: "2026-07-23T11:39:43.266Z"
+modified: "2026-07-24T23:01:19.826Z"
 description: "How Aamu.app database automations and the Automations API turn inserted or updated rows into emails and follow-up tasks."
 cover:
   image: 53a4abe3b615fc4f_automations.png
   relative: true
 
 tags: ["database", "automations", "forms", "api"]
+directAnswer: "How Aamu.app database automations and the Automations API turn inserted or updated rows into emails and follow-up tasks."
+contentType: "how-to"
+audience: "developers and technical teams"
+
 
 
 ShowToc: false
@@ -16,6 +20,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
+<p><strong>Short answer:</strong> How Aamu.app database automations and the Automations API turn inserted or updated rows into emails and follow-up tasks.</p>
 <p>Aamu.app database automations let a database row start follow-up work automatically. They are especially useful with forms: a public form collects the data, the response becomes a database row, and an automation can send an email or create a task when that row is inserted or later reaches a selected value.</p><p>This article uses the contact form idea as an example, but the same pattern works for survey responses, onboarding requests, bug reports, event registrations, lead forms, and internal request queues.</p><h2>The current automation model</h2><p>A database automation belongs to one Aamu database. Inside the automation you choose:</p><ul><li><p>the automation name,</p></li><li><p>the triggering type,</p></li><li><p>the triggering table,</p></li><li><p>one or more actions, and</p></li><li><p>whether the automation is draft or public.</p></li></ul><p>The current database triggers are:</p><ul><li><p><strong>Row inserted</strong> — runs when a new row is added to the selected table.</p></li><li><p><strong>Row updated</strong> — runs when a selected field changes to a configured value.</p></li></ul><p>A row can be inserted through a published Aamu form, the Forms API, a GraphQL database mutation, or a manual database entry. Row-updated automations are useful for stage transitions such as a deal changing to <code>won</code>, a request changing to <code>approved</code>, or a support item changing to <code>ready</code>.</p><p>The current actions are:</p><ul><li><p><strong>Send an email</strong></p></li><li><p><strong>Create a task</strong></p></li></ul><p>You can add more than one action to the same automation. Actions can be inserted before, between, or after existing actions, and removed when they are no longer needed. For example, one new contact-form submission can send a confirmation email and create a follow-up task for the sales team.</p><h2>Open automations from the database</h2><p>Open the database that contains the table you want to automate. From the database menu, open <strong>Automations</strong>, then create a new automation.</p><p>If you are coming from a form, remember that form responses are stored in a database table. The form's Responses view links back to that database. That is usually the easiest place to find the right database and table.</p><h2>Choose the trigger table</h2><p>Give the automation a descriptive name, such as:</p><pre><code class="language-plaintext">Notify us about new contact form submissions
 Create follow-up task from onboarding requests
 Send survey thank-you email</code></pre><p>Choose <strong>Row inserted</strong> when every new row should start the workflow. Choose <strong>Row updated</strong> when the workflow should wait for a specific field to change to a selected value. Then choose the table and, for an update trigger, the field and target value.</p><p>After you select the table, Aamu shows the available template bindings. These are placeholders based on the database fields. A field might be shown as something like:</p><pre><code class="language-plaintext">{{email}}

@@ -2,13 +2,17 @@
 author: "Ilkka Huotari"
 title: "Creating a single-page application with Aamu.app's database and GraphQL API"
 date: "2025-05-15T05:05:00.000Z"
-modified: "2026-07-23T11:39:43.197Z"
+modified: "2026-07-24T23:01:21.471Z"
 description: "How to build a single-page application on top of Aamu.app databases using the generated GraphQL API for structured row data."
 cover:
   image: 4fce81ca007bb1b0_image.png
   relative: true
 
 tags: ["api", "database", "graphql"]
+directAnswer: "How to build a single-page application on top of Aamu.app databases using the generated GraphQL API for structured row data."
+contentType: "how-to"
+audience: "developers and technical teams"
+
 
 
 ShowToc: false
@@ -16,6 +20,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
+<p><strong>Short answer:</strong> How to build a single-page application on top of Aamu.app databases using the generated GraphQL API for structured row data.</p>
 <p>Aamu.app's Database and GraphQL API can be used as the data layer for a small web application. In this example, we will build a simple reservation calendar: the page lists existing reservations from an Aamu Database and lets visitors add a new reservation.</p><p>The important update is security. A public single-page app should not contain a database API key in its JavaScript. Use the GraphQL API from a server-side endpoint, serverless function, or backend proxy. For public form submissions, use the Aamu Forms endpoint, which is designed for browser-side submissions and does not expose a general database API key.</p><h2>What we are building</h2><p>The application has two jobs:</p><ul><li><p>read existing rows from an Aamu Database with GraphQL, and</p></li><li><p>add new rows through an Aamu Forms endpoint.</p></li></ul><p>The safe production flow looks like this:</p><pre><code class="language-plaintext">Browser SPA
   -&gt; your /api/reservations endpoint
   -&gt; Aamu GraphQL API

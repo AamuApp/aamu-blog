@@ -2,13 +2,17 @@
 author: "Ilkka Huotari"
 title: "Creating a contact form with Aamu.app"
 date: "2025-05-13T18:10:00.000Z"
-modified: "2026-07-23T11:39:43.224Z"
+modified: "2026-07-24T23:01:16.925Z"
 description: "Using the Aamu.app database for contact forms"
 cover:
   image: 45701b3de5a5b8c3_image.png
   relative: true
 
 tags: ["forms", "database"]
+directAnswer: "Using the Aamu.app database for contact forms"
+contentType: "how-to"
+audience: "developers and technical teams"
+
 
 
 ShowToc: false
@@ -16,6 +20,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
+<p><strong>Short answer:</strong> Using the Aamu.app database for contact forms</p>
 <p>A contact form is one of the simplest useful ways to connect a public website to Aamu.app. A visitor fills in a form on your site, the submission is stored in an Aamu Database, and your team can handle the message inside the same workspace where the rest of the work happens.</p><p>This article shows the simplest version: an HTML form that posts directly to an Aamu Forms endpoint. You do not need to expose a database API key in the browser for this. The Forms endpoint is designed for public form submissions; it can add rows to the selected table, but it is not a general database API key.</p><h2>What we are building</h2><p>The flow is:</p><pre><code class="language-plaintext">Website form
   -&gt; Aamu Forms endpoint
   -&gt; Aamu Database row

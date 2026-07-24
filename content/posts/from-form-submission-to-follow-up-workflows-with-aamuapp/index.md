@@ -2,13 +2,17 @@
 author: "Ilkka Huotari"
 title: "From form submission to follow-up: workflows with Aamu.app"
 date: "2026-06-18T18:54:24.913Z"
-modified: "2026-07-23T11:39:43.609Z"
+modified: "2026-07-24T23:01:17.838Z"
 description: "How to connect Aamu Forms, Databases, Automations, Webhooks, Tasks, Emails, and CRM into practical end-to-end workflows."
 cover:
   image: d80d1eea58d76352_workflows.png
   relative: true
 
 tags: ["forms", "database", "automations", "webhooks", "tasks", "emails", "crm", "api"]
+directAnswer: "How to connect Aamu Forms, Databases, Automations, Webhooks, Tasks, Emails, and CRM into practical end-to-end workflows."
+contentType: "how-to"
+audience: "developers and technical teams"
+
 
 
 ShowToc: false
@@ -16,6 +20,7 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
+<p><strong>Short answer:</strong> How to connect Aamu Forms, Databases, Automations, Webhooks, Tasks, Emails, and CRM into practical end-to-end workflows.</p>
 <p>A form submission is rarely the end of a workflow. A demo request needs an owner. A support escalation needs a task. A job application needs review. A new lead may need a confirmation email, a CRM record, and a follow-up deadline. A form submission is only the beginning; otherwise it is just a very polite way to collect future inbox clutter.</p><p>Aamu.app can keep that whole chain in one workspace. Forms collect structured input. Databases keep the source record. Automations turn matching row events into Tasks or Emails. Outbound webhooks notify external systems. CRM tables keep the relationship and its history visible after the first response.</p><p>This article shows how those parts fit together and how to design workflows that remain understandable after the first successful test.</p><h2>The workflow model</h2><p>A practical Aamu workflow has five layers:</p><ol><li><p><strong>Input</strong>: a public form, Forms API request, GraphQL mutation, or manual database entry.</p></li><li><p><strong>Structured state</strong>: a database row containing the submitted fields and the current workflow status.</p></li><li><p><strong>Trigger</strong>: a row being inserted or a selected field changing to a configured value.</p></li><li><p><strong>Action</strong>: create an Aamu task, send an email, or call an external system through a webhook.</p></li><li><p><strong>Ongoing work</strong>: update the CRM row, complete the task, continue the email conversation, or move the row to its next stage.</p></li></ol><p>The database row is the durable center of the workflow. Notifications and tasks can change over time, but the original structured input and its status remain available for search, reporting, activity history, and later automation.</p><h2>Workflow 1: form submission to follow-up task</h2><p>Consider a demo request form with these fields:</p><ul><li><p>Name</p></li><li><p>Email</p></li><li><p>Company</p></li><li><p>What the team wants to solve</p></li><li><p>Preferred follow-up date</p></li></ul><p>Publishing the form gives the team a browser-friendly input surface. Every submission becomes a row in the form’s database table. The row can also include internal fields that the public form does not expose, such as owner, status, qualification notes, next action, and related tasks.</p><h3>Trigger on the inserted row</h3><p>Create a <strong>Row inserted</strong> automation for the response table. A single automation can contain more than one action:</p><ul><li><p>send a confirmation or internal notification email, and</p></li><li><p>create a follow-up task in the sales or customer project.</p></li></ul><p>Map the company or request field to the task title and the longer request description to the task body. Assign the task to the person or team responsible for reviewing new requests.</p><p>The result is a useful separation of concerns: the database row stores the lead, while the task represents the work someone must do next.</p><h3>The same workflow through the API</h3><p>An authenticated integration can submit an existing form through:</p><pre><code class="language-plaintext">POST /api/v1/forms/FORM_ID/submissions
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
