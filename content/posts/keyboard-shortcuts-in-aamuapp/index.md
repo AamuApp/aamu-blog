@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Keyboard shortcuts in Aamu.app?","answer":"A guide to Aamu.app keyboard shortcuts for faster navigation, search, task handling, comments, emails, and daily workspace flow."},{"question":"Who is Keyboard shortcuts in Aamu.app for?","answer":"Keyboard shortcuts in Aamu.app is most useful for small and growing teams evaluating productivity software."},{"question":"What does Keyboard shortcuts in Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to keyboard shortcuts in aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

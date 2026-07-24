@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs?","answer":"This article explains Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs."},{"question":"Who is Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs for?","answer":"Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs is most useful for small and growing teams evaluating productivity software."},{"question":"What does Why Aamu.app Uses a Central Server and ShareDB/OT Instead of CRDTs include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to why aamu.app uses a central server and sharedb/ot instead of crdts."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Creating survey forms with Aamu.app Form Builder?","answer":"How to create survey forms with Aamu.app Form Builder and store responses in a connected database for follow-up and reporting."},{"question":"Who is Creating survey forms with Aamu.app Form Builder for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for creating survey forms with aamu.app form builder."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

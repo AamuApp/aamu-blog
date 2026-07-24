@@ -16,7 +16,7 @@ faq: [{"question":"How does Aamu.app compare with vs Linear Triage: customer con
 
 series: ["AI support in Aamu.app"]
 seriesWeight: 60
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

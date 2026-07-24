@@ -16,7 +16,7 @@ faq: [{"question":"What is From Helpdesk ticket to Helpdesk Knowledge Base: AI t
 
 series: ["AI support in Aamu.app"]
 seriesWeight: 50
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

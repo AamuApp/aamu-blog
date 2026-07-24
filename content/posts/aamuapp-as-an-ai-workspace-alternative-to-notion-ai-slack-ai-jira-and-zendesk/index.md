@@ -16,7 +16,7 @@ faq: [{"question":"How does Aamu.app compare with AI workspace?","answer":"How A
 
 series: ["AI support in Aamu.app"]
 seriesWeight: 10
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

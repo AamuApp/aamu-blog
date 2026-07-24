@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app?","answer":"How Aamu.app keeps Git repositories, issue-like tasks, pull requests, code review comments, and notifications inside one shared team workspace."},{"question":"Who is Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app for?","answer":"Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app is most useful for developers and technical teams."},{"question":"What does Git belongs in the workspace: code, issues, comments, and team awareness in Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to git belongs in the workspace: code, issues, comments, and team awareness in aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

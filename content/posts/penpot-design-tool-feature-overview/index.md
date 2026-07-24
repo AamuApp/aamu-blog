@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Penpot Design Tool?","answer":"An overview of Penpot in Aamu.app for open-source design work, collaboration, project-connected workflows, and current API availability."},{"question":"Who is Penpot Design Tool for?","answer":"Penpot Design Tool is most useful for small and growing teams evaluating productivity software."},{"question":"What does Penpot Design Tool include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to penpot design tool."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

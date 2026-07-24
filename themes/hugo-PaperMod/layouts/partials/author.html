@@ -1,9 +1,11 @@
 {{- if or .Params.author site.Params.author }}
 {{- $author := (.Params.author | default site.Params.author) }}
+{{- if .Params.authorPage }}<a href="{{ .Params.authorPage | relURL }}">{{ end }}
 {{- $author_type := (printf "%T" $author) }}
 {{- if (or (eq $author_type "[]string") (eq $author_type "[]interface {}")) }}
 {{- (delimit $author ", " ) }}
 {{- else }}
 {{- $author }}
 {{- end }}
+{{- if .Params.authorPage }}</a>{{ end }}
 {{- end -}}

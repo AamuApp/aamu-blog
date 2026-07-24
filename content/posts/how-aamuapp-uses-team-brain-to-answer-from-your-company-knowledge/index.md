@@ -16,7 +16,7 @@ faq: [{"question":"What is How Aamu.app uses the Helpdesk Knowledge Base for gro
 
 series: ["AI support in Aamu.app"]
 seriesWeight: 20
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

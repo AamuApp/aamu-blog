@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Aamu.app Docs?","answer":"An overview of Aamu.app Docs: the editor, SlashMenu blocks, AI help, sharing, snapshots, comments, Team Brain, and the Docs API."},{"question":"Who is Aamu.app Docs for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app docs."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

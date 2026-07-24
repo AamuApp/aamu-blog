@@ -15,7 +15,7 @@ tags: ["workspace", "productivity"]
 faq: [{"question":"What is All the productivity apps you could think of?","answer":"A broad map of productivity app categories and how teams can think about choosing tools for planning, communication, knowledge, and work."},{"question":"Who is All the productivity apps you could think of for?","answer":"All the productivity apps you could think of is most useful for small and growing teams."},{"question":"What does All the productivity apps you could think of include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to all the productivity apps you could think of."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

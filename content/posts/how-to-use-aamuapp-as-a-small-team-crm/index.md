@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is How to use Aamu.app as a small-team CRM?","answer":"How to use the Aamu.app CRM template to track companies, contacts, deals, related work, activity, and API-driven database automations."},{"question":"Who is How to use Aamu.app as a small-team CRM for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for how to use aamu.app as a small-team crm."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

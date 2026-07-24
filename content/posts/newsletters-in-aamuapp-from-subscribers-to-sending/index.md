@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Newsletters in Aamu.app: from subscribers to sending?","answer":"Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API."},{"question":"Who is Newsletters in Aamu.app: from subscribers to sending for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for newsletters in aamu.app: from subscribers to sending."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

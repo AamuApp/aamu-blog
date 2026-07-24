@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is AI commands in Aamu.app: turning comments into workspace actions?","answer":"How Aamu.app AI routes natural-language requests to workspace operations across tasks, Docs, Forms, databases, automations, Helpdesk, Email, meetings, and files."},{"question":"Who is AI commands in Aamu.app: turning comments into workspace actions for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for ai commands in aamu.app: turning comments into workspace actions."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

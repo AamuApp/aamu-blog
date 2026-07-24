@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Creating a single-page application with Aamu.app's database and GraphQL API?","answer":"How to build a single-page application on top of Aamu.app databases using the generated GraphQL API for structured row data."},{"question":"Who is Creating a single-page application with Aamu.app's database and GraphQL API for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for creating a single-page application with aamu.app's database and graphql api."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

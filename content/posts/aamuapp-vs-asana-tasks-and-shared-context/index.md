@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"How does Aamu.app compare with vs Asana: tasks are better when they remember why they exist?","answer":"A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge."},{"question":"When is Aamu.app vs Asana: tasks are better when they remember why they exist a good fit?","answer":"A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge. It is most relevant for small and growing teams evaluating productivity software."},{"question":"When might a specialised tool be the better choice?","answer":"A specialised tool may be better when its deeper, dedicated workflow is the main requirement."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

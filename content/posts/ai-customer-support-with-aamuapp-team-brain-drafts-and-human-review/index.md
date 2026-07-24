@@ -16,7 +16,7 @@ faq: [{"question":"What is AI customer support with Aamu.app: Helpdesk Knowledge
 
 series: ["AI support in Aamu.app"]
 seriesWeight: 40
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

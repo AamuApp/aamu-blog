@@ -15,7 +15,7 @@ audience: "small and growing support teams"
 faq: [{"question":"What is Setting up Emails in Aamu.app?","answer":"How to set up Aamu.app Emails for a project mailbox, shared inbox work, contacts, sending, replies, and connected follow-up tasks."},{"question":"Who is Setting up Emails in Aamu.app for?","answer":"This guide is intended for small and growing support teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for setting up emails in aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

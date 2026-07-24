@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Internal Links in Aamu.app?","answer":"How internal links in Aamu.app connect docs, tasks, projects, meetings, support tickets, files, and other workspace context."},{"question":"Who is Internal Links in Aamu.app for?","answer":"Internal Links in Aamu.app is most useful for small and growing teams evaluating productivity software."},{"question":"What does Internal Links in Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to internal links in aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Creating a contact form with Aamu.app?","answer":"Using the Aamu.app database for contact forms"},{"question":"Who is Creating a contact form with Aamu.app for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for creating a contact form with aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

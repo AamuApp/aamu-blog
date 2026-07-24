@@ -233,6 +233,7 @@ function createPostTemplate(post) {
 	const coverMetadata = coverBySlug.get(post.slug);
 	const coverImage = post.heroImage?.url || coverMetadata?.image || '';
 	const coverAlt = coverMetadata?.alt ? `  alt: "${coverMetadata.alt}"` : '';
+	const authorSlug = post.author?.name ? post.author.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : '';
 	let faq = [];
 	try {
 		faq = typeof post.faq === 'string' ? JSON.parse(post.faq || '[]') : (post.faq || []);
@@ -260,6 +261,10 @@ function createPostTemplate(post) {
 	return `
 ---
 author: "${post.author?.name || ''}"
+authorPage: "/blog/authors/${authorSlug}/"
+authorTitle: ${JSON.stringify(post.author?.title || '')}
+authorBio: ${JSON.stringify(post.author?.longtext || '')}
+authorImage: ${JSON.stringify(post.author?.image?.localPath || '')}
 title: "${post.title}"
 date: "${post.publishDate}"
 modified: "${post.updated_at}"
@@ -309,10 +314,33 @@ ${docSelection}
         }
         author {
           name
+          title
+          longtext
+          image {
+            url
+            data
+            name
+          }
         }
         status
         tags
 `;
+}
+
+function writeAuthorPage(author) {
+	if (!author?.name) return;
+	author.image = author.image || {};
+	const slug = author.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+	const folderPath = `content/authors/${slug}`;
+	mkdirSync(folderPath, { recursive: true });
+	let imagePath = '';
+	if (author.image?.data && author.image.name) {
+		const extension = author.image.name.includes('.') ? author.image.name.slice(author.image.name.lastIndexOf('.')) : '.jpg';
+		imagePath = `author${extension}`;
+		writeFileSync(`${folderPath}/${imagePath}`, Buffer.from(author.image.data, 'base64'));
+	}
+	author.image.localPath = imagePath;
+	writeFileSync(`${folderPath}/_index.md`, `---\ntitle: ${JSON.stringify(author.name)}\nslug: ${slug}\nauthorName: ${JSON.stringify(author.name)}\nauthorTitle: ${JSON.stringify(author.title || '')}\nauthorBio: ${JSON.stringify(author.longtext || '')}\nauthorImage: ${JSON.stringify(imagePath)}\n---\n`);
 }
 
 function createNewPostsQuery(docFields) {
@@ -460,6 +488,7 @@ async function writePost(post) {
 	}
 
 	await hydratePostBodyFromDoc(post);
+	writeAuthorPage(post.author);
 
 	// Parse and update image URLs in the post body
 	const htmlRoot = parse(post.body || '');

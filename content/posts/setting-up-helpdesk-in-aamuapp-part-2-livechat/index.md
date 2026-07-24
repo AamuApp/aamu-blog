@@ -15,7 +15,7 @@ audience: "small and growing support teams"
 faq: [{"question":"What is Setting up Helpdesk in Aamu.app - Part 2, livechat?","answer":"How to set up Aamu.app Helpdesk live chat for website conversations, support routing, email fallback, and connected ticket handling."},{"question":"Who is Setting up Helpdesk in Aamu.app - Part 2, livechat for?","answer":"This guide is intended for small and growing support teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for setting up helpdesk in aamu.app - part 2, livechat."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

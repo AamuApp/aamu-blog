@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Ask Aamu for product help with AI?","answer":"How to use the aamu: prefix in Launch AI and the public support.aamu.app API to get product help grounded in Aamu documentation."},{"question":"Who is Ask Aamu for product help with AI for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for ask aamu for product help with ai."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

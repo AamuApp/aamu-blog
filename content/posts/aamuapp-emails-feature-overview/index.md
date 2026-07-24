@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Aamu.app Emails?","answer":"An overview of Aamu.app Emails: shared project inboxes, contacts, drafts, attachments, tasks, and human-reviewed Email API workflows."},{"question":"Who is Aamu.app Emails for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app emails."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

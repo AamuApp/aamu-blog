@@ -16,7 +16,7 @@ faq: [{"question":"What is How to build a support knowledge base that AI can act
 
 series: ["AI support in Aamu.app"]
 seriesWeight: 30
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

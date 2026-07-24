@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Daily backups from Aamu.app to S3-compatible storage?","answer":"How Aamu.app can export daily team backups as readable JSON files to S3-compatible object storage."},{"question":"Who is Daily backups from Aamu.app to S3-compatible storage for?","answer":"This guide is intended for small and growing teams evaluating productivity software."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for daily backups from aamu.app to s3-compatible storage."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

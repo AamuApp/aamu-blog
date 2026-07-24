@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Building with the Aamu API: From Tasks to Docs and GraphQL?","answer":"A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."},{"question":"Who is Building with the Aamu API: From Tasks to Docs and GraphQL for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for building with the aamu api: from tasks to docs and graphql."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

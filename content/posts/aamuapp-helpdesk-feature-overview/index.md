@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Aamu.app Helpdesk?","answer":"An overview of Aamu.app Helpdesk for email support, live chat, tickets, Team Brain, AI reply drafts, and the Helpdesk API."},{"question":"Who is Aamu.app Helpdesk for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app helpdesk."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

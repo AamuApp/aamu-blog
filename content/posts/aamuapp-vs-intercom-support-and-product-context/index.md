@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating customer support software"
 faq: [{"question":"Can Aamu.app replace Intercom?","answer":"For some small and growing teams, it can. Aamu.app is a strong fit when customer conversations need to connect with documentation, tasks, and internal knowledge."},{"question":"How does Aamu.app AI help with customer support?","answer":"Aamu.app can retrieve context from Team Brain and prepare reply drafts. A human can review important replies before they are sent."},{"question":"When is Intercom the better choice?","answer":"Intercom may be the better choice when customer messaging, engagement, and a specialised support operation are the organisation’s main requirements."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

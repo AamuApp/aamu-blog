@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Video Meetings?","answer":"An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API."},{"question":"Who is Video Meetings for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for video meetings."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

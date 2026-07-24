@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Database automations with Aamu.app?","answer":"How Aamu.app database automations and the Automations API turn inserted or updated rows into emails and follow-up tasks."},{"question":"Who is Database automations with Aamu.app for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for database automations with aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

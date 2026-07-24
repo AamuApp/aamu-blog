@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is From form submission to follow-up: workflows with Aamu.app?","answer":"How to connect Aamu Forms, Databases, Automations, Webhooks, Tasks, Emails, and CRM into practical end-to-end workflows."},{"question":"Who is From form submission to follow-up: workflows with Aamu.app for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for from form submission to follow-up: workflows with aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

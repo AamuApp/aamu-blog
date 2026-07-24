@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"How does Aamu.app compare with Calendly?","answer":"How Aamu.app Event Booking works as a Calendly alternative with booking pages, availability, project meetings, and connected follow-up."},{"question":"When is Aamu.app as a Calendly alternative a good fit?","answer":"How Aamu.app Event Booking works as a Calendly alternative with booking pages, availability, project meetings, and connected follow-up. It is most relevant for small and growing teams evaluating productivity software."},{"question":"When might a specialised tool be the better choice?","answer":"A specialised tool may be better when its deeper, dedicated workflow is the main requirement."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

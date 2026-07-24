@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Creating a blog with Aamu.app?","answer":"How this Hugo blog uses Aamu.app as a headless CMS with database rows, Docs content, GraphQL, generated Markdown, and static publishing."},{"question":"Who is Creating a blog with Aamu.app for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for creating a blog with aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

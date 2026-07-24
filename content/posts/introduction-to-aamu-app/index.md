@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Introduction to Aamu.app?","answer":"Aamu.app is an all-in-one productivity tool"},{"question":"Who is Introduction to Aamu.app for?","answer":"Introduction to Aamu.app is most useful for small and growing teams evaluating productivity software."},{"question":"What does Introduction to Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to introduction to aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

@@ -15,7 +15,7 @@ audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"What is Company Brain in Aamu.app: AI across your workspace?","answer":"How Aamu.app Company Brain lets Launch AI and @ai answer from permission-aware workspace data with links back to tasks, Docs, meetings, databases, tickets, and other sources."},{"question":"Who is Company Brain in Aamu.app: AI across your workspace for?","answer":"Company Brain in Aamu.app: AI across your workspace is most useful for small and growing teams evaluating productivity software."},{"question":"What does Company Brain in Aamu.app: AI across your workspace include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to company brain in aamu.app: ai across your workspace."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

@@ -15,7 +15,7 @@ audience: "small and growing support teams"
 faq: [{"question":"What is Setting up Helpdesk in Aamu.app - Part 1, emails?","answer":"How to set up Aamu.app Helpdesk email support so incoming customer messages become manageable support tickets in your workspace."},{"question":"Who is Setting up Helpdesk in Aamu.app - Part 1, emails for?","answer":"This guide is intended for small and growing support teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for setting up helpdesk in aamu.app - part 1, emails."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

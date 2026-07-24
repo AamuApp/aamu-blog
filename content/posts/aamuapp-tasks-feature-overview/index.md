@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Aamu.app Tasks?","answer":"An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API."},{"question":"Who is Aamu.app Tasks for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app tasks."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

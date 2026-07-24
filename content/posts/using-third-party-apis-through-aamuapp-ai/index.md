@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Using third-party APIs through Aamu.app AI?","answer":"How Aamu.app AI uses OpenAPI descriptions and user-owned credentials to read data from external services and turn the result into Aamu Docs and Database rows."},{"question":"Who is Using third-party APIs through Aamu.app AI for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for using third-party apis through aamu.app ai."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

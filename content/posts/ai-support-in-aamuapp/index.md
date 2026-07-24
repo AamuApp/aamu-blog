@@ -15,7 +15,7 @@ audience: "small and growing support teams"
 faq: [{"question":"What is AI support in Aamu.app?","answer":"A reading path for Aamu.app's AI support workflow: AI workspace, Company Brain, the Helpdesk Knowledge Base, support knowledge bases, customer support drafts, Helpdesk triage, and Linear comparison."},{"question":"Who is AI support in Aamu.app for?","answer":"AI support in Aamu.app is most useful for small and growing support teams."},{"question":"What does AI support in Aamu.app include?","answer":"The article covers the main capabilities, workflow, and practical considerations related to ai support in aamu.app."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

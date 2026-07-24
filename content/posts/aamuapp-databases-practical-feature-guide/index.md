@@ -15,7 +15,7 @@ audience: "developers and technical teams"
 faq: [{"question":"What is Aamu.app Databases: a practical feature guide?","answer":"A practical reference for Aamu.app Databases: typed columns, views, filters, formulas and functions, relations, history, bulk editing, backups, automations, and APIs."},{"question":"Who is Aamu.app Databases: a practical feature guide for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app databases: a practical feature guide."}]
 
 
-ShowToc: false
+ShowToc: true
 ShowBreadCrumbs: false
 markup: html
 ---

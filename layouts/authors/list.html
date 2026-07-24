@@ -1,0 +1,25 @@
+{{- define "main" }}
+<article class="post-single author-page">
+  <header class="post-header">
+    <h1>{{ .Params.authorName | default .Title }}</h1>
+    {{- with .Params.authorTitle }}<div class="post-description">{{ . }}</div>{{ end }}
+  </header>
+
+  {{- with .Params.authorImage }}
+  <figure class="author-page-image">
+    <img src="{{ . | relURL }}" alt="{{ $.Params.authorName }}">
+  </figure>
+  {{- end }}
+
+  {{- with .Params.authorBio }}
+  <div class="post-content">{{ . | markdownify }}</div>
+  {{- end }}
+
+  <h2>Posts by {{ .Params.authorName }}</h2>
+  <ul>
+    {{- range where site.RegularPages "Params.author" .Params.authorName }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</article>
+{{- end }}
