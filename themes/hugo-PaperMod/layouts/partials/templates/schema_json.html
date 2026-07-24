@@ -116,4 +116,14 @@
 </script>
 {{- end }}{{/* .IsPage end */}}
 
+{{- if and .IsPage .Params.faq }}
+<script type="application/ld+json">
+{{- $faqEntities := slice -}}
+{{- range .Params.faq -}}
+  {{- $faqEntities = $faqEntities | append (dict "@type" "Question" "name" .question "acceptedAnswer" (dict "@type" "Answer" "text" .answer)) -}}
+{{- end -}}
+{{- dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $faqEntities | jsonify | safeHTML }}
+</script>
+{{- end }}
+
 {{- end -}}

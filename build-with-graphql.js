@@ -232,6 +232,15 @@ function createPostTemplate(post) {
 	const coverMetadata = coverBySlug.get(post.slug);
 	const coverImage = post.heroImage?.url || coverMetadata?.image || '';
 	const coverAlt = coverMetadata?.alt ? `  alt: "${coverMetadata.alt}"` : '';
+	let faq = [];
+	try {
+		faq = typeof post.faq === 'string' ? JSON.parse(post.faq || '[]') : (post.faq || []);
+	} catch {
+		console.warn(`Ignoring invalid FAQ JSON for post: ${post.title}`);
+	}
+	const faqHtml = Array.isArray(faq) && faq.length
+		? `<h2>Frequently asked questions</h2>${faq.map(item => `<h3>${item.question}</h3><p>${item.answer}</p>`).join('')}`
+		: '';
 
 	return `
 ---
@@ -245,6 +254,10 @@ cover:
   relative: true
 ${coverAlt}
 tags: [${(post.tags || []).map(tag => JSON.stringify(tag)).join(', ')}]
+${post.directAnswer ? `directAnswer: ${JSON.stringify(post.directAnswer)}` : ''}
+${post.contentType ? `contentType: ${JSON.stringify(post.contentType)}` : ''}
+${post.audience ? `audience: ${JSON.stringify(post.audience)}` : ''}
+${faq.length ? `faq: ${JSON.stringify(faq)}` : ''}
 ${aliases.length ? `aliases: [${aliases.map(alias => JSON.stringify(alias)).join(', ')}]` : ''}
 ${seriesFrontMatter}
 ShowToc: false
@@ -252,7 +265,8 @@ ShowBreadCrumbs: false
 markup: html
 ---
 
-${post.body || ''}
+${post.directAnswer ? `<p><strong>Short answer:</strong> ${post.directAnswer}</p>` : ''}
+${post.body || ''}${faqHtml}
   `.trim();
 }
 
@@ -267,6 +281,10 @@ function createPostSelection(docFields) {
         description
         aliases
 ${docSelection}
+        directAnswer
+        contentType
+        audience
+        faq
         publishDate
         heroImage {
           url
