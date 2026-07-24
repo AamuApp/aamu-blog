@@ -75,10 +75,17 @@
     font-size: 12px;
 }
 
-.post-content a,
 .toc a:hover {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+}
+
+.post-content a {
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-decoration: none;
+    color: #2f74ff;
+    font-weight: 600;
 }
 
 .post-content a code {
