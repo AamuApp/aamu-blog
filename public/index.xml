@@ -6,8 +6,15 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Jul 2026 06:55:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 16:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app vs Intercom: support should not need a passport to reach product</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/</link>
+      <pubDate>Fri, 24 Jul 2026 16:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/</guid>
+      <description>A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.</description>
+    </item>
     <item>
       <title>Aamu.app vs Asana: tasks are better when they remember why they exist</title>
       <link>https://aamu.app/blog/posts/aamuapp-vs-asana-tasks-and-shared-context/</link>
