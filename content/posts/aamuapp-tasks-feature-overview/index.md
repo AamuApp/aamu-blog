@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Aamu.app Tasks - feature overview"
 date: "2025-06-04T03:50:00.000Z"
-modified: "2026-07-24T23:01:20.388Z"
+modified: "2026-07-24T23:08:47.117Z"
 description: "An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API."
 cover:
   image: 0557ebd6fc61b5a6_tasks.png
@@ -12,7 +12,7 @@ tags: ["tasks", "api"]
 directAnswer: "An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API."
 contentType: "how-to"
 audience: "developers and technical teams"
-
+faq: [{"question":"What is Aamu.app Tasks?","answer":"An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API."},{"question":"Who is Aamu.app Tasks for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for aamu.app tasks."}]
 
 
 ShowToc: false
@@ -39,4 +39,4 @@ Content-Type: application/json
   "users": ["USER_ID"],
   "end_at": "2026-06-19T12:00:00.000Z",
   "reminders": [{ "minutes_before": 30 }]
-}</code></pre><p>Use Tasks read permission for listing and fetching, write permission for creation and updates, and comment permission for comments. Tasks can also be created by database automations when a form or GraphQL mutation inserts or updates a matching row.</p><h2>When Tasks works best</h2><p>Tasks works best when it is treated as the operational layer of the workspace. Docs hold durable knowledge. Databases hold structured data. Forms collect input. Helpdesk and Emails handle communication. Tasks turn all of that into assigned, scheduled, trackable work.</p><p>That is the reason Tasks is not just another to-do list inside Aamu.app. It is the place where the rest of the workspace becomes action.</p>
+}</code></pre><p>Use Tasks read permission for listing and fetching, write permission for creation and updates, and comment permission for comments. Tasks can also be created by database automations when a form or GraphQL mutation inserts or updates a matching row.</p><h2>When Tasks works best</h2><p>Tasks works best when it is treated as the operational layer of the workspace. Docs hold durable knowledge. Databases hold structured data. Forms collect input. Helpdesk and Emails handle communication. Tasks turn all of that into assigned, scheduled, trackable work.</p><p>That is the reason Tasks is not just another to-do list inside Aamu.app. It is the place where the rest of the workspace becomes action.</p><h2>Frequently asked questions</h2><h3>What is Aamu.app Tasks?</h3><p>An overview of Aamu.app Tasks for project work, assignments, dates, reminders, comments, linked context, AI-assisted follow-up, and the Tasks API.</p><h3>Who is Aamu.app Tasks for?</h3><p>This guide is intended for developers and technical teams.</p><h3>What does this guide explain?</h3><p>It explains the main concepts, setup, and practical workflow for aamu.app tasks.</p><h2>Related articles</h2><ul><li><a href="/blog/posts/aamuapp-emails-feature-overview/">Aamu.app Emails - feature overview</a></li><li><a href="/blog/posts/from-form-submission-to-follow-up-workflows-with-aamuapp/">From form submission to follow-up: workflows with Aamu.app</a></li><li><a href="/blog/posts/how-to-use-aamuapp-as-a-small-team-crm/">How to use Aamu.app as a small-team CRM</a></li><li><a href="/blog/posts/building-with-the-aamu-api-from-tasks-to-docs-and-graphql/">Building with the Aamu API: From Tasks to Docs and GraphQL</a></li><li><a href="/blog/posts/video-meetings-feature-overview/">Video Meetings - feature overview</a></li></ul>

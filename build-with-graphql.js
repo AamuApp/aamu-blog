@@ -58,6 +58,7 @@ const coverBySlug = new Map([
 
 // Tracks the latest post update timestamp to fetch only newer posts
 let latestTimestamp = loadLatestTimestamp();
+let publishedPostTitles = new Map();
 
 // Loads the latest timestamp from a file, or returns 0 if not found
 function loadLatestTimestamp() {
@@ -241,6 +242,20 @@ function createPostTemplate(post) {
 	const faqHtml = Array.isArray(faq) && faq.length
 		? `<h2>Frequently asked questions</h2>${faq.map(item => `<h3>${item.question}</h3><p>${item.answer}</p>`).join('')}`
 		: '';
+	let relatedPosts = [];
+	try {
+		relatedPosts = typeof post.relatedPosts === 'string'
+			? JSON.parse(post.relatedPosts || '[]')
+			: (post.relatedPosts || []);
+	} catch {
+		console.warn(`Ignoring invalid related posts JSON for post: ${post.title}`);
+	}
+	const relatedHtml = Array.isArray(relatedPosts) && relatedPosts.length
+		? `<h2>Related articles</h2><ul>${relatedPosts.map(slug => {
+			const relatedTitle = publishedPostTitles.get(slug) || String(slug).replace(/-/g, ' ');
+			return `<li><a href="/blog/posts/${encodeURIComponent(slug)}/">${relatedTitle}</a></li>`;
+		}).join('')}</ul>`
+		: '';
 
 	return `
 ---
@@ -266,7 +281,7 @@ markup: html
 ---
 
 ${post.directAnswer ? `<p><strong>Short answer:</strong> ${post.directAnswer}</p>` : ''}
-${post.body || ''}${faqHtml}
+${post.body || ''}${faqHtml}${relatedHtml}
   `.trim();
 }
 
@@ -285,6 +300,7 @@ ${docSelection}
         contentType
         audience
         faq
+        relatedPosts
         publishDate
         heroImage {
           url
@@ -397,6 +413,19 @@ async function fetchPosts() {
 		sendGraphQLRequest(createNewPostsQuery(docFields)),
 		sendGraphQLRequest(draftPostsQuery),
 	]);
+	const publishedTitlesData = await sendGraphQLRequest({
+		query: `
+      {
+        BlogPostCollection(filter: { status: { EQ: "published" } }) {
+          title
+          slug
+        }
+      }
+    `,
+	});
+	publishedPostTitles = new Map(
+		(publishedTitlesData?.data?.BlogPostCollection || []).map(post => [post.slug, post.title]),
+	);
 
 	const newPostsResponse = newPostsData?.data?.BlogPostCollection || [];
 	const draftPostsResponse = draftPostsData?.data?.BlogPostCollection || [];

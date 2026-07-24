@@ -2,7 +2,7 @@
 author: "Ilkka Huotari"
 title: "Video Meetings - feature overview"
 date: "2025-06-08T06:00:00.000Z"
-modified: "2026-07-24T23:01:21.107Z"
+modified: "2026-07-24T23:08:47.740Z"
 description: "An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API."
 cover:
   image: 8d7b7886b7e0ca5b_aamuapp-video-meetings.png
@@ -12,7 +12,7 @@ tags: ["meetings", "scheduling", "api"]
 directAnswer: "An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API."
 contentType: "how-to"
 audience: "developers and technical teams"
-
+faq: [{"question":"What is Video Meetings?","answer":"An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API."},{"question":"Who is Video Meetings for?","answer":"This guide is intended for developers and technical teams."},{"question":"What does this guide explain?","answer":"It explains the main concepts, setup, and practical workflow for video meetings."}]
 
 
 ShowToc: false
@@ -35,4 +35,4 @@ Content-Type: application/json
   "start_time": 1781863200000,
   "end_time": 1781866800000,
   "invitee_emails": ["customer@example.com"]
-}</code></pre><p>API-created meetings use the same project meeting workflow as the UI. Invitee emails can be included during creation. PATCH can update the name, HTML description, start time, or end time, which is useful for scheduling integrations and AI commands that reschedule an existing meeting.</p><h2>When Meetings works best</h2><p>Aamu Meetings is most useful when the meeting is part of the work, not separate from it. Use it for:</p><ul><li><p>customer calls connected to Helpdesk or Emails,</p></li><li><p>project planning and review meetings,</p></li><li><p>booked calls from Event Booking,</p></li><li><p>implementation or onboarding sessions,</p></li><li><p>internal discussions that create tasks or docs, and</p></li><li><p>API-created meetings from another workflow.</p></li></ul><p>The meeting is not just a video room. It is an Aamu item with project context, invitees, timing, comments, search, and links to the rest of the workspace.</p>
+}</code></pre><p>API-created meetings use the same project meeting workflow as the UI. Invitee emails can be included during creation. PATCH can update the name, HTML description, start time, or end time, which is useful for scheduling integrations and AI commands that reschedule an existing meeting.</p><h2>When Meetings works best</h2><p>Aamu Meetings is most useful when the meeting is part of the work, not separate from it. Use it for:</p><ul><li><p>customer calls connected to Helpdesk or Emails,</p></li><li><p>project planning and review meetings,</p></li><li><p>booked calls from Event Booking,</p></li><li><p>implementation or onboarding sessions,</p></li><li><p>internal discussions that create tasks or docs, and</p></li><li><p>API-created meetings from another workflow.</p></li></ul><p>The meeting is not just a video room. It is an Aamu item with project context, invitees, timing, comments, search, and links to the rest of the workspace.</p><h2>Frequently asked questions</h2><h3>What is Video Meetings?</h3><p>An overview of Aamu.app video meetings, including project meetings, invitees, reminders, comments, Event Booking, and the Meetings API.</p><h3>Who is Video Meetings for?</h3><p>This guide is intended for developers and technical teams.</p><h3>What does this guide explain?</h3><p>It explains the main concepts, setup, and practical workflow for video meetings.</p><h2>Related articles</h2><ul><li><a href="/blog/posts/aamuapp-as-a-calendly-alternative/">Aamu.app as a Calendly alternative</a></li><li><a href="/blog/posts/aamuapp-tasks-feature-overview/">Aamu.app Tasks - feature overview</a></li><li><a href="/blog/posts/ai-commands-in-aamuapp-turning-comments-into-workspace-actions/">AI commands in Aamu.app: turning comments into workspace actions</a></li><li><a href="/blog/posts/aamuapp-docs-feature-overview/">Aamu.app Docs - feature overview</a></li><li><a href="/blog/posts/aamuapp-emails-feature-overview/">Aamu.app Emails - feature overview</a></li></ul>
