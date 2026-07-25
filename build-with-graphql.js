@@ -313,6 +313,7 @@ ${docSelection}
           name
         }
         author {
+          id
           name
           title
           longtext
@@ -454,10 +455,39 @@ async function fetchPosts() {
 	publishedPostTitles = new Map(
 		(publishedTitlesData?.data?.BlogPostCollection || []).map(post => [post.slug, post.title]),
 	);
+	const authorsData = await sendGraphQLRequest({
+		query: `
+      {
+        PersonCollection {
+          id
+          name
+          title
+          longtext
+          image {
+            url
+            data
+            name
+          }
+        }
+      }
+    `,
+	});
+	const authorsById = new Map(
+		(authorsData?.data?.PersonCollection || []).map(author => [author.id, author]),
+	);
+	const authorsByName = new Map(
+		(authorsData?.data?.PersonCollection || []).map(author => [author.name, author]),
+	);
 
 	const newPostsResponse = newPostsData?.data?.BlogPostCollection || [];
 	const draftPostsResponse = draftPostsData?.data?.BlogPostCollection || [];
 	const newPosts = newPostsResponse.filter(post => normalizeStatus(post.status) === 'published');
+	for (const post of newPosts) {
+		const fullAuthor = authorsById.get(post.author?.id) || authorsByName.get(post.author?.name);
+		if (fullAuthor) {
+			post.author = fullAuthor;
+		}
+	}
 	const draftPosts = draftPostsResponse.filter(post => normalizeStatus(post.status) === 'draft');
 
 	console.log(`Fetched ${newPosts.length} new/updated posts.`);
