@@ -15,11 +15,5 @@
   <div class="post-content">{{ . | markdownify }}</div>
   {{- end }}
 
-  <h2>Posts by {{ .Params.authorName }}</h2>
-  <ul>
-    {{- range where site.RegularPages "Params.author" .Params.authorName }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-    {{- end }}
-  </ul>
 </article>
 {{- end }}

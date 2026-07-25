@@ -314,6 +314,7 @@ ${docSelection}
         }
         author {
           id
+          updated_at
           name
           title
           longtext
@@ -334,6 +335,15 @@ function writeAuthorPage(author) {
 	const slug = author.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 	const folderPath = `content/authors/${slug}`;
 	mkdirSync(folderPath, { recursive: true });
+	const authorPagePath = `${folderPath}/_index.md`;
+	const existing = existsSync(authorPagePath) ? readFileSync(authorPagePath, 'utf8') : '';
+	const existingUpdatedAt = existing.match(/^authorSourceUpdatedAt: "([^"]*)"$/m)?.[1] || '';
+	const sourceUpdatedAt = author.updated_at ? DateTime.fromISO(author.updated_at).toISO() : '';
+	const existingImage = existing.match(/^authorImage: "([^"]*)"$/m)?.[1] || '';
+	if (existing && sourceUpdatedAt && existingUpdatedAt === sourceUpdatedAt) {
+		author.image.localPath = existingImage;
+		return;
+	}
 	let imagePath = '';
 	if (author.image?.data && author.image.name) {
 		const extension = author.image.name.includes('.') ? author.image.name.slice(author.image.name.lastIndexOf('.')) : '.jpg';
@@ -341,7 +351,7 @@ function writeAuthorPage(author) {
 		writeFileSync(`${folderPath}/${imagePath}`, Buffer.from(author.image.data, 'base64'));
 	}
 	author.image.localPath = imagePath;
-	writeFileSync(`${folderPath}/_index.md`, `---\ntitle: ${JSON.stringify(author.name)}\nslug: ${slug}\nauthorName: ${JSON.stringify(author.name)}\nauthorTitle: ${JSON.stringify(author.title || '')}\nauthorBio: ${JSON.stringify(author.longtext || '')}\nauthorImage: ${JSON.stringify(imagePath)}\n---\n`);
+	writeFileSync(authorPagePath, `---\ntitle: ${JSON.stringify(author.name)}\nslug: ${slug}\nauthorName: ${JSON.stringify(author.name)}\nauthorTitle: ${JSON.stringify(author.title || '')}\nauthorBio: ${JSON.stringify(author.longtext || '')}\nauthorImage: ${JSON.stringify(imagePath)}\nauthorSourceUpdatedAt: ${JSON.stringify(sourceUpdatedAt)}\nauthorFetchedAt: ${JSON.stringify(DateTime.now().toISO())}\n---\n`);
 }
 
 function createNewPostsQuery(docFields) {
