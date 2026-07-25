@@ -6,8 +6,15 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 24 Jul 2026 16:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2026 09:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app vs Confluence: documentation that can leave the shelf</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/</link>
+      <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/</guid>
+      <description>A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.</description>
+    </item>
     <item>
       <title>Aamu.app vs Intercom: support should not need a passport to reach product</title>
       <link>https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/</link>
