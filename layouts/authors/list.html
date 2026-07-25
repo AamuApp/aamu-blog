@@ -5,9 +5,9 @@
     {{- with .Params.authorTitle }}<div class="post-description">{{ . }}</div>{{ end }}
   </header>
 
-  {{- with .Params.authorImage }}
+  {{- with .Resources.GetMatch .Params.authorImage }}
   <figure class="author-page-image">
-    <img src="{{ . | relURL }}" alt="{{ $.Params.authorName }}">
+    <img src="{{ .RelPermalink }}" alt="{{ $.Params.authorName }}">
   </figure>
   {{- end }}
 

@@ -337,7 +337,7 @@ function writeAuthorPage(author) {
 	let imagePath = '';
 	if (author.image?.data && author.image.name) {
 		const extension = author.image.name.includes('.') ? author.image.name.slice(author.image.name.lastIndexOf('.')) : '.jpg';
-		imagePath = `author${extension}`;
+		imagePath = `profile${extension}`;
 		writeFileSync(`${folderPath}/${imagePath}`, Buffer.from(author.image.data, 'base64'));
 	}
 	author.image.localPath = imagePath;
