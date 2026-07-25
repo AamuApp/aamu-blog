@@ -470,6 +470,7 @@ async function fetchPosts() {
       {
         PersonCollection {
           id
+          updated_at
           name
           title
           longtext
@@ -488,6 +489,7 @@ async function fetchPosts() {
 	const authorsByName = new Map(
 		(authorsData?.data?.PersonCollection || []).map(author => [author.name, author]),
 	);
+	const authors = authorsData?.data?.PersonCollection || [];
 
 	const newPostsResponse = newPostsData?.data?.BlogPostCollection || [];
 	const draftPostsResponse = draftPostsData?.data?.BlogPostCollection || [];
@@ -503,7 +505,7 @@ async function fetchPosts() {
 	console.log(`Fetched ${newPosts.length} new/updated posts.`);
 	console.log(`Fetched ${draftPosts.length} draft posts.`);
 
-	return { newPosts, draftPosts };
+	return { newPosts, draftPosts, authors };
 }
 
 // Deletes a post's folder if it exists
@@ -597,7 +599,12 @@ async function writePost(post) {
 // Main function to build the blog
 async function buildBlog() {
 	try {
-		const { newPosts, draftPosts } = await fetchPosts();
+		const { newPosts, draftPosts, authors } = await fetchPosts();
+
+		// Author rows can change independently of BlogPost rows.
+		for (const author of authors) {
+			writeAuthorPage(author);
+		}
 
 		// Process new and updated posts
 		for (const post of newPosts) {
