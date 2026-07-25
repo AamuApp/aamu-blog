@@ -302,8 +302,15 @@
 /* GenericTraceback */ .chroma .gt {  }
 /* GenericUnderline */ .chroma .gl {  }
 /* TextWhitespace */ .chroma .w {  }
+.author-identity {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .author-page-image {
-  margin: 0 0 2rem;
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .author-page-image img {
@@ -311,4 +318,15 @@
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  .author-identity {
+    align-items: flex-start;
+  }
+
+  .author-page-image img {
+    width: 112px;
+    height: 112px;
+  }
 }
