@@ -48,9 +48,40 @@ const post = {
 	slug,
 	description:
 		'Introducing Aamu Slides, an Aamu-integrated presentation editor built on the open-source Strut project with shared authentication, project-scoped decks, spatial arranging, image uploads, and Present mode.',
+	directAnswer:
+		'Aamu Slides is a project-scoped presentation editor built into Aamu.app. Teams use their existing Aamu identity and project access to create, edit, arrange, and present decks with the open-source Strut editor, without managing a separate presentation account.',
+	contentType: 'overview',
+	audience: 'small and growing teams evaluating productivity software',
+	faq: JSON.stringify([
+		{
+			question: 'What is Aamu Slides?',
+			answer:
+				'Aamu Slides is a presentation editor integrated into Aamu.app. It gives project teams a focused slide editor, image uploads, spatial arranging, and Present mode.',
+		},
+		{
+			question: 'Do Aamu Slides users need a separate account?',
+			answer:
+				'No. Aamu Slides uses the same Aamu identity and project access as the rest of the workspace.',
+		},
+		{
+			question: 'Is Aamu Slides based on Strut?',
+			answer:
+				'Yes. Aamu Slides uses an Aamu-maintained fork of the open-source Strut presentation editor and contributes generally useful improvements back to the upstream project when possible.',
+		},
+		{
+			question: 'What makes Aamu Slides spatial?',
+			answer:
+				'Slides can be arranged in a larger visual space using position, scale, rotation, and camera movement, while the normal editor remains focused on one slide at a time.',
+		},
+	]),
+	relatedPosts: JSON.stringify([
+		'introduction-to-aamu-app',
+		'penpot-design-tool-feature-overview',
+		'git-belongs-in-the-workspace-code-issues-comments-team-awareness-aamuapp',
+	]),
 	publishDate: '2026-07-29T05:00:00.000Z',
 	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
-	status: 'draft',
+	status: 'published',
 	tags: ['slides', 'presentations', 'workspace', 'open-source', 'strut'],
 };
 
@@ -131,6 +162,11 @@ async function upsertBlogPost(docId) {
 				$title: String
 				$slug: String
 				$description: String
+				$directAnswer: String
+				$contentType: String
+				$audience: String
+				$faq: String
+				$relatedPosts: String
 				$publishDate: DateTime
 				$author: String
 				$status: String
@@ -142,6 +178,11 @@ async function upsertBlogPost(docId) {
 					title: $title
 					slug: $slug
 					description: $description
+					directAnswer: $directAnswer
+					contentType: $contentType
+					audience: $audience
+					faq: $faq
+					relatedPosts: $relatedPosts
 					publishDate: $publishDate
 					author: $author
 					status: $status
@@ -154,6 +195,11 @@ async function upsertBlogPost(docId) {
 					status
 					publishDate
 					tags
+					directAnswer
+					contentType
+					audience
+					faq
+					relatedPosts
 					doc
 					author {
 						id

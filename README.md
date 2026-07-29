@@ -14,3 +14,8 @@ The original source code is [hugo-PaperMod](https://github.com/adityatelange/hug
 - Clone this repository
 - Set your Aamu.app API KEY environment variable. You can do this in several ways - one is to edit `env.example` and rename it to `.env`. 
 
+## Content metadata
+
+See [Blog post metadata](docs/blog-post-metadata.md) for the database fields
+used for direct answers, content classification, audience, FAQs, related
+articles, and redirects.
