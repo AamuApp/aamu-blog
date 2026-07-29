@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 05:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Aamu Slides: spatial presentations inside your workspace</title>
+      <link>https://aamu.app/blog/posts/introducing-aamu-slides-spatial-presentations-inside-your-workspace/</link>
+      <pubDate>Wed, 29 Jul 2026 05:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/introducing-aamu-slides-spatial-presentations-inside-your-workspace/</guid>
+      <description>Introducing Aamu Slides, an Aamu-integrated presentation editor built on the open-source Strut project with shared authentication, project-scoped decks, spatial arranging, image uploads, and Present mode.</description>
+    </item>
     <item>
       <title>Aamu.app vs Confluence: documentation that can leave the shelf</title>
       <link>https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/</link>
