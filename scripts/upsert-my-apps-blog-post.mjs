@@ -56,6 +56,20 @@ const post = {
 	author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
 	status: 'published',
 	tags: ['aamu', 'integrations', 'my-apps', 'developers'],
+	directAnswer: 'Aamu My Apps is an extension model that lets external applications use a team\'s Aamu identity and context while sending useful items, notifications, and activity back into the workspace.',
+	contentType: 'feature-guide',
+	audience: 'developers and technical teams',
+	faq: JSON.stringify([
+		{ question: 'What is Aamu My Apps?', answer: 'Aamu My Apps lets external applications connect to an Aamu team workspace with a server-side launch flow, shared team context, and events returned to Aamu.' },
+		{ question: 'What context can a My Apps application receive?', answer: 'The application can receive the authenticated user, team, available projects, and the team user directory, subject to the scopes and context provided by Aamu.' },
+		{ question: 'Can a My Apps application send information back to Aamu?', answer: 'Yes. An application can send external item, notification, and activity events so that its work can be discovered inside Aamu.' },
+		{ question: 'Does a My Apps application need its own user database?', answer: 'It needs its own application data and session handling, but it can use the Aamu launch flow for identity and team context instead of creating a separate team directory.' },
+	]),
+	relatedPosts: JSON.stringify([
+		'aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk',
+		'outbound-webhooks-in-aamuapp-real-time-events-tasks-helpdesk-email',
+		'introduction-to-aamu-app',
+	]),
 };
 
 if (!API_KEY) throw new Error('API_KEY environment variable is required.');
@@ -98,9 +112,9 @@ async function upsertBlogPost(docId) {
 	const existingData = await graphql('{ BlogPostCollection { id slug } }');
 	const existingId = existingData.BlogPostCollection.find(row => row.slug === slug)?.id;
 	const data = await graphql(`
-		mutation UpsertBlogPost($id: ID, $title: String, $slug: String, $description: String, $publishDate: DateTime, $author: String, $status: String, $tags: [String], $doc: String) {
-			BlogPost(id: $id, title: $title, slug: $slug, description: $description, publishDate: $publishDate, author: $author, status: $status, tags: $tags, doc: $doc) {
-				id title slug status publishDate tags doc
+		mutation UpsertBlogPost($id: ID, $title: String, $slug: String, $description: String, $publishDate: DateTime, $author: String, $status: String, $tags: [String], $doc: String, $directAnswer: String, $contentType: String, $audience: String, $faq: String, $relatedPosts: String) {
+			BlogPost(id: $id, title: $title, slug: $slug, description: $description, publishDate: $publishDate, author: $author, status: $status, tags: $tags, doc: $doc, directAnswer: $directAnswer, contentType: $contentType, audience: $audience, faq: $faq, relatedPosts: $relatedPosts) {
+				id title slug status publishDate tags doc directAnswer contentType audience faq relatedPosts
 			}
 		}`, { id: existingId, ...post, doc: docId });
 	return { action: existingId ? 'updated' : 'created', post: data.BlogPost };
