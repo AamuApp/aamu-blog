@@ -6,36 +6,8 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Jul 2026 22:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 05:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Aamu</title>
-      <link>https://aamu.app/blog/tags/aamu/</link>
-      <pubDate>Thu, 30 Jul 2026 22:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/aamu/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Developers</title>
-      <link>https://aamu.app/blog/tags/developers/</link>
-      <pubDate>Thu, 30 Jul 2026 22:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/developers/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Integrations</title>
-      <link>https://aamu.app/blog/tags/integrations/</link>
-      <pubDate>Thu, 30 Jul 2026 22:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/integrations/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>My-Apps</title>
-      <link>https://aamu.app/blog/tags/my-apps/</link>
-      <pubDate>Thu, 30 Jul 2026 22:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/my-apps/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Open-Source</title>
       <link>https://aamu.app/blog/tags/open-source/</link>
@@ -139,6 +111,13 @@
       <link>https://aamu.app/blog/tags/databases/</link>
       <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/databases/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Integrations</title>
+      <link>https://aamu.app/blog/tags/integrations/</link>
+      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/integrations/</guid>
       <description></description>
     </item>
     <item>
