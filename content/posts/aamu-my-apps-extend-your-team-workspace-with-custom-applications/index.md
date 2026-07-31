@@ -5,8 +5,8 @@ authorTitle: "Founder"
 authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The main reason was that there didn't seem to be a good option for this kind of an app. The main one, Microsoft's offering, was (and is) a big mess. So, I thought it wouldn't be very difficult to create a better one. \n\nWell, it turned out to be a big job. Who would have known? Luckily AI came along and now the whole thing is about ready. \n\nI'm quite pleased with my creation. I have learned a lot, and still do. That has probably been the most rewarding thing from building this.\n\nThanks for reading!"
 authorImage: "profile.png"
 title: "Aamu My Apps: extend your team workspace with custom applications"
-date: "2026-07-31T06:00:00.000Z"
-modified: "2026-07-31T01:26:00.124Z"
+date: "2026-07-30T22:00:00.000Z"
+modified: "2026-07-31T01:26:58.180Z"
 description: "Aamu My Apps lets teams connect purpose-built applications to the same workspace while keeping launch context, API keys, permissions, notifications, and activity clearly separated. Here is how the extension model works."
 cover:
   image: 4a704a47ac037d9f_my-apps.png
