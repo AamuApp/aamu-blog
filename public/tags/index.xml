@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 06:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docs</title>
+      <link>https://aamu.app/blog/tags/docs/</link>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/docs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Electronic-Signatures</title>
+      <link>https://aamu.app/blog/tags/electronic-signatures/</link>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/electronic-signatures/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Email</title>
+      <link>https://aamu.app/blog/tags/email/</link>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/email/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Integrations</title>
+      <link>https://aamu.app/blog/tags/integrations/</link>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/integrations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Signicat</title>
+      <link>https://aamu.app/blog/tags/signicat/</link>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/signicat/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Aamu</title>
       <link>https://aamu.app/blog/tags/aamu/</link>
@@ -20,13 +55,6 @@
       <link>https://aamu.app/blog/tags/developers/</link>
       <pubDate>Fri, 31 Jul 2026 06:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/developers/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Integrations</title>
-      <link>https://aamu.app/blog/tags/integrations/</link>
-      <pubDate>Fri, 31 Jul 2026 06:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/integrations/</guid>
       <description></description>
     </item>
     <item>
@@ -83,13 +111,6 @@
       <link>https://aamu.app/blog/tags/comparisons/</link>
       <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/comparisons/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docs</title>
-      <link>https://aamu.app/blog/tags/docs/</link>
-      <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/docs/</guid>
       <description></description>
     </item>
     <item>
@@ -237,13 +258,6 @@
       <link>https://aamu.app/blog/tags/tech/</link>
       <pubDate>Fri, 03 Jul 2026 09:48:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/tech/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Email</title>
-      <link>https://aamu.app/blog/tags/email/</link>
-      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/email/</guid>
       <description></description>
     </item>
     <item>

@@ -3,6 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://aamu.app/blog/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/docs/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/electronic-signatures/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/email/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/integrations/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/sign-documents-in-aamuapp-email-otp-strong-authentication/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/signicat/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/</loc>
+    <lastmod>2026-08-02T05:58:59+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://aamu.app/blog/tags/aamu/</loc>
     <lastmod>2026-07-31T05:49:06+00:00</lastmod>
   </url>
@@ -11,28 +47,12 @@
     <lastmod>2026-07-31T05:49:06+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-08-01T21:52:23+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/tags/developers/</loc>
-    <lastmod>2026-07-31T05:49:06+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/integrations/</loc>
     <lastmod>2026-07-31T05:49:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/my-apps/</loc>
     <lastmod>2026-07-31T05:49:06+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-08-01T21:52:23+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-08-01T21:52:23+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/introducing-aamu-slides-spatial-presentations-inside-your-workspace/</loc>
@@ -68,10 +88,6 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/comparisons/</loc>
-    <lastmod>2026-07-25T09:02:14+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/docs/</loc>
     <lastmod>2026-07-25T09:02:14+00:00</lastmod>
   </url>
   <url>
@@ -184,10 +200,6 @@
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/why-aamuapp-uses-a-central-server-and-sharedb-ot-instead-of-crdt/</loc>
-    <lastmod>2026-07-24T23:08:45+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/email/</loc>
     <lastmod>2026-07-24T23:08:45+00:00</lastmod>
   </url>
   <url>

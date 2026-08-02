@@ -6,8 +6,15 @@
     <description>Recent content on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 06:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sign documents in Aamu.app with email OTP or strong authentication</title>
+      <link>https://aamu.app/blog/posts/sign-documents-in-aamuapp-email-otp-strong-authentication/</link>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/sign-documents-in-aamuapp-email-otp-strong-authentication/</guid>
+      <description>How Aamu.app sends Docs for signature, supports built-in email OTP and Finnish strong authentication through a team-owned Signicat connection, and tracks signer status and evidence.</description>
+    </item>
     <item>
       <title>Aamu My Apps: extend your team workspace with custom applications</title>
       <link>https://aamu.app/blog/posts/aamu-my-apps-extend-your-team-workspace-with-custom-applications/</link>
