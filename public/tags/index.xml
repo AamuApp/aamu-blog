@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Aug 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 01:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Activity</title>
+      <link>https://aamu.app/blog/tags/activity/</link>
+      <pubDate>Thu, 06 Aug 2026 01:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/activity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Analytics</title>
+      <link>https://aamu.app/blog/tags/analytics/</link>
+      <pubDate>Thu, 06 Aug 2026 01:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Api</title>
+      <link>https://aamu.app/blog/tags/api/</link>
+      <pubDate>Thu, 06 Aug 2026 01:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://aamu.app/blog/tags/git/</link>
+      <pubDate>Thu, 06 Aug 2026 01:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reports</title>
+      <link>https://aamu.app/blog/tags/reports/</link>
+      <pubDate>Thu, 06 Aug 2026 01:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/tags/reports/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Docs</title>
       <link>https://aamu.app/blog/tags/docs/</link>
@@ -149,13 +184,6 @@
       <description></description>
     </item>
     <item>
-      <title>Api</title>
-      <link>https://aamu.app/blog/tags/api/</link>
-      <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/api/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Databases</title>
       <link>https://aamu.app/blog/tags/databases/</link>
       <pubDate>Mon, 20 Jul 2026 19:52:00 +0000</pubDate>
@@ -272,13 +300,6 @@
       <link>https://aamu.app/blog/tags/collaboration/</link>
       <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
       <guid>https://aamu.app/blog/tags/collaboration/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://aamu.app/blog/tags/git/</link>
-      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
-      <guid>https://aamu.app/blog/tags/git/</guid>
       <description></description>
     </item>
     <item>

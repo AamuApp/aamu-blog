@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Aug 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 01:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Report on user activity with the Aamu API</title>
+      <link>https://aamu.app/blog/posts/report-on-user-activity-with-the-aamu-api/</link>
+      <pubDate>Thu, 06 Aug 2026 01:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/report-on-user-activity-with-the-aamu-api/</guid>
+      <description>Use the Aamu Reports API to measure active days, comments and Git activity, build day/week/month time series, and retrieve a user’s event timeline by local calendar day.</description>
+    </item>
     <item>
       <title>Sign documents in Aamu.app with email OTP or strong authentication</title>
       <link>https://aamu.app/blog/posts/sign-documents-in-aamuapp-email-otp-strong-authentication/</link>
