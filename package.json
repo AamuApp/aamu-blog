@@ -1,5 +1,6 @@
 {
   "name": "aamu-blog",
+  "private": true,
   "version": "1.0.0",
   "description": "This repository offers an example site for [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod)",
   "main": "index.js",
