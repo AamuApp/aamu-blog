@@ -1,5 +1,6 @@
 {
   "name": "aamu-blog",
+  "private": true,
   "version": "1.0.0",
   "description": "This repository offers an example site for [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod)",
   "main": "index.js",
@@ -7,7 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node build-with-graphql.js && hugo server",
-    "pub": "node build-with-graphql.js && hugo --minify --cleanDestinationDir && git add . && git commit -am '..' && echo '\n*** Pushing' && git push web"
+    "pub": "node build-with-graphql.js && hugo --minify --cleanDestinationDir && git add . && (git diff --cached --quiet || git commit -m '..') && echo '\n*** Pushing' && git push origin master && git push web master"
   },
   "keywords": [],
   "author": "",
