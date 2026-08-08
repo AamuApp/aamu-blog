@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+bare=/home/app/aamu-blog-bare.git
+work=/home/app/aamu-blog-public
+
+mkdir -p "$work"
+
+while read -r old new ref
+do
+    if [ "$ref" = refs/heads/master ]; then
+        git --git-dir="$bare" --work-tree="$work" checkout -f master
+    fi
+done

@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Aug 2026 01:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu Calendar now brings tasks and meetings together</title>
+      <link>https://aamu.app/blog/posts/aamu-calendar-now-brings-tasks-and-meetings-together/</link>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamu-calendar-now-brings-tasks-and-meetings-together/</guid>
+      <description>Aamu Calendar combines scheduled tasks and meetings in one project-aware view, with distinct colors, direct creation, drag-and-resize planning, and a shared start–end time editor.</description>
+    </item>
     <item>
       <title>Report on user activity with the Aamu API</title>
       <link>https://aamu.app/blog/posts/report-on-user-activity-with-the-aamu-api/</link>

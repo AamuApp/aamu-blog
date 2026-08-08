@@ -403,7 +403,14 @@ async function sendGraphQLRequest(query) {
 			headers: getGraphQLHeaders(),
 			body: JSON.stringify(query),
 		});
-		const data = await response.json();
+		const responseBody = await response.text();
+		let data;
+		try {
+			data = JSON.parse(responseBody);
+		} catch {
+			const contentType = response.headers.get('content-type') || 'unknown content type';
+			throw new Error(`GraphQL endpoint returned HTTP ${response.status} with ${contentType}, not JSON (${API_ENDPOINT})`);
+		}
 
 		if (!response.ok) {
 			throw new Error(data?.error?.message || `HTTP ${response.status}`);
@@ -622,6 +629,7 @@ async function buildBlog() {
 		saveLatestTimestamp();
 	} catch (error) {
 		logError(`Build failed: ${error.message}`);
+		process.exitCode = 1;
 	}
 }
 

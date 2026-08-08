@@ -3,40 +3,64 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://aamu.app/blog/posts/aamu-calendar-now-brings-tasks-and-meetings-together/</loc>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://aamu.app/blog/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/activity/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <loc>https://aamu.app/blog/tags/calendar/</loc>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/analytics/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <loc>https://aamu.app/blog/tags/meetings/</loc>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/api/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/git/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <loc>https://aamu.app/blog/tags/planning/</loc>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/posts/report-on-user-activity-with-the-aamu-api/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/reports/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <loc>https://aamu.app/blog/tags/productivity/</loc>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/</loc>
-    <lastmod>2026-08-06T01:29:14+00:00</lastmod>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/tasks/</loc>
+    <lastmod>2026-08-08T20:19:45+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/activity/</loc>
+    <lastmod>2026-08-06T10:51:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/analytics/</loc>
+    <lastmod>2026-08-06T10:51:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/api/</loc>
+    <lastmod>2026-08-06T10:51:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/git/</loc>
+    <lastmod>2026-08-06T10:51:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/posts/report-on-user-activity-with-the-aamu-api/</loc>
+    <lastmod>2026-08-06T10:51:34+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://aamu.app/blog/tags/reports/</loc>
+    <lastmod>2026-08-06T10:51:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/docs/</loc>
@@ -139,10 +163,6 @@
     <lastmod>2026-07-24T23:08:47+00:00</lastmod>
   </url>
   <url>
-    <loc>https://aamu.app/blog/tags/tasks/</loc>
-    <lastmod>2026-08-06T01:19:17+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://aamu.app/blog/tags/databases/</loc>
     <lastmod>2026-08-06T01:19:17+00:00</lastmod>
   </url>
@@ -209,10 +229,6 @@
   <url>
     <loc>https://aamu.app/blog/tags/company-brain/</loc>
     <lastmod>2026-07-24T23:08:43+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/meetings/</loc>
-    <lastmod>2026-07-24T23:08:48+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/tags/tech/</loc>
@@ -353,10 +369,6 @@
   <url>
     <loc>https://aamu.app/blog/posts/keyboard-shortcuts-in-aamuapp/</loc>
     <lastmod>2026-07-24T23:08:42+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://aamu.app/blog/tags/productivity/</loc>
-    <lastmod>2026-08-01T21:52:23+00:00</lastmod>
   </url>
   <url>
     <loc>https://aamu.app/blog/posts/all-the-productivity-apps-you-could-think-of-100/</loc>
