@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-08-06T01:19:17.193Z"
+modified: "2026-08-14T00:00:00.000Z"
 description: "A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
@@ -513,17 +513,17 @@ Content-Type: application/json
     "email-address": "ada@example.com",
     "message": "I would like to hear more."
   }
-}</code></pre><p>The response contains the created row id together with the Form, database, and table ids.</p><h2>Newsletters</h2><p>The Newsletters API manages project-scoped newsletters, draft and sent issues, and subscribers. It also keeps test delivery and production delivery as explicit operations. Use the <strong>Newsletters</strong> read or write scope together with <code>x-project-id</code>.</p><p>Mailbox setup is an administrative UI step: configure a verified email domain, Address, and Sender name before sending. The API handles the publication workflow after that mailbox exists.</p><h3>Create a newsletter</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/
+}</code></pre><p>The response contains the created row id together with the Form, database, and table ids.</p><h2>Newsletters</h2><p>The Newsletters API manages project-scoped newsletters, draft and sent issues, and subscribers. It also keeps test delivery and production delivery as explicit operations. Use the <strong>Newsletters</strong> read or write scope together with <code>x-project-id</code>.</p><p>Each new newsletter has its own Audience Database and Subscribers table. The Database rows are the source of truth for subscription status, while Aamu maintains a derived subscriber collection for delivery. Newsletter creation also provisions managed automations that keep those two representations synchronized.</p><p>Mailbox setup is an administrative UI step: configure a verified email domain, Address, and Sender name before sending. The API handles the publication workflow after that mailbox exists.</p><h3>Create a newsletter</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
   "name": "Product updates"
-}</code></pre><p>List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3>Create a public signup workflow</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
+}</code></pre><p>List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3>Create an optional public signup form</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
-x-aamu-actor: ai</code></pre><p>This idempotent endpoint creates a published Aamu Form, its backing Database table, and a published <code>row_inserted</code> automation with a <code>subscribe_to_newsletter</code> action. The response includes the form, Database and table ids, automation, and public form URL. The Database keeps form-response history while the newsletter subscriber collection remains the delivery source of truth.</p><h3>Create and update an issue</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
+x-aamu-actor: ai</code></pre><p>This idempotent endpoint creates a published Aamu Form connected to the newsletter's existing Audience Database. The response includes the form, Database and table ids, managed automation, and public form URL. The form is optional: integrations can maintain the same audience through the Newsletter subscribers API or through Database row operations.</p><h3>Create and update an issue</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
 {
   "subject": "June product update",
   "html": "&lt;p&gt;What changed this month...&lt;/p&gt;"
@@ -543,7 +543,7 @@ PATCH /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID
 PATCH /api/v1/newsletters/NEWSLETTER_ID/subscribers/SUBSCRIBER_ID
 {
   "status": "unsubscribed"
-}</code></pre><p>Use <code>GET /api/v1/newsletters/{id}/subscribers</code> to list subscribers. The optional <code>status</code> query filters the result. Subscriber updates can change the name, tags, or status between <code>subscribed</code> and <code>unsubscribed</code>. API responses never return the private unsubscribe token.</p><h3>Test and send explicitly</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID/send-test
+}</code></pre><p>Use <code>GET /api/v1/newsletters/{id}/subscribers</code> to list the delivery projection. The optional <code>status</code> query filters the result. Creating or updating a subscriber through these endpoints writes the newsletter's Audience Database; managed automations then update the delivery projection. Subscriber updates can change the name, tags, or status between <code>subscribed</code> and <code>unsubscribed</code>. API responses never return the private unsubscribe token.</p><p>You can also maintain the Audience Database directly with Database row operations when the API key has the required Database scope. Rows created through Forms, the Newsletter API, or the Database API all enter the same audience workflow.</p><h3>Test and send explicitly</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID/send-test
 x-aamu-actor: ai
 
 POST /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID/send
