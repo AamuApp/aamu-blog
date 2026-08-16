@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Aug 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 05:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app vs ClickUp: connected work beyond project management</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/</link>
+      <pubDate>Sun, 16 Aug 2026 05:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/</guid>
+      <description>A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.</description>
+    </item>
     <item>
       <title>Aamu Calendar now brings tasks and meetings together</title>
       <link>https://aamu.app/blog/posts/aamu-calendar-now-brings-tasks-and-meetings-together/</link>
