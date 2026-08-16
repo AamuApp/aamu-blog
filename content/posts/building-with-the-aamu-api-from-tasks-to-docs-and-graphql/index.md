@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-08-14T00:00:00.000Z"
+modified: "2026-08-16T02:14:55.324Z"
 description: "A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
@@ -248,138 +248,51 @@ Content-Type: application/json
 }</code></pre><h3>POST: send a reply draft</h3><p>Sending uses the same email-comment/send path as the UI. The endpoint sends the current draft for the API actor, clears it, and returns the sent comment plus the updated email thread. Use Emails comment permission for this endpoint.</p><pre><code class="language-plaintext">POST /api/v1/emails/EMAIL_ID/reply-draft/send
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
-x-aamu-actor: ai</code></pre><h2>Tasks</h2><p>The Tasks API is useful for turning external events, AI plans, and support workflows into actionable work. Task create and update operations use the same internal task helpers as the UI for fields that have side effects, such as status, assigned users, dates, repetition, and reminders.</p><h3>GET: list tasks</h3><pre><code class="language-plaintext">GET /api/v1/tasks/
+x-aamu-actor: ai</code></pre><h2>Tasks</h2><p>The Tasks API is project-scoped and supports the complete task workflow: list and filter work, create tasks, update titles, content, status, dates, repetition, reminders and assignees, and add comments. Use a Team API key with Tasks permission and send <code>x-project-id</code> when the key can access more than one project. Use <code>x-aamu-actor</code> when a write or comment should be attributed to a particular project member.</p><h3>GET: list and query tasks</h3><p>The default list contains non-repo tasks that are not drafts, archived or deleted. Completed tasks are included in that default result. Use a view when an integration wants the same practical queues as the Aamu UI: <code>active</code>, <code>overdue</code>, <code>running</code>, <code>starred</code>, <code>complete</code> or <code>archived</code>.</p><pre><code class="language-plaintext">GET /api/v1/tasks/?view=active&amp;assignee_id=USER_ID&amp;sort=end_at&amp;order=asc&amp;limit=50
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>Example response:</p><pre><code class="language-plaintext">{
-  "tasks": [
-    {
-      "id": "TASK_ID",
-      "pid": "YOUR_PROJECT_ID",
-      "title": "Review API integration",
-      "html": "&lt;p&gt;Check the rollout notes.&lt;/p&gt;",
-      "status": "active",
-      "start_at": 1779872400000,
-      "end_at": 1779876000000,
-      "repeat": "weekly",
-      "reminders": [
-        { "d": 0, "h": 0, "m": 15 }
-      ],
-      "users": ["USER_ID"],
-      "comments": []
-    }
-  ]
-}</code></pre><h3>GET: list project users</h3><p>Use the Users endpoint to resolve usernames to user ids before assigning task users or choosing an API actor.</p><pre><code class="language-plaintext">GET /api/v1/users/
+x-project-id: YOUR_PROJECT_ID</code></pre><p>List queries also support comma-separated <code>status</code>, <code>tag</code> and <code>assignee_id</code> values; literal text search with <code>q</code> in the title and HTML; and exclusive ISO or millisecond date boundaries:</p><pre><code class="language-plaintext">GET /api/v1/tasks/?q=customer+import&amp;status=active&amp;tag=support
+GET /api/v1/tasks/?due_after=2026-08-16T00:00:00Z&amp;due_before=2026-08-23T00:00:00Z&amp;sort=end_at&amp;order=asc
+GET /api/v1/tasks/?updated_after=2026-08-01T00:00:00Z&amp;sort=updated&amp;order=asc</code></pre><p>Supported sort fields are <code>created</code>, <code>updated</code>, <code>start_at</code>, <code>end_at</code>, <code>completed_at</code> and <code>priority</code>. A response contains <code>has_more</code> and an opaque <code>next_cursor</code> when another page exists. Send that cursor with the same filters, sort and order:</p><pre><code class="language-plaintext">GET /api/v1/tasks/?view=active&amp;sort=updated&amp;order=desc&amp;limit=50&amp;cursor=NEXT_CURSOR
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>You can also filter by exact username:</p><pre><code class="language-plaintext">GET /api/v1/users/?username=badding
+x-project-id: YOUR_PROJECT_ID</code></pre><p>The cursor is bound to the project and repo scope, sort and order. It is intentionally opaque; integrations should store and resend it rather than construct one.</p><h3>GET: list repository tasks</h3><p>Repository tasks use a separate path so normal project tasks and Git issue-style work remain easy to distinguish:</p><pre><code class="language-plaintext">GET /api/v1/repos/REPO_ID/tasks/?view=overdue&amp;sort=end_at&amp;order=asc
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>Example response:</p><pre><code class="language-plaintext">{
-  "users": [
-    {
-      "id": "USER_ID",
-      "username": "badding",
-      "name": "badding",
-      "email": "person@example.com"
-    }
-  ]
-}</code></pre><h3>POST: create a task</h3><p>Create accepts the same task workflow fields as update. If <code>users</code> is provided, the API applies the assignment changes through the same task user helpers as the UI. Dates, repetition, and reminders go through the task date-change helper.</p><pre><code class="language-plaintext">POST /api/v1/tasks/
+x-project-id: YOUR_PROJECT_ID</code></pre><p>The project task endpoint can also filter one repository with <code>repo_id</code>, or include both normal and repository tasks with <code>include_repo_tasks=true</code>.</p><h3>GET: list project users</h3><p>Resolve project members before assigning a task. The response contains stable user ids and safe profile fields. The older <code>?username=...</code> filter remains available for compatibility.</p><pre><code class="language-plaintext">GET /api/v1/users/
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID</code></pre><h3>POST: create a task</h3><p>A task requires a title and HTML content. Dates accept millisecond timestamps or ISO date strings. Repetition can be <code>daily</code>, <code>weekly</code>, <code>monthly</code> or <code>yearly</code> and requires an end date. Reminder offsets can use <code>minutes_before</code> or the stored day/hour/minute form.</p><pre><code class="language-plaintext">POST /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
-x-aamu-actor: ai
+x-aamu-actor: USER_ID
 Content-Type: application/json
 
 {
-  "title": "Prepare customer summary",
-  "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;",
+  "title": "Review customer import",
+  "html": "&lt;p&gt;Check the import logs and report the result.&lt;/p&gt;",
   "status": "active",
-  "users": ["USER_ID_1", "USER_ID_2"],
-  "start_at": "2026-05-27T09:00:00.000Z",
-  "end_at": "2026-05-27T10:00:00.000Z",
-  "reminders": [
-    { "minutes_before": 15 },
-    { "d": 0, "h": 1, "m": 0 }
-  ],
-  "comments": [
-    { "html": "&lt;p&gt;Created from the external workflow.&lt;/p&gt;" }
-  ]
-}</code></pre><p>For repeating tasks, set <code>repeat</code> or <code>repetition</code> to <code>daily</code>, <code>weekly</code>, <code>monthly</code>, or <code>yearly</code>. Leave it out for a one-time task.</p><p>Example response:</p><pre><code class="language-plaintext">{
-  "task": {
-    "id": "TASK_ID",
-    "pid": "YOUR_PROJECT_ID",
-    "title": "Prepare customer summary",
-    "html": "&lt;p&gt;Summarize the latest feedback and add next steps.&lt;/p&gt;",
-    "status": "active",
-    "start_at": 1779872400000,
-    "end_at": 1779876000000,
-    "reminders": [
-      { "d": 0, "h": 0, "m": 15 },
-      { "d": 0, "h": 1, "m": 0 }
-    ],
-    "users": ["USER_ID_1", "USER_ID_2"],
-    "comments": []
-  }
-}</code></pre><h3>PATCH: update a task</h3><p>Update supports title, HTML, status, assigned users, start and end dates, repetition, and reminders. Fields with side effects are routed through the same internal helpers as UI operations.</p><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
+  "start_at": "2026-08-18T09:00:00Z",
+  "end_at": "2026-08-18T10:00:00Z",
+  "users": ["USER_ID"],
+  "reminders": [{ "minutes_before": 30 }],
+  "comments": [{ "html": "&lt;p&gt;Created from the support queue.&lt;/p&gt;" }]
+}</code></pre><h3>PATCH: update a task</h3><p>PATCH accepts any combination of title, HTML, status, assignees, dates, repetition and reminders. Send <code>null</code> for a date or repetition to clear it, and send an empty reminders array to remove reminders.</p><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
-x-aamu-actor: ai
+x-aamu-actor: USER_ID
 Content-Type: application/json
 
 {
-  "title": "Prepare customer summary and next steps",
-  "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;",
   "status": "complete",
-  "users": ["USER_ID_1", "USER_ID_2"],
-  "start_at": 1779872400000,
-  "end_at": 1779876000000,
-  "repeat": "weekly",
-  "reminders": [
-    { "minutes_before": 15 }
-  ]
-}</code></pre><p>Use <code>null</code> to clear <code>start_at</code>, <code>end_at</code>, <code>repeat</code>, or <code>reminders</code>. Use an empty reminder array to remove all reminders.</p><p>Example response:</p><pre><code class="language-plaintext">{
-  "task": {
-    "id": "TASK_ID",
-    "title": "Prepare customer summary and next steps",
-    "html": "&lt;p&gt;Summarize feedback, risks, and next actions.&lt;/p&gt;",
-    "status": "complete",
-    "start_at": 1779872400000,
-    "end_at": 1779876000000,
-    "repeat": "weekly",
-    "reminders": [
-      { "d": 0, "h": 0, "m": 15 }
-    ],
-    "users": ["USER_ID_1", "USER_ID_2"]
-  }
-}</code></pre><h2>Task comments</h2><p>Task comments use the same HTML-oriented content model as tasks. Comments are returned as part of the task response.</p><h3>GET: read a task with comments</h3><pre><code class="language-plaintext">GET /api/v1/tasks/TASK_ID
-x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>Example response:</p><pre><code class="language-plaintext">{
-  "task": {
-    "id": "TASK_ID",
-    "title": "Prepare customer summary",
-    "html": "&lt;p&gt;Summarize the latest feedback.&lt;/p&gt;",
-    "comments": [
-      {
-        "id": "COMMENT_ID",
-        "html": "&lt;p&gt;Draft summary added.&lt;/p&gt;"
-      }
-    ]
-  }
-}</code></pre><h3>POST: add a comment</h3><pre><code class="language-plaintext">POST /api/v1/tasks/TASK_ID/comments
+  "end_at": null,
+  "repeat": null,
+  "reminders": []
+}</code></pre><h3>Task comments</h3><p>Comments are explicit writes and require comment permission. The response returns the updated task and its serialized comments.</p><pre><code class="language-plaintext">POST /api/v1/tasks/TASK_ID/comments
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
+x-aamu-actor: USER_ID
 Content-Type: application/json
 
 {
-  "html": "&lt;p&gt;I reviewed the customer notes and added follow-up actions.&lt;/p&gt;"
-}</code></pre><p>Example response:</p><pre><code class="language-plaintext">{
-  "task": {
-    "id": "TASK_ID",
-    "comments": [
-      {
-        "id": "COMMENT_ID",
-        "html": "&lt;p&gt;I reviewed the customer notes and added follow-up actions.&lt;/p&gt;"
-      }
-    ]
-  }
-}</code></pre><h2>Docs</h2><p>The Docs API creates durable written material directly into Aamu. It is a good fit for AI-generated summaries, runbooks, meeting notes, release notes, customer handoff documents, and internal knowledge articles.</p><h3>GET: list docs</h3><pre><code class="language-plaintext">GET /api/v1/docs/
+  "html": "&lt;p&gt;The import is ready for review.&lt;/p&gt;"
+}</code></pre><p>Task responses include the task owner, project and repo context, status, dates, repetition, reminders, assignees, tags, priority, overdue state, completion time and comments. This makes the same API useful for task queues, lightweight synchronization, follow-up automations and workflows that connect tasks to Docs or database rows.</p><h2>Docs</h2><p>The Docs API creates durable written material directly into Aamu. It is a good fit for AI-generated summaries, runbooks, meeting notes, release notes, customer handoff documents, and internal knowledge articles.</p><h3>GET: list docs</h3><pre><code class="language-plaintext">GET /api/v1/docs/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p>Example response:</p><pre><code class="language-plaintext">{
   "docs": [
@@ -513,17 +426,17 @@ Content-Type: application/json
     "email-address": "ada@example.com",
     "message": "I would like to hear more."
   }
-}</code></pre><p>The response contains the created row id together with the Form, database, and table ids.</p><h2>Newsletters</h2><p>The Newsletters API manages project-scoped newsletters, draft and sent issues, and subscribers. It also keeps test delivery and production delivery as explicit operations. Use the <strong>Newsletters</strong> read or write scope together with <code>x-project-id</code>.</p><p>Each new newsletter has its own Audience Database and Subscribers table. The Database rows are the source of truth for subscription status, while Aamu maintains a derived subscriber collection for delivery. Newsletter creation also provisions managed automations that keep those two representations synchronized.</p><p>Mailbox setup is an administrative UI step: configure a verified email domain, Address, and Sender name before sending. The API handles the publication workflow after that mailbox exists.</p><h3>Create a newsletter</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/
+}</code></pre><p>The response contains the created row id together with the Form, database, and table ids.</p><h2>Newsletters</h2><p>The Newsletters API manages project-scoped newsletters, draft and sent issues, and subscribers. It also keeps test delivery and production delivery as explicit operations. Use the <strong>Newsletters</strong> read or write scope together with <code>x-project-id</code>.</p><p>Mailbox setup is an administrative UI step: configure a verified email domain, Address, and Sender name before sending. The API handles the publication workflow after that mailbox exists.</p><h3>Create a newsletter</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 Content-Type: application/json
 
 {
   "name": "Product updates"
-}</code></pre><p>List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3>Create an optional public signup form</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
+}</code></pre><p>List newsletters with <code>GET /api/v1/newsletters/</code>. Read or update one newsletter with <code>GET</code> or <code>PATCH /api/v1/newsletters/{id}</code>. A newsletter update can change its name, archive or reactivate it, and update the content template or wrapper HTML.</p><h3>Create a public signup workflow</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/signup-form
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
-x-aamu-actor: ai</code></pre><p>This idempotent endpoint creates a published Aamu Form connected to the newsletter's existing Audience Database. The response includes the form, Database and table ids, managed automation, and public form URL. The form is optional: integrations can maintain the same audience through the Newsletter subscribers API or through Database row operations.</p><h3>Create and update an issue</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
+x-aamu-actor: ai</code></pre><p>This idempotent endpoint creates a published Aamu Form, its backing Database table, and a published <code>row_inserted</code> automation with a <code>subscribe_to_newsletter</code> action. The response includes the form, Database and table ids, automation, and public form URL. The Database keeps form-response history while the newsletter subscriber collection remains the delivery source of truth.</p><h3>Create and update an issue</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues
 {
   "subject": "June product update",
   "html": "&lt;p&gt;What changed this month...&lt;/p&gt;"
@@ -543,7 +456,7 @@ PATCH /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID
 PATCH /api/v1/newsletters/NEWSLETTER_ID/subscribers/SUBSCRIBER_ID
 {
   "status": "unsubscribed"
-}</code></pre><p>Use <code>GET /api/v1/newsletters/{id}/subscribers</code> to list the delivery projection. The optional <code>status</code> query filters the result. Creating or updating a subscriber through these endpoints writes the newsletter's Audience Database; managed automations then update the delivery projection. Subscriber updates can change the name, tags, or status between <code>subscribed</code> and <code>unsubscribed</code>. API responses never return the private unsubscribe token.</p><p>You can also maintain the Audience Database directly with Database row operations when the API key has the required Database scope. Rows created through Forms, the Newsletter API, or the Database API all enter the same audience workflow.</p><h3>Test and send explicitly</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID/send-test
+}</code></pre><p>Use <code>GET /api/v1/newsletters/{id}/subscribers</code> to list subscribers. The optional <code>status</code> query filters the result. Subscriber updates can change the name, tags, or status between <code>subscribed</code> and <code>unsubscribed</code>. API responses never return the private unsubscribe token.</p><h3>Test and send explicitly</h3><pre><code class="language-plaintext">POST /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID/send-test
 x-aamu-actor: ai
 
 POST /api/v1/newsletters/NEWSLETTER_ID/issues/ISSUE_ID/send
