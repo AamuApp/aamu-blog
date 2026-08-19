@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2026 05:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 05:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app vs Basecamp: from project collaboration to company context</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/</link>
+      <pubDate>Wed, 19 Aug 2026 05:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/</guid>
+      <description>A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.</description>
+    </item>
     <item>
       <title>Aamu.app vs ClickUp: connected work beyond project management</title>
       <link>https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/</link>
