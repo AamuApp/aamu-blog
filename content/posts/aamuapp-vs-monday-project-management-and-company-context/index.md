@@ -6,10 +6,10 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app vs monday.com: project management with company context"
 date: "2026-08-24T05:00:00.000Z"
-modified: "2026-08-24T18:04:27.450Z"
+modified: "2026-08-24T18:37:49.174Z"
 description: "A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge."
 cover:
-  image: 4527076cad6d4543_monday.jpg
+  image: a31f6efd33ab04ae_monday2.jpg
   relative: true
 
 tags: ["comparisons", "workspace", "tasks", "docs", "ai"]
