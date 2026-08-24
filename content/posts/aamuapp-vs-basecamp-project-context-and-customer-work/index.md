@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app vs Basecamp: from project collaboration to company context"
 date: "2026-08-19T05:00:00.000Z"
-modified: "2026-08-19T19:36:58.948Z"
+modified: "2026-08-24T08:35:45.029Z"
 description: "A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge."
 cover:
   image: d8bbebc410e963ff_Basecamp.png

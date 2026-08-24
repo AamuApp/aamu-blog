@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Aamu.app blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2026 05:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 05:00:00 +0000</lastBuildDate>
     <atom:link href="https://aamu.app/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aamu.app vs monday.com: project management with company context</title>
+      <link>https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/</link>
+      <pubDate>Mon, 24 Aug 2026 05:00:00 +0000</pubDate>
+      <guid>https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/</guid>
+      <description>A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.</description>
+    </item>
     <item>
       <title>Aamu.app vs Basecamp: from project collaboration to company context</title>
       <link>https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/</link>
