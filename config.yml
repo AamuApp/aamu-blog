@@ -46,12 +46,36 @@ languages:
 outputs:
   home:
     - HTML
+    - Markdown
     - RSS
     - JSON
+  page:
+    - HTML
+    - Markdown
+  section:
+    - HTML
+    - Markdown
+  taxonomy:
+    - HTML
+    - Markdown
   # Keep one site-wide RSS feed. Per-tag feeds are not search-result pages and
   # only create "crawled, currently not indexed" noise in Search Console.
   term:
     - HTML
+    - Markdown
+
+mediaTypes:
+  text/markdown:
+    suffixes:
+      - md
+
+outputFormats:
+  Markdown:
+    name: Markdown
+    mediaType: text/markdown
+    isPlainText: true
+    isHTML: false
+    permalinkable: true
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
