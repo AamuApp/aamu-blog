@@ -4,4 +4,5 @@ Disallow:
 {{- else }}
 Disallow: /
 {{- end }}
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Sitemap: {{ "sitemap.xml" | absURL }}
