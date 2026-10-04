@@ -231,7 +231,7 @@ function createPostTemplate(post) {
 		`seriesWeight: ${seriesMetadata.seriesWeight}`,
 	].join('\n') : '';
 	const coverMetadata = coverBySlug.get(post.slug);
-	const coverImage = post.heroImage?.url || coverMetadata?.image || '';
+	const coverImage = post.heroImage?.url || post.heroImage?.localPath || coverMetadata?.image || '';
 	const coverAlt = coverMetadata?.alt ? `  alt: "${coverMetadata.alt}"` : '';
 	const authorSlug = post.author?.name ? post.author.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : '';
 	let faq = [];
@@ -349,6 +349,11 @@ function writeAuthorPage(author) {
 		const extension = author.image.name.includes('.') ? author.image.name.slice(author.image.name.lastIndexOf('.')) : '.jpg';
 		imagePath = `profile${extension}`;
 		writeFileSync(`${folderPath}/${imagePath}`, Buffer.from(author.image.data, 'base64'));
+	} else if (existingImage && existsSync(`${folderPath}/${existingImage}`)) {
+		imagePath = existingImage;
+	}
+	if (author.image?.fid && !imagePath) {
+		throw new Error(`Author ${author.name} has an image unavailable through REST. Restore GraphQL or grant Files read access before publishing.`);
 	}
 	author.image.localPath = imagePath;
 	writeFileSync(authorPagePath, `---\ntitle: ${JSON.stringify(author.name)}\nslug: ${slug}\nauthorName: ${JSON.stringify(author.name)}\nauthorTitle: ${JSON.stringify(author.title || '')}\nauthorBio: ${JSON.stringify(author.longtext || '')}\nauthorImage: ${JSON.stringify(imagePath)}\nauthorSourceUpdatedAt: ${JSON.stringify(sourceUpdatedAt)}\nauthorFetchedAt: ${JSON.stringify(DateTime.now().toISO())}\n---\n`);
@@ -402,6 +407,7 @@ async function sendGraphQLRequest(query) {
 			method: 'POST',
 			headers: getGraphQLHeaders(),
 			body: JSON.stringify(query),
+			signal: AbortSignal.timeout(20000),
 		});
 		const responseBody = await response.text();
 		let data;
@@ -409,11 +415,15 @@ async function sendGraphQLRequest(query) {
 			data = JSON.parse(responseBody);
 		} catch {
 			const contentType = response.headers.get('content-type') || 'unknown content type';
-			throw new Error(`GraphQL endpoint returned HTTP ${response.status} with ${contentType}, not JSON (${API_ENDPOINT})`);
+			const error = new Error(`GraphQL endpoint returned HTTP ${response.status} with ${contentType}, not JSON (${API_ENDPOINT})`);
+			error.retryable = response.status >= 500;
+			throw error;
 		}
 
 		if (!response.ok) {
-			throw new Error(data?.error?.message || `HTTP ${response.status}`);
+			const error = new Error(data?.error?.message || `HTTP ${response.status}`);
+			error.retryable = response.status >= 500;
+			throw error;
 		}
 		if (data?.errors?.length) {
 			throw new Error(data.errors.map(error => error.message).join('; '));
@@ -421,9 +431,91 @@ async function sendGraphQLRequest(query) {
 
 		return data;
 	} catch (error) {
+		if (error.name === 'TimeoutError') error.retryable = true;
 		logError(`GraphQL request failed: ${getErrorMessage(error)}`);
 		throw error;
 	}
+}
+
+async function fetchRestJson(path, headers = getGraphQLHeaders()) {
+	const response = await fetch(`${API_BASE_URL}${path}`, {
+		headers,
+		signal: AbortSignal.timeout(20000),
+	});
+	const data = await response.json();
+	if (!response.ok) throw new Error(data?.error?.message || `REST API returned HTTP ${response.status}: ${path}`);
+	return data;
+}
+
+async function listRestRows(tableId) {
+	const rows = [];
+	let cursor;
+	do {
+		const url = new URL(`${API_BASE_URL}/api/v1/databases/${encodeURIComponent(DB_ID)}/tables/${encodeURIComponent(tableId)}/rows`);
+		url.searchParams.set('limit', '200');
+		if (cursor) url.searchParams.set('cursor', cursor);
+		const data = await fetchRestJson(`${url.pathname}${url.search}`);
+		rows.push(...data.rows);
+		cursor = data.next_cursor;
+	} while (cursor);
+	return rows;
+}
+
+async function getRestSource() {
+	requireApiKey('API_KEY', API_KEY);
+	requireApiKey('AAMU_DB_ID or DB_ID', DB_ID);
+	const { tables } = await fetchRestJson(`/api/v1/databases/${encodeURIComponent(DB_ID)}/tables`);
+	const blogTable = tables.find(table => table.gtype === 'BlogPost');
+	const personTable = tables.find(table => table.gtype === 'Person');
+	if (!blogTable || !personTable) throw new Error('BlogPost or Person table was not found in the blog database.');
+	const [posts, authors, docsData] = await Promise.all([
+		listRestRows(blogTable.id),
+		listRestRows(personTable.id),
+		fetchRestJson('/api/v1/docs/', getAuthHeaders()),
+	]);
+	return { posts, authors, docsById: new Map(docsData.docs.map(doc => [doc.id, doc])) };
+}
+
+function localCoverPath(slug) {
+	const filePath = `${CONTENT_DIR}/${slug}/index.md`;
+	if (!existsSync(filePath)) return '';
+	const content = readFileSync(filePath, 'utf8');
+	const image = content.match(/^cover:\s*\n\s+image:\s*(.+)$/m)?.[1]?.trim().replace(/^['"]|['"]$/g, '') || '';
+	return image && existsSync(`${CONTENT_DIR}/${slug}/${image}`) ? image : '';
+}
+
+function restPostToBuildPost(row, authorsById, docsById) {
+	const author = authorsById.get(row.author);
+	if (!author) throw new Error(`Author ${row.author} was not found for post ${row.slug}.`);
+	const doc = docsById.get(row.doc);
+	if (!doc) throw new Error(`Doc ${row.doc} was not found for post ${row.slug}.`);
+	const cover = localCoverPath(row.slug);
+	if (row.heroImage && !cover) {
+		throw new Error(`Post ${row.slug} has a cover image unavailable through REST. Restore GraphQL or grant Files read access before publishing it.`);
+	}
+	return {
+		...row,
+		updated_at: new Date(Math.max(new Date(row.updated_at).getTime(), doc.updated || 0)).toISOString(),
+		author,
+		heroImage: cover ? { localPath: cover } : null,
+	};
+}
+
+async function fetchPostsRest(source) {
+	source ||= await getRestSource();
+	console.log('Using REST data for blog posts and Doc update times.');
+	const authorsById = new Map(source.authors.map(author => [author.id, author]));
+	const published = source.posts.filter(post => normalizeStatus(post.status) === 'published');
+	publishedPostTitles = new Map(published.map(post => [post.slug, post.title]));
+	const selected = published.filter(post =>
+		new Date(post.updated_at).getTime() > latestTimestamp
+		|| (source.docsById.get(post.doc)?.updated || 0) > latestTimestamp
+		|| !existsSync(`${CONTENT_DIR}/${post.slug}/index.md`)
+	);
+	const newPosts = selected.map(post => restPostToBuildPost(post, authorsById, source.docsById));
+	const draftPosts = source.posts.filter(post => normalizeStatus(post.status) === 'draft');
+	console.log(`Fetched ${newPosts.length} new/updated posts and ${draftPosts.length} drafts through REST.`);
+	return { newPosts, draftPosts, authors: source.authors };
 }
 
 async function getPostDocFields() {
@@ -451,7 +543,7 @@ async function getPostDocFields() {
 }
 
 // Fetches new/updated published posts and draft posts
-async function fetchPosts() {
+async function fetchPostsGraphQL() {
 	console.log('Fetching posts updated/created after', formatTimestamp(latestTimestamp));
 	const docFields = await getPostDocFields();
 	console.log(`Detected BlogPost doc fields: ${docFields.length ? docFields.join(', ') : '(none)'}`);
@@ -513,6 +605,34 @@ async function fetchPosts() {
 	console.log(`Fetched ${draftPosts.length} draft posts.`);
 
 	return { newPosts, draftPosts, authors };
+}
+
+async function fetchPosts() {
+	let graphqlPosts;
+	try {
+		graphqlPosts = await fetchPostsGraphQL();
+	} catch (error) {
+		if (!error.retryable) throw error;
+		console.warn(`GraphQL is unavailable (${error.message}); trying the Aamu REST API.`);
+		return fetchPostsRest();
+	}
+	// A Doc can be edited without changing its BlogPost row timestamp.
+	const source = await getRestSource();
+	const existingSlugs = new Set(graphqlPosts.newPosts.map(post => post.slug));
+	const authorsById = new Map(source.authors.map(author => [author.id, author]));
+	for (const post of graphqlPosts.newPosts) {
+		const row = source.posts.find(row => row.slug === post.slug);
+		const docUpdated = row ? source.docsById.get(row.doc)?.updated || 0 : 0;
+		if (docUpdated > new Date(post.updated_at).getTime()) {
+			post.updated_at = new Date(docUpdated).toISOString();
+		}
+	}
+	for (const row of source.posts) {
+		if (normalizeStatus(row.status) !== 'published' || existingSlugs.has(row.slug)) continue;
+		if ((source.docsById.get(row.doc)?.updated || 0) <= latestTimestamp) continue;
+		graphqlPosts.newPosts.push(restPostToBuildPost(row, authorsById, source.docsById));
+	}
+	return graphqlPosts;
 }
 
 // Deletes a post's folder if it exists
