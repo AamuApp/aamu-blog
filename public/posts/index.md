@@ -88,7 +88,7 @@ CRDTs are a powerful approach to collaboration. They are especially attractive f
 
 ## [Newsletters in Aamu.app: from subscribers to sending](https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/index.md)
 
-Create newsletters with a Database-backed audience, collect subscribers with an optional signup form, design reusable templates, send issues, and automate the workflow through the Aamu API.
+Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API.
 
 
 ## [Ask Aamu for product help with AI](https://aamu.app/blog/posts/ask-aamu-for-product-help-with-ai/index.md)

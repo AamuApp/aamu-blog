@@ -10,7 +10,7 @@ A practical reference for Aamu.app Databases: typed columns, views, filters, for
 
 ## [Newsletters in Aamu.app: from subscribers to sending](https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/index.md)
 
-Create newsletters with a Database-backed audience, collect subscribers with an optional signup form, design reusable templates, send issues, and automate the workflow through the Aamu API.
+Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API.
 
 
 ## [From form submission to follow-up: workflows with Aamu.app](https://aamu.app/blog/posts/from-form-submission-to-follow-up-workflows-with-aamuapp/index.md)
