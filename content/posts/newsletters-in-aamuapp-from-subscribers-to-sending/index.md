@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Newsletters in Aamu.app: from subscribers to sending"
 date: "2026-06-23T00:00:00.000Z"
-modified: "2026-10-14T23:14:05.456Z"
+modified: "2026-10-15T08:42:25.991Z"
 description: "Create newsletters, manage subscribers, design reusable templates, send test messages, publish issues, and automate the workflow through the Aamu API."
 cover:
   image: 2f8a174f63e318e3_newsletters.png

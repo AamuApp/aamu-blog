@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Building with the Aamu API: From Tasks to Docs and GraphQL"
 date: "2026-05-22T07:10:00.000Z"
-modified: "2026-08-16T02:14:55.324Z"
+modified: "2026-10-15T09:15:09.751Z"
 description: "A practical guide to the Aamu API for newsletters, tasks, docs, meetings, files, forms, database automations, GraphQL rows, and activity timelines."
 cover:
   image: afbb9a1096f82be0_aamuapp-api.png
@@ -248,32 +248,54 @@ Content-Type: application/json
 }</code></pre><h3>POST: send a reply draft</h3><p>Sending uses the same email-comment/send path as the UI. The endpoint sends the current draft for the API actor, clears it, and returns the sent comment plus the updated email thread. Use Emails comment permission for this endpoint.</p><pre><code class="language-plaintext">POST /api/v1/emails/EMAIL_ID/reply-draft/send
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
-x-aamu-actor: ai</code></pre><h2>Tasks</h2><p>The Tasks API is project-scoped and supports the complete task workflow: list and filter work, create tasks, update titles, content, status, dates, repetition, reminders and assignees, and add comments. Use a Team API key with Tasks permission and send <code>x-project-id</code> when the key can access more than one project. Use <code>x-aamu-actor</code> when a write or comment should be attributed to a particular project member.</p><h3>GET: list and query tasks</h3><p>The default list contains non-repo tasks that are not drafts, archived or deleted. Completed tasks are included in that default result. Use a view when an integration wants the same practical queues as the Aamu UI: <code>active</code>, <code>overdue</code>, <code>running</code>, <code>starred</code>, <code>complete</code> or <code>archived</code>.</p><pre><code class="language-plaintext">GET /api/v1/tasks/?view=active&amp;assignee_id=USER_ID&amp;sort=end_at&amp;order=asc&amp;limit=50
+x-aamu-actor: ai</code></pre><h2>Tasks</h2><p>The project-scoped Tasks API can list and filter work, create tasks, update task content and scheduling, assign project members, set tags and priority, manage custom fields and todo checklists, connect related tasks, and read or manage comments. Use a Team API key with the appropriate Tasks read, write or comment permission. Send <code>x-project-id</code> when a key can access more than one project, and use <code>x-aamu-actor</code> to attribute a write to a particular project member.</p><h3>GET: list and query tasks</h3><p>The default list contains non-repository tasks that are not drafts, archived or deleted; completed tasks are included. Use <code>view=active</code> for the current work queue. Other views are <code>overdue</code>, <code>running</code>, <code>starred</code>, <code>complete</code> and <code>archived</code>. Use either a shortcut view or an explicit <code>status</code> filter.</p><pre><code class="language-plaintext">GET /api/v1/tasks/?view=active&amp;assignee_id=USER_ID&amp;sort=end_at&amp;order=asc&amp;limit=50
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>List queries also support comma-separated <code>status</code>, <code>tag</code> and <code>assignee_id</code> values; literal text search with <code>q</code> in the title and HTML; and exclusive ISO or millisecond date boundaries:</p><pre><code class="language-plaintext">GET /api/v1/tasks/?q=customer+import&amp;status=active&amp;tag=support
-GET /api/v1/tasks/?due_after=2026-08-16T00:00:00Z&amp;due_before=2026-08-23T00:00:00Z&amp;sort=end_at&amp;order=asc
-GET /api/v1/tasks/?updated_after=2026-08-01T00:00:00Z&amp;sort=updated&amp;order=asc</code></pre><p>Supported sort fields are <code>created</code>, <code>updated</code>, <code>start_at</code>, <code>end_at</code>, <code>completed_at</code> and <code>priority</code>. A response contains <code>has_more</code> and an opaque <code>next_cursor</code> when another page exists. Send that cursor with the same filters, sort and order:</p><pre><code class="language-plaintext">GET /api/v1/tasks/?view=active&amp;sort=updated&amp;order=desc&amp;limit=50&amp;cursor=NEXT_CURSOR
+x-project-id: YOUR_PROJECT_ID</code></pre><p>List queries support comma-separated <code>status</code>, <code>tag</code> and <code>assignee_id</code> values, and literal text search with <code>q</code> in the title and HTML. Date boundaries accept ISO strings or millisecond timestamps and are exclusive: <code>start_after</code>, <code>start_before</code>, <code>due_after</code>, <code>due_before</code>, <code>created_after</code>, <code>created_before</code>, <code>updated_after</code> and <code>updated_before</code>.</p><pre><code class="language-plaintext">GET /api/v1/tasks/?q=customer+import&amp;status=active&amp;tag=support
+GET /api/v1/tasks/?due_after=2026-11-01T00:00:00Z&amp;due_before=2026-11-08T00:00:00Z&amp;sort=end_at&amp;order=asc
+GET /api/v1/tasks/?updated_after=2026-10-01T00:00:00Z&amp;sort=updated&amp;order=asc</code></pre><p>Supported sort fields are <code>created</code>, <code>updated</code>, <code>start_at</code>, <code>end_at</code>, <code>completed_at</code> and <code>priority</code>. Responses include <code>has_more</code> and <code>next_cursor</code>. Continue with the returned opaque cursor and the same filters, sort and order:</p><pre><code class="language-plaintext">GET /api/v1/tasks/?view=active&amp;sort=updated&amp;order=desc&amp;limit=50&amp;cursor=NEXT_CURSOR</code></pre><p>The task cursor is bound to the project, repository scope, sort and order. Store and resend it rather than constructing one.</p><p><strong>Comments in list responses:</strong> task lists return <code>comments: []</code> by default. Add <code>include_comments=true</code> to include embedded comments, or use the paginated comments endpoint below. A single-task GET still includes non-deleted comments.</p><h3>GET: repository tasks and project users</h3><p>Repository tasks use a separate resource path. The project list can also select one repository with <code>repo_id</code>, or include both normal and repository tasks with <code>include_repo_tasks=true</code>.</p><pre><code class="language-plaintext">GET /api/v1/repos/REPO_ID/tasks/?view=overdue&amp;sort=end_at&amp;order=asc
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>The cursor is bound to the project and repo scope, sort and order. It is intentionally opaque; integrations should store and resend it rather than construct one.</p><h3>GET: list repository tasks</h3><p>Repository tasks use a separate path so normal project tasks and Git issue-style work remain easy to distinguish:</p><pre><code class="language-plaintext">GET /api/v1/repos/REPO_ID/tasks/?view=overdue&amp;sort=end_at&amp;order=asc
+x-project-id: YOUR_PROJECT_ID</code></pre><p>Resolve project members through <code>GET /api/v1/users/</code> before assigning work or filling a custom user field. Responses provide stable user ids and safe profile fields. A one-user lookup accepts a username or id at <code>GET /api/v1/users/USER_ID_OR_USERNAME</code>.</p><h3>GET: discover the project task workflow</h3><pre><code class="language-plaintext">GET /api/v1/tasks/metadata
 x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><p>The project task endpoint can also filter one repository with <code>repo_id</code>, or include both normal and repository tasks with <code>include_repo_tasks=true</code>.</p><h3>GET: list project users</h3><p>Resolve project members before assigning a task. The response contains stable user ids and safe profile fields. The older <code>?username=...</code> filter remains available for compatibility.</p><pre><code class="language-plaintext">GET /api/v1/users/
-x-api-key: YOUR_API_KEY
-x-project-id: YOUR_PROJECT_ID</code></pre><h3>POST: create a task</h3><p>A task requires a title and HTML content. Dates accept millisecond timestamps or ISO date strings. Repetition can be <code>daily</code>, <code>weekly</code>, <code>monthly</code> or <code>yearly</code> and requires an end date. Reminder offsets can use <code>minutes_before</code> or the stored day/hour/minute form.</p><pre><code class="language-plaintext">POST /api/v1/tasks/
+x-project-id: YOUR_PROJECT_ID</code></pre><p>This read-scoped endpoint returns a <code>metadata</code> object containing <code>project_id</code>, workflow <code>statuses</code>, <code>lifecycle_statuses</code>, <code>priorities</code> and active <code>custom_fields</code>. Status fields also expose their allowed values. Read these definitions before writing a custom field or choosing a project-specific workflow status.</p><h3>POST: create a task</h3><p>A task requires non-empty <code>title</code> and <code>html</code> strings. Dates accept milliseconds or ISO strings. Repetition can be <code>daily</code>, <code>weekly</code>, <code>monthly</code> or <code>yearly</code> and requires an end date. Reminder offsets are non-negative integers, expressed either as <code>minutes_before</code> or day/hour/minute fields <code>d</code>, <code>h</code> and <code>m</code>.</p><pre><code class="language-plaintext">POST /api/v1/tasks/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 x-aamu-actor: USER_ID
+Idempotency-Key: customer-import-review-001
 Content-Type: application/json
 
 {
   "title": "Review customer import",
   "html": "&lt;p&gt;Check the import logs and report the result.&lt;/p&gt;",
   "status": "active",
-  "start_at": "2026-08-18T09:00:00Z",
-  "end_at": "2026-08-18T10:00:00Z",
-  "users": ["USER_ID"],
-  "reminders": [{ "minutes_before": 30 }],
-  "comments": [{ "html": "&lt;p&gt;Created from the support queue.&lt;/p&gt;" }]
-}</code></pre><h3>PATCH: update a task</h3><p>PATCH accepts any combination of title, HTML, status, assignees, dates, repetition and reminders. Send <code>null</code> for a date or repetition to clear it, and send an empty reminders array to remove reminders.</p><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
+  "priority": 2,
+  "tags": [
+    "customer",
+    "import"
+  ],
+  "start_at": "2026-11-03T09:00:00Z",
+  "end_at": "2026-11-03T10:00:00Z",
+  "users": [
+    "USER_ID"
+  ],
+  "reminders": [
+    {
+      "minutes_before": 30
+    }
+  ],
+  "todos": [
+    {
+      "label": "Check rejected rows"
+    },
+    {
+      "label": "Confirm customer totals"
+    }
+  ],
+  "comments": [
+    {
+      "html": "&lt;p&gt;Created from the support queue.&lt;/p&gt;"
+    }
+  ]
+}</code></pre><p>Priority is <code>0</code> for Low, <code>1</code> for Normal and <code>2</code> for High; creation defaults to Normal. Tags are trimmed and deduplicated. A successful creation returns status 201 and a <code>task</code> object. If a non-essential post-creation operation fails, inspect the response’s <code>warnings</code> rather than assuming the task itself was not created.</p><h3>PATCH: update task properties</h3><p>PATCH accepts any combination of title, HTML, status, assignees, dates, repetition, reminders, tags, priority, custom fields and todos. Omitted properties stay unchanged. A tags array replaces the existing tags, and <code>[]</code> clears them. Send <code>null</code> for a date or repetition to clear it, and an empty reminders array to remove reminders.</p><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 x-aamu-actor: USER_ID
@@ -281,18 +303,70 @@ Content-Type: application/json
 
 {
   "status": "complete",
+  "tags": [
+    "customer",
+    "reviewed"
+  ],
+  "priority": 1,
   "end_at": null,
   "repeat": null,
   "reminders": []
-}</code></pre><h3>Task comments</h3><p>Comments are explicit writes and require comment permission. The response returns the updated task and its serialized comments.</p><pre><code class="language-plaintext">POST /api/v1/tasks/TASK_ID/comments
+}</code></pre><p>Repository task reads and updates use <code>GET</code> and <code>PATCH /api/v1/repos/REPO_ID/tasks/TASK_ID</code>, with the same update fields.</p><h3>Custom fields and todo checklists</h3><p>Use the actual field ids from <code>/api/v1/tasks/metadata</code>. The <code>fields</code> object merges supplied keys into the task’s current values; omitted keys remain, and <code>null</code> removes a value. The following example assumes that the selected project defines a numeric size field and a status field with the value <code>ready</code>:</p><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "fields": {
+    "SIZE_FIELD_ID": 3,
+    "STAGE_FIELD_ID": "ready"
+  },
+  "todos": [
+    {
+      "id": "check-rows",
+      "label": "Check rejected rows",
+      "checked": true
+    },
+    {
+      "label": "Confirm customer totals",
+      "checked": false
+    }
+  ]
+}</code></pre><p>Text and long-text fields take strings. Number fields take JSON numbers; their stored values are returned as decimal strings. Status fields take an allowed status value and are returned as definition objects. Date/time fields take milliseconds or an ISO string. User fields take arrays of project user ids. Location fields take an object with <code>description</code> and optional <code>place_id</code>, <code>tz</code> and numeric <code>lat</code>/<code>lng</code>/<code>lon</code> coordinates. Unknown or deleted field definitions and users outside the project are rejected.</p><p>The <code>todos</code> array replaces the task’s checklist. Each item has a label, an optional boolean <code>checked</code>, and an id. Keep an existing id when replacing the list; omit it for a new item and Aamu generates one. Duplicate ids are rejected, <code>[]</code> clears the list, and a task can have up to 500 items. Both <code>fields</code> and <code>todos</code> are also accepted when creating a task.</p><h3>Connect blocking and duplicate tasks</h3><p>Task responses include a <code>relations</code> object with <code>blocked_by</code>, <code>blocking</code> and <code>duplicate</code> arrays of related task ids within the same project. Add a relation with:</p><pre><code class="language-plaintext">POST /api/v1/tasks/TASK_ID/relations
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+Content-Type: application/json
+
+{
+  "type": "blocked_by",
+  "task_id": "OTHER_TASK_ID"
+}</code></pre><p>Aamu also updates the inverse relationship: a task that is blocked by another appears in that other task’s <code>blocking</code> list. Duplicate relationships are symmetric. Repeating an add does not duplicate the relationship. Remove one with:</p><pre><code class="language-plaintext">DELETE /api/v1/tasks/TASK_ID/relations/blocked_by/OTHER_TASK_ID</code></pre><p>Relation writes require Tasks write permission. The two tasks must be different, non-deleted tasks in the selected project. Repository tasks use the same suffixes under <code>/api/v1/repos/REPO_ID/tasks/TASK_ID</code>; the related task can be any non-deleted task in that project.</p><h3>Read, add, edit and delete comments</h3><p>Read comments with Tasks read permission. The endpoint returns non-deleted comments ordered by creation time and id, together with <code>limit</code>, <code>has_more</code> and <code>next_cursor</code>. The default page size is 50 and the maximum is 200; a cursor is bound to its task and project.</p><pre><code class="language-plaintext">GET /api/v1/tasks/TASK_ID/comments?limit=50
+GET /api/v1/tasks/TASK_ID/comments?limit=50&amp;cursor=NEXT_CURSOR</code></pre><p>Adding a comment requires comment permission and returns the updated task. Use a fresh idempotency key for a new comment and reuse that same key only when retrying the identical request:</p><pre><code class="language-plaintext">POST /api/v1/tasks/TASK_ID/comments
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID
 x-aamu-actor: USER_ID
+Idempotency-Key: customer-import-comment-001
 Content-Type: application/json
 
 {
   "html": "&lt;p&gt;The import is ready for review.&lt;/p&gt;"
-}</code></pre><p>Task responses include the task owner, project and repo context, status, dates, repetition, reminders, assignees, tags, priority, overdue state, completion time and comments. This makes the same API useful for task queues, lightweight synchronization, follow-up automations and workflows that connect tasks to Docs or database rows.</p><h2>Docs</h2><p>The Docs API creates durable written material directly into Aamu. It is a good fit for AI-generated summaries, runbooks, meeting notes, release notes, customer handoff documents, and internal knowledge articles.</p><h3>GET: list docs</h3><pre><code class="language-plaintext">GET /api/v1/docs/
+}</code></pre><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID/comments/COMMENT_ID
+Content-Type: application/json
+
+{
+  "html": "&lt;p&gt;The reviewed import is ready.&lt;/p&gt;"
+}
+
+DELETE /api/v1/tasks/TASK_ID/comments/COMMENT_ID</code></pre><p>Editing or deleting a comment requires comment access; changing another author’s comment additionally requires Tasks write permission. System comments cannot be changed. Deletion is soft, and deleted comments disappear from normal reads. These routes are also available for repository tasks below <code>/api/v1/repos/REPO_ID/tasks/TASK_ID/comments</code>.</p><h3>Retry mutations with Idempotency-Key</h3><p>All task, relation and comment mutations accept <code>Idempotency-Key</code>, a non-empty string of up to 200 characters. Aamu records the request and its response durably. Retrying the same request with the same key replays the original HTTP status, body and ETag for at least 24 hours, with <code>Idempotency-Replayed: true</code>. This makes a timeout recoverable without creating another task or comment.</p><p>Keys are scoped to the API key, project, method, route and path parameters. The body, actor and <code>If-Match</code> header must agree on retries. Reusing a key with different input returns 409 <code>IDEMPOTENCY_KEY_REUSED</code>. A request that is still processing, or whose outcome is not confirmed, returns 409 <code>IDEMPOTENCY_IN_PROGRESS</code> instead of running again. An interrupted request can remain in that state until its retention period expires. Completed error responses are replayed too; a deliberately revised request needs a new key.</p><h3>Protect changes with ETag and If-Match</h3><p>Read a single task with <code>GET /api/v1/tasks/TASK_ID</code> and retain its <code>ETag</code> response header. Send that exact value, including its quotation marks, in <code>If-Match</code> when updating the task, its comments or its relations:</p><pre><code class="language-plaintext">PATCH /api/v1/tasks/TASK_ID
+x-api-key: YOUR_API_KEY
+x-project-id: YOUR_PROJECT_ID
+If-Match: "ETAG_FROM_TASK_GET"
+Idempotency-Key: customer-import-update-001
+Content-Type: application/json
+
+{
+  "priority": 2
+}</code></pre><p>A stale ETag returns 412. Aamu checks for intervening changes again at the actual task write, so a concurrent user edit is preserved. Without an explicit precondition, an intervening change returns 409. Read the task again and reconcile the change before submitting a revised request. An idempotent retry is replayed before the old <code>If-Match</code> is evaluated, so retry the original request with its original headers.</p><h3>Validate inputs and handle partial failures</h3><p>Unknown fields, invalid types and empty PATCH requests return 400. Use JSON numbers for priority and numeric custom fields, booleans for checklist state, and a workflow status allowed by the selected project. A failed storage operation returns an error instead of a success response.</p><p>Multi-step changes are not rolled back automatically. When a failure occurs after some writes have committed, inspect <code>error.details.partial</code>, <code>committed_paths</code>, <code>related_commits</code> and the current <code>task</code> in the error details. If a task was created before a later creation failure, its details are returned for reconciliation. A 503 <code>TASK_RESULT_UNCONFIRMED</code> means the final result could not be confirmed; read the current state before deciding what to retry.</p><p>Task responses provide project and repository context, ownership, scheduling, assignees, tags, priority, custom fields, checklists, relations and completion state. Combined with explicit retries and conflict handling, these operations support task queues, synchronization and workflows connected to Docs or database rows. Consult the host’s <code>/.well-known/openapi.json</code> for the complete operation and error schemas.</p><h2>Docs</h2><p>The Docs API creates durable written material directly into Aamu. It is a good fit for AI-generated summaries, runbooks, meeting notes, release notes, customer handoff documents, and internal knowledge articles.</p><h3>GET: list docs</h3><pre><code class="language-plaintext">GET /api/v1/docs/
 x-api-key: YOUR_API_KEY
 x-project-id: YOUR_PROJECT_ID</code></pre><p>Example response:</p><pre><code class="language-plaintext">{
   "docs": [
