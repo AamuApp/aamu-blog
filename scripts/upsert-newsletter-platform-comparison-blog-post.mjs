@@ -1,0 +1,167 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import dotenv from 'dotenv';
+import { parse } from 'node-html-parser';
+
+const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+dotenv.config({ path: path.join(repo, '.envrc'), quiet: true });
+
+const title = 'Aamu Newsletters vs Mailchimp, Brevo and beehiiv: which workflow fits?';
+const slug = 'aamu-newsletters-vs-mailchimp-brevo-beehiiv';
+
+const html = String.raw`<p>A product update, an automated sales campaign and a paid editorial newsletter place different demands on the software sending them. Here we compare Aamu Newsletters with Mailchimp, Brevo and beehiiv through those workflows.</p>
+<p>This assessment comes from Aamu's product perspective. It uses Aamu's current implementation and the vendors' own documentation, checked on 15 October 2026. Plan availability and pricing can change.</p>
+
+<h2>Where each service fits</h2>
+<table>
+<thead><tr><th>Service</th><th>Strong reason to consider it</th><th>Main question before choosing</th></tr></thead>
+<tbody>
+<tr><td>Aamu Newsletters</td><td>Customer or community updates with an audience maintained in Aamu Databases, alongside project work.</td><td>Can the campaign tolerate delivery over growing batches, potentially across several days?</td></tr>
+<tr><td>Mailchimp</td><td>Marketing campaigns with segmentation, automation and experiments.</td><td>Which plan includes the testing and automation your campaign needs?</td></tr>
+<tr><td>Brevo</td><td>Email marketing combined with transactional messages and other communication channels.</td><td>What email volume, contact capacity and channels does the selected plan cover?</td></tr>
+<tr><td>beehiiv</td><td>A publication built around readership growth, paid subscriptions or advertising.</td><td>Which publishing and monetization features are available for your publication and plan?</td></tr>
+</tbody>
+</table>
+<p>The sections below explain these choices and link to the supporting product documentation.</p>
+
+<h2>Aamu: an audience connected to the team's work</h2>
+<p>Creating an Aamu Newsletter creates an Audience Database and a Subscribers table. Contacts can enter through manual entry, CSV import, an optional signup Form, the API or Database updates. Managed subscription automations keep the delivery list in step with that audience.</p>
+<p>That is useful when the same team already maintains customer information and prepares updates in Aamu. For example, a small software company can select recipients by tags and Database fields, then prepare a release newsletter alongside the Tasks and Docs that explain the changes. Subscription eligibility still applies: a customer record alone does not make an address eligible to receive the campaign.</p>
+<p>The writing workflow includes reusable templates, an HTML wrapper, preview text, personalization with fallback values, test sending and a pre-send review. You can schedule an issue and publish a separate public archive copy. The archive is a snapshot; publishing it and sending the email are separate actions.</p>
+<p>Reports show campaign progress, sending failures, delivery feedback, clicks and unsubscribes. They distinguish SMTP acceptance from later delivery problems. A server accepting a message is not proof that it reached the inbox, and automated link scanners can affect click counts. The <a href="https://aamu.app/blog/posts/newsletters-in-aamuapp-from-subscribers-to-sending/">Newsletters feature guide</a> explains the workflow in detail.</p>
+
+<h3>The delivery constraint matters</h3>
+<p>Aamu currently requires automatically growing sending batches. The defaults are 50 recipients in the first batch, a 24-hour wait between batches and a growth factor of two. Initial batches can be smaller, waits longer and growth slower. Sender-domain warmup is shared across campaigns, and delivery problems can pause progress.</p>
+<p>A list larger than the early batches can therefore take several days to complete. Scheduling an issue chooses when sending begins. It does not promise that everyone receives it at that time.</p>
+<p>This can suit a product digest with a flexible delivery window. It is a substantial limitation for a same-day promotion or a time-sensitive announcement to a large list. Before choosing any service for that job, verify its sending limits and expected throughput with your actual audience size.</p>
+
+<h2>Mailchimp: campaign testing and marketing automation</h2>
+<p>Mailchimp offers segmentation, marketing automation flows and campaign testing. Its <a href="https://mailchimp.com/help/about-ab-tests/">A/B testing</a> can compare subject lines, sender names, content or send times. Depending on the experiment, a winning version can be selected automatically or manually. Feature access depends on the plan.</p>
+<p>We would put Mailchimp ahead of Aamu when the central task is improving campaign performance through repeatable experiments and marketing workflows. Aamu can segment an issue and report clicks, but its current Newsletters feature has no native A/B test workflow or visual builder for a sequence of lifecycle messages.</p>
+<p>Mailchimp also has integrations with commerce and other business systems. Keeping data in Aamu is therefore a workflow preference rather than a capability unique to Aamu. Compare the connections you need using Mailchimp's <a href="https://mailchimp.com/features/">feature overview</a>.</p>
+
+<h2>Brevo: marketing and transactional communication</h2>
+<p>Brevo combines marketing campaigns, automation, CRM and channels including email, SMS and WhatsApp. It also provides transactional sending through SMTP and APIs. Its documentation distinguishes promotional campaigns from informational transactional messages. See the <a href="https://help.brevo.com/hc/en-us/articles/33456241984914-Overview-of-the-Brevo-platform">platform overview</a> and <a href="https://help.brevo.com/hc/en-us/articles/360021196220-What-are-the-differences-between-marketing-transactional-and-automation-emails">message types</a>.</p>
+<p>Brevo deserves a closer look when one communication platform must cover newsletters, lifecycle messages and application-generated email such as receipts. Aamu's Newsletter queue is designed for reviewed campaigns; urgent transactional delivery is a different requirement.</p>
+<p>Brevo already connects customer records and communication through its CRM, so Aamu's appeal here is using the Databases and project tools your team already works with. Assess the complete workflow rather than assuming Brevo requires a separate CRM.</p>
+
+<h2>beehiiv: building a publication business</h2>
+<p>beehiiv offers <a href="https://www.beehiiv.com/features/monetization">paid subscriptions, paywalls and advertising tools</a>. Its <a href="https://www.beehiiv.com/support/article/43027088988311-how-free-recommendations-work">recommendation network and subscriber referral program</a> provide different ways to acquire readers: recommendations connect publications, while referrals reward existing subscribers for bringing in others.</p>
+<p>Those are compelling reasons to choose beehiiv when the newsletter itself is the product. Aamu's public issue archive is useful for sharing company updates, but the current Newsletters feature has no built-in paid subscription checkout, paywall, advertising network or reader referral program.</p>
+<p>If revenue comes from subscriptions and sponsorships, we would evaluate beehiiv first. Aamu is a closer fit when the publication supports the company's existing customer or community work.</p>
+
+<h2>Compare the cost of the same workload</h2>
+<p>Start with your audience size, issues per month, total deliveries, required features and number of editors. Then check these pricing models:</p>
+<ul>
+<li><p><a href="https://aamu.app/">Aamu</a> currently lists a $1 monthly minimum plus resource usage, with newsletter deliveries priced at $0.50 per 1,000. Storage and any separate mail-provider costs also belong in the budget.</p></li>
+<li><p><a href="https://mailchimp.com/pricing/marketing/">Mailchimp</a> varies by plan and contact count, with send limits and potential overages. Include the tier needed for your experiments and automations.</p></li>
+<li><p><a href="https://help.brevo.com/hc/en-us/articles/208589409-About-Brevo-s-pricing-plans">Brevo</a> lets you select email volume; that tier also sets contact-storage limits. Check channel charges and add-ons as well.</p></li>
+<li><p><a href="https://www.beehiiv.com/pricing">beehiiv</a> has plan-specific subscriber and team limits. Its pricing page currently lists unlimited email sends, while advanced features vary by plan.</p></li>
+</ul>
+<p>A low sending charge cannot compensate for missing a campaign deadline. Equally, a sophisticated marketing suite may add little value to a team sending occasional updates from an audience it already maintains in Aamu.</p>
+
+<h2>What we would improve in Aamu next</h2>
+<p>The largest gap is control over the delivery window. An established sender needs a clearer way to plan completion for a healthy audience while preserving rate limits and delivery checks. Built-in subject-line A/B testing and multi-step welcome or onboarding sequences would address the next set of marketing needs.</p>
+<p>Paid subscriptions and publisher growth networks would serve a different audience. For Aamu's existing small-team use case, delivery planning and campaign experiments would be more useful first investments. Until then, choose Aamu for updates that benefit from its shared audience data and can tolerate its sending schedule; choose a specialist when the missing workflow is central to your publication.</p>`;
+
+const post = {
+  title,
+  slug,
+  description: 'Compare Aamu Newsletters with Mailchimp, Brevo and beehiiv: audience data, delivery timing, marketing automation, publishing revenue and pricing models.',
+  directAnswer: 'Aamu Newsletters suits team updates built from an Aamu Database audience, provided delivery can span growing batches. Mailchimp is a stronger starting point for campaign experiments, Brevo for multichannel and transactional communication, and beehiiv for a publication earning from subscriptions or advertising.',
+  contentType: 'comparison',
+  audience: 'small and growing teams evaluating productivity software',
+  faq: JSON.stringify([
+    { question: 'Can Aamu send a large newsletter to everyone at the scheduled time?', answer: 'Aamu schedules the start of sending. Campaigns use growing batches with waits between them, so a larger audience can take several days to complete.' },
+    { question: 'Does Aamu Newsletters include A/B testing or paid subscriptions?', answer: 'The current Newsletters feature has no native A/B test workflow, paid subscription checkout or paywall. Mailchimp offers campaign testing, while beehiiv offers publication monetization tools, subject to plan availability.' }
+  ]),
+  relatedPosts: JSON.stringify([
+    'newsletters-in-aamuapp-from-subscribers-to-sending',
+    'building-with-the-aamu-api-from-tasks-to-docs-and-graphql',
+    'aamuapp-databases-practical-feature-guide'
+  ]),
+  publishDate: '2026-10-15T00:00:00.000Z',
+  author: '29940627-51e8-4fd0-82ab-d718ddfe802f',
+  status: 'published',
+  tags: ['newsletters', 'comparisons', 'email', 'marketing']
+};
+
+function validate() {
+  const dom = parse(html);
+  if (!dom.querySelector('table') || dom.querySelectorAll('tbody tr').length !== 4) throw new Error('Expected four comparison rows.');
+  if (dom.querySelector('h1') || /<h[23]>Frequently asked questions/i.test(html)) throw new Error('Title and FAQs belong in metadata.');
+  for (const field of ['faq', 'relatedPosts']) if (!Array.isArray(JSON.parse(post[field]))) throw new Error(`Invalid ${field}.`);
+  for (const anchor of dom.querySelectorAll('a')) if (!anchor.getAttribute('href')?.startsWith('https://')) throw new Error('Expected an absolute source link.');
+  return { title, slug, words: dom.textContent.trim().split(/\s+/).length, sourceLinks: dom.querySelectorAll('a').length };
+}
+
+function normalizeArticle(value) {
+  const dom = parse(value);
+  // TipTap adds table layout markup and paragraph wrappers around cell text.
+  for (const group of dom.querySelectorAll('colgroup')) group.remove();
+  for (const table of dom.querySelectorAll('table')) table.removeAttribute('style');
+  for (const cell of dom.querySelectorAll('th,td')) {
+    for (const attribute of ['colspan', 'rowspan']) if (cell.getAttribute(attribute) === '1') cell.removeAttribute(attribute);
+    const children = cell.childNodes.filter(node => node.toString().trim());
+    if (children.length === 1 && children[0].tagName === 'P') cell.set_content(children[0].innerHTML);
+  }
+  return dom.toString().replace(/<\/?(?:thead|tbody)>/g, '').replace(/\s(?:target="_blank"|rel="noopener noreferrer nofollow")/g, '').replace(/>\s+</g, '><').trim();
+}
+
+async function publishSource() {
+  const key = process.env.API_KEY;
+  const docKey = process.env.DOCS_API_KEY || key;
+  const dbId = process.env.AAMU_DB_ID || process.env.DB_ID;
+  const project = process.env.AAMU_PROJECT_ID || process.env.PROJECT_ID || 'a257707a-ba42-4bec-a927-b80e9df05cf5';
+  const base = (process.env.AAMU_API_BASE_URL || 'https://ilkkah.aamu.app').replace(/\/$/, '');
+  const gql = process.env.GRAPHQL_ENDPOINT || 'https://api.aamu.app/api/v1/graphql/';
+  if (!key || !docKey || !dbId) throw new Error('Blog API credentials or Database id missing.');
+  const headers = { 'content-type': 'application/json', 'x-api-key': docKey, 'x-project-id': project };
+  async function json(url, options) {
+    const res = await fetch(url, options);
+    const data = await res.json();
+    if (!res.ok || data.errors) throw new Error(`API request failed (${res.status}): ${data.errors?.map(e => e.message).join('; ') || data.error?.message || 'request rejected'}`);
+    return data;
+  }
+  const gqlHeaders = { 'content-type': 'application/json', 'x-api-key': key, 'x-db-id': dbId };
+  const graph = (query, variables) => json(gql, { method: 'POST', headers: gqlHeaders, body: JSON.stringify({ query, variables }) }).then(r => r.data);
+  const collection = (await graph('{ BlogPostCollection { id title slug status doc } }')).BlogPostCollection;
+  const existing = collection.find(p => p.slug === slug);
+  for (const related of JSON.parse(post.relatedPosts)) if (!collection.some(p => p.slug === related && p.status === 'published')) throw new Error(`Related post missing: ${related}`);
+
+  const stateDir = path.join(process.env.XDG_STATE_HOME || path.join(process.env.HOME, '.local/state'), 'aamu-blog-newsletter-comparison');
+  await fs.mkdir(stateDir, { recursive: true });
+  const stateFile = path.join(stateDir, `${slug}.json`);
+  let state;
+  try { state = JSON.parse(await fs.readFile(stateFile, 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  if (existing && (existing.id !== state?.blogPost?.id || existing.doc !== state?.docId)) throw new Error('Post already exists; review it before updating.');
+  let docId = state?.docId;
+  if (!docId) {
+    const created = await json(`${base}/api/v1/docs/`, { method: 'POST', headers, body: JSON.stringify({ title, html }) });
+    docId = (created.doc || created).id;
+    if (!docId) throw new Error('Doc create response missing id.');
+    state = { docId, post, html };
+    await fs.writeFile(stateFile, JSON.stringify(state, null, 2));
+  }
+  const readback = await json(`${base}/api/v1/docs/${encodeURIComponent(docId)}`, { headers });
+  const doc = readback.doc || readback;
+  if (doc.title !== title || normalizeArticle(doc.html) !== normalizeArticle(html)) throw new Error('Doc readback differs from article.');
+  const result = existing ? { BlogPost: existing } : await graph(`mutation CreateNewsletterComparison($title: String, $slug: String, $description: String, $directAnswer: String, $contentType: String, $audience: String, $faq: String, $relatedPosts: String, $publishDate: DateTime, $author: String, $status: String, $tags: [String], $doc: String) {
+    BlogPost(title: $title, slug: $slug, description: $description, directAnswer: $directAnswer, contentType: $contentType, audience: $audience, faq: $faq, relatedPosts: $relatedPosts, publishDate: $publishDate, author: $author, status: $status, tags: $tags, doc: $doc) { id title slug status doc }
+  }`, { ...post, doc: docId });
+  state.blogPost = result.BlogPost;
+  await fs.writeFile(stateFile, JSON.stringify(state, null, 2));
+  const verified = (await graph('{ BlogPostCollection { id title slug description directAnswer contentType audience faq relatedPosts publishDate author { id } status tags doc } }')).BlogPostCollection.find(p => p.id === result.BlogPost.id);
+  if (!verified || verified.doc !== docId) throw new Error('BlogPost readback missing.');
+  for (const field of ['title', 'slug', 'description', 'directAnswer', 'contentType', 'audience', 'status']) if (verified[field] !== post[field]) throw new Error(`BlogPost mismatch: ${field}`);
+  if (verified.author?.id !== post.author) throw new Error('BlogPost author mismatch.');
+  for (const field of ['faq', 'relatedPosts']) if (JSON.stringify(JSON.parse(verified[field])) !== JSON.stringify(JSON.parse(post[field]))) throw new Error(`BlogPost mismatch: ${field}`);
+  if (JSON.stringify([...verified.tags].sort()) !== JSON.stringify([...post.tags].sort())) throw new Error('BlogPost tags mismatch.');
+  if (new Date(verified.publishDate).getTime() !== new Date(post.publishDate).getTime()) throw new Error('BlogPost publication date mismatch.');
+  await fs.writeFile(stateFile, JSON.stringify({ ...state, verified: true }, null, 2));
+  return { docId, blogPostId: verified.id, slug, verified: true };
+}
+
+console.log(JSON.stringify(validate(), null, 2));
+if (process.argv.includes('--apply')) console.log(JSON.stringify(await publishSource(), null, 2));

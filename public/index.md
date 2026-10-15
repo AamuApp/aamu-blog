@@ -3,6 +3,11 @@
 Stop switching between disconnected apps. All of your favorite productivity tools in one workspace — finally unified.
 
 
+## [Aamu Newsletters vs Mailchimp, Brevo and beehiiv: which workflow fits?](https://aamu.app/blog/posts/aamu-newsletters-vs-mailchimp-brevo-beehiiv/index.md)
+
+Compare Aamu Newsletters with Mailchimp, Brevo and beehiiv: audience data, delivery timing, marketing automation, publishing revenue and pricing models.
+
+
 ## [Aamu.app vs monday.com: project management with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
 
 A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.

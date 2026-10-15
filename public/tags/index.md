@@ -3,12 +3,27 @@
 
 
 
-## [Ai](https://aamu.app/blog/tags/ai/index.md)
-
-
-
-
 ## [Comparisons](https://aamu.app/blog/tags/comparisons/index.md)
+
+
+
+
+## [Email](https://aamu.app/blog/tags/email/index.md)
+
+
+
+
+## [Marketing](https://aamu.app/blog/tags/marketing/index.md)
+
+
+
+
+## [Newsletters](https://aamu.app/blog/tags/newsletters/index.md)
+
+
+
+
+## [Ai](https://aamu.app/blog/tags/ai/index.md)
 
 
 
@@ -79,11 +94,6 @@ Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, groun
 
 
 ## [Electronic-Signatures](https://aamu.app/blog/tags/electronic-signatures/index.md)
-
-
-
-
-## [Email](https://aamu.app/blog/tags/email/index.md)
 
 
 
@@ -214,11 +224,6 @@ Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, groun
 
 
 ## [Tech](https://aamu.app/blog/tags/tech/index.md)
-
-
-
-
-## [Newsletters](https://aamu.app/blog/tags/newsletters/index.md)
 
 
 
