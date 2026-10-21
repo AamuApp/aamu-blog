@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: a Confluence alternative connecting docs to everyday work"
 date: "2026-07-25T09:00:00.000Z"
-modified: "2026-10-15T09:53:40.662Z"
+modified: "2026-10-21T18:06:56.065Z"
 description: "A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work."
 cover:
   image: 895c0fd70f25b78d_Aamu.app vs Confluence.png
