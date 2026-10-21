@@ -1,4 +1,4 @@
-# Aamu.app vs Confluence: documentation that can leave the shelfA practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.Published: 2026-07-25
+# Aamu.app: a Confluence alternative connecting docs to everyday workA practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.Published: 2026-07-25
 
 
 <p><strong>Short answer:</strong> Aamu.app is a Confluence alternative for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work in one workspace.</p>

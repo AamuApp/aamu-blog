@@ -3,7 +3,7 @@
 
 
 
-## [Aamu.app vs Confluence: documentation that can leave the shelf](https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/index.md)
+## [Aamu.app: a Confluence alternative connecting docs to everyday work](https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/index.md)
 
 A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.
 

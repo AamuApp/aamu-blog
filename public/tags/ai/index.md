@@ -3,17 +3,17 @@
 
 
 
-## [Aamu.app vs monday.com: project management with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
+## [Aamu.app: a monday.com alternative for project work with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
 
 A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app vs ClickUp: connected work beyond project management](https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/index.md)
+## [Aamu.app: a ClickUp alternative for connected work beyond projects](https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/index.md)
 
 A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.
 
 
-## [Aamu.app vs Confluence: documentation that can leave the shelf](https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/index.md)
+## [Aamu.app: a Confluence alternative connecting docs to everyday work](https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/index.md)
 
 A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.
 
@@ -43,7 +43,7 @@ How Aamu.app AI routes natural-language requests to workspace operations across 
 How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing.
 
 
-## [Aamu.app vs Linear Triage: customer conversations, Helpdesk Knowledge Base, and human-reviewed AI support](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
+## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
 
 A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.
 

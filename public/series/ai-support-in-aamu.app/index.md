@@ -8,7 +8,7 @@
 How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing.
 
 
-## [Aamu.app vs Linear Triage: customer conversations, Helpdesk Knowledge Base, and human-reviewed AI support](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
+## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
 
 A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.
 

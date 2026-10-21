@@ -1,4 +1,4 @@
-# Aamu.app vs Asana: tasks are better when they remember why they existA practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.Published: 2026-07-23
+# Aamu.app: an Asana alternative for tasks with shared contextA practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.Published: 2026-07-23
 
 
 <p><strong>Short answer:</strong> A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.</p>

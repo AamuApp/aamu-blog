@@ -1,4 +1,4 @@
-# Aamu.app vs Intercom: support should not need a passport to reach productA practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.Published: 2026-07-24
+# Aamu.app: an Intercom alternative connecting support and product workA practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.Published: 2026-07-24
 
 
 <p><strong>Short answer:</strong> Aamu.app is an Intercom alternative for teams that want customer conversations, support knowledge, and internal follow-up in one connected workspace.</p>

@@ -3,12 +3,12 @@
 Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, grounded reply drafts, and connected support workflows.
 
 
-## [Aamu.app vs Basecamp: from project collaboration to company context](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
+## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
 
 A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app vs Intercom: support should not need a passport to reach product](https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/index.md)
+## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/index.md)
 
 A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
 
@@ -18,7 +18,7 @@ A practical comparison of Aamu.app and Intercom for teams that want customer con
 How to write support policies, product answers, escalation rules, and examples so AI can retrieve useful context instead of guessing.
 
 
-## [Aamu.app vs Linear Triage: customer conversations, Helpdesk Knowledge Base, and human-reviewed AI support](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
+## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
 
 A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.
 

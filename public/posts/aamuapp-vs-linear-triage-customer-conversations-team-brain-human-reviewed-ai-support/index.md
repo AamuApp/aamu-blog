@@ -1,4 +1,4 @@
-# Aamu.app vs Linear Triage: customer conversations, Helpdesk Knowledge Base, and human-reviewed AI supportA practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.Published: 2026-06-05
+# Aamu.app: a Linear Triage alternative for customer support and human-reviewed AIA practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.Published: 2026-06-05
 
 
 <p><strong>Short answer:</strong> A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.</p>

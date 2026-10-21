@@ -1,4 +1,4 @@
-# Aamu.app vs Basecamp: from project collaboration to company contextA practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.Published: 2026-08-19
+# Aamu.app: a Basecamp alternative for connected project and customer workA practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.Published: 2026-08-19
 
 
 <p><strong>Short answer:</strong> Aamu.app is a Basecamp alternative for teams that want the calm, project-based organization of a shared workspace together with Helpdesk, email, meetings, databases, and permission-aware company knowledge.</p>

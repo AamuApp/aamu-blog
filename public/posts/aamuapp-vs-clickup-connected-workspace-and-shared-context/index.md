@@ -1,4 +1,4 @@
-# Aamu.app vs ClickUp: connected work beyond project managementA practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.Published: 2026-08-16
+# Aamu.app: a ClickUp alternative for connected work beyond projectsA practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.Published: 2026-08-16
 
 
 <p><strong>Short answer:</strong> Aamu.app is a ClickUp alternative for teams that want project work connected to customer conversations, email, meetings, databases, and permission-aware shared knowledge in one workspace.</p>

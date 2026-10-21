@@ -3,17 +3,17 @@
 
 
 
-## [Aamu.app vs monday.com: project management with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
+## [Aamu.app: a monday.com alternative for project work with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
 
 A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app vs Basecamp: from project collaboration to company context](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
+## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
 
 A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app vs ClickUp: connected work beyond project management](https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/index.md)
+## [Aamu.app: a ClickUp alternative for connected work beyond projects](https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/index.md)
 
 A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.
 
