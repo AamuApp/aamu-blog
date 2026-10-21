@@ -3,6 +3,11 @@
 
 
 
+## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-zoho-workplace-alternative/index.md)
+
+Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
+
+
 ## [Aamu.app: a monday.com alternative for project work with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
 
 A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.

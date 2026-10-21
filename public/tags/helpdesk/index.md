@@ -3,6 +3,11 @@
 Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, grounded reply drafts, and connected support workflows.
 
 
+## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-zoho-workplace-alternative/index.md)
+
+Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
+
+
 ## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
 
 A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.

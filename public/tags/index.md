@@ -3,7 +3,32 @@
 
 
 
+## [Aamu.app Helpdesk](https://aamu.app/blog/tags/helpdesk/index.md)
+
+Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, grounded reply drafts, and connected support workflows.
+
+
+## [Ai](https://aamu.app/blog/tags/ai/index.md)
+
+
+
+
 ## [Comparisons](https://aamu.app/blog/tags/comparisons/index.md)
+
+
+
+
+## [Database](https://aamu.app/blog/tags/database/index.md)
+
+
+
+
+## [Docs](https://aamu.app/blog/tags/docs/index.md)
+
+
+
+
+## [Workspace](https://aamu.app/blog/tags/workspace/index.md)
 
 
 
@@ -23,29 +48,9 @@
 
 
 
-## [Ai](https://aamu.app/blog/tags/ai/index.md)
-
-
-
-
-## [Docs](https://aamu.app/blog/tags/docs/index.md)
-
-
-
-
 ## [Tasks](https://aamu.app/blog/tags/tasks/index.md)
 
 
-
-
-## [Workspace](https://aamu.app/blog/tags/workspace/index.md)
-
-
-
-
-## [Aamu.app Helpdesk](https://aamu.app/blog/tags/helpdesk/index.md)
-
-Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, grounded reply drafts, and connected support workflows.
 
 
 ## [Calendar](https://aamu.app/blog/tags/calendar/index.md)
@@ -169,11 +174,6 @@ Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, groun
 
 
 ## [Automations](https://aamu.app/blog/tags/automations/index.md)
-
-
-
-
-## [Database](https://aamu.app/blog/tags/database/index.md)
 
 
 

@@ -3,6 +3,11 @@
 Stop switching between disconnected apps. All of your favorite productivity tools in one workspace — finally unified.
 
 
+## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-zoho-workplace-alternative/index.md)
+
+Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
+
+
 ## [Aamu Newsletters: an alternative to Mailchimp, Brevo and beehiiv](https://aamu.app/blog/posts/aamu-newsletters-vs-mailchimp-brevo-beehiiv/index.md)
 
 Compare Aamu Newsletters with Mailchimp, Brevo and beehiiv: audience data, delivery timing, marketing automation, publishing revenue and pricing models.

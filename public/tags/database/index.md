@@ -3,6 +3,11 @@
 
 
 
+## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-zoho-workplace-alternative/index.md)
+
+Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
+
+
 ## [Aamu.app Databases: a practical feature guide](https://aamu.app/blog/posts/aamuapp-databases-practical-feature-guide/index.md)
 
 A practical reference for Aamu.app Databases: typed columns, views, filters, formulas and functions, relations, history, bulk editing, backups, automations, and APIs.
