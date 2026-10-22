@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app as an AI workspace alternative to Notion AI, Slack AI, Jira, and Zendesk"
 date: "2026-06-03T10:59:23.000Z"
-modified: "2026-10-21T18:57:21.970Z"
+modified: "2026-10-22T16:01:55.970Z"
 description: "How Aamu.app works as an AI workspace alternative for teams that want docs, chat, tasks, support, and shared knowledge in one connected system."
 cover:
   image: 02a30b6c2ad7a77a_aamuapp-as-an-alternative-to-notion-jira-slack-linear-and-more.png
@@ -17,7 +17,7 @@ directAnswer: "How Aamu.app works as an AI workspace alternative for teams that 
 contentType: "comparison"
 audience: "small and growing teams evaluating productivity software"
 
-
+aliases: ["/blog/posts/aamuapp-as-an-ai-workspace-alternative-to-notion-ai-slack-ai-jira-and-zendesk/"]
 series: ["AI support in Aamu.app"]
 seriesWeight: 10
 ShowToc: false
