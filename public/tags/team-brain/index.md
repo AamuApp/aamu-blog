@@ -3,9 +3,19 @@
 
 
 
+## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-an-intercom-alternative-connecting-support-and-product-work/index.md)
+
+A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
+
+
 ## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/index.md)
 
 A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
+
+
+## [Aamu.app: an Asana alternative for tasks with shared context](https://aamu.app/blog/posts/aamuapp-an-asana-alternative-for-tasks-with-shared-context/index.md)
+
+A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.
 
 
 ## [Aamu.app: an Asana alternative for tasks with shared context](https://aamu.app/blog/posts/aamuapp-vs-asana-tasks-and-shared-context/index.md)

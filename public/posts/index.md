@@ -3,9 +3,19 @@
 
 
 
+## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-a-zoho-workplace-alternative-for-customer-and-project-work/index.md)
+
+Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
+
+
 ## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-zoho-workplace-alternative/index.md)
 
 Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
+
+
+## [Aamu Newsletters: an alternative to Mailchimp, Brevo and beehiiv](https://aamu.app/blog/posts/aamu-newsletters-an-alternative-to-mailchimp-brevo-and-beehiiv/index.md)
+
+Compare Aamu Newsletters with Mailchimp, Brevo and beehiiv: audience data, delivery timing, marketing automation, publishing revenue and pricing models.
 
 
 ## [Aamu Newsletters: an alternative to Mailchimp, Brevo and beehiiv](https://aamu.app/blog/posts/aamu-newsletters-vs-mailchimp-brevo-beehiiv/index.md)
@@ -13,14 +23,29 @@ Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support,
 Compare Aamu Newsletters with Mailchimp, Brevo and beehiiv: audience data, delivery timing, marketing automation, publishing revenue and pricing models.
 
 
+## [Aamu.app: a monday.com alternative for project work with company context](https://aamu.app/blog/posts/aamuapp-a-mondaycom-alternative-for-project-work-with-company-context/index.md)
+
+A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.
+
+
 ## [Aamu.app: a monday.com alternative for project work with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
 
 A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
+## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-a-basecamp-alternative-for-connected-project-and-customer-work/index.md)
+
+A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
+
+
 ## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
 
 A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
+
+
+## [Aamu.app: a ClickUp alternative for connected work beyond projects](https://aamu.app/blog/posts/aamuapp-a-clickup-alternative-for-connected-work-beyond-projects/index.md)
+
+A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.
 
 
 ## [Aamu.app: a ClickUp alternative for connected work beyond projects](https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/index.md)
@@ -53,14 +78,29 @@ Aamu My Apps lets teams connect purpose-built applications to the same workspace
 Introducing Aamu Slides, an Aamu-integrated presentation editor built on the open-source Strut project with shared authentication, project-scoped decks, spatial arranging, image uploads, and Present mode.
 
 
+## [Aamu.app: a Confluence alternative connecting docs to everyday work](https://aamu.app/blog/posts/aamuapp-a-confluence-alternative-connecting-docs-to-everyday-work/index.md)
+
+A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.
+
+
 ## [Aamu.app: a Confluence alternative connecting docs to everyday work](https://aamu.app/blog/posts/aamuapp-vs-confluence-documentation-and-work/index.md)
 
 A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work.
 
 
+## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-an-intercom-alternative-connecting-support-and-product-work/index.md)
+
+A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
+
+
 ## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/index.md)
 
 A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
+
+
+## [Aamu.app: an Asana alternative for tasks with shared context](https://aamu.app/blog/posts/aamuapp-an-asana-alternative-for-tasks-with-shared-context/index.md)
+
+A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.
 
 
 ## [Aamu.app: an Asana alternative for tasks with shared context](https://aamu.app/blog/posts/aamuapp-vs-asana-tasks-and-shared-context/index.md)
@@ -140,6 +180,11 @@ How to write support policies, product answers, escalation rules, and examples s
 ## [Outbound webhooks in Aamu.app: real-time events for tasks, Helpdesk, email, and more](https://aamu.app/blog/posts/outbound-webhooks-in-aamuapp-real-time-events-tasks-helpdesk-email/index.md)
 
 How Aamu.app outbound webhooks send signed real-time events for tasks, Helpdesk, email, forms, meetings, files, docs, databases, projects, and teams.
+
+
+## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-a-linear-triage-alternative-for-customer-support-and-human-reviewed-ai/index.md)
+
+A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.
 
 
 ## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
