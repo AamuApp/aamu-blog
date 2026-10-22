@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: an Asana alternative for tasks with shared context"
 date: "2026-07-23T06:55:00.000Z"
-modified: "2026-10-22T18:39:09.058Z"
+modified: "2026-10-22T18:40:36.912Z"
 description: "A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge."
 cover:
   image: 888664cd8d8ec795_aamuapp-vs-asana.png
@@ -17,7 +17,7 @@ directAnswer: "A practical comparison of Aamu.app and Asana for teams that want 
 contentType: "comparison"
 audience: "small and growing teams evaluating productivity software"
 
-aliases: ["/blog/posts/aamuapp-vs-asana-tasks-and-shared-context/"]
+aliases: ["/posts/aamuapp-vs-asana-tasks-and-shared-context/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

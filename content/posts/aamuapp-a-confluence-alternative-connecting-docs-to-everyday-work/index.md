@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: a Confluence alternative connecting docs to everyday work"
 date: "2026-07-25T09:00:00.000Z"
-modified: "2026-10-22T18:39:09.486Z"
+modified: "2026-10-22T18:40:37.313Z"
 description: "A practical comparison of Aamu.app and Confluence for teams that want documentation connected to tasks, support, meetings, and AI-assisted knowledge work."
 cover:
   image: 895c0fd70f25b78d_Aamu.app vs Confluence.png
@@ -17,7 +17,7 @@ directAnswer: "Aamu.app is a Confluence alternative for teams that want document
 contentType: "comparison"
 audience: "small and growing teams evaluating documentation and knowledge-management tools"
 faq: [{"question":"Can Aamu.app replace Confluence?","answer":"For some small and growing teams, it can. Aamu.app is a strong fit when documentation needs to stay close to tasks, support, meetings, and AI-assisted knowledge work."},{"question":"How is Aamu.app different from Confluence?","answer":"Confluence is primarily a documentation hub. Aamu.app treats Docs as part of a connected workspace where documentation can inform tasks, customer support, meetings, and Team Brain."},{"question":"When is Confluence the better choice?","answer":"Confluence may be the better choice when a dedicated documentation system and its surrounding ecosystem are the organisation’s main requirements."}]
-aliases: ["/blog/posts/aamuapp-vs-confluence-documentation-and-work/"]
+aliases: ["/posts/aamuapp-vs-confluence-documentation-and-work/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

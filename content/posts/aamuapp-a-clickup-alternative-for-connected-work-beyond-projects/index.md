@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: a ClickUp alternative for connected work beyond projects"
 date: "2026-08-16T05:00:00.000Z"
-modified: "2026-10-22T18:39:09.345Z"
+modified: "2026-10-22T18:40:37.170Z"
 description: "A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected."
 cover:
   image: f81b6e7808e8867b_ClickUp.png
@@ -17,7 +17,7 @@ directAnswer: "Aamu.app is a ClickUp alternative for teams that want project wor
 contentType: "comparison"
 audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"Is Aamu.app a ClickUp alternative?","answer":"Yes. Aamu.app is an alternative for teams that want tasks and docs connected to customer work, email, meetings, databases, and shared knowledge."},{"question":"How is Aamu.app different from ClickUp?","answer":"Aamu includes project-based Helpdesk and Livechat alongside Tasks, Docs, email, meetings and Databases. ClickUp also supports email and connected search; compare the specific support workflow and integrations you need."},{"question":"When is ClickUp the better choice?","answer":"ClickUp may be the better choice when advanced project-management views, hierarchy, dashboards, templates, and work-management depth are the team's main requirements."}]
-aliases: ["/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/"]
+aliases: ["/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

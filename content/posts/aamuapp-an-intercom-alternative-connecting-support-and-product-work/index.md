@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: an Intercom alternative connecting support and product work"
 date: "2026-07-24T16:00:00.000Z"
-modified: "2026-10-22T18:39:09.635Z"
+modified: "2026-10-22T18:40:37.459Z"
 description: "A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace."
 cover:
   image: de42becdfe0038a0_Aamu.app vs Intercom showdown.png
@@ -17,7 +17,7 @@ directAnswer: "Aamu.app is an Intercom alternative for teams that want customer 
 contentType: "comparison"
 audience: "small and growing teams evaluating customer support software"
 faq: [{"question":"Can Aamu.app replace Intercom?","answer":"For some small and growing teams, it can. Aamu.app is a strong fit when customer conversations need to connect with documentation, tasks, and internal knowledge."},{"question":"How does Aamu.app AI help with customer support?","answer":"Aamu.app can retrieve context from Team Brain and prepare reply drafts. A human can review important replies before they are sent."},{"question":"When is Intercom the better choice?","answer":"Intercom may be the better choice when customer messaging, engagement, and a specialised support operation are the organisation’s main requirements."}]
-aliases: ["/blog/posts/aamuapp-vs-intercom-support-and-product-context/"]
+aliases: ["/posts/aamuapp-vs-intercom-support-and-product-context/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

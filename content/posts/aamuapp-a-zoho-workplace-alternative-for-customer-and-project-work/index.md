@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: a Zoho Workplace alternative for customer and project work"
 date: "2026-10-21T18:42:22.003Z"
-modified: "2026-10-22T18:39:10.125Z"
+modified: "2026-10-22T18:40:37.822Z"
 description: "Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations."
 cover:
   image: 549cae84b50dfffe_Aamu.app vs. Zoho Workplace –vertailu.png
@@ -17,7 +17,7 @@ directAnswer: "Aamu.app is a Zoho Workplace alternative for small teams that wan
 contentType: "comparison"
 audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"Is Aamu a free Zoho Workplace alternative?","answer":"Aamu has a free plan with 25 MB of file storage, suitable for a small pilot. Resource billing starts at US$1/month plus usage, and AI provider charges are separate. Zoho offers a limited free Mail plan in selected data centres; the full Workplace bundle is paid."},{"question":"Does Zoho Workplace include Zoho Desk and Projects?","answer":"Zoho Desk is a separate support product with Workplace integrations. Zoho lists Projects as an additional Workplace capability. Check the products and licences included in your chosen package or quote."},{"question":"Can Aamu use email hosted by another provider?","answer":"Yes. Aamu supports third-party IMAP/SMTP setups as well as Aamu-hosted domains. Verify the domain and receiving and sending settings, attach the domain to a project, and test the mailbox before moving production email."},{"question":"What should we test before switching from Zoho Workplace?","answer":"Try a complete customer request through support, an assigned Task and an updated Doc. Also check representative office files, Database records and relationships, access permissions, email routing, required integrations and total cost. Move one project first."}]
-aliases: ["/blog/posts/aamuapp-zoho-workplace-alternative/"]
+aliases: ["/posts/aamuapp-zoho-workplace-alternative/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

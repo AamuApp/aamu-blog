@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: a Basecamp alternative for connected project and customer work"
 date: "2026-08-19T05:00:00.000Z"
-modified: "2026-10-22T18:39:09.202Z"
+modified: "2026-10-22T18:40:37.044Z"
 description: "A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge."
 cover:
   image: d8bbebc410e963ff_Basecamp.png
@@ -17,7 +17,7 @@ directAnswer: "Aamu.app is a Basecamp alternative for teams that want the calm, 
 contentType: "comparison"
 audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"Is Aamu.app a Basecamp alternative?","answer":"Yes. Aamu.app is an alternative for teams that want project-based collaboration connected to customer conversations, email, meetings, databases, and shared knowledge."},{"question":"How is Aamu.app different from Basecamp?","answer":"Basecamp organizes work around dedicated project pages with discussions, to-dos, scheduling, files, and team communication. Aamu.app adds Helpdesk, Livechat, email workflows, meetings, databases, and permission-aware AI knowledge to the same project context."},{"question":"When is Basecamp the better choice?","answer":"Basecamp may be the better choice when a team mainly needs simple project collaboration, asynchronous communication, client access, to-dos, scheduling, and a clear shared project home."}]
-aliases: ["/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/"]
+aliases: ["/posts/aamuapp-vs-basecamp-project-context-and-customer-work/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

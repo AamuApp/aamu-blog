@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI"
 date: "2026-06-05T14:00:00.000Z"
-modified: "2026-10-22T18:39:09.787Z"
+modified: "2026-10-22T18:40:37.577Z"
 description: "A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake."
 cover:
   image: e4737e705d443371_aamu-linear.png
@@ -17,7 +17,7 @@ directAnswer: "A practical comparison of Linear Triage and Aamu.app Helpdesk AI 
 contentType: "comparison"
 audience: "small and growing support teams"
 
-aliases: ["/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/"]
+aliases: ["/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/"]
 
 ShowToc: false
 ShowBreadCrumbs: false

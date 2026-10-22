@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "Aamu Newsletters: an alternative to Mailchimp, Brevo and beehiiv"
 date: "2026-10-15T00:00:00.000Z"
-modified: "2026-10-22T18:39:10.287Z"
+modified: "2026-10-22T18:40:37.967Z"
 description: "Compare Aamu Newsletters with Mailchimp, Brevo and beehiiv: audience data, delivery timing, marketing automation, publishing revenue and pricing models."
 cover:
   image: a091d340557fb486_50ac6d40-41a5-4130-bb80-301663d47dcb.png
@@ -17,7 +17,7 @@ directAnswer: "Aamu Newsletters suits team updates built from an Aamu Database a
 contentType: "comparison"
 audience: "small and growing teams evaluating productivity software"
 faq: [{"question":"Can Aamu send a large newsletter to everyone at the scheduled time?","answer":"Aamu schedules the start of sending. Campaigns use growing batches with waits between them, so a larger audience can take several days to complete."},{"question":"Does Aamu Newsletters include A/B testing or paid subscriptions?","answer":"The current Newsletters feature has no native A/B test workflow, paid subscription checkout or paywall. Mailchimp offers campaign testing, while beehiiv offers publication monetization tools, subject to plan availability."}]
-aliases: ["/blog/posts/aamu-newsletters-vs-mailchimp-brevo-beehiiv/"]
+aliases: ["/posts/aamu-newsletters-vs-mailchimp-brevo-beehiiv/"]
 
 ShowToc: false
 ShowBreadCrumbs: false
