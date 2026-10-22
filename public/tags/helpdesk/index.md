@@ -8,27 +8,12 @@ Guides to Aamu.app Helpdesk: email support, live chat, AI-assisted triage, groun
 Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
 
 
-## [Aamu.app: a Zoho Workplace alternative for customer and project work](https://aamu.app/blog/posts/aamuapp-zoho-workplace-alternative/index.md)
-
-Looking for a Zoho Workplace alternative? Compare Aamu.app for customer support, Docs, Tasks and Databases, with pricing and migration considerations.
-
-
 ## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-a-basecamp-alternative-for-connected-project-and-customer-work/index.md)
 
 A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
-
-A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
-
-
 ## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-an-intercom-alternative-connecting-support-and-product-work/index.md)
-
-A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
-
-
-## [Aamu.app: an Intercom alternative connecting support and product work](https://aamu.app/blog/posts/aamuapp-vs-intercom-support-and-product-context/index.md)
 
 A practical comparison of Aamu.app and Intercom for teams that want customer conversations, support knowledge, and internal follow-up in one workspace.
 
@@ -39,11 +24,6 @@ How to write support policies, product answers, escalation rules, and examples s
 
 
 ## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-a-linear-triage-alternative-for-customer-support-and-human-reviewed-ai/index.md)
-
-A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.
-
-
-## [Aamu.app: a Linear Triage alternative for customer support and human-reviewed AI](https://aamu.app/blog/posts/aamuapp-vs-linear-triage-customer-conversations-team-brain-human-reviewed-ai-support/index.md)
 
 A practical comparison of Linear Triage and Aamu.app Helpdesk AI triage: product issue intake versus customer conversation intake.
 

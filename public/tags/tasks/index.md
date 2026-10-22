@@ -8,27 +8,12 @@
 A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app: a monday.com alternative for project work with company context](https://aamu.app/blog/posts/aamuapp-vs-monday-project-management-and-company-context/index.md)
-
-A practical comparison of Aamu.app and monday.com for teams that want project management connected to customer conversations, email, meetings, databases, and shared knowledge.
-
-
 ## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-a-basecamp-alternative-for-connected-project-and-customer-work/index.md)
 
 A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
 
 
-## [Aamu.app: a Basecamp alternative for connected project and customer work](https://aamu.app/blog/posts/aamuapp-vs-basecamp-project-context-and-customer-work/index.md)
-
-A practical comparison of Aamu.app and Basecamp for teams that want project collaboration connected to customer conversations, email, meetings, databases, and shared knowledge.
-
-
 ## [Aamu.app: a ClickUp alternative for connected work beyond projects](https://aamu.app/blog/posts/aamuapp-a-clickup-alternative-for-connected-work-beyond-projects/index.md)
-
-A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.
-
-
-## [Aamu.app: a ClickUp alternative for connected work beyond projects](https://aamu.app/blog/posts/aamuapp-vs-clickup-connected-workspace-and-shared-context/index.md)
 
 A practical comparison of Aamu.app and ClickUp for teams that want tasks, docs, conversations, customer work, and shared knowledge to stay connected.
 
@@ -39,11 +24,6 @@ Aamu Calendar combines scheduled tasks and meetings in one project-aware view, w
 
 
 ## [Aamu.app: an Asana alternative for tasks with shared context](https://aamu.app/blog/posts/aamuapp-an-asana-alternative-for-tasks-with-shared-context/index.md)
-
-A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.
-
-
-## [Aamu.app: an Asana alternative for tasks with shared context](https://aamu.app/blog/posts/aamuapp-vs-asana-tasks-and-shared-context/index.md)
 
 A practical comparison of Aamu.app and Asana for teams that want tasks connected to docs, conversations, customer work, and shared knowledge.
 
