@@ -6,7 +6,7 @@ authorBio: "Hey, dear reader!\n\nI created Aamu.app. \n\nWhy? A few reasons. The
 authorImage: "profile.png"
 title: "144 productivity apps in 2026"
 date: "2025-06-12T00:00:00.000Z"
-modified: "2026-10-21T18:57:23.042Z"
+modified: "2026-10-27T08:46:50.854Z"
 description: "A broad map of productivity app categories and how teams can think about choosing tools for planning, communication, knowledge, and work."
 cover:
   image: 9ab3d2b0ad21e511_productivity-apps.png
