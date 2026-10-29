@@ -95,6 +95,8 @@ params:
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
+  hideAuthor: true
+
   # comments: false
   # images: ["images/papermod-cover.png"]
 
