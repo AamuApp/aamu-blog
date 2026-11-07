@@ -32,7 +32,8 @@ languages:
       main:
         - name: Aamu.app
           url: https://aamu.app/
-          weight: 5
+          weight: 1
+          highlight: 1
         - name: Archive
           url: archives/
           weight: 5
